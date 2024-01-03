@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/experience.dart';
 import 'package:starinit/utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -507,7 +508,7 @@ class _ThState extends State<Th> {
               child: TextButton(
                 onPressed: () {
                   uploadSchoolMarks(schoolMarks);
-                  // Navigator.push( context, MaterialPageRoute(builder: (context) => Registration()), );
+                  Navigator.push( context, MaterialPageRoute(builder: (context) => Ex()), );
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
