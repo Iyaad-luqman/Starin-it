@@ -7,13 +7,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
 import 'package:file_picker/file_picker.dart';
 
-// Future<void> Flat() async {
-//   // You can use await here
-//     FilePickerResult? result = await FilePicker.platform.pickFiles();
+class Th extends StatefulWidget {
+  @override
+  _ThState createState() => _ThState();
+}
 
-// }
+class _ThState extends State<Th> {
+  int _selectedOption = 0;
 
-class Th extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -92,7 +93,16 @@ class Th extends StatelessWidget {
               left: 79*fem,
               top: 234*fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (_selectedOption == 1) {
+                    setState(() {
+                      _selectedOption = 0;
+                    });
+                  } else
+                  setState(() {
+                    _selectedOption = 1;
+                  });
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
@@ -108,14 +118,17 @@ class Th extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        // checkboxB8R (2:194)
-                        margin: EdgeInsets.fromLTRB(0*fem, 2*fem, 47*fem, 2*fem),
-                        width: 20*fem,
-                        height: double.infinity,
-                        child: Center(
-                          // checkboxWRb (I2:194;7695:9339)
-                          child: SizedBox(
+                                        
+                  Container(
+                    // checkboxB8R (2:194)
+                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 47*fem, 0*fem),
+                    width: 22*fem,
+                    height: double.infinity,
+                    child: Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          SizedBox(
                             width: double.infinity,
                             height: double.infinity,
                             child: Container(
@@ -129,19 +142,24 @@ class Th extends StatelessWidget {
                                   stops: <double>[0, 0, 1],
                                 ),
                               ),
-                              child: TextField(
-                                decoration: InputDecoration (
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                ),
-                              ),
+
                             ),
                           ),
-                        ),
+                          if (_selectedOption == 1) Text(
+                    String.fromCharCode(Icons.check.codePoint),
+                    style: TextStyle(
+                      inherit: false,
+                      fontSize: 24.0,
+                      color: Color.fromARGB(255, 0, 10, 1),
+                      fontFamily: Icons.check.fontFamily,
+                      package: Icons.check.fontPackage,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                        ],
                       ),
+                    ),
+                  ),
                       Text(
                         // xoP (2:195)
                         '30% - 40%\n',
@@ -160,11 +178,20 @@ class Th extends StatelessWidget {
               ),
             ),
             Positioned(
-              // 6Po (2:196)
+              // Y5T (2:192)
               left: 79*fem,
               top: 318*fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (_selectedOption == 2) {
+                    setState(() {
+                      _selectedOption = 0;
+                    });
+                  } else
+                  setState(() {
+                    _selectedOption = 2;
+                  });
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
@@ -180,14 +207,17 @@ class Th extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        // checkboxZHP (2:198)
-                        margin: EdgeInsets.fromLTRB(0*fem, 2*fem, 47*fem, 2*fem),
-                        width: 20*fem,
-                        height: double.infinity,
-                        child: Center(
-                          // checkboxuc9 (I2:198;7695:9339)
-                          child: SizedBox(
+                                        
+                  Container(
+                    // checkboxB8R (2:194)
+                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 47*fem, 0*fem),
+                    width: 22*fem,
+                    height: double.infinity,
+                    child: Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          SizedBox(
                             width: double.infinity,
                             height: double.infinity,
                             child: Container(
@@ -201,21 +231,26 @@ class Th extends StatelessWidget {
                                   stops: <double>[0, 0, 1],
                                 ),
                               ),
-                              child: TextField(
-                                decoration: InputDecoration (
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                ),
-                              ),
+
                             ),
                           ),
-                        ),
+                          if (_selectedOption == 2) Text(
+                    String.fromCharCode(Icons.check.codePoint),
+                    style: TextStyle(
+                      inherit: false,
+                      fontSize: 24.0,
+                      color: Color.fromARGB(255, 0, 10, 1),
+                      fontFamily: Icons.check.fontFamily,
+                      package: Icons.check.fontPackage,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                        ],
                       ),
+                    ),
+                  ),
                       Text(
-                        // jbB (2:199)
+                        // xoP (2:195)
                         '40% - 70%\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
@@ -232,11 +267,20 @@ class Th extends StatelessWidget {
               ),
             ),
             Positioned(
-              // dwT (2:200)
+              // Y5T (2:192)
               left: 79*fem,
               top: 392*fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (_selectedOption == 3) {
+                    setState(() {
+                      _selectedOption = 0;
+                    });
+                  } else
+                  setState(() {
+                    _selectedOption = 3;
+                  });
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
@@ -252,14 +296,17 @@ class Th extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        // checkboxHWD (2:202)
-                        margin: EdgeInsets.fromLTRB(0*fem, 2*fem, 47*fem, 2*fem),
-                        width: 20*fem,
-                        height: double.infinity,
-                        child: Center(
-                          // checkboxS8D (I2:202;7695:9339)
-                          child: SizedBox(
+                                        
+                  Container(
+                    // checkboxB8R (2:194)
+                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 47*fem, 0*fem),
+                    width: 22*fem,
+                    height: double.infinity,
+                    child: Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          SizedBox(
                             width: double.infinity,
                             height: double.infinity,
                             child: Container(
@@ -273,21 +320,26 @@ class Th extends StatelessWidget {
                                   stops: <double>[0, 0, 1],
                                 ),
                               ),
-                              child: TextField(
-                                decoration: InputDecoration (
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                ),
-                              ),
+
                             ),
                           ),
-                        ),
+                          if (_selectedOption == 3) Text(
+                    String.fromCharCode(Icons.check.codePoint),
+                    style: TextStyle(
+                      inherit: false,
+                      fontSize: 24.0,
+                      color: Color.fromARGB(255, 0, 10, 1),
+                      fontFamily: Icons.check.fontFamily,
+                      package: Icons.check.fontPackage,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                        ],
                       ),
+                    ),
+                  ),
                       Text(
-                        // HPj (2:203)
+                        // xoP (2:195)
                         '70% - 90%\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
@@ -304,16 +356,25 @@ class Th extends StatelessWidget {
               ),
             ),
             Positioned(
-              // E45 (2:204)
+              // Y5T (2:192)
               left: 79*fem,
               top: 476*fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (_selectedOption == 4) {
+                    setState(() {
+                      _selectedOption = 0;
+                    });
+                  } else
+                  setState(() {
+                    _selectedOption = 4;
+                  });
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(21*fem, 19*fem, 57*fem, 15.3*fem),
+                  padding: EdgeInsets.fromLTRB(21*fem, 19*fem, 6*fem, 15.3*fem),
                   width: 264*fem,
                   height: 58.3*fem,
                   decoration: BoxDecoration (
@@ -324,14 +385,17 @@ class Th extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        // checkbox77s (2:206)
-                        margin: EdgeInsets.fromLTRB(0*fem, 2*fem, 47*fem, 2*fem),
-                        width: 20*fem,
-                        height: double.infinity,
-                        child: Center(
-                          // checkboxpny (I2:206;7695:9339)
-                          child: SizedBox(
+                                        
+                  Container(
+                    // checkboxB8R (2:194)
+                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 47*fem, 0*fem),
+                    width: 22*fem,
+                    height: double.infinity,
+                    child: Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          SizedBox(
                             width: double.infinity,
                             height: double.infinity,
                             child: Container(
@@ -345,21 +409,26 @@ class Th extends StatelessWidget {
                                   stops: <double>[0, 0, 1],
                                 ),
                               ),
-                              child: TextField(
-                                decoration: InputDecoration (
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                ),
-                              ),
+
                             ),
                           ),
-                        ),
+                          if (_selectedOption == 4) Text(
+                    String.fromCharCode(Icons.check.codePoint),
+                    style: TextStyle(
+                      inherit: false,
+                      fontSize: 24.0,
+                      color: Color.fromARGB(255, 0, 10, 1),
+                      fontFamily: Icons.check.fontFamily,
+                      package: Icons.check.fontPackage,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                        ],
                       ),
+                    ),
+                  ),
                       Text(
-                        // gqB (2:207)
+                        // xoP (2:195)
                         '90% - 100%\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
