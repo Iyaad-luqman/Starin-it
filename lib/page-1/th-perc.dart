@@ -6,6 +6,9 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class Th extends StatefulWidget {
   @override
@@ -14,6 +17,19 @@ class Th extends StatefulWidget {
 
 class _ThState extends State<Th> {
   int _selectedOption = 0;
+  
+  String schoolMarks = ""; // Your variable
+
+  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
+
+  Future<void> uploadSchoolMarks(schoolMarks) async {
+    if (user != null) {
+      await _db.collection('users').doc(user!.uid).update({
+        'school_marks': schoolMarks,
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,10 +114,13 @@ class _ThState extends State<Th> {
                     setState(() {
                       _selectedOption = 0;
                     });
-                  } else
+                  } else{
                   setState(() {
                     _selectedOption = 1;
+                    
                   });
+                  schoolMarks = "30% - 40%";
+                  }
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
@@ -187,10 +206,13 @@ class _ThState extends State<Th> {
                     setState(() {
                       _selectedOption = 0;
                     });
-                  } else
+                  } else{
                   setState(() {
                     _selectedOption = 2;
                   });
+                  schoolMarks = "40% - 70%";
+                  
+                  }
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
@@ -276,10 +298,12 @@ class _ThState extends State<Th> {
                     setState(() {
                       _selectedOption = 0;
                     });
-                  } else
+                  } else { 
                   setState(() {
                     _selectedOption = 3;
                   });
+                  schoolMarks = "70% - 90%";
+                  }
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
@@ -365,10 +389,12 @@ class _ThState extends State<Th> {
                     setState(() {
                       _selectedOption = 0;
                     });
-                  } else
+                  } else { 
                   setState(() {
                     _selectedOption = 4;
                   });
+                  schoolMarks = "90% - 100%";
+                  }
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
@@ -479,7 +505,10 @@ class _ThState extends State<Th> {
               left: 147*fem,
               top: 735*fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  uploadSchoolMarks(schoolMarks);
+                  // Navigator.push( context, MaterialPageRoute(builder: (context) => Registration()), );
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
