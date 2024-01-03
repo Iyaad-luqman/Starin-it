@@ -42,22 +42,28 @@ List<Map<String, dynamic>> experiences = (docSnap.data() as Map<String, dynamic>
     }
   }
 }
-    double baseWidth = 390;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
-    return Container(
+double baseWidth = 390;
+double fem = MediaQuery.of(context).size.width / baseWidth;
+double ffem = fem * 0.97;
+
+return Scaffold(
+  resizeToAvoidBottomInset: true, // Add this line
+  body: SingleChildScrollView(
+    child: Container(
       width: double.infinity,
       child: Container(
-        // experienceqgh (2:215)
         width: double.infinity,
-        height: 844*fem,
         decoration: BoxDecoration (
           color: Color(0xff19173d),
           borderRadius: BorderRadius.circular(50*fem),
         ),
-        child: Stack(
+        child: Column(
           children: [
-            Positioned(
+            Container(
+              height: 844*fem,
+              child: Stack(
+                children: [
+                  Positioned(
               // planebg1xWR (2:216)
               left: 2*fem,
               top: 0*fem,
@@ -310,6 +316,7 @@ List<Map<String, dynamic>> experiences = (docSnap.data() as Map<String, dynamic>
                 ),
               ),
             ),
+            
             Positioned(
               // newpasswordinputPJD (2:229)
               left: 200*fem,
@@ -442,6 +449,11 @@ List<Map<String, dynamic>> experiences = (docSnap.data() as Map<String, dynamic>
           ],
         ),
       ),
-          );
+      ],
+      ),
+    ), 
+  ),
+    ),
+);
   }
 }
