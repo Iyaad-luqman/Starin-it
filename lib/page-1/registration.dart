@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
 import 'login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class Registration extends StatelessWidget {
@@ -23,6 +24,13 @@ class Registration extends StatelessWidget {
         email: _emailController.text,
         password: _passwordController.text,
       );
+        User? newUser = userCredential.user;
+
+    if (newUser != null) {
+      await FirebaseFirestore.instance.collection('users').doc(newUser.uid).set({
+        // Set your initial data here
+      });
+    }
        Navigator.push( context, MaterialPageRoute(builder: (context) => Login()), );
       // The user was created successfully, navigate to your app's main screen here.
     } on FirebaseAuthException catch (e) {
