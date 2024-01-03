@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
 import 'package:starinit/page-1/splash-screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 // import 'package:starinit/page-1/registration.dart';
 // import 'package:starinit/page-1/login.dart';
 // import 'package:starinit/page-1/th-perc.dart';
@@ -20,13 +21,20 @@ import 'package:starinit/page-1/splash-screen.dart';
 // import 'package:starinit/page-1/select-your-profile.dart';
 // import 'package:starinit/page-1/enrolled-or-new-course.dart';
 
-void main() => runApp(MyApp());
+
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 	return MaterialApp(
-		title: 'Flutter',
+		title: 'Starinit',
 		debugShowCheckedModeBanner: false,
 		scrollBehavior: MyCustomScrollBehavior(),
 		theme: ThemeData(

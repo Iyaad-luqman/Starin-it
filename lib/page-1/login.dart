@@ -2,12 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/registration.dart';
 import 'package:starinit/page-1/th-perc.dart';
 import 'package:starinit/utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatelessWidget {
+      final FirebaseAuth _auth = FirebaseAuth.instance;
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+
+
+    
+    void login() async {
+      try {
+        UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+          email: _emailController.text,
+          password: _passwordController.text,
+        );
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Th()),
+          );
+        // The user signed in successfully, navigate to your app's main screen here.
+      } on FirebaseAuthException catch (e) {
+                void showRegistrationFailedDialog(BuildContext context) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Login Failed'),
+              content: Text('Incorrect Username or Password'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+      }
+    }
+
+
+
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -67,6 +111,7 @@ class Login extends StatelessWidget {
               ),
               child: Material(
     child: TextField(
+      controller: _emailController,
       decoration: InputDecoration (
         border: InputBorder.none,
         focusedBorder: InputBorder.none,
@@ -99,6 +144,7 @@ class Login extends StatelessWidget {
               ),
 child: Material(
     child: TextField(
+      controller: _passwordController,
       decoration: InputDecoration (
         border: InputBorder.none,
         focusedBorder: InputBorder.none,
@@ -141,10 +187,7 @@ child: Material(
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 35*fem),
               child: TextButton(
                 onPressed: () {
-                        Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Th()),
-      );
+                  login();
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
@@ -315,7 +358,9 @@ child: Material(
               // donthaveanaccountregisternowb7 (2:145)
               margin: EdgeInsets.fromLTRB(9*fem, 0*fem, 0*fem, 0*fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push( context, MaterialPageRoute(builder: (context) => Registration()), );
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
