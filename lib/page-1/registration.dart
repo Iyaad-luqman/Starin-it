@@ -4,10 +4,52 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
 import 'login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class Registration extends StatelessWidget {
+      final FirebaseAuth _auth = FirebaseAuth.instance;
+    final TextEditingController _usernameController = TextEditingController();
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController _confirmPasswordController = TextEditingController();
+      
   @override
   Widget build(BuildContext context) {
+
+  void register() async {
+    try {
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+       Navigator.push( context, MaterialPageRoute(builder: (context) => Login()), );
+      // The user was created successfully, navigate to your app's main screen here.
+    } on FirebaseAuthException catch (e) {
+// Handle registration errors here.
+      
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Registration Failed'),
+              content: Text('An error occurred during registration.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      
+      // Handle registration errors here.
+    }
+  }
+  
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -88,6 +130,7 @@ Container(
   ),
   child: Material(
     child: TextField(
+      controller: _usernameController,
       decoration: InputDecoration (
         border: InputBorder.none,
         focusedBorder: InputBorder.none,
@@ -119,6 +162,8 @@ Container(
   ),
   child: Material(
     child: TextField(
+      controller: _emailController,
+
       decoration: InputDecoration (
         border: InputBorder.none,
         focusedBorder: InputBorder.none,
@@ -150,6 +195,7 @@ Container(
   ),
   child: Material(
     child: TextField(
+      controller: _passwordController,
       decoration: InputDecoration (
         border: InputBorder.none,
         focusedBorder: InputBorder.none,
@@ -181,6 +227,7 @@ Container(
   ),
   child: Material(
     child: TextField(
+      controller: _confirmPasswordController,
       decoration: InputDecoration (
         border: InputBorder.none,
         focusedBorder: InputBorder.none,
@@ -206,7 +253,31 @@ Container(
               // registerbuttonNZK (2:140)
               margin: EdgeInsets.fromLTRB(16*fem, 0*fem, 0*fem, 31*fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                if (_passwordController.text == _confirmPasswordController.text) {
+                  register();
+                } else {
+                  void showRegistrationFailedDialog(BuildContext context) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Registration Failed'),
+                            content: Text('Passwords don\'t match.'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                }
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
