@@ -2,9 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/list-of-experience.dart';
 import 'package:starinit/utils.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Ex extends StatelessWidget {
+  
+  Future<void> addExperience(Map<String, dynamic> newExperience) async {
+  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
+  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+  if (user != null) {
+    DocumentReference docRef = _db.collection('users').doc(user.uid);
+    DocumentSnapshot docSnap = await docRef.get();
+
+    if (docSnap.exists) {
+int numberOfExperience = (docSnap.data() as Map<String, dynamic>?)?.containsKey('number_of_experience') ?? false
+    ? docSnap.get('number_of_experience')
+    : 0;
+List<Map<String, dynamic>> experiences = (docSnap.data() as Map<String, dynamic>?)?.containsKey('experiences') ?? false
+    ? List<Map<String, dynamic>>.from(docSnap.get('experiences'))
+    : [];
+      await docRef.update({
+        'number_of_experience': numberOfExperience + 1,
+        'experiences': FieldValue.arrayUnion([newExperience]),
+      });
+    } else {
+      await docRef.set({
+        'number_of_experience': 1,
+        'experiences': [newExperience],
+      });
+    }
+  }
+}
+  final TextEditingController _companyNameController = TextEditingController();
+  final TextEditingController _positionController = TextEditingController();
+  final TextEditingController _startDateController = TextEditingController();
+  final TextEditingController _endDateController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -70,7 +105,7 @@ class Ex extends StatelessWidget {
                   width: 45*fem,
                   height: 48*fem,
                   child: Image.asset(
-                    'assets/page-1/images/vector-Gv9.png',
+                    'assets/page-1/images/layer-55.png',
                     width: 45*fem,
                     height: 48*fem,
                   ),
@@ -86,7 +121,9 @@ class Ex extends StatelessWidget {
                   width: 5.94*fem,
                   height: 11.88*fem,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push( context, MaterialPageRoute(builder: (context) => Li()), );
+                    },
                     style: TextButton.styleFrom (
                       padding: EdgeInsets.zero,
                     ),
@@ -109,11 +146,13 @@ class Ex extends StatelessWidget {
                   height: 38.69*fem,
                   child: Container(
                     decoration: BoxDecoration (
-                      borderRadius: BorderRadius.circular(16*fem),
+                      borderRadius: BorderRadius.circular(32*fem),
                       border: Border.all(color: Color(0xffe8ecf4)),
                       color: Color(0xfff7f7f8),
-                    ),
-                    child: TextField(
+                    ),child: Material(
+                       color: Colors.transparent,
+                      child: TextField(
+                      controller: _companyNameController,
                       decoration: InputDecoration (
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
@@ -130,13 +169,14 @@ class Ex extends StatelessWidget {
                         fontSize: 15*ffem,
                         fontWeight: FontWeight.w500,
                         height: 1.25*ffem/fem,
-                        color: Color(0xff000000),
+                        color: Color(0xff000000), ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
+            
             Positioned(
               // companynameKXK (2:223)
               left: 21*fem,
@@ -174,7 +214,10 @@ class Ex extends StatelessWidget {
                       border: Border.all(color: Color(0xffe8ecf4)),
                       color: Color(0xfff7f7f8),
                     ),
-                    child: TextField(
+                    child: Material(
+                       color: Colors.transparent,
+                      child: TextField(
+                      controller: _positionController,
                       decoration: InputDecoration (
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
@@ -191,7 +234,7 @@ class Ex extends StatelessWidget {
                         fontSize: 15*ffem,
                         fontWeight: FontWeight.w500,
                         height: 1.25*ffem/fem,
-                        color: Color(0xff000000),
+                        color: Color(0xff000000), ),
                       ),
                     ),
                   ),
@@ -207,7 +250,7 @@ class Ex extends StatelessWidget {
                   width: 82*fem,
                   height: 28*fem,
                   child: Text(
-                    'Position',
+                    'Position: ',
                     style: SafeGoogleFont (
                       'Urbanist',
                   decoration: TextDecoration.none,
@@ -227,10 +270,10 @@ class Ex extends StatelessWidget {
               top: 470*fem,
               child: Align(
                 child: SizedBox(
-                  width: 212*fem,
+                  width: 292*fem,
                   height: 28*fem,
                   child: Text(
-                    'Years of experience',
+                    'Duration of experience:',
                     style: SafeGoogleFont (
                       'Urbanist',
                   decoration: TextDecoration.none,
@@ -245,12 +288,35 @@ class Ex extends StatelessWidget {
               ),
             ),
             Positioned(
-              // newpasswordinputPJD (2:229)
-              left: 214*fem,
-              top: 533*fem,
+              // yearsofexperienceHky (2:228)
+              left: 21*fem,
+              top: 505*fem,
               child: Align(
                 child: SizedBox(
-                  width: 161.85*fem,
+                  width: 300*fem,
+                  height: 28*fem,
+                  child: Text(
+                    'Enter in (02/2023) format. Leave End date blank if its current job',
+                    style: SafeGoogleFont (
+                      'Urbanist',
+                  decoration: TextDecoration.none,
+                      fontSize: 13*ffem,
+                      fontWeight: FontWeight.w400,
+                      height: 1.2*ffem/fem,
+                      letterSpacing: 0.345*fem,
+                      color: Color(0xffffffff),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              // newpasswordinputPJD (2:229)
+              left: 200*fem,
+              top: 553*fem,
+              child: Align(
+                child: SizedBox(
+                  width: 141.85*fem,
                   height: 43.1*fem,
                   child: Container(
                     decoration: BoxDecoration (
@@ -258,15 +324,19 @@ class Ex extends StatelessWidget {
                       border: Border.all(color: Color(0xffe8ecf4)),
                       color: Color(0xfff7f7f8),
                     ),
+                    child: Material(
+                       color: Colors.transparent,
                     child: TextField(
+                      controller: _endDateController,
                       decoration: InputDecoration (
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        hintText: 'Your end date',
+                        hintText: 'End month',
                         hintStyle: TextStyle(color:Color(0xff8390a1)),
+                        contentPadding: ffem < 1 ? EdgeInsets.fromLTRB(18*fem, 7.36*fem, 18*fem, 12.33*fem) : EdgeInsets.fromLTRB(18*ffem, 7.36*ffem, 18*ffem, 12.33*ffem),
                       ),
                       style: SafeGoogleFont (
                         'Urbanist',
@@ -274,7 +344,7 @@ class Ex extends StatelessWidget {
                         fontSize: 15*ffem,
                         fontWeight: FontWeight.w500,
                         height: 1.25*ffem/fem,
-                        color: Color(0xff000000),
+                        color: Color(0xff000000), ),
                       ),
                     ),
                   ),
@@ -284,10 +354,10 @@ class Ex extends StatelessWidget {
             Positioned(
               // newpasswordinputo73 (2:232)
               left: 21*fem,
-              top: 533*fem,
+              top: 553*fem,
               child: Align(
                 child: SizedBox(
-                  width: 155*fem,
+                  width: 141*fem,
                   height: 42.16*fem,
                   child: Container(
                     decoration: BoxDecoration (
@@ -295,15 +365,20 @@ class Ex extends StatelessWidget {
                       border: Border.all(color: Color(0xffe8ecf4)),
                       color: Color(0xfff7f7f8),
                     ),
-                    child: TextField(
+                    child: Material(
+                       color: Colors.transparent,
+                      child: TextField(
+                      controller: _startDateController,
                       decoration: InputDecoration (
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        hintText: 'Your start date',
+                        hintText: 'Start month',
                         hintStyle: TextStyle(color:Color(0xff8390a1)),
+                        contentPadding: ffem < 1 ? EdgeInsets.fromLTRB(18*fem, 7.36*fem, 18*fem, 12.33*fem) : EdgeInsets.fromLTRB(18*ffem, 7.36*ffem, 18*ffem, 12.33*ffem),
+
                       ),
                       style: SafeGoogleFont (
                         'Urbanist',
@@ -311,7 +386,7 @@ class Ex extends StatelessWidget {
                         fontSize: 15*ffem,
                         fontWeight: FontWeight.w500,
                         height: 1.25*ffem/fem,
-                        color: Color(0xff000000),
+                        color: Color(0xff000000), ),
                       ),
                     ),
                   ),
@@ -323,7 +398,15 @@ class Ex extends StatelessWidget {
               left: 131*fem,
               top: 726*fem,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  addExperience({
+                    'company_name': _companyNameController.text,
+                    'position': _positionController.text,
+                    'start_date': _startDateController.text,
+                    'end_date': _endDateController.text,
+                  });
+                  Navigator.pop(context);
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
