@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
-import 'package:starinit/page-1/splash-screen.dart';
+import 'package:starinit/page-1/s1.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:starinit/page-1/registration.dart';
 // import 'package:starinit/page-1/login.dart';
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: SingleChildScrollView(
-          child: Splash(),
+          child: S1(),
         ),
       ),
     );

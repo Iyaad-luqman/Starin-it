@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/Twelvthperc.dart';
 import 'package:starinit/page-1/registration.dart';
 import 'package:starinit/page-1/Twelvthperc.dart';
+import 'package:starinit/page-1/select-your-profile.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -184,6 +185,11 @@ class Login extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 35 * fem),
               child: TextButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Selectyourprofile()),
+                  );
                   login();
                 },
                 style: TextButton.styleFrom(
