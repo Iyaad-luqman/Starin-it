@@ -55,7 +55,6 @@ return Scaffold(
         width: double.infinity,
         decoration: BoxDecoration (
           color: Color(0xff19173d),
-          borderRadius: BorderRadius.circular(50*fem),
         ),
         child: Column(
           children: [
