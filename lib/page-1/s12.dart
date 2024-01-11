@@ -62,6 +62,7 @@ class S12 extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'Urbanist',
+                          decoration: TextDecoration.none,
                           fontSize: 23 * ffem,
                           fontWeight: FontWeight.w700,
                           height: 1.2 * ffem / fem,
@@ -194,6 +195,7 @@ class S12 extends StatelessWidget {
                         'Upload Proof',
                         style: SafeGoogleFont(
                           'Urbanist',
+                          decoration: TextDecoration.none,
                           fontSize: 13 * ffem,
                           fontWeight: FontWeight.w400,
                           height: 1.2 * ffem / fem,
@@ -233,6 +235,7 @@ class S12 extends StatelessWidget {
                       'DONE',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.2 * ffem / fem,
