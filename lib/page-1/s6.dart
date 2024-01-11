@@ -45,81 +45,9 @@ class S6 extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  // statusbar5v4 (5:350)
-                  margin:
-                      EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 71 * fem),
-                  width: double.infinity,
-                  height: 45 * fem,
-                  child: Container(
-                    // statusbarCUt (5:352)
-                    padding: EdgeInsets.fromLTRB(
-                        24 * fem, 14 * fem, 24 * fem, 10 * fem),
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Container(
-                      // statusbarZCx (5:354)
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            // 6ig (5:355)
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 223 * fem, 0 * fem),
-                            child: Text(
-                              '08:48',
-                              style: SafeGoogleFont(
-                                'Lemon',
-                                fontSize: 16 * ffem,
-                                fontWeight: FontWeight.w400,
-                                height: 1.3075 * ffem / fem,
-                                letterSpacing: 0.24 * fem,
-                                color: Color(0xffffffff),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            // segnalmK2 (5:356)
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 4 * fem, 3 * fem),
-                            width: 18 * fem,
-                            height: 10 * fem,
-                            child: Image.asset(
-                              'assets/page-1/images/segnal.png',
-                              width: 18 * fem,
-                              height: 10 * fem,
-                            ),
-                          ),
-                          Container(
-                            // wifi4ov (5:361)
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 6 * fem, 4 * fem),
-                            width: 16 * fem,
-                            height: 11 * fem,
-                            child: Image.asset(
-                              'assets/page-1/images/wifi.png',
-                              width: 16 * fem,
-                              height: 11 * fem,
-                            ),
-                          ),
-                          Container(
-                            // batNZi (5:365)
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 0 * fem, 4 * fem),
-                            width: 23 * fem,
-                            height: 11 * fem,
-                            child: Image.asset(
-                              'assets/page-1/images/bat.png',
-                              width: 23 * fem,
-                              height: 11 * fem,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                SizedBox(
+                  height: 100 * fem,
+                
                 ),
                 Container(
                   // bio6Ep (5:345)
