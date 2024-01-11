@@ -28,7 +28,7 @@ class _GenderState extends State<Gender> {
   Future<void> uploadgender(gender) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
-        'gender_marks': gender,
+        'gender': gender,
       });
     }
   }
