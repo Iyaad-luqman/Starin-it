@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/s7.dart';
 import 'package:starinit/page-1/s3.dart';
-import 'package:starinit/page-1/s7.dart';
 import 'package:starinit/page-1/s4.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,7 +21,7 @@ class S2 extends StatelessWidget {
         );
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => S7()),
+          MaterialPageRoute(builder: (context) => S4()),
         );
         // The user signed in successfully, navigate to your app's main screen here.
       } on FirebaseAuthException catch (e) {
@@ -185,10 +183,6 @@ class S2 extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 35 * fem),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => S4()),
-                  );
                   login();
                 },
                 style: TextButton.styleFrom(
