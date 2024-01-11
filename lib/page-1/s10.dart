@@ -447,6 +447,10 @@ class S10 extends StatelessWidget {
                               'start_date': _startDateController.text,
                               'end_date': _endDateController.text,
                             });
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S9()),
+                            );
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
