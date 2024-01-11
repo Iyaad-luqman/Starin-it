@@ -292,8 +292,7 @@ class Listofexperience extends StatelessWidget {
                     ),
                     Container(
                       // savebxZ (2:252)
-                      margin: EdgeInsets.fromLTRB(
-                          107 * fem, 0 * fem, 87 * fem, 0 * fem),
+                      margin: EdgeInsets.fromLTRB(107 * fem, 0 * fem, 87 * fem, 0 * fem),
                       width: double.infinity,
                       height: 44 * fem,
                       decoration: BoxDecoration(
@@ -307,16 +306,22 @@ class Listofexperience extends StatelessWidget {
                         ),
                       ),
                       child: Center(
-                        child: Text(
-                          'Next',
-                          style: SafeGoogleFont(
-                            'Urbanist',
-                            decoration: TextDecoration.none,
-                            fontSize: 13 * ffem,
-                            fontWeight: FontWeight.w400,
-                            height: 1.2 * ffem / fem,
-                            letterSpacing: 0.195 * fem,
-                            color: Color(0xddffffff),
+                        child: TextButton(
+                          onPressed: () {
+                            // Add your functionality here
+                            // For example, you can navigate to the next screen
+                          },
+                          child: Text(
+                            'Next',
+                            style: SafeGoogleFont(
+                              'Urbanist',
+                              decoration: TextDecoration.none,
+                              fontSize: 13 * ffem,
+                              fontWeight: FontWeight.w400,
+                              height: 1.2 * ffem / fem,
+                              letterSpacing: 0.195 * fem,
+                              color: Color(0xddffffff),
+                            ),
                           ),
                         ),
                       ),

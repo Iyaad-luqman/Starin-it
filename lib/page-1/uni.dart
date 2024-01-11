@@ -6,7 +6,10 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/experience.dart';
 import 'package:starinit/page-1/list-of-experience.dart';
+<<<<<<< HEAD
 import 'package:starinit/page-1/uni.dart';
+=======
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
 import 'package:starinit/utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,17 +22,22 @@ class Uni extends StatefulWidget {
 
 class _UniState extends State<Uni> {
   int _selectedOption = 0;
+<<<<<<< HEAD
 
   String schoolMarks = ""; // Your variable
+=======
+  
+  String uniMarks = ""; // Your variable
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
 
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
 
-  Future<void> uploadSchoolMarks(schoolMarks) async {
+  Future<void> uploaduniMarks(uniMarks) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
-        'school_marks': schoolMarks,
+        'uni_marks': uniMarks,
       });
     }
   }
@@ -158,11 +166,20 @@ class _UniState extends State<Uni> {
                     setState(() {
                       _selectedOption = 0;
                     });
+<<<<<<< HEAD
                   } else {
                     setState(() {
                       _selectedOption = 1;
                     });
                     schoolMarks = "30% - 40%";
+=======
+                  } else{
+                  setState(() {
+                    _selectedOption = 1;
+                    
+                  });
+                  uniMarks = "30% - 40%";
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
                   }
                 },
                 style: TextButton.styleFrom(
@@ -256,11 +273,20 @@ class _UniState extends State<Uni> {
                     setState(() {
                       _selectedOption = 0;
                     });
+<<<<<<< HEAD
                   } else {
                     setState(() {
                       _selectedOption = 2;
                     });
                     schoolMarks = "40% - 70%";
+=======
+                  } else{
+                  setState(() {
+                    _selectedOption = 2;
+                  });
+                  uniMarks = "40% - 70%";
+                  
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
                   }
                 },
                 style: TextButton.styleFrom(
@@ -354,11 +380,19 @@ class _UniState extends State<Uni> {
                     setState(() {
                       _selectedOption = 0;
                     });
+<<<<<<< HEAD
                   } else {
                     setState(() {
                       _selectedOption = 3;
                     });
                     schoolMarks = "70% - 90%";
+=======
+                  } else { 
+                  setState(() {
+                    _selectedOption = 3;
+                  });
+                  uniMarks = "70% - 90%";
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
                   }
                 },
                 style: TextButton.styleFrom(
@@ -452,11 +486,19 @@ class _UniState extends State<Uni> {
                     setState(() {
                       _selectedOption = 0;
                     });
+<<<<<<< HEAD
                   } else {
                     setState(() {
                       _selectedOption = 4;
                     });
                     schoolMarks = "90% - 100%";
+=======
+                  } else { 
+                  setState(() {
+                    _selectedOption = 4;
+                  });
+                  uniMarks = "90% - 100%";
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
                   }
                 },
                 style: TextButton.styleFrom(
@@ -546,15 +588,23 @@ class _UniState extends State<Uni> {
               top: 556 * fem,
               child: TextButton(
                 onPressed: () {
-                  if (_selectedOption == 4) {
+                  if (_selectedOption == 5) {
                     setState(() {
                       _selectedOption = 0;
                     });
+<<<<<<< HEAD
                   } else {
                     setState(() {
                       _selectedOption = 4;
                     });
                     schoolMarks = "90% - 100%";
+=======
+                  } else { 
+                  setState(() {
+                    _selectedOption = 5;
+                  });
+                  uniMarks = "0";
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
                   }
                 },
                 style: TextButton.styleFrom(
@@ -619,7 +669,22 @@ class _UniState extends State<Uni> {
                                 ),
                             ],
                           ),
+<<<<<<< HEAD
                         ),
+=======
+                          if (_selectedOption == 5) Text(
+                    String.fromCharCode(Icons.check.codePoint),
+                    style: TextStyle(
+                      inherit: false,
+                      fontSize: 24.0,
+                      color: Color.fromARGB(255, 0, 10, 1),
+                      fontFamily: Icons.check.fontFamily,
+                      package: Icons.check.fontPackage,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                        ],
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
                       ),
                       Text(
                         // xoP (2:195)
@@ -677,11 +742,16 @@ class _UniState extends State<Uni> {
               top: 735 * fem,
               child: TextButton(
                 onPressed: () {
+<<<<<<< HEAD
                   uploadSchoolMarks(schoolMarks);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Listofexperience()),
                   );
+=======
+                  uploaduniMarks(uniMarks);
+                  Navigator.push( context, MaterialPageRoute(builder: (context) => Listofexperience()), );
+>>>>>>> 4110bf3f9a9ef5a3ae3cf682473d79e3286c2851
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
