@@ -196,6 +196,7 @@ class S6 extends StatelessWidget {
                           ),
                           style: SafeGoogleFont(
                             'Urbanist',
+                            decoration: TextDecoration.none,
                             fontSize: 15 * ffem,
                             fontWeight: FontWeight.w500,
                             height: 1.25 * ffem / fem,
@@ -213,6 +214,7 @@ class S6 extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'Urbanist',
+                              decoration: TextDecoration.none,
                               fontSize: 15 * ffem,
                               fontWeight: FontWeight.w500,
                               height: 1.25 * ffem / fem,
@@ -245,6 +247,7 @@ class S6 extends StatelessWidget {
                       'Next',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.2 * ffem / fem,

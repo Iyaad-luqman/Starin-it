@@ -91,6 +91,7 @@ class S11 extends StatelessWidget {
                           'Smart India hackathon',
                           style: SafeGoogleFont(
                             'Urbanist',
+                            decoration: TextDecoration.none,
                             fontSize: 13 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2 * ffem / fem,
@@ -185,6 +186,7 @@ class S11 extends StatelessWidget {
                           'Offensive security ',
                           style: SafeGoogleFont(
                             'Urbanist',
+                            decoration: TextDecoration.none,
                             fontSize: 13 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2 * ffem / fem,
@@ -286,6 +288,7 @@ class S11 extends StatelessWidget {
                       'Add Acheivement',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.2 * ffem / fem,
@@ -324,6 +327,7 @@ class S11 extends StatelessWidget {
                       'DONE',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.2 * ffem / fem,
