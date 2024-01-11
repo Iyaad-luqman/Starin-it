@@ -21,10 +21,9 @@ class Li extends StatelessWidget {
     DocumentReference docRef = _db.collection('users').doc(user!.uid);
     DocumentSnapshot docSnap = await docRef.get();
 
-    int numberOfExperience = docSnap.get('number_of_experience') ?? 0;
     List<Map<String, dynamic>> experiences = List<Map<String, dynamic>>.from(docSnap.get('experiences') ?? []);
 
-    return {'numberOfExperience': numberOfExperience, 'experiences': experiences};
+    return {'experiences': experiences};
   }
  return FutureBuilder<Map<String, dynamic>>(
    future: fetchData(),
