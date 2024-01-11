@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/personal-details.dart';
+import 'package:starinit/page-1/s5.dart';
 import 'package:starinit/utils.dart';
 
-class Selectyourprofile extends StatelessWidget {
+class S4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -110,8 +110,7 @@ class Selectyourprofile extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => Personaldetails()),
+                        MaterialPageRoute(builder: (context) => S5()),
                       );
                     },
                     style: TextButton.styleFrom(

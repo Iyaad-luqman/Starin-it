@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/Twelvthperc.dart';
-import 'package:starinit/page-1/registration.dart';
-import 'package:starinit/page-1/Twelvthperc.dart';
-import 'package:starinit/page-1/select-your-profile.dart';
+import 'package:starinit/page-1/s7.dart';
+import 'package:starinit/page-1/s3.dart';
+import 'package:starinit/page-1/s7.dart';
+import 'package:starinit/page-1/s4.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Login extends StatelessWidget {
+class S2 extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -23,7 +23,7 @@ class Login extends StatelessWidget {
         );
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Twelvthperc()),
+          MaterialPageRoute(builder: (context) => S7()),
         );
         // The user signed in successfully, navigate to your app's main screen here.
       } on FirebaseAuthException catch (e) {
@@ -187,8 +187,7 @@ class Login extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => Selectyourprofile()),
+                    MaterialPageRoute(builder: (context) => S4()),
                   );
                   login();
                 },
@@ -370,7 +369,7 @@ class Login extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Registration()),
+                    MaterialPageRoute(builder: (context) => S3()),
                   );
                 },
                 style: TextButton.styleFrom(
