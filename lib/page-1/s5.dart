@@ -92,6 +92,7 @@ class S5 extends StatelessWidget {
                                       'Name :',
                                       style: SafeGoogleFont(
                                         'Urbanist',
+                                        decoration: TextDecoration.none,
                                         fontSize: 23 * ffem,
                                         fontWeight: FontWeight.w700,
                                         height: 1.2 * ffem / fem,
@@ -122,6 +123,7 @@ class S5 extends StatelessWidget {
                                     'Your Name',
                                     style: SafeGoogleFont(
                                       'Urbanist',
+                                      decoration: TextDecoration.none,
                                       fontSize: 15 * ffem,
                                       fontWeight: FontWeight.w500,
                                       height: 1.25 * ffem / fem,
@@ -153,6 +155,7 @@ class S5 extends StatelessWidget {
                                           'Add Address:',
                                           style: SafeGoogleFont(
                                             'Urbanist',
+                                            decoration: TextDecoration.none,
                                             fontSize: 23 * ffem,
                                             fontWeight: FontWeight.w700,
                                             height: 1.2 * ffem / fem,
@@ -177,6 +180,7 @@ class S5 extends StatelessWidget {
                                           'Your Address',
                                           style: SafeGoogleFont(
                                             'Urbanist',
+                                            decoration: TextDecoration.none,
                                             fontSize: 15 * ffem,
                                             fontWeight: FontWeight.w500,
                                             height: 1.25 * ffem / fem,
@@ -362,6 +366,7 @@ class S5 extends StatelessWidget {
                               'Name :',
                               style: SafeGoogleFont(
                                 'Urbanist',
+                                decoration: TextDecoration.none,
                                 fontSize: 23 * ffem,
                                 fontWeight: FontWeight.w700,
                                 height: 1.2 * ffem / fem,
@@ -401,6 +406,7 @@ class S5 extends StatelessWidget {
                                 ),
                                 style: SafeGoogleFont(
                                   'Urbanist',
+                                  decoration: TextDecoration.none,
                                   fontSize: 15 * ffem,
                                   fontWeight: FontWeight.w500,
                                   height: 1.25 * ffem / fem,
@@ -432,6 +438,7 @@ class S5 extends StatelessWidget {
                                   'Add Address:',
                                   style: SafeGoogleFont(
                                     'Urbanist',
+                                    decoration: TextDecoration.none,
                                     fontSize: 23 * ffem,
                                     fontWeight: FontWeight.w700,
                                     height: 1.2 * ffem / fem,
@@ -466,6 +473,7 @@ class S5 extends StatelessWidget {
                                   ),
                                   style: SafeGoogleFont(
                                     'Urbanist',
+                                    decoration: TextDecoration.none,
                                     fontSize: 15 * ffem,
                                     fontWeight: FontWeight.w500,
                                     height: 1.25 * ffem / fem,
@@ -498,6 +506,7 @@ class S5 extends StatelessWidget {
                                   'Date of Birth',
                                   style: SafeGoogleFont(
                                     'Urbanist',
+                                    decoration: TextDecoration.none,
                                     fontSize: 23 * ffem,
                                     fontWeight: FontWeight.w700,
                                     height: 1.2 * ffem / fem,
@@ -532,6 +541,7 @@ class S5 extends StatelessWidget {
                                   ),
                                   style: SafeGoogleFont(
                                     'Urbanist',
+                                    decoration: TextDecoration.none,
                                     fontSize: 15 * ffem,
                                     fontWeight: FontWeight.w500,
                                     height: 1.25 * ffem / fem,
@@ -564,6 +574,7 @@ class S5 extends StatelessWidget {
                                   'Phone Number:',
                                   style: SafeGoogleFont(
                                     'Urbanist',
+                                    decoration: TextDecoration.none,
                                     fontSize: 23 * ffem,
                                     fontWeight: FontWeight.w700,
                                     height: 1.2 * ffem / fem,
@@ -598,6 +609,7 @@ class S5 extends StatelessWidget {
                                   ),
                                   style: SafeGoogleFont(
                                     'Urbanist',
+                                    decoration: TextDecoration.none,
                                     fontSize: 15 * ffem,
                                     fontWeight: FontWeight.w500,
                                     height: 1.25 * ffem / fem,
@@ -644,6 +656,7 @@ class S5 extends StatelessWidget {
                                 'Next',
                                 style: SafeGoogleFont(
                                   'Urbanist',
+                                  decoration: TextDecoration.none,
                                   fontSize: 13 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.2 * ffem / fem,

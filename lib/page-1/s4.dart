@@ -55,6 +55,7 @@ class S4 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13.25 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 2.0377358491 * ffem / fem,
@@ -121,6 +122,7 @@ class S4 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13.25 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 2.0377358491 * ffem / fem,
@@ -154,6 +156,7 @@ class S4 extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Urbanist',
+                            decoration: TextDecoration.none,
                             fontSize: 23 * ffem,
                             fontWeight: FontWeight.w700,
                             height: 1.2 * ffem / fem,
@@ -230,6 +233,7 @@ class S4 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13.25 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 2.0377358491 * ffem / fem,
