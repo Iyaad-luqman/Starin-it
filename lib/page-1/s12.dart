@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/s13.dart';
+import 'package:starinit/page-1/s11.dart';
 import 'package:starinit/utils.dart';
 
 class S12 extends StatelessWidget {
@@ -54,12 +54,7 @@ class S12 extends StatelessWidget {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 3 * fem, 7 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => S13()),
-                        );
-                      },
+                      onPressed: () {},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -636,7 +631,12 @@ class S12 extends StatelessWidget {
               margin:
                   EdgeInsets.fromLTRB(110 * fem, 0 * fem, 91 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => S11()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
