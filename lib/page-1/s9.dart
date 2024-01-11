@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/experience.dart';
+import 'package:starinit/page-1/s10.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Listofexperience extends StatelessWidget {
+class S9 extends StatelessWidget {
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
@@ -265,7 +265,7 @@ class Listofexperience extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Experience()),
+                                          builder: (context) => S10()),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -292,7 +292,8 @@ class Listofexperience extends StatelessWidget {
                     ),
                     Container(
                       // savebxZ (2:252)
-                      margin: EdgeInsets.fromLTRB(107 * fem, 0 * fem, 87 * fem, 0 * fem),
+                      margin: EdgeInsets.fromLTRB(
+                          107 * fem, 0 * fem, 87 * fem, 0 * fem),
                       width: double.infinity,
                       height: 44 * fem,
                       decoration: BoxDecoration(

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/login.dart';
+import 'package:starinit/page-1/s2.dart';
 import 'package:starinit/utils.dart';
-import 'package:starinit/page-1/registration.dart';
+import 'package:starinit/page-1/s3.dart';
 
 class S1 extends StatelessWidget {
   @override
@@ -82,7 +82,7 @@ class S1 extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Login()),
+                      MaterialPageRoute(builder: (context) => S2()),
                     );
                   },
                   style: TextButton.styleFrom(
@@ -120,7 +120,7 @@ class S1 extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Registration()),
+                      MaterialPageRoute(builder: (context) => S3()),
                     );
                   },
                   style: TextButton.styleFrom(
