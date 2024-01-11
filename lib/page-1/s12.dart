@@ -137,7 +137,7 @@ class S12 extends StatelessWidget {
                                         8 * fem,
                                         11 * fem,
                                         10.9 * fem),
-                                    hintText: 'Your Address',
+                                    hintText: 'Add the title of the acheivement',
                                     hintStyle:
                                         TextStyle(color: Color(0xff8390a1)),
                                   ),
@@ -175,7 +175,7 @@ class S12 extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(
                                     0 * fem, 0 * fem, 0 * fem, 13 * fem),
                                 child: Text(
-                                  'Add Address:',
+                                  'Company Name:',
                                   style: SafeGoogleFont(
                                     'Urbanist',
                                     decoration: TextDecoration.none,
@@ -209,7 +209,7 @@ class S12 extends StatelessWidget {
                                         8 * fem,
                                         11 * fem,
                                         10.9 * fem),
-                                    hintText: 'Your Address',
+                                    hintText: 'Add the company name',
                                     hintStyle:
                                         TextStyle(color: Color(0xff8390a1)),
                                   ),
@@ -248,7 +248,7 @@ class S12 extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(
                                     0 * fem, 0 * fem, 0 * fem, 13 * fem),
                                 child: Text(
-                                  'Date of Birth',
+                                  'Date:',
                                   style: SafeGoogleFont(
                                     'Urbanist',
                                     decoration: TextDecoration.none,
@@ -321,7 +321,7 @@ class S12 extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(
                                     0 * fem, 0 * fem, 0 * fem, 13 * fem),
                                 child: Text(
-                                  'Phone Number:',
+                                  'Skills:',
                                   style: SafeGoogleFont(
                                     'Urbanist',
                                     decoration: TextDecoration.none,
@@ -355,7 +355,7 @@ class S12 extends StatelessWidget {
                                         8 * fem,
                                         11 * fem,
                                         10.9 * fem),
-                                    hintText: 'Your Phone Number',
+                                    hintText: 'Add skills associated with spaces',
                                     hintStyle:
                                         TextStyle(color: Color(0xff8390a1)),
                                   ),
