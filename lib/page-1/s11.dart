@@ -62,6 +62,7 @@ class S11 extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: SafeGoogleFont(
                     'Quicksand',
+                    decoration: TextDecoration.none,
                     fontSize: 24 * ffem,
                     fontWeight: FontWeight.w500,
                     height: 1.25 * ffem / fem,
@@ -138,6 +139,7 @@ class S11 extends StatelessWidget {
                           'SIH Winner',
                           style: SafeGoogleFont(
                             'Radio Canada',
+                            decoration: TextDecoration.none,
                             fontSize: 20 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2 * ffem / fem,
@@ -233,6 +235,7 @@ class S11 extends StatelessWidget {
                           'OSCP',
                           style: SafeGoogleFont(
                             'Radio Canada',
+                            decoration: TextDecoration.none,
                             fontSize: 20 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2 * ffem / fem,
