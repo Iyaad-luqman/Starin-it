@@ -5,7 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/experience.dart';
-import 'package:starinit/page-1/uni.dart';
+import 'package:starinit/page-1/list-of-experience.dart';
 import 'package:starinit/utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,15 +20,15 @@ class Uni extends StatefulWidget {
 class _UniState extends State<Uni> {
   int _selectedOption = 0;
   
-  String schoolMarks = ""; // Your variable
+  String uniMarks = ""; // Your variable
 
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
   final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
 
-  Future<void> uploadSchoolMarks(schoolMarks) async {
+  Future<void> uploaduniMarks(uniMarks) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
-        'school_marks': schoolMarks,
+        'uni_marks': uniMarks,
       });
     }
   }
@@ -159,7 +159,7 @@ class _UniState extends State<Uni> {
                     _selectedOption = 1;
                     
                   });
-                  schoolMarks = "30% - 40%";
+                  uniMarks = "30% - 40%";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -250,7 +250,7 @@ class _UniState extends State<Uni> {
                   setState(() {
                     _selectedOption = 2;
                   });
-                  schoolMarks = "40% - 70%";
+                  uniMarks = "40% - 70%";
                   
                   }
                 },
@@ -342,7 +342,7 @@ class _UniState extends State<Uni> {
                   setState(() {
                     _selectedOption = 3;
                   });
-                  schoolMarks = "70% - 90%";
+                  uniMarks = "70% - 90%";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -433,7 +433,7 @@ class _UniState extends State<Uni> {
                   setState(() {
                     _selectedOption = 4;
                   });
-                  schoolMarks = "90% - 100%";
+                  uniMarks = "90% - 100%";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -516,15 +516,15 @@ class _UniState extends State<Uni> {
               top: 556*fem,
               child: TextButton(
                 onPressed: () {
-                  if (_selectedOption == 4) {
+                  if (_selectedOption == 5) {
                     setState(() {
                       _selectedOption = 0;
                     });
                   } else { 
                   setState(() {
-                    _selectedOption = 4;
+                    _selectedOption = 5;
                   });
-                  schoolMarks = "90% - 100%";
+                  uniMarks = "0";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -569,7 +569,7 @@ class _UniState extends State<Uni> {
 
                             ),
                           ),
-                          if (_selectedOption == 4) Text(
+                          if (_selectedOption == 5) Text(
                     String.fromCharCode(Icons.check.codePoint),
                     style: TextStyle(
                       inherit: false,
@@ -637,8 +637,8 @@ class _UniState extends State<Uni> {
               top: 735*fem,
               child: TextButton(
                 onPressed: () {
-                  uploadSchoolMarks(schoolMarks);
-                  Navigator.push( context, MaterialPageRoute(builder: (context) => Uni()), );
+                  uploaduniMarks(uniMarks);
+                  Navigator.push( context, MaterialPageRoute(builder: (context) => Listofexperience()), );
                 },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
