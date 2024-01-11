@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/list-of-experience.dart';
+import 'package:starinit/page-1/s9.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Experience extends StatelessWidget {
+class S10 extends StatelessWidget {
   final TextEditingController _companyNameController = TextEditingController();
   final TextEditingController _positionController = TextEditingController();
   final TextEditingController _startDateController = TextEditingController();
@@ -37,7 +37,7 @@ class Experience extends StatelessWidget {
           });
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Listofexperience()),
+            MaterialPageRoute(builder: (context) => S9()),
           );
         } else {
           await docRef.set({
@@ -134,8 +134,7 @@ class Experience extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Listofexperience()),
+                                  MaterialPageRoute(builder: (context) => S9()),
                                 );
                               },
                               style: TextButton.styleFrom(
