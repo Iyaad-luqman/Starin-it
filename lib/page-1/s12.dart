@@ -58,7 +58,7 @@ class S12 extends StatelessWidget {
                         padding: EdgeInsets.zero,
                       ),
                       child: Text(
-                        'Add Acheivement',
+                        'Add Acheivements',
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'Urbanist',
@@ -85,78 +85,297 @@ class S12 extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              // group239763pG (2:45)
-              margin:
-                  EdgeInsets.fromLTRB(0 * fem, 0 * fem, 7 * fem, 40.31 * fem),
-              width: 321 * fem,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16 * fem),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                ),
-              ),
-            ),
-            Container(
-              // group23972kTn (2:50)
-              margin:
-                  EdgeInsets.fromLTRB(0 * fem, 0 * fem, 7 * fem, 42.31 * fem),
-              width: 321 * fem,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16 * fem),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                ),
-              ),
-            ),
-            Container(
-              // group23977F9e (2:55)
-              margin:
-                  EdgeInsets.fromLTRB(7 * fem, 0 * fem, 0 * fem, 41.31 * fem),
-              width: 321 * fem,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16 * fem),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                ),
-              ),
-            ),
-            Container(
-              // group23973YuS (2:60)
-              margin:
-                  EdgeInsets.fromLTRB(0 * fem, 0 * fem, 7 * fem, 41.31 * fem),
-              width: 321 * fem,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16 * fem),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                ),
-              ),
-            ),
+                      Positioned(
+                        // group23966wye (1:62)
+                        left: 36 * fem,
+                        top: 294 * fem,
+                        child: Container(
+                          width: 321 * fem,
+                          height: 78.9 * fem,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8 * fem),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                // addaddressEhr (1:63)
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                                child: Text(
+                                  'Title:',
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 23 * ffem,
+                                    fontWeight: FontWeight.w700,
+                                    height: 1.2 * ffem / fem,
+                                    letterSpacing: 0.345 * fem,
+                                    color: Color(0xffffffff),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xffe8ecf4)),
+                                  color: Color(0xfff7f8f9),
+                                  borderRadius: BorderRadius.circular(8 * fem),
+                                ),
+                                 child: Material(
+                                  color: Colors.transparent,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        11 * fem,
+                                        8 * fem,
+                                        11 * fem,
+                                        10.9 * fem),
+                                    hintText: 'Your Address',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                                 ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 50,),
+                      Positioned(
+                        // group23966wye (1:62)
+                        left: 36 * fem,
+                        top: 164 * fem,
+                        child: Container(
+                          width: 321 * fem,
+                          height: 78.9 * fem,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8 * fem),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                // addaddressEhr (1:63)
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                                child: Text(
+                                  'Add Address:',
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 23 * ffem,
+                                    fontWeight: FontWeight.w700,
+                                    height: 1.2 * ffem / fem,
+                                    letterSpacing: 0.345 * fem,
+                                    color: Color(0xffffffff),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xffe8ecf4)),
+                                  color: Color(0xfff7f8f9),
+                                  borderRadius: BorderRadius.circular(8 * fem),
+                                ),
+                                 child: Material(
+                                  color: Colors.transparent,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        11 * fem,
+                                        8 * fem,
+                                        11 * fem,
+                                        10.9 * fem),
+                                    hintText: 'Your Address',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                                 ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 50,),
+                      
+                      Positioned(
+                        // group23968yor (1:66)
+                        left: 33 * fem,
+                        top: 595 * fem,
+                        child: Container(
+                          width: 321 * fem,
+                          height: 78.9 * fem,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8 * fem),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                // dateofbirthHZe (1:67)
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                                child: Text(
+                                  'Date of Birth',
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 23 * ffem,
+                                    fontWeight: FontWeight.w700,
+                                    height: 1.2 * ffem / fem,
+                                    letterSpacing: 0.345 * fem,
+                                    color: Color(0xffffffff),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                // autogrouprruep3n (FXwZVhJzwnrEMUfUyURRue)
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xffe8ecf4)),
+                                  color: Color(0xfff7f8f9),
+                                  borderRadius: BorderRadius.circular(8 * fem),
+                                ),
+                                 child: Material(
+                                  color: Colors.transparent,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        11 * fem,
+                                        8 * fem,
+                                        11 * fem,
+                                        10.9 * fem),
+                                    hintText: 'dd/mm/yyy',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                                 ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 50,),
+                      
+                      Positioned(
+                        // group23967JUk (1:70)
+                        left: 36 * fem,
+                        top: 445 * fem,
+                        child: Container(
+                          width: 321 * fem,
+                          height: 78.9 * fem,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8 * fem),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                // phonenumberzMa (1:71)
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                                child: Text(
+                                  'Phone Number:',
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 23 * ffem,
+                                    fontWeight: FontWeight.w700,
+                                    height: 1.2 * ffem / fem,
+                                    letterSpacing: 0.345 * fem,
+                                    color: Color(0xffffffff),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                // autogroupiwd6Tkx (FXwZdwaG3Dkp6MFHNLiwd6)
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xffe8ecf4)),
+                                  color: Color(0xfff7f8f9),
+                                  borderRadius: BorderRadius.circular(8 * fem),
+                                ),
+                                 child: Material(
+                                  color: Colors.transparent,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        11 * fem,
+                                        8 * fem,
+                                        11 * fem,
+                                        10.9 * fem),
+                                    hintText: 'Your Phone Number',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                                 ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 50,),
+            // 
             Container(
               // group239754Mz (2:68)
               margin:
