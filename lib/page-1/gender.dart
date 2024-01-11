@@ -20,15 +20,15 @@ class Gender extends StatefulWidget {
 class _GenderState extends State<Gender> {
   int _selectedOption = 0;
   
-  String genderMarks = ""; // Your variable
+  String gender = ""; // Your variable
 
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
   final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
 
-  Future<void> uploadgenderMarks(genderMarks) async {
+  Future<void> uploadgender(gender) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
-        'gender_marks': genderMarks,
+        'gender_marks': gender,
       });
     }
   }
@@ -121,7 +121,7 @@ class _GenderState extends State<Gender> {
                     _selectedOption = 1;
                     
                   });
-                  genderMarks = "30% - 40%";
+                  gender = "30% - 40%";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -183,7 +183,7 @@ class _GenderState extends State<Gender> {
                   ),
                       Text(
                         // xoP (2:195)
-                        '30% - 40%\n',
+                        'Male\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
                           fontSize: 20*ffem,
@@ -212,7 +212,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 2;
                   });
-                  genderMarks = "40% - 70%";
+                  gender = "40% - 70%";
                   
                   }
                 },
@@ -304,7 +304,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 3;
                   });
-                  genderMarks = "70% - 90%";
+                  gender = "70% - 90%";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -395,7 +395,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 4;
                   });
-                  genderMarks = "90% - 100%";
+                  gender = "90% - 100%";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -486,7 +486,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 5;
                   });
-                  genderMarks = "0";
+                  gender = "0";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -599,7 +599,7 @@ class _GenderState extends State<Gender> {
               top: 735*fem,
               child: TextButton(
                 onPressed: () {
-                  uploadgenderMarks(genderMarks);
+                  uploadgender(gender);
                   Navigator.push( context, MaterialPageRoute(builder: (context) => Listofexperience()), );
                 },
                 style: TextButton.styleFrom (
