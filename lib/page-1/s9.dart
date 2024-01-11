@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/s10.dart';
+import 'package:starinit/page-1/s11.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -309,6 +310,10 @@ class S9 extends StatelessWidget {
                       child: Center(
                         child: TextButton(
                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S11()),
+                            );
                             // Add your functionality here
                             // For example, you can navigate to the next screen
                           },
