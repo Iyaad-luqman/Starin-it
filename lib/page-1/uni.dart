@@ -105,6 +105,44 @@ class _UniState extends State<Uni> {
                   ),
                 ),
               ),
+            ),Positioned(
+              // newpasswordinput7w3 (2:220)
+              left: 53*fem,
+              top: 172*fem,
+              child: Align(
+                child: SizedBox(
+                  width: 296*fem,
+                  height: 38.69*fem,
+                  child: Container(
+                    decoration: BoxDecoration (
+                      borderRadius: BorderRadius.circular(32*fem),
+                      border: Border.all(color: Color(0xffe8ecf4)),
+                      color: Color(0xfff7f7f8),
+                    ),child: Material(
+                       color: Colors.transparent,
+                      child: TextField(
+                      decoration: InputDecoration (
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        contentPadding: EdgeInsets.fromLTRB(17*fem, 7.36*fem, 17*fem, 12.33*fem),
+                        hintText: 'Enter your University Name',
+                        hintStyle: TextStyle(color:Color(0xff8390a1)),
+                      ),
+                      style: SafeGoogleFont (
+                        'Urbanist',
+                  decoration: TextDecoration.none,
+                        fontSize: 15*ffem,
+                        fontWeight: FontWeight.w500,
+                        height: 1.25*ffem/fem,
+                        color: Color(0xff000000), ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
             Positioned(
               // Y5T (2:192)
@@ -472,9 +510,100 @@ class _UniState extends State<Uni> {
                 ),
               ),
             ),
+                        Positioned(
+              // Y5T (2:192)
+              left: 79*fem,
+              top: 556*fem,
+              child: TextButton(
+                onPressed: () {
+                  if (_selectedOption == 4) {
+                    setState(() {
+                      _selectedOption = 0;
+                    });
+                  } else { 
+                  setState(() {
+                    _selectedOption = 4;
+                  });
+                  schoolMarks = "90% - 100%";
+                  }
+                },
+                style: TextButton.styleFrom (
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(21*fem, 19*fem, 6*fem, 15.3*fem),
+                  width: 264*fem,
+                  height: 58.3*fem,
+                  decoration: BoxDecoration (
+                    border: Border.all(color: Color(0x7fffffff)),
+                    color: Color(0x7f19173d),
+                    borderRadius: BorderRadius.circular(15*fem),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                                        
+                  Container(
+                    // checkboxB8R (2:194)
+                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 30*fem, 0*fem),
+                    width: 22*fem,
+                    height: double.infinity,
+                    child: Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            height: double.infinity,
+                            child: Container(
+                              decoration: BoxDecoration (
+                                borderRadius: BorderRadius.circular(4*fem),
+                                border: Border.all(color: Color(0x4fffffff)),
+                                gradient: LinearGradient (
+                                  begin: Alignment(0, -1),
+                                  end: Alignment(0, 1),
+                                  colors: <Color>[Color(0xb2c8eeff), Color(0xb2c8eeff), Color(0xb2fbfeff)],
+                                  stops: <double>[0, 0, 1],
+                                ),
+                              ),
+
+                            ),
+                          ),
+                          if (_selectedOption == 4) Text(
+                    String.fromCharCode(Icons.check.codePoint),
+                    style: TextStyle(
+                      inherit: false,
+                      fontSize: 24.0,
+                      color: Color.fromARGB(255, 0, 10, 1),
+                      fontFamily: Icons.check.fontFamily,
+                      package: Icons.check.fontPackage,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                        ],
+                      ),
+                    ),
+                  ),
+                      Text(
+                        // xoP (2:195)
+                        'Currently Enrolled\n',
+                        style: SafeGoogleFont (
+                          'Radio Canada',
+                          fontSize: 19*ffem,
+                          fontWeight: FontWeight.w400,
+                          height: 1.2*ffem/fem,
+                          letterSpacing: 0.3*fem,
+                          color: Color(0xffcac9df),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
             Positioned(
                 left: 122*fem,
-                top: 583*fem,
+                top: 633*fem,
                 child: Align(
                   child: SizedBox(
                     width: 182*fem,
