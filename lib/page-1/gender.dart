@@ -212,7 +212,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 2;
                   });
-                  gender = "40% - 70%";
+                  gender = "Female";
                   
                   }
                 },
@@ -275,7 +275,7 @@ class _GenderState extends State<Gender> {
                   ),
                       Text(
                         // xoP (2:195)
-                        '40% - 70%\n',
+                        'Female\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
                           fontSize: 20*ffem,
@@ -304,7 +304,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 3;
                   });
-                  gender = "70% - 90%";
+                  gender = "Transgender";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -366,7 +366,7 @@ class _GenderState extends State<Gender> {
                   ),
                       Text(
                         // xoP (2:195)
-                        '70% - 90%\n',
+                        'Transgender\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
                           fontSize: 20*ffem,
@@ -395,7 +395,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 4;
                   });
-                  gender = "90% - 100%";
+                  gender = "Non Binary";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -457,7 +457,7 @@ class _GenderState extends State<Gender> {
                   ),
                       Text(
                         // xoP (2:195)
-                        '90% - 100%\n',
+                        'Non Binary\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
                           fontSize: 20*ffem,
@@ -486,7 +486,7 @@ class _GenderState extends State<Gender> {
                   setState(() {
                     _selectedOption = 5;
                   });
-                  gender = "0";
+                  gender = "Other";
                   }
                 },
                 style: TextButton.styleFrom (
@@ -548,7 +548,7 @@ class _GenderState extends State<Gender> {
                   ),
                       Text(
                         // xoP (2:195)
-                        'Currently Enrolled\n',
+                        'Other\n',
                         style: SafeGoogleFont (
                           'Radio Canada',
                           fontSize: 19*ffem,
