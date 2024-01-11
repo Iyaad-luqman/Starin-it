@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
 
-class Scene extends StatelessWidget {
+class Enrolled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -13,13 +13,15 @@ class Scene extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Container(
+          height: MediaQuery.of(context).size.height * 0.5,  // 50% of screen height
+  width: MediaQuery.of(context).size.width * 0.8, 
         // enrolledornewcourse6vG (0:56)
         padding: EdgeInsets.fromLTRB(1*fem, 0*fem, 0*fem, 0*fem),
-        width: double.infinity,
+        // width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xff19173d),
           image: DecorationImage(
-            image: AssetImage('assets/page-1/images/bg.png'),
+            image: AssetImage('assets/page-1/images/plane-bg-1.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -28,10 +30,15 @@ class Scene extends StatelessWidget {
           children: [
             Container(
               // statusbarrRa (0:58)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 26*fem),
-              padding: EdgeInsets.fromLTRB(24*fem, 14*fem, 24*fem, 10*fem),
-              width: 390*fem,
-              height: 45*fem,
+                height: MediaQuery.of(context).size.height * 0.5,  // 50% of screen height
+  width: MediaQuery.of(context).size.width * 0.8, 
+  padding: MediaQuery.of(context).padding,
+  margin: MediaQuery.of(context).viewInsets,
+              // margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 6*fem),
+              // padding: EdgeInsets.fromLTRB(24*fem, 14*fem, 24*fem, 10*fem),
+
+              // width: 390*fem,
+              // height: 45*fem,
               child: Container(
                 // statusbarm2k (0:60)
                 width: double.infinity,
@@ -62,6 +69,7 @@ class Scene extends StatelessWidget {
                         child: Text(
                           'Courses',
                           style: SafeGoogleFont (
+                            decoration: TextDecoration.none,
                             'Urbanist',
                             fontSize: 24*ffem,
                             fontWeight: FontWeight.w700,
@@ -154,14 +162,8 @@ class Scene extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(30 * fem),
                                 border: Border.all(color: Color(0x7fffffff)),
                                 color: Color.fromARGB(92, 3, 33, 88),
-                                image: DecorationImage(
-                                  image: AssetImage('path/to/your/image.jpg'),
-                                  fit: BoxFit.cover,
-                                  colorFilter: ColorFilter.mode(
-                                    const Color.fromARGB(255, 113, 152, 184).withOpacity(0.5),
-                                    BlendMode.hue,
-                                  ),
-                                ),
+                                
+                                  
                               ),
                             ),
                           ),
@@ -223,8 +225,10 @@ class Scene extends StatelessWidget {
                         height: 29*fem,
                         child: Text(
                           'Checkout New Courses',
+                          
                           style: SafeGoogleFont (
                             'Urbanist',
+                          decoration: TextDecoration.none,
                             fontSize: 24*ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2*ffem/fem,
@@ -246,6 +250,7 @@ class Scene extends StatelessWidget {
                         child: Text(
                           'View Enrolled Courses',
                           style: SafeGoogleFont (
+                            decoration: TextDecoration.none,
                             'Urbanist',
                             fontSize: 24*ffem,
                             fontWeight: FontWeight.w400,
@@ -260,17 +265,49 @@ class Scene extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              // autogroupr828wcY (3FVWgbpax1YLcL4LT1R828)
-              margin: EdgeInsets.fromLTRB(1*fem, 0*fem, 0*fem, 0*fem),
-              width: 390*fem,
-              height: 120*fem,
-              child: Image.asset(
-                'assets/page-1/images/auto-group-r828.png',
-                width: 390*fem,
-                height: 120*fem,
-              ),
-            ),
+            Scaffold(
+  appBar: AppBar(
+    title: Text('Your App'),
+  ),
+  body: Container(
+    // Your Container code here...
+  ),
+  bottomNavigationBar: BottomNavigationBar(
+    items: const <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.business),
+        label: 'Business',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.school),
+        label: 'School',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.settings),
+        label: 'Settings',
+      ),
+    ],
+    onTap: (index) {
+      // Handle your button tap here
+    },
+  ),
+),
+            // Container(
+              
+            //   // autogroupr828wcY (3FVWgbpax1YLcL4LT1R828)
+            //   margin: EdgeInsets.fromLTRB(1*fem, 0*fem, 0*fem, 0*fem),
+            //   width: 390*fem,
+            //   height: 120*fem,
+            //   child: Image.asset(
+            //     'assets/page-1/images/auto-group-r828.png',
+            //     width: 390*fem,
+            //     height: 120*fem,
+            //   ),
+            // ),
           ],
         ),
       ),
