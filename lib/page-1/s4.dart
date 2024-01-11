@@ -90,10 +90,22 @@ class S4 extends StatelessWidget {
                 child: SizedBox(
                   width: 72 * fem,
                   height: 80.02 * fem,
-                  child: Image.asset(
-                    'assets/page-1/images/group-130.png',
-                    width: 72 * fem,
-                    height: 80.02 * fem,
+                  child: TextButton(
+                    onPressed: () {
+                                            Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => S5()),
+                      );
+                      // Add your onPress function here
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                    ),
+                    child: Image.asset(
+                      'assets/page-1/images/group-130.png',
+                      width: 72 * fem,
+                      height: 80.02 * fem,
+                    ),
                   ),
                 ),
               ),
