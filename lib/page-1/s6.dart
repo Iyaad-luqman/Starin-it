@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/Twelvthperc.dart';
+import 'package:starinit/page-1/s7.dart';
 import 'package:starinit/utils.dart';
 
-class Bio extends StatelessWidget {
+class S6 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -22,7 +22,7 @@ class Bio extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Twelvthperc()),
+              MaterialPageRoute(builder: (context) => S7()),
             );
           },
           style: TextButton.styleFrom(
