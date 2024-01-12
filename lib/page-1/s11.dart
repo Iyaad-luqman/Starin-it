@@ -62,6 +62,7 @@ class S11 extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: SafeGoogleFont(
                     'Quicksand',
+                    decoration: TextDecoration.none,
                     fontSize: 24 * ffem,
                     fontWeight: FontWeight.w500,
                     height: 1.25 * ffem / fem,
