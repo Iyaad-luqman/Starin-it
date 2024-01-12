@@ -28,17 +28,20 @@ class Enrolled extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 30*fem,
+            ),
             Container(
               // statusbarrRa (0:58)
-                height: MediaQuery.of(context).size.height * 0.5,  // 50% of screen height
-  width: MediaQuery.of(context).size.width * 0.8, 
-  padding: MediaQuery.of(context).padding,
-  margin: MediaQuery.of(context).viewInsets,
-              // margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 6*fem),
-              // padding: EdgeInsets.fromLTRB(24*fem, 14*fem, 24*fem, 10*fem),
+  //               height: MediaQuery.of(context).size.height * 0.5,  // 50% of screen height
+  // width: MediaQuery.of(context).size.width * 0.8, 
+  // padding: MediaQuery.of(context).padding,
+  // margin: MediaQuery.of(context).viewInsets,
+              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 6*fem),
+              padding: EdgeInsets.fromLTRB(24*fem, 14*fem, 24*fem, 10*fem),
 
-              // width: 390*fem,
-              // height: 45*fem,
+              width: 390*fem,
+              height: 45*fem,
               child: Container(
                 // statusbarm2k (0:60)
                 width: double.infinity,
@@ -265,38 +268,116 @@ class Enrolled extends StatelessWidget {
                 ],
               ),
             ),
-            Scaffold(
-  appBar: AppBar(
-    title: Text('Your App'),
-  ),
-  body: Container(
-    // Your Container code here...
-  ),
-  bottomNavigationBar: BottomNavigationBar(
-    items: const <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        label: 'Home',
+
+    Positioned(
+  top: 550.0,
+  left: 0.0,// specify the left offset
+      child: Container(
+        width: 500*fem, // Set width to screen width
+        height: 90 * fem, // Set height to screen height
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color.fromARGB(108, 1, 24, 99), Color.fromARGB(26, 1, 63, 179)], // Gradient colors
+          ),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+          ), // Add curved border on the top
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Positioned(
+              top: 400, // specify the top offset
+              left: 15, // specify the left offset
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom (
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                  width: 25.5*fem,
+                  height: 24.2*fem,
+                  child: Image.asset(
+                    'assets/page-1/images/home-alt.png',
+                    width: 25.5*fem,
+                    height: 24.2*fem,
+                  ),
+                ),
+              ),
+            ),
+                        SizedBox(
+              width: 40*fem,
+            ),
+            Positioned(
+              top: 350, // specify the top offset
+              left: 150, // specify a different left offset
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom (
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                  width: 31*fem,
+                  height: 31*fem,
+                  child: Image.asset(
+                    'assets/page-1/images/search-Gui.png',
+                    width: 500*fem,
+                    height: 31*fem,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 40*fem,
+            ),
+            Positioned(
+              top: 350, // specify a different top offset
+              left: 45, // specify the left offset
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom (
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                  width: 27.54*fem,
+                  height: 25.28*fem,
+                  child: Image.asset(
+                    'assets/page-1/images/book-open.png',
+                    width: 27.54*fem,
+                    height: 25.28*fem,
+                  ),
+                ),
+              ),
+            ),
+                        SizedBox(
+              width: 45*fem,
+            ),
+            Positioned(
+              top: 350, // specify a different top offset
+              left: 100, // specify a different left offset
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom (
+                  padding: EdgeInsets.zero,
+                ),
+                child: Container(
+                  width: 30*fem,
+                  height: 24.75*fem,
+                  child: Image.asset(
+                    'assets/page-1/images/suitcase-white.png',
+                    width: 30*fem,
+                    height: 24.75*fem,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.business),
-        label: 'Business',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.school),
-        label: 'School',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings),
-        label: 'Settings',
-      ),
-    ],
-    onTap: (index) {
-      // Handle your button tap here
-    },
-  ),
-),
-            // Container(
+)      // Container(
               
             //   // autogroupr828wcY (3FVWgbpax1YLcL4LT1R828)
             //   margin: EdgeInsets.fromLTRB(1*fem, 0*fem, 0*fem, 0*fem),
