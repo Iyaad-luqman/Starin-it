@@ -4,10 +4,36 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/s7.dart';
 import 'package:starinit/utils.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class S6 extends StatelessWidget {
+  final TextEditingController _bioController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Future<void> uploadfields(
+      String param1,
+    ) async {
+      final FirebaseFirestore _db =
+          FirebaseFirestore.instance; // Firestore instance
+      final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+      if (user != null) {
+        DocumentReference docRef = _db.collection('users').doc(user.uid);
+        DocumentSnapshot docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+          await docRef.update({
+            'Bio': param1,
+          });
+        } else {
+          await docRef.set({
+            'Bio': param1,
+          });
+        }
+      }
+    }
+
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -20,6 +46,9 @@ class S6 extends StatelessWidget {
         child: TextButton(
           // insight2U9a (5:340)
           onPressed: () {
+            uploadfields(
+              _bioController.text,
+            );
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => S7()),
@@ -47,7 +76,6 @@ class S6 extends StatelessWidget {
               children: [
                 SizedBox(
                   height: 100 * fem,
-                
                 ),
                 Container(
                   // bio6Ep (5:345)
@@ -111,6 +139,7 @@ class S6 extends StatelessWidget {
                           borderRadius: BorderRadius.circular(16 * fem),
                         ),
                         child: TextField(
+                          controller: _bioController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,

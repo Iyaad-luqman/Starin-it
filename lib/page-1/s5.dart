@@ -5,20 +5,59 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/s5a.dart';
 import 'package:starinit/page-1/s6.dart';
 import 'package:starinit/utils.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class S5 extends StatelessWidget {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _addAddressController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _dateofbirthController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Future<void> uploadfields(
+      String param1,
+      String param2,
+      String param3,
+      String param4,
+    ) async {
+      final FirebaseFirestore _db =
+          FirebaseFirestore.instance; // Firestore instance
+      final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+      if (user != null) {
+        DocumentReference docRef = _db.collection('users').doc(user.uid);
+        DocumentSnapshot docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+          await docRef.update({
+            'name': param1,
+            'add_address': param2,
+            'phone_number': param3,
+            'date_of_birth': param4,
+          });
+        } else {
+          await docRef.set({
+            'name': param1,
+            'add_address': param2,
+            'phone_number': param3,
+            'date_of_birth': param4,
+          });
+        }
+      }
+    }
+
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage('assets/page-1/images/bg.png'),
-        fit: BoxFit.cover,
-      ),),
+        image: DecorationImage(
+          image: AssetImage('assets/page-1/images/bg.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: Container(
         // personaldetails7UG (1:4)
         width: double.infinity,
@@ -50,7 +89,6 @@ class S5 extends StatelessWidget {
                   ),
                   child: Stack(
                     children: [
-
                       Positioned(
                         // autogroupjyqcenx (FXwYLjEanrDPKYfAk1JYQc)
                         left: -214.4829103975 * fem,
@@ -60,7 +98,6 @@ class S5 extends StatelessWidget {
                           height: 634.08 * fem,
                           child: Stack(
                             children: [
-                              
                               Positioned(
                                 // name5Wt (1:19)
                                 left: 250.4829103975 * fem,
@@ -177,7 +214,6 @@ class S5 extends StatelessWidget {
                           ),
                         ),
                       ),
-
                     ],
                   ),
                 ),
@@ -212,7 +248,8 @@ class S5 extends StatelessWidget {
                                 },
                                 child: Container(
                                   // lefttq2 (1:47)
-                                  margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 319 * fem, 0 * fem),
+                                  margin: EdgeInsets.fromLTRB(
+                                      0 * fem, 0 * fem, 319 * fem, 0 * fem),
                                   width: 5.94 * fem,
                                   height: 11.88 * fem,
                                   child: Image.asset(
@@ -222,12 +259,10 @@ class S5 extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              
                             ],
                           ),
                         ),
                       ),
-                      
                       Positioned(
                         // name5HE (1:58)
                         left: 36 * fem,
@@ -265,32 +300,36 @@ class S5 extends StatelessWidget {
                                 border: Border.all(color: Color(0xffe8ecf4)),
                                 color: Color(0xfff7f8f9),
                               ),
-                               child: Material(
+                              child: Material(
                                 color: Colors.transparent,
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                  contentPadding: EdgeInsets.fromLTRB(11 * fem,
-                                      8.4 * fem, 11 * fem, 10.49 * fem),
-                                  hintText: 'Your Name',
-                                  hintStyle:
-                                      TextStyle(color: Color(0xff8390a1)),
-                                ),
-                                style: SafeGoogleFont(
-                                  'Urbanist',
-                                  decoration: TextDecoration.none,
-                                  fontSize: 15 * ffem,
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.25 * ffem / fem,
-                                  color: Color(0xff000000),
+                                child: TextField(
+                                  controller: _nameController,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        11 * fem,
+                                        8.4 * fem,
+                                        11 * fem,
+                                        10.49 * fem),
+                                    hintText: 'Your Name',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
                           ),
                         ),
                       ),
@@ -332,34 +371,35 @@ class S5 extends StatelessWidget {
                                   color: Color(0xfff7f8f9),
                                   borderRadius: BorderRadius.circular(8 * fem),
                                 ),
-                                 child: Material(
+                                child: Material(
                                   color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                        11 * fem,
-                                        8 * fem,
-                                        11 * fem,
-                                        10.9 * fem),
-                                    hintText: 'Your Address',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
-                                  ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
+                                  child: TextField(
+                                    controller: _addAddressController,
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      contentPadding: EdgeInsets.fromLTRB(
+                                          11 * fem,
+                                          8 * fem,
+                                          11 * fem,
+                                          10.9 * fem),
+                                      hintText: 'Your Address',
+                                      hintStyle:
+                                          TextStyle(color: Color(0xff8390a1)),
+                                    ),
+                                    style: SafeGoogleFont(
+                                      'Urbanist',
+                                      decoration: TextDecoration.none,
+                                      fontSize: 15 * ffem,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.25 * ffem / fem,
+                                      color: Color(0xff000000),
+                                    ),
                                   ),
                                 ),
-                                 ),
                               ),
                             ],
                           ),
@@ -403,34 +443,35 @@ class S5 extends StatelessWidget {
                                   color: Color(0xfff7f8f9),
                                   borderRadius: BorderRadius.circular(8 * fem),
                                 ),
-                                 child: Material(
+                                child: Material(
                                   color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                        11 * fem,
-                                        8 * fem,
-                                        11 * fem,
-                                        10.9 * fem),
-                                    hintText: 'dd/mm/yyy',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
-                                  ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
+                                  child: TextField(
+                                    controller: _phoneNumberController,
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      contentPadding: EdgeInsets.fromLTRB(
+                                          11 * fem,
+                                          8 * fem,
+                                          11 * fem,
+                                          10.9 * fem),
+                                      hintText: 'dd/mm/yyy',
+                                      hintStyle:
+                                          TextStyle(color: Color(0xff8390a1)),
+                                    ),
+                                    style: SafeGoogleFont(
+                                      'Urbanist',
+                                      decoration: TextDecoration.none,
+                                      fontSize: 15 * ffem,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.25 * ffem / fem,
+                                      color: Color(0xff000000),
+                                    ),
                                   ),
                                 ),
-                                 ),
                               ),
                             ],
                           ),
@@ -474,34 +515,35 @@ class S5 extends StatelessWidget {
                                   color: Color(0xfff7f8f9),
                                   borderRadius: BorderRadius.circular(8 * fem),
                                 ),
-                                 child: Material(
+                                child: Material(
                                   color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                        11 * fem,
-                                        8 * fem,
-                                        11 * fem,
-                                        10.9 * fem),
-                                    hintText: 'Your Phone Number',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
-                                  ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
+                                  child: TextField(
+                                    controller: _dateofbirthController,
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      contentPadding: EdgeInsets.fromLTRB(
+                                          11 * fem,
+                                          8 * fem,
+                                          11 * fem,
+                                          10.9 * fem),
+                                      hintText: 'Your Phone Number',
+                                      hintStyle:
+                                          TextStyle(color: Color(0xff8390a1)),
+                                    ),
+                                    style: SafeGoogleFont(
+                                      'Urbanist',
+                                      decoration: TextDecoration.none,
+                                      fontSize: 15 * ffem,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.25 * ffem / fem,
+                                      color: Color(0xff000000),
+                                    ),
                                   ),
                                 ),
-                                 ),
                               ),
                             ],
                           ),
@@ -513,6 +555,12 @@ class S5 extends StatelessWidget {
                         top: 745 * fem,
                         child: TextButton(
                           onPressed: () {
+                            uploadfields(
+                              _nameController.text,
+                              _addAddressController.text,
+                              _phoneNumberController.text,
+                              _dateofbirthController.text,
+                            );
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => S5a()),
@@ -553,7 +601,7 @@ class S5 extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),              
+                      ),
                     ],
                   ),
                 ),
