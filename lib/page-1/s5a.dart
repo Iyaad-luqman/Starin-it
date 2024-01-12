@@ -118,7 +118,7 @@ class _GenderState extends State<S5a> {
                     setState(() {
                       _selectedOption = 1;
                     });
-                    gender = "30% - 40%";
+                    gender = "Male";
                   }
                 },
                 style: TextButton.styleFrom(
@@ -594,7 +594,6 @@ class _GenderState extends State<S5a> {
                 ),
               ),
             ),
-
             Positioned(
               // save453 (2:212)
               left: 147 * fem,
