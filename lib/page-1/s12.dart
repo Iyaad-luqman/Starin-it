@@ -1,15 +1,53 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/s11.dart';
 import 'package:starinit/utils.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:file_picker/file_picker.dart';
 
 class S12 extends StatelessWidget {
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _companynameController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _skillsController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Future<void> addAchievement(Map<String, dynamic> newAchievement) async {
+      final FirebaseFirestore _db =
+          FirebaseFirestore.instance; // Firestore instance
+      final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+      if (user != null) {
+        DocumentReference docRef = _db.collection('users').doc(user.uid);
+        DocumentSnapshot docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+          List<Map<String, dynamic>> achievements =
+              (docSnap.data() as Map<String, dynamic>?)
+                          ?.containsKey('achievements') ??
+                      false
+                  ? List<Map<String, dynamic>>.from(docSnap.get('achievements'))
+                  : [];
+          await docRef.update({
+            'achievements': FieldValue.arrayUnion([newAchievement]),
+          });
+        } else {
+          await docRef.set({
+            'achievements': [newAchievement],
+          });
+        }
+      }
+    }
+
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+
     return Container(
       width: double.infinity,
       child: Container(
@@ -85,303 +123,308 @@ class S12 extends StatelessWidget {
                 ],
               ),
             ),
-                      Positioned(
-                        // group23966wye (1:62)
-                        left: 36 * fem,
-                        top: 294 * fem,
-                        child: Container(
-                          width: 321 * fem,
-                          height: 78.9 * fem,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8 * fem),
+            Positioned(
+              // group23966wye (1:62)
+              left: 36 * fem,
+              top: 294 * fem,
+              child: Container(
+                width: 321 * fem,
+                height: 78.9 * fem,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8 * fem),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // addaddressEhr (1:63)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                      child: Text(
+                        'Title:',
+                        style: SafeGoogleFont(
+                          'Urbanist',
+                          decoration: TextDecoration.none,
+                          fontSize: 23 * ffem,
+                          fontWeight: FontWeight.w700,
+                          height: 1.2 * ffem / fem,
+                          letterSpacing: 0.345 * fem,
+                          color: Color(0xffffffff),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xffe8ecf4)),
+                        color: Color(0xfff7f8f9),
+                        borderRadius: BorderRadius.circular(8 * fem),
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: TextField(
+                          controller: _titleController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                            contentPadding: EdgeInsets.fromLTRB(
+                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
+                            hintText: 'Add the title of the acheivement',
+                            hintStyle: TextStyle(color: Color(0xff8390a1)),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                // addaddressEhr (1:63)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                                child: Text(
-                                  'Title:',
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 23 * ffem,
-                                    fontWeight: FontWeight.w700,
-                                    height: 1.2 * ffem / fem,
-                                    letterSpacing: 0.345 * fem,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffe8ecf4)),
-                                  color: Color(0xfff7f8f9),
-                                  borderRadius: BorderRadius.circular(8 * fem),
-                                ),
-                                 child: Material(
-                                  color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                        11 * fem,
-                                        8 * fem,
-                                        11 * fem,
-                                        10.9 * fem),
-                                    hintText: 'Add the title of the acheivement',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
-                                  ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
-                                  ),
-                                ),
-                                 ),
-                              ),
-                            ],
+                          style: SafeGoogleFont(
+                            'Urbanist',
+                            decoration: TextDecoration.none,
+                            fontSize: 15 * ffem,
+                            fontWeight: FontWeight.w500,
+                            height: 1.25 * ffem / fem,
+                            color: Color(0xff000000),
                           ),
                         ),
                       ),
-                      SizedBox(height: 50,),
-                      Positioned(
-                        // group23966wye (1:62)
-                        left: 36 * fem,
-                        top: 164 * fem,
-                        child: Container(
-                          width: 321 * fem,
-                          height: 78.9 * fem,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8 * fem),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Positioned(
+              // group23966wye (1:62)
+              left: 36 * fem,
+              top: 164 * fem,
+              child: Container(
+                width: 321 * fem,
+                height: 78.9 * fem,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8 * fem),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // addaddressEhr (1:63)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                      child: Text(
+                        'Company Name:',
+                        style: SafeGoogleFont(
+                          'Urbanist',
+                          decoration: TextDecoration.none,
+                          fontSize: 23 * ffem,
+                          fontWeight: FontWeight.w700,
+                          height: 1.2 * ffem / fem,
+                          letterSpacing: 0.345 * fem,
+                          color: Color(0xffffffff),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xffe8ecf4)),
+                        color: Color(0xfff7f8f9),
+                        borderRadius: BorderRadius.circular(8 * fem),
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: TextField(
+                          controller: _companynameController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                            contentPadding: EdgeInsets.fromLTRB(
+                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
+                            hintText: 'Add the company name',
+                            hintStyle: TextStyle(color: Color(0xff8390a1)),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                // addaddressEhr (1:63)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                                child: Text(
-                                  'Company Name:',
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 23 * ffem,
-                                    fontWeight: FontWeight.w700,
-                                    height: 1.2 * ffem / fem,
-                                    letterSpacing: 0.345 * fem,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffe8ecf4)),
-                                  color: Color(0xfff7f8f9),
-                                  borderRadius: BorderRadius.circular(8 * fem),
-                                ),
-                                 child: Material(
-                                  color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                        11 * fem,
-                                        8 * fem,
-                                        11 * fem,
-                                        10.9 * fem),
-                                    hintText: 'Add the company name',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
-                                  ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
-                                  ),
-                                ),
-                                 ),
-                              ),
-                            ],
+                          style: SafeGoogleFont(
+                            'Urbanist',
+                            decoration: TextDecoration.none,
+                            fontSize: 15 * ffem,
+                            fontWeight: FontWeight.w500,
+                            height: 1.25 * ffem / fem,
+                            color: Color(0xff000000),
                           ),
                         ),
                       ),
-                      SizedBox(height: 50,),
-                      
-                      Positioned(
-                        // group23968yor (1:66)
-                        left: 33 * fem,
-                        top: 595 * fem,
-                        child: Container(
-                          width: 321 * fem,
-                          height: 78.9 * fem,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8 * fem),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+
+            Positioned(
+              // group23968yor (1:66)
+              left: 33 * fem,
+              top: 595 * fem,
+              child: Container(
+                width: 321 * fem,
+                height: 78.9 * fem,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8 * fem),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // dateofbirthHZe (1:67)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                      child: Text(
+                        'Date:',
+                        style: SafeGoogleFont(
+                          'Urbanist',
+                          decoration: TextDecoration.none,
+                          fontSize: 23 * ffem,
+                          fontWeight: FontWeight.w700,
+                          height: 1.2 * ffem / fem,
+                          letterSpacing: 0.345 * fem,
+                          color: Color(0xffffffff),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      // autogrouprruep3n (FXwZVhJzwnrEMUfUyURRue)
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xffe8ecf4)),
+                        color: Color(0xfff7f8f9),
+                        borderRadius: BorderRadius.circular(8 * fem),
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: TextField(
+                          controller: _dateController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                            contentPadding: EdgeInsets.fromLTRB(
+                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
+                            hintText: 'dd/mm/yyy',
+                            hintStyle: TextStyle(color: Color(0xff8390a1)),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                // dateofbirthHZe (1:67)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                                child: Text(
-                                  'Date:',
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 23 * ffem,
-                                    fontWeight: FontWeight.w700,
-                                    height: 1.2 * ffem / fem,
-                                    letterSpacing: 0.345 * fem,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                // autogrouprruep3n (FXwZVhJzwnrEMUfUyURRue)
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffe8ecf4)),
-                                  color: Color(0xfff7f8f9),
-                                  borderRadius: BorderRadius.circular(8 * fem),
-                                ),
-                                 child: Material(
-                                  color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                        11 * fem,
-                                        8 * fem,
-                                        11 * fem,
-                                        10.9 * fem),
-                                    hintText: 'dd/mm/yyy',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
-                                  ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
-                                  ),
-                                ),
-                                 ),
-                              ),
-                            ],
+                          style: SafeGoogleFont(
+                            'Urbanist',
+                            decoration: TextDecoration.none,
+                            fontSize: 15 * ffem,
+                            fontWeight: FontWeight.w500,
+                            height: 1.25 * ffem / fem,
+                            color: Color(0xff000000),
                           ),
                         ),
                       ),
-                      SizedBox(height: 50,),
-                      
-                      Positioned(
-                        // group23967JUk (1:70)
-                        left: 36 * fem,
-                        top: 445 * fem,
-                        child: Container(
-                          width: 321 * fem,
-                          height: 78.9 * fem,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8 * fem),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+
+            Positioned(
+              // group23967JUk (1:70)
+              left: 36 * fem,
+              top: 445 * fem,
+              child: Container(
+                width: 321 * fem,
+                height: 78.9 * fem,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8 * fem),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // phonenumberzMa (1:71)
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
+                      child: Text(
+                        'Skills:',
+                        style: SafeGoogleFont(
+                          'Urbanist',
+                          decoration: TextDecoration.none,
+                          fontSize: 23 * ffem,
+                          fontWeight: FontWeight.w700,
+                          height: 1.2 * ffem / fem,
+                          letterSpacing: 0.345 * fem,
+                          color: Color(0xffffffff),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      // autogroupiwd6Tkx (FXwZdwaG3Dkp6MFHNLiwd6)
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xffe8ecf4)),
+                        color: Color(0xfff7f8f9),
+                        borderRadius: BorderRadius.circular(8 * fem),
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: TextField(
+                          controller: _skillsController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                            contentPadding: EdgeInsets.fromLTRB(
+                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
+                            hintText: 'Add skills associated with spaces',
+                            hintStyle: TextStyle(color: Color(0xff8390a1)),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                // phonenumberzMa (1:71)
-                                margin: EdgeInsets.fromLTRB(
-                                    0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                                child: Text(
-                                  'Skills:',
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 23 * ffem,
-                                    fontWeight: FontWeight.w700,
-                                    height: 1.2 * ffem / fem,
-                                    letterSpacing: 0.345 * fem,
-                                    color: Color(0xffffffff),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                // autogroupiwd6Tkx (FXwZdwaG3Dkp6MFHNLiwd6)
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffe8ecf4)),
-                                  color: Color(0xfff7f8f9),
-                                  borderRadius: BorderRadius.circular(8 * fem),
-                                ),
-                                 child: Material(
-                                  color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                        11 * fem,
-                                        8 * fem,
-                                        11 * fem,
-                                        10.9 * fem),
-                                    hintText: 'Add skills associated with spaces',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
-                                  ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
-                                  ),
-                                ),
-                                 ),
-                              ),
-                            ],
+                          style: SafeGoogleFont(
+                            'Urbanist',
+                            decoration: TextDecoration.none,
+                            fontSize: 15 * ffem,
+                            fontWeight: FontWeight.w500,
+                            height: 1.25 * ffem / fem,
+                            color: Color(0xff000000),
                           ),
                         ),
                       ),
-                      SizedBox(height: 50,),
-            // 
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            //
             Container(
               // group239754Mz (2:68)
               margin:
                   EdgeInsets.fromLTRB(84 * fem, 0 * fem, 79.57 * fem, 36 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  FilePickerResult? result =
+                      await FilePicker.platform.pickFiles();
+
+                  if (result != null) {
+                    File file = File(result.files.single.path!);
+                  } else {
+                    // User canceled the picker
+                  }
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -432,7 +475,18 @@ class S12 extends StatelessWidget {
               margin:
                   EdgeInsets.fromLTRB(110 * fem, 0 * fem, 91 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  addAchievement({
+                    'title': _titleController.text,
+                    'company_name': _companynameController.text,
+                    'date': _dateController.text,
+                    'skills': _skillsController.text,
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => S11()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
