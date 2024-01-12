@@ -594,39 +594,7 @@ class _GenderState extends State<S5a> {
                 ),
               ),
             ),
-            Positioned(
-              left: 122 * fem,
-              top: 633 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 182 * fem,
-                  height: 44 * fem,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Color(0x7fffffff)),
-                      color: Color(0xff19183e),
-                      borderRadius: BorderRadius.circular(15 * fem),
-                    ),
-                    child: TextButton.icon(
-                      onPressed: () async {
-                        FilePickerResult? result =
-                            await FilePicker.platform.pickFiles();
 
-                        if (result != null) {
-                          File file = File(result.files.single.path!);
-                        } else {
-                          // User canceled the picker
-                        }
-                      },
-                      icon: Icon(Icons.upload_file,
-                          color: Colors.white), // replace with your icon
-                      label: Text('Upload Certificate',
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                  ),
-                ),
-              ),
-            ),
             Positioned(
               // save453 (2:212)
               left: 147 * fem,
