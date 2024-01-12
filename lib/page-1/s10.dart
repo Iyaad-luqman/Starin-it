@@ -35,10 +35,6 @@ class S10 extends StatelessWidget {
           await docRef.update({
             'experiences': FieldValue.arrayUnion([newExperience]),
           });
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => S9()),
-          );
         } else {
           await docRef.set({
             'experiences': [newExperience],
