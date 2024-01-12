@@ -28,16 +28,22 @@ class S13 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              // vector3nL (2:44)
-              margin: EdgeInsets.fromLTRB(
-                  0 * fem, 0 * fem, 298.06 * fem, 24.13 * fem),
-              width: 5.94 * fem,
-              height: 11.88 * fem,
-              child: Image.asset(
-                'assets/page-1/images/vector-XvC.png',
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+                // Add your desired onPressed functionality here
+              },
+              child: Container(
+                // vector3nL (2:44)
+                margin: EdgeInsets.fromLTRB(
+                    0 * fem, 0 * fem, 298.06 * fem, 24.13 * fem),
                 width: 5.94 * fem,
                 height: 11.88 * fem,
+                child: Image.asset(
+                  'assets/page-1/images/vector-XvC.png',
+                  width: 5.94 * fem,
+                  height: 11.88 * fem,
+                ),
               ),
             ),
             Container(
@@ -53,7 +59,9 @@ class S13 extends StatelessWidget {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 3 * fem, 7 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                    
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -297,9 +305,6 @@ class S13 extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
 
             Positioned(
               // group23967JUk (1:70)
@@ -324,7 +329,7 @@ class S13 extends StatelessWidget {
             Container(
               // group239754Mz (2:68)
               margin:
-                  EdgeInsets.fromLTRB(84 * fem, 0 * fem, 79.57 * fem, 36 * fem),
+                  EdgeInsets.fromLTRB(84 * fem, 0 * fem, 79.57 * fem, 10 * fem),
               child: TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
