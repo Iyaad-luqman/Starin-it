@@ -3,10 +3,46 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
+import 'package:file_picker/file_picker.dart';
+import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class S13 extends StatelessWidget {
+  final TextEditingController _companyNameController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _websiteController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Future<void> uploadfields(
+      String param1,
+      String param2,
+      String param3,
+    ) async {
+      final FirebaseFirestore _db =
+          FirebaseFirestore.instance; // Firestore instance
+      final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+      if (user != null) {
+        DocumentReference docRef = _db.collection('users').doc(user.uid);
+        DocumentSnapshot docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+          await docRef.update({
+            'company_name': param1,
+            'company_description': param2,
+            'company_website': param3,
+          });
+        } else {
+          await docRef.set({
+            'company_name': param1,
+            'company_description': param2,
+            'company_website': param3,
+          });
+        }
+      }
+    }
+
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -59,9 +95,7 @@ class S13 extends StatelessWidget {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 3 * fem, 7 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {
-                    
-                      },
+                      onPressed: () {},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -137,6 +171,7 @@ class S13 extends StatelessWidget {
                       child: Material(
                         color: Colors.transparent,
                         child: TextField(
+                          controller: _companyNameController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,
@@ -207,6 +242,7 @@ class S13 extends StatelessWidget {
                       child: Material(
                         color: Colors.transparent,
                         child: TextField(
+                          controller: _descriptionController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,
@@ -279,6 +315,7 @@ class S13 extends StatelessWidget {
                       child: Material(
                         color: Colors.transparent,
                         child: TextField(
+                          controller: _websiteController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,
@@ -331,7 +368,16 @@ class S13 extends StatelessWidget {
               margin:
                   EdgeInsets.fromLTRB(84 * fem, 0 * fem, 79.57 * fem, 10 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  FilePickerResult? result =
+                      await FilePicker.platform.pickFiles();
+
+                  if (result != null) {
+                    File file = File(result.files.single.path!);
+                  } else {
+                    // User canceled the picker
+                  }
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -382,7 +428,13 @@ class S13 extends StatelessWidget {
               margin:
                   EdgeInsets.fromLTRB(110 * fem, 0 * fem, 91 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  uploadfields(
+                    _companyNameController.text,
+                    _descriptionController.text,
+                    _websiteController.text,
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
