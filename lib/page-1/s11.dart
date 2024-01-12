@@ -267,7 +267,7 @@ class S11 extends StatelessWidget {
             Container(
               // autogroupwvddaqH (8VbXWjyzNjQaEBN83awVDd)
               margin: EdgeInsets.fromLTRB(
-                  94 * fem, 0 * fem, 62.5 * fem, 50.88 * fem),
+                  0 * fem, 0 * fem,0 * fem, 0* fem),
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
