@@ -345,7 +345,7 @@ class Enrolled extends StatelessWidget {
                   width: 27.54*fem,
                   height: 25.28*fem,
                   child: Image.asset(
-                    'assets/page-1/images/book-open.png',
+                    'assets/page-1/images/book-open-blue.png',
                     width: 27.54*fem,
                     height: 25.28*fem,
                   ),
