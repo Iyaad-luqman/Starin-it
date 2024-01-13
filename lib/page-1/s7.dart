@@ -498,7 +498,7 @@ class _ThState extends State<S7> {
               ),
             ),
             Positioned(
-              left: 122 * fem,
+              left: 110 * fem,
               top: 583 * fem,
               child: Align(
                 child: SizedBox(
