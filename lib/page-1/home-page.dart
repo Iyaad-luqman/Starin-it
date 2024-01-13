@@ -33,29 +33,34 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(
                   0.01 * fem, 2.44 * fem, 0.01 * fem, 4 * fem),
               width: double.infinity,
+              // height: MediaQuery.of(context).size.height,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    // starEiQ (15:1395)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 27.44 * fem),
-                    child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                      ),
-                      child: Container(
-                        width: 20.03 * fem,
-                        height: 19.12 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/star-fTi.png',
-                          width: 20.03 * fem,
-                          height: 19.12 * fem,
-                        ),
-                      ),
-                    ),
+                  SizedBox(
+                    height: 50 * fem,
+                  
                   ),
+                  // Container(
+                  //   // starEiQ (15:1395)
+                  //   margin: EdgeInsets.fromLTRB(
+                  //       0 * fem, 0 * fem, 0 * fem, 27.44 * fem),
+                  //   child: TextButton(
+                  //     onPressed: () {},
+                  //     style: TextButton.styleFrom(
+                  //       padding: EdgeInsets.zero,
+                  //     ),
+                  //     child: Container(
+                  //       width: 20.03 * fem,
+                  //       height: 19.12 * fem,
+                  //       child: Image.asset(
+                  //         'assets/page-1/images/star-fTi.png',
+                  //         width: 20.03 * fem,
+                  //         height: 19.12 * fem,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   Container(
                     // autogroup5dvcj9N (DLSqzpD46L4XjcsZVd5dvC)
                     margin: EdgeInsets.fromLTRB(
@@ -202,9 +207,9 @@ class Home extends StatelessWidget {
             ),
             Container(
               // autogroupdeipLyi (DLSrd8VspQJARd1ozrdeip)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 17 * fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
               width: double.infinity,
-              height: 105 * fem,
+              height: MediaQuery.of(context).size.height,
               child: Stack(
                 children: [
                   Positioned(
@@ -323,6 +328,12 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ),
+              SingleChildScrollView(
+
+                child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height), // Set the minimum height to the screen height
+                    child: Column(
+                    children: <Widget>[
                   Positioned(
                     // johnmcchenryBHW (15:1386)
                     left: 83 * fem,
@@ -450,9 +461,7 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
-              ),
-            ),
+
             Container(
               // weliveinaworldwherebusinesscyc (15:1391)
               margin: EdgeInsets.fromLTRB(25 * fem, 0 * fem, 0 * fem, 0 * fem),
@@ -477,162 +486,162 @@ class Home extends StatelessWidget {
               height: 1061 * fem,
               child: Stack(
                 children: [
-                  Stack(
-                    children: <Widget>[
-                      Positioned(
-                        bottom: 0.0, // specify the bottom offset
-                        left: 0.0, // specify the left offset
-                        child: Container(
-                          width: 500 * fem, // Set width to screen width
-                          height: 90 * fem, // Set height to screen height
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Color.fromARGB(108, 1, 24, 99),
-                                Color.fromARGB(26, 1, 63, 179)
-                              ], // Gradient colors
-                            ),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30.0),
-                              topRight: Radius.circular(30.0),
-                            ), // Add curved border on the top
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Positioned(
-                                top: 780.0,
-                                left: 0.0, // specify the left offset
-                                child: Container(
-                                  width: 500 * fem, // Set width to screen width
-                                  height:
-                                      90 * fem, // Set height to screen height
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: [
-                                        Color.fromARGB(108, 1, 24, 99),
-                                        Color.fromARGB(26, 1, 63, 179)
-                                      ], // Gradient colors
-                                    ),
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(30.0),
-                                      topRight: Radius.circular(30.0),
-                                    ), // Add curved border on the top
-                                  ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Positioned(
-                                        top: 400, // specify the top offset
-                                        left: 15, // specify the left offset
-                                        child: TextButton(
-                                          onPressed: () {},
-                                          style: TextButton.styleFrom(
-                                            padding: EdgeInsets.zero,
-                                          ),
-                                          child: Container(
-                                            width: 25.5 * fem,
-                                            height: 24.2 * fem,
-                                            child: Image.asset(
-                                              'assets/page-1/images/home-alt.png',
-                                              width: 25.5 * fem,
-                                              height: 24.2 * fem,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 40 * fem,
-                                      ),
-                                      Positioned(
-                                        top: 350, // specify the top offset
-                                        left:
-                                            150, // specify a different left offset
-                                        child: TextButton(
-                                          onPressed: () {},
-                                          style: TextButton.styleFrom(
-                                            padding: EdgeInsets.zero,
-                                          ),
-                                          child: Container(
-                                            width: 31 * fem,
-                                            height: 31 * fem,
-                                            child: Image.asset(
-                                              'assets/page-1/images/search.png',
-                                              width: 500 * fem,
-                                              height: 31 * fem,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 40 * fem,
-                                      ),
-                                      Positioned(
-                                        top:
-                                            350, // specify a different top offset
-                                        left: 45, // specify the left offset
-                                        child: TextButton(
-                                          onPressed: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Enrolled()),
-                                            );
-                                          },
-                                          style: TextButton.styleFrom(
-                                            padding: EdgeInsets.zero,
-                                          ),
-                                          child: Container(
-                                            width: 27.54 * fem,
-                                            height: 25.28 * fem,
-                                            child: Image.asset(
-                                              'assets/page-1/images/book-open.png',
-                                              width: 27.54 * fem,
-                                              height: 25.28 * fem,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 45 * fem,
-                                      ),
-                                      Positioned(
-                                        top:
-                                            350, // specify a different top offset
-                                        left:
-                                            100, // specify a different left offset
-                                        child: TextButton(
-                                          onPressed: () {},
-                                          style: TextButton.styleFrom(
-                                            padding: EdgeInsets.zero,
-                                          ),
-                                          child: Container(
-                                            width: 30 * fem,
-                                            height: 24.75 * fem,
-                                            child: Image.asset(
-                                              'assets/page-1/images/image5.png',
-                                              width: 30 * fem,
-                                              height: 24.75 * fem,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  // Stack(
+                  //   children: <Widget>[
+                  //     Positioned(
+                  //       bottom: 0.0, // specify the bottom offset
+                  //       left: 0.0, // specify the left offset
+                  //       child: Container(
+                  //         width: 500 * fem, // Set width to screen width
+                  //         height: 90 * fem, // Set height to screen height
+                  //         decoration: BoxDecoration(
+                  //           gradient: LinearGradient(
+                  //             begin: Alignment.topLeft,
+                  //             end: Alignment.bottomRight,
+                  //             colors: [
+                  //               Color.fromARGB(108, 1, 24, 99),
+                  //               Color.fromARGB(26, 1, 63, 179)
+                  //             ], // Gradient colors
+                  //           ),
+                  //           borderRadius: BorderRadius.only(
+                  //             topLeft: Radius.circular(30.0),
+                  //             topRight: Radius.circular(30.0),
+                  //           ), // Add curved border on the top
+                  //         ),
+                  //         child: Row(
+                  //           crossAxisAlignment: CrossAxisAlignment.center,
+                  //           children: [
+                  //             Positioned(
+                  //               top: 780.0,
+                  //               left: 0.0, // specify the left offset
+                  //               child: Container(
+                  //                 width: 500 * fem, // Set width to screen width
+                  //                 height:
+                  //                     90 * fem, // Set height to screen height
+                  //                 decoration: BoxDecoration(
+                  //                   gradient: LinearGradient(
+                  //                     begin: Alignment.topLeft,
+                  //                     end: Alignment.bottomRight,
+                  //                     colors: [
+                  //                       Color.fromARGB(108, 1, 24, 99),
+                  //                       Color.fromARGB(26, 1, 63, 179)
+                  //                     ], // Gradient colors
+                  //                   ),
+                  //                   borderRadius: BorderRadius.only(
+                  //                     topLeft: Radius.circular(30.0),
+                  //                     topRight: Radius.circular(30.0),
+                  //                   ), // Add curved border on the top
+                  //                 ),
+                  //                 child: Row(
+                  //                   crossAxisAlignment:
+                  //                       CrossAxisAlignment.center,
+                  //                   children: [
+                  //                     Positioned(
+                  //                       top: 400, // specify the top offset
+                  //                       left: 15, // specify the left offset
+                  //                       child: TextButton(
+                  //                         onPressed: () {},
+                  //                         style: TextButton.styleFrom(
+                  //                           padding: EdgeInsets.zero,
+                  //                         ),
+                  //                         child: Container(
+                  //                           width: 25.5 * fem,
+                  //                           height: 24.2 * fem,
+                  //                           child: Image.asset(
+                  //                             'assets/page-1/images/home-alt.png',
+                  //                             width: 25.5 * fem,
+                  //                             height: 24.2 * fem,
+                  //                           ),
+                  //                         ),
+                  //                       ),
+                  //                     ),
+                  //                     SizedBox(
+                  //                       width: 40 * fem,
+                  //                     ),
+                  //                     Positioned(
+                  //                       top: 350, // specify the top offset
+                  //                       left:
+                  //                           150, // specify a different left offset
+                  //                       child: TextButton(
+                  //                         onPressed: () {},
+                  //                         style: TextButton.styleFrom(
+                  //                           padding: EdgeInsets.zero,
+                  //                         ),
+                  //                         child: Container(
+                  //                           width: 31 * fem,
+                  //                           height: 31 * fem,
+                  //                           child: Image.asset(
+                  //                             'assets/page-1/images/search.png',
+                  //                             width: 500 * fem,
+                  //                             height: 31 * fem,
+                  //                           ),
+                  //                         ),
+                  //                       ),
+                  //                     ),
+                  //                     SizedBox(
+                  //                       width: 40 * fem,
+                  //                     ),
+                  //                     Positioned(
+                  //                       top:
+                  //                           350, // specify a different top offset
+                  //                       left: 45, // specify the left offset
+                  //                       child: TextButton(
+                  //                         onPressed: () {
+                  //                           Navigator.push(
+                  //                             context,
+                  //                             MaterialPageRoute(
+                  //                                 builder: (context) =>
+                  //                                     Enrolled()),
+                  //                           );
+                  //                         },
+                  //                         style: TextButton.styleFrom(
+                  //                           padding: EdgeInsets.zero,
+                  //                         ),
+                  //                         child: Container(
+                  //                           width: 27.54 * fem,
+                  //                           height: 25.28 * fem,
+                  //                           child: Image.asset(
+                  //                             'assets/page-1/images/book-open.png',
+                  //                             width: 27.54 * fem,
+                  //                             height: 25.28 * fem,
+                  //                           ),
+                  //                         ),
+                  //                       ),
+                  //                     ),
+                  //                     SizedBox(
+                  //                       width: 45 * fem,
+                  //                     ),
+                  //                     Positioned(
+                  //                       top:
+                  //                           350, // specify a different top offset
+                  //                       left:
+                  //                           100, // specify a different left offset
+                  //                       child: TextButton(
+                  //                         onPressed: () {},
+                  //                         style: TextButton.styleFrom(
+                  //                           padding: EdgeInsets.zero,
+                  //                         ),
+                  //                         child: Container(
+                  //                           width: 30 * fem,
+                  //                           height: 24.75 * fem,
+                  //                           child: Image.asset(
+                  //                             'assets/page-1/images/image5.png',
+                  //                             width: 30 * fem,
+                  //                             height: 24.75 * fem,
+                  //                           ),
+                  //                         ),
+                  //                       ),
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //             )
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   Positioned(
                     // rectangle177Y7N (15:1392)
                     left: 59 * fem,
@@ -1005,8 +1014,17 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
+                                ],
               ),
+            ),
+                ],
+              
+            ),
+                              ),               
+                  ),
+                               ],
+              ),
+          
             ),
           ],
         ),
