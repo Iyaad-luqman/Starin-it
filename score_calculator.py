@@ -1,49 +1,25 @@
 import firebase_admin
-from firebase_admin import credentials, db
+from firebase_admin import credentials, firestore
 import openai
-
-def rate_achievement(prompt):
-    openai.api_key = 'YOUR_OPENAI_API_KEY'  # Replace with your OpenAI API key
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        temperature=0.7,
-        max_tokens=50,
-        top_p=1.0,
-        frequency_penalty=0.0,
-        presence_penalty=0.0
-    )
-
-    try:
-        rating = int(response.choices[0].text.strip())
-        return rating
-    except ValueError:
-        return 0
-
-# Example usage:
-prompt = """
-{
-  "prompt": "Rate the achievement based on given criteria.",
-  "instructions": [
-    "Consider the achievement's significance and recognition.",
-    "For renowned hackathons or certifications, rate between 13 to 15.",
-    "For moderate-level or localized hackathons, rate between 3 to 7.",
-    "For common certifications, rate around 2 out of 10.",
-    "For challenging and industrial-standard certifications, rate up to 15 out of 20.",
-    "Use the provided context for specific certifications and hackathons."
-  ],
-  "context": "The API user wants to get a rating for various achievements, including hackathons and certifications, based on specific criteria provided in the instructions. The rating should reflect the achievement's significance, competitiveness, and practical value."
-}
-"""
-
-result = rate_achievement(prompt)
+from datetime import datetime
+import google.generativeai as genai
 
 
-# Replace with your Firebase credentials JSON file
-cred = credentials.Certificate('path/to/your/credentials.json')
-firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://your-firebase-project-id.firebaseio.com'
-})
+
+
+
+cred = credentials.Certificate('cred.json')
+firebase_admin.initialize_app(cred)
+
+# Get a Firestore client
+db = firestore.client()
+
+# Replace with the actual path to your data
+doc_ref = db.collection('users').document('i5Irevb4pQZDM2Vc96FG6gXXRxz2')
+
+# Assuming 'school_marks', 'uni_marks', 'pg_done', 'phd_done', and 'experience' are keys in your data
+doc = doc_ref.get()
+
 def allot_points_school(school_marks):
     if "30%-40%" in school_marks:
         return 10
@@ -63,7 +39,15 @@ def allot_points_uni(uni_marks):
     return 0
 
 
-def allot_points_experience(year_range):
+def allot_points_experience(experience_data):
+    total_months = 0
+    for experience in experience_data:
+        start_date = datetime.strptime(experience['start_date'], '%m/%y')
+        end_date = datetime.strptime(experience['end_date'], '%m/%y')
+        total_months += (end_date.year - start_date.year) * 12 + end_date.month - start_date.month
+
+    year_range = total_months / 12
+
     if year_range > 25:
         return 200
     elif 20 <= year_range <= 25:
@@ -80,66 +64,114 @@ def allot_points_experience(year_range):
         return 10
     return 0
 
-def main():
-    # Replace with the actual path to your data
-    ref = db.reference('/path/to/your/data')
 
-    # Assuming 'school_marks', 'uni_marks', 'pg_done', 'phd_done', and 'experience' are keys in your data
-    school_marks = ref.child('school_marks').get()
-    uni_marks = ref.child('uni_marks').get()
-    pg_done = ref.child('pg_done').get()
-    phd_done = ref.child('phd_done').get()
-
-    experience_data = ref.child('experience').get()
-    
-    if all((school_marks, uni_marks, pg_done, phd_done, experience_data)) is not None:
-        # Calculate points for school_marks and uni_marks
-        points_school = allot_points_school(school_marks)
-        points_uni = allot_points_uni(uni_marks)
-
-        # Calculate points for PG and PhD
-        points_pg = 30 if pg_done == 'yes' else 0
-        points_phd = 30 if phd_done == 'yes' else 0
-
-        # Calculate points for experience
-        experience_points = 0
-        for exp in experience_data.values():
-            start_date = exp.get('start_date', '')
-            end_date = exp.get('end_date', '')
-
-            # Calculate year range from start_date and end_date
-            year_range = calculate_year_range(start_date, end_date)
-
-            # Allot points based on the year range
-            experience_points += allot_points_experience(year_range)
-
-        # Compute total score
-        total_score = points_school + points_uni + points_pg + points_phd + experience_points
-
-        # Print or store the results as needed
-        print(f"School Marks: {school_marks}%")
-        print(f"University Marks: {uni_marks}")
-        print(f"PG Done: {pg_done}")
-        print(f"PhD Done: {phd_done}")
-        print(f"Experience Points: {experience_points}")
-        print(f"Total Score: {total_score}")
+def convert_to_stars(score):
+    if score < 50:
+        stars = 0
+    elif score < 100:
+        stars = 1
+    elif score < 200:
+        stars = 2
+    elif score < 300:
+        stars = 3
+    elif score < 500:
+        stars = 4
     else:
-        print("Error: Unable to retrieve data from Firebase.")
+        stars = 0
 
-def calculate_year_range(start_date, end_date):
-    # Assuming start_date and end_date are in the format 'MM-DD'
-    # Convert string dates to datetime objects for easier manipulation
-    start_date = datetime.strptime(start_date, "%m-%d")
-    end_date = datetime.strptime(end_date, "%m-%d")
+    return round(stars + 0.01 * (score % 100), 2)
 
-    # Calculate the year range
-    year_range = (end_date - start_date).days / 365
 
-    return year_range
+def rate_achievement(title,description):
 
-if _name_ == "_main_":
-    from datetime import datetime
-    main()
+    genai.configure(api_key="***REMOVED***")
+
+    # Set up the model
+    generation_config = {
+    "temperature": 0.9,
+    "top_p": 1,
+    "top_k": 1,
+    "max_output_tokens": 2048,
+    }
+
+    safety_settings = [
+    {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    },
+    {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    },
+    {
+        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    },
+    {
+        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+    },
+    ]
+
+    model = genai.GenerativeModel(model_name="gemini-pro",
+                                generation_config=generation_config,
+                                safety_settings=safety_settings)
+
+    prompt_parts = [
+    "{\n \"prompt\": \"Rate the achievement based on given criteria.\",\n \"instructions\": [\n  \"Use the achievement's description for  significance, recognition, How difficult it is to achieve and how rare it is.\",\n  \"For renowned hackathons  rate between 7 to 13 based on recognition ann difficulty.\",\n  \"For moderate-level or localized hackathons, rate between 5 to 7 based on recognition ann difficulty.\",\n  \"For common certifications, rate around 2 out of 4 based on recognition ann difficulty.\",\n\t\"Provide the rating scores first enclosed in |||<score>|||\n  \"For challenging and industrial-standard certifications from renowed and high value comapanies, rate up to 15 out of 20.\",\n  \"Use the provided description for specific certifications and hackathons.\",\n\t\"Consider how much difficult it is to achieve it, to give a proper rating. If its too common and easy to achieve, give it very less rating like 1-5\",\n\t\"Consider how much value a HR would give to that achievement\"\n\t\"Achievements like Udemy and Nptel are widespread and easy to achieve, so they should only have 2-4 scores. Achievements like SIH Winner and similar ones are rare because it happens only once a year. So give it high scores like 10. So Use context \"\n\n ],\n\n \"context\": \"The API user wants to get a rating for various achievements, including hackathons and certifications, based on specific criteria provided in the instructions. The rating should reflect the achievement's significance, competitiveness, and practical value. Give rating for \""+ title +"\"\" with description\"" + description + "\"}" ,
+    ]
+
+    response = model.generate_content(prompt_parts)
+    response = response.text
+    response = response.split("|||")
+    response = response[1]
+    return int(response)
+
+def fetch_all_achievements(achievements):
+    achievement_score = 0
+    for achievement in achievements:
+        title = achievement['title']
+        description = achievement['description']
+        rate = rate_achievement(title,description)
+        achievement_score += rate
+    return achievement_score
+if doc.exists:
+    data = doc.to_dict()
+    school_marks = data.get('school_marks')
+    uni_marks = data.get('uni_marks')
+    pg_done = data.get('pg_done')
+    phd_done = data.get('phd_done')
+    experience_data = data.get('experiences')
+    achievements = data.get('achievements')
+else:
+    print('No such document!')
     
-    
-    
+points_pg = 30 if pg_done == 'yes' else 0
+points_phd = 30 if phd_done == 'yes' else 0  
+
+score = 0
+score += allot_points_school(school_marks)
+score += allot_points_uni(uni_marks)
+score += points_pg
+score += points_phd
+score += allot_points_experience(experience_data)
+score += fetch_all_achievements(achievements)
+
+print(score)
+print("\n")
+
+star_score = convert_to_stars(score)
+print(f"For a score of {score}, the stars are: {star_score}")
+
+# Update the document with the new star score
+doc_ref.update({'star_score': star_score})
+doc_ref.update({'overall_score': score})
+
+
+
+
+
+
+
+
+
