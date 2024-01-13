@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/courses1.dart';
-import 'package:starinit/page-1/profile.dart';
-import 'package:starinit/page-1/search.dart';
+import 'package:starinit/page-1/enrolled-new-courses.dart';
 import 'package:starinit/utils.dart';
 
 class Home extends StatelessWidget {
@@ -56,13 +54,7 @@ class Home extends StatelessWidget {
                       children: [
                         TextButton(
                           // image73vk (15:1420)
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Profile()),
-                            );
-                          },
+                          onPressed: () {},
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
