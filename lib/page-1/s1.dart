@@ -61,10 +61,10 @@ class S1 extends StatelessWidget {
                         top: 0 * fem,
                         child: Align(
                           child: SizedBox(
-                            width: 640 * fem,
-                            height: 1429 * fem,
+                            width: 400 * fem,
+                            height: 830 * fem,
                             child: Image.asset(
-                              'assets/page-1/images/image-1.png',
+                              'assets/page-1/images/s1.png',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -130,7 +130,7 @@ class S1 extends StatelessWidget {
                     width: 345 * fem,
                     height: 59 * fem,
                     decoration: BoxDecoration(
-                      color: Color(0xffffffff),
+                      color: Color(0xff1e232c),
                       borderRadius: BorderRadius.circular(117 * fem),
                     ),
                     child: Center(
@@ -143,7 +143,7 @@ class S1 extends StatelessWidget {
                           fontSize: 20 * ffem,
                           fontWeight: FontWeight.w600,
                           height: 1.2 * ffem / fem,
-                          color: Color(0xff1e232c),
+                          color: Color.fromARGB(255, 247, 247, 248),
                         ),
                       ),
                     ),
@@ -160,21 +160,6 @@ class S1 extends StatelessWidget {
                     height: 126 * fem,
                     child: Image.asset(
                       'assets/page-1/images/image-removebg-preview-1.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                // untitleddesign11iY5 (1:41)
-                left: 6 * fem,
-                top: 101 * fem,
-                child: Align(
-                  child: SizedBox(
-                    width: 402 * fem,
-                    height: 501 * fem,
-                    child: Image.asset(
-                      'assets/page-1/images/untitled-design-1-1.png',
                       fit: BoxFit.cover,
                     ),
                   ),
