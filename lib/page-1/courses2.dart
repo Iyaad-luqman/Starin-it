@@ -448,7 +448,7 @@ class Courses2 extends StatelessWidget {
                           Container(
                             // homealtnNG (32:2360)
                             margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 60.25 * fem, 2.03 * fem),
+                                0 * fem, 0 * fem, 35.25 * fem, 2.03 * fem),
                             child: TextButton(
                               onPressed: () {
                                 Navigator.push(
@@ -474,7 +474,7 @@ class Courses2 extends StatelessWidget {
                           Container(
                             // searchfgx (32:2359)
                             margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 72.73 * fem, 0 * fem),
+                                0 * fem, 0 * fem, 35.73 * fem, 0 * fem),
                             child: TextButton(
                               onPressed: () {
                                 Navigator.push(
@@ -500,7 +500,7 @@ class Courses2 extends StatelessWidget {
                           Container(
                             // bookopenAtc (32:2357)
                             margin: EdgeInsets.fromLTRB(
-                                0 * fem, 2.96 * fem, 64.73 * fem, 0 * fem),
+                                0 * fem, 2.96 * fem, 35.73 * fem, 0 * fem),
                             child: TextButton(
                               onPressed: () {
                                 Navigator.push(
@@ -516,7 +516,7 @@ class Courses2 extends StatelessWidget {
                                 width: 27.54 * fem,
                                 height: 25.28 * fem,
                                 child: Image.asset(
-                                  'assets/page-1/images/book-open.png',
+                                  'assets/page-1/images/book-open-blue.png',
                                   width: 27.54 * fem,
                                   height: 25.28 * fem,
                                 ),
@@ -536,7 +536,7 @@ class Courses2 extends StatelessWidget {
                                 width: 30 * fem,
                                 height: 24.75 * fem,
                                 child: Image.asset(
-                                  'assets/page-1/images/suitcase-alt.png',
+                                  'assets/page-1/images/suitcase-white.png',
                                   width: 30 * fem,
                                   height: 24.75 * fem,
                                 ),
