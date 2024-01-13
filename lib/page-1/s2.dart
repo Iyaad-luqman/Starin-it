@@ -183,7 +183,11 @@ class S2 extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 35 * fem),
               child: TextButton(
                 onPressed: () {
-                  login();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S4()),
+                            );
+                  // login();
                 },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
