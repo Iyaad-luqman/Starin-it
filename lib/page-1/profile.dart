@@ -3,14 +3,41 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Profile extends StatelessWidget {
+  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
+  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+  Future<String> fetchData() async {
+    DocumentReference docRef = _db.collection('users').doc(user!.uid);
+    DocumentSnapshot docSnap = await docRef.get();
+
+    String star_score = docSnap.get('star_score') ?? '0';
+
+    return star_score;
+  }
+  
+  
   @override
+
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
+      return FutureBuilder<String>(
+      future: fetchData(),
+      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator(); // Show a loading spinner while waiting for fetchData to complete
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
+        } else {
+          String star_score = snapshot.data!; // Store the overallScore in a variable
+
+          // Use overallScore to build the rest of your UI...
+          return Container(
       width: double.infinity,
       child: Container(
         // profilej5e (36:2582)
@@ -25,6 +52,7 @@ class Profile extends StatelessWidget {
             ),
           ),
         ),
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -120,7 +148,7 @@ class Profile extends StatelessWidget {
                         width: 47 * fem,
                         height: 45 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/whatsapp-image-2024-01-13-at-1200-1-photoroom-5.png',
+                          'assets/page-1/images/fullstar.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -135,7 +163,7 @@ class Profile extends StatelessWidget {
                         width: 47 * fem,
                         height: 45 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/whatsapp-image-2024-01-13-at-1200-1-photoroom-6.png',
+                          'assets/page-1/images/full-star-1.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -150,7 +178,7 @@ class Profile extends StatelessWidget {
                         width: 36 * fem,
                         height: 54 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/whatsapp-image-2024-01-13-at-121041-am-photoroom-1.png',
+                          'assets/page-1/images/halfquator.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -165,7 +193,7 @@ class Profile extends StatelessWidget {
                         width: 28 * fem,
                         height: 51 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/whatsapp-image-2024-01-13-at-121028-am-photoroom-1.png',
+                          'assets/page-1/images/half.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -180,7 +208,7 @@ class Profile extends StatelessWidget {
                         width: 21 * fem,
                         height: 56 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/whatsapp-image-2024-01-13-at-121016-am-photoroom-1.png',
+                          'assets/page-1/images/quator.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -200,7 +228,7 @@ class Profile extends StatelessWidget {
                             padding: EdgeInsets.zero,
                           ),
                           child: Image.asset(
-                            'assets/page-1/images/whatsapp-image-2024-01-12-at-115024-pm-1-photoroom-1.png',
+                            'assets/page-1/images/pfp.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -216,7 +244,7 @@ class Profile extends StatelessWidget {
                         width: 80 * fem,
                         height: 17 * fem,
                         child: Text(
-                          '2.23 Starred ',
+                          '${star_score} Starred ',
                           style: SafeGoogleFont(
                             'Urbanist',
                             decoration: TextDecoration.none,
@@ -696,5 +724,9 @@ class Profile extends StatelessWidget {
         ),
       ),
     );
+ 
+     }
+}
+      );
   }
 }

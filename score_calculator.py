@@ -164,8 +164,8 @@ star_score = convert_to_stars(score)
 print(f"For a score of {score}, the stars are: {star_score}")
 
 # Update the document with the new star score
-doc_ref.update({'star_score': star_score})
-doc_ref.update({'overall_score': score})
+doc_ref.update({'star_score': str(star_score)})
+doc_ref.update({'overall_score': str(score)})
 
 
 
