@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/courses2.dart';
+import 'package:starinit/page-1/courses4.dart';
 import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
-class Enrolled extends StatelessWidget {
+class Courses1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -182,7 +185,13 @@ class Enrolled extends StatelessWidget {
                         width: 285 * fem,
                         height: 86 * fem,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Courses2()),
+                            );
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -204,7 +213,13 @@ class Enrolled extends StatelessWidget {
                         width: 285 * fem,
                         height: 86 * fem,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Courses4()),
+                            );
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -321,7 +336,12 @@ class Enrolled extends StatelessWidget {
                       top: 350, // specify the top offset
                       left: 150, // specify a different left offset
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Search()),
+                          );
+                        },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
                         ),
@@ -343,7 +363,12 @@ class Enrolled extends StatelessWidget {
                       top: 350, // specify a different top offset
                       left: 45, // specify the left offset
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()),
+                          );
+                        },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
                         ),
