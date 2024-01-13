@@ -185,42 +185,42 @@ class S6 extends StatelessWidget {
                     ],
                   ),
                 ),
-                 Positioned(
-              left: 122 * fem,
-              top: 413 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 212 * fem,
-                  height: 44 * fem,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Color(0x7fffffff)),
-                      color: Color(0xff19183e),
-                      borderRadius: BorderRadius.circular(15 * fem),
-                    ),
-                    child: TextButton.icon(
-                      onPressed: () async {
-                        FilePickerResult? result =
-                            await FilePicker.platform.pickFiles();
+                Positioned(
+                  left: 122 * fem,
+                  top: 413 * fem,
+                  child: Align(
+                    child: SizedBox(
+                      width: 212 * fem,
+                      height: 44 * fem,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Color(0x7fffffff)),
+                          color: Color(0xff19183e),
+                          borderRadius: BorderRadius.circular(15 * fem),
+                        ),
+                        child: TextButton.icon(
+                          onPressed: () async {
+                            FilePickerResult? result =
+                                await FilePicker.platform.pickFiles();
 
-                        if (result != null) {
-                          File file = File(result.files.single.path!);
-                        } else {
-                          // User canceled the picker
-                        }
-                      },
-                      icon: Icon(Icons.upload_file,
-                          color: Colors.white), // replace with your icon
-                      label: Text('Upload Profile Picture',
-                          style: TextStyle(color: Colors.white)),
+                            if (result != null) {
+                              File file = File(result.files.single.path!);
+                            } else {
+                              // User canceled the picker
+                            }
+                          },
+                          icon: Icon(Icons.upload_file,
+                              color: Colors.white), // replace with your icon
+                          label: Text('Upload Profile Picture',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 20 * fem,
-            ),
+                SizedBox(
+                  height: 70 * fem,
+                ),
                 Container(
                   // saveNtU (5:347)
                   margin: EdgeInsets.fromLTRB(

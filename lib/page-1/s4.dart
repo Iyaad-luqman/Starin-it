@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/s13.dart';
 import 'package:starinit/page-1/s5.dart';
+import 'package:starinit/page-1/w1.dart';
 import 'package:starinit/utils.dart';
 
 class S4 extends StatelessWidget {
@@ -81,7 +82,7 @@ class S4 extends StatelessWidget {
                 child: SizedBox(
                   width: 60.83 * fem,
                   height: 56.67 * fem,
-                   child: TextButton(
+                  child: TextButton(
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -92,12 +93,12 @@ class S4 extends StatelessWidget {
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),
-                  child: Image.asset(
-                    'assets/page-1/images/building.png',
-                    width: 60.83 * fem,
-                    height: 56.67 * fem,
+                    child: Image.asset(
+                      'assets/page-1/images/building.png',
+                      width: 60.83 * fem,
+                      height: 56.67 * fem,
+                    ),
                   ),
-                   ),
                 ),
               ),
             ),

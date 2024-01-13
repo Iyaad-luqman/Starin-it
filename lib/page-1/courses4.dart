@@ -67,6 +67,7 @@ class Courses4 extends StatelessWidget {
                     'Course Progress',
                     style: SafeGoogleFont(
                       'Urbanist',
+                      decoration: TextDecoration.none,
                       fontSize: 24 * ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.2 * ffem / fem,
@@ -203,6 +204,7 @@ class Courses4 extends StatelessWidget {
                     '14/24',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 20 * ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.5 * ffem / fem,
@@ -224,6 +226,7 @@ class Courses4 extends StatelessWidget {
                     '10/20',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 20 * ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.5 * ffem / fem,
@@ -245,6 +248,7 @@ class Courses4 extends StatelessWidget {
                     '12/19',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 20 * ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.5 * ffem / fem,
@@ -266,6 +270,7 @@ class Courses4 extends StatelessWidget {
                     'Completed',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 12 * ffem,
                       fontWeight: FontWeight.w400,
                       height: 1.5 * ffem / fem,
@@ -287,6 +292,7 @@ class Courses4 extends StatelessWidget {
                     'Completed',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 12 * ffem,
                       fontWeight: FontWeight.w400,
                       height: 1.5 * ffem / fem,
@@ -308,6 +314,7 @@ class Courses4 extends StatelessWidget {
                     'Completed',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 12 * ffem,
                       fontWeight: FontWeight.w400,
                       height: 1.5 * ffem / fem,
@@ -419,6 +426,7 @@ class Courses4 extends StatelessWidget {
                     'Product\nDesign v1.0',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 16 * ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.5 * ffem / fem,
@@ -440,6 +448,7 @@ class Courses4 extends StatelessWidget {
                     'Python\nProgramming',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 16 * ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.5 * ffem / fem,
@@ -461,6 +470,7 @@ class Courses4 extends StatelessWidget {
                     'Java Development',
                     style: SafeGoogleFont(
                       'Poppins',
+                      decoration: TextDecoration.none,
                       fontSize: 16 * ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.5 * ffem / fem,
@@ -496,6 +506,7 @@ class Courses4 extends StatelessWidget {
                               'Learned today',
                               style: SafeGoogleFont(
                                 'Poppins',
+                                decoration: TextDecoration.none,
                                 fontSize: 12 * ffem,
                                 fontWeight: FontWeight.w400,
                                 height: 1.5 * ffem / fem,
@@ -519,6 +530,7 @@ class Courses4 extends StatelessWidget {
                                     '46min',
                                     style: SafeGoogleFont(
                                       'Poppins',
+                                      decoration: TextDecoration.none,
                                       fontSize: 20 * ffem,
                                       fontWeight: FontWeight.w700,
                                       height: 1.5 * ffem / fem,
@@ -534,6 +546,7 @@ class Courses4 extends StatelessWidget {
                                     '/ 60min',
                                     style: SafeGoogleFont(
                                       'Poppins',
+                                      decoration: TextDecoration.none,
                                       fontSize: 10 * ffem,
                                       fontWeight: FontWeight.w400,
                                       height: 1.5 * ffem / fem,
@@ -611,6 +624,7 @@ class Courses4 extends StatelessWidget {
                     'Projects',
                     style: SafeGoogleFont(
                       'Urbanist',
+                      decoration: TextDecoration.none,
                       fontSize: 20 * ffem,
                       fontWeight: FontWeight.w600,
                       height: 1.2 * ffem / fem,
