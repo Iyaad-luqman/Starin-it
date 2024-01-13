@@ -156,7 +156,7 @@ class S9 extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
-                      'assets/page-1/images/with-box-2-bg.png',
+                       'assets/page-1/images/with-box-3-bg.png',
                     ),
                   ),
                 ),
