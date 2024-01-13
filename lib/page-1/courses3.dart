@@ -613,7 +613,7 @@ class Courses3 extends StatelessWidget {
                                         width: 70.72 * fem,
                                         height: 68 * fem,
                                         child: Image.asset(
-                                          'assets/page-1/images/image-dNt.png',
+                                          'assets/page-1/images/image-8.png',
                                           width: 70.72 * fem,
                                           height: 68 * fem,
                                         ),
