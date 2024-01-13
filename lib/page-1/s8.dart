@@ -24,7 +24,7 @@ class _UniState extends State<S8> {
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
-
+final TextEditingController _uniController = TextEditingController();
   Future<void> uploaduniMarks(uniMarks) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
@@ -33,6 +33,28 @@ class _UniState extends State<S8> {
     }
   }
 
+Future<void> uploadfields(
+      String param1,
+    ) async {
+      final FirebaseFirestore _db =
+          FirebaseFirestore.instance; // Firestore instance
+      final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+      if (user != null) {
+        DocumentReference docRef = _db.collection('users').doc(user.uid);
+        DocumentSnapshot docSnap = await docRef.get();
+
+        if (docSnap.exists) {
+          await docRef.update({
+            'uni_name': param1,
+          });
+        } else {
+          await docRef.set({
+            'uni_name': param1,
+          });
+        }
+      }
+    }
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -122,6 +144,7 @@ class _UniState extends State<S8> {
                     child: Material(
                       color: Colors.transparent,
                       child: TextField(
+                        controller: _uniController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -677,6 +700,7 @@ class _UniState extends State<S8> {
               child: TextButton(
                 onPressed: () {
                   uploaduniMarks(uniMarks);
+                    uploadfields(_uniController.text);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => S9()),
