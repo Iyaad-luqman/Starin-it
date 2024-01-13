@@ -6,6 +6,8 @@ import 'package:starinit/page-1/s7.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:file_picker/file_picker.dart';
+import 'dart:io';
 
 class S6 extends StatelessWidget {
   final TextEditingController _bioController = TextEditingController();
@@ -117,7 +119,7 @@ class S6 extends StatelessWidget {
                 Container(
                   // group2398033a (5:413)
                   margin: EdgeInsets.fromLTRB(
-                      0 * fem, 0 * fem, 10.76 * fem, 164.93 * fem),
+                      0 * fem, 0 * fem, 10.76 * fem, 34.93 * fem),
                   padding: EdgeInsets.fromLTRB(
                       22 * fem, 0 * fem, 12.24 * fem, 0 * fem),
                   width: 475.24 * fem,
@@ -183,6 +185,42 @@ class S6 extends StatelessWidget {
                     ],
                   ),
                 ),
+                 Positioned(
+              left: 122 * fem,
+              top: 413 * fem,
+              child: Align(
+                child: SizedBox(
+                  width: 212 * fem,
+                  height: 44 * fem,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Color(0x7fffffff)),
+                      color: Color(0xff19183e),
+                      borderRadius: BorderRadius.circular(15 * fem),
+                    ),
+                    child: TextButton.icon(
+                      onPressed: () async {
+                        FilePickerResult? result =
+                            await FilePicker.platform.pickFiles();
+
+                        if (result != null) {
+                          File file = File(result.files.single.path!);
+                        } else {
+                          // User canceled the picker
+                        }
+                      },
+                      icon: Icon(Icons.upload_file,
+                          color: Colors.white), // replace with your icon
+                      label: Text('Upload Profile Picture',
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20 * fem,
+            ),
                 Container(
                   // saveNtU (5:347)
                   margin: EdgeInsets.fromLTRB(
