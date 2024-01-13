@@ -175,6 +175,7 @@ class Search extends StatelessWidget {
                               'People You Might Know',
                               style: SafeGoogleFont(
                                 'Poppins',
+                                decoration: TextDecoration.none,
                                 fontSize: 14 * ffem,
                                 fontWeight: FontWeight.w400,
                                 height: 1.5 * ffem / fem,
@@ -251,6 +252,8 @@ class Search extends StatelessWidget {
                                                 'Mishaal Kandapath',
                                                 style: SafeGoogleFont(
                                                   'Inter',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 12 * ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height:
@@ -284,6 +287,7 @@ class Search extends StatelessWidget {
                                         'Computer Science and Cognitive Science\nUndergraduate at the University of Toronto',
                                         style: SafeGoogleFont(
                                           'Inter',
+                                          decoration: TextDecoration.none,
                                           fontSize: 12 * ffem,
                                           fontWeight: FontWeight.w400,
                                           height: 0 * ffem / fem,
@@ -363,6 +367,8 @@ class Search extends StatelessWidget {
                                                 'Fathima K ',
                                                 style: SafeGoogleFont(
                                                   'Inter',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height:
@@ -446,6 +452,7 @@ class Search extends StatelessWidget {
                                       'Empowering Businesses with Tailored',
                                       style: SafeGoogleFont(
                                         'Inter',
+                                        decoration: TextDecoration.none,
                                         fontSize: 12 * ffem,
                                         fontWeight: FontWeight.w400,
                                         height: 1.6666666667 * ffem / fem,
@@ -517,6 +524,7 @@ class Search extends StatelessWidget {
                                               'Jeorge Vault \nOSCP | CREST CPSA & CRT | CRTP | CASE\nCEH',
                                               style: SafeGoogleFont(
                                                 'Inter',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 12 * ffem,
                                                 fontWeight: FontWeight.w400,
                                                 height:
@@ -718,6 +726,7 @@ class Search extends StatelessWidget {
                                 '2 mutual connections',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 3 * ffem / fem,
@@ -740,6 +749,7 @@ class Search extends StatelessWidget {
                               'Bengaluru',
                               style: SafeGoogleFont(
                                 'Inter',
+                                decoration: TextDecoration.none,
                                 fontSize: 12 * ffem,
                                 fontWeight: FontWeight.w400,
                                 height: 1.6666666667 * ffem / fem,
@@ -777,6 +787,7 @@ class Search extends StatelessWidget {
                                 '20 mutual connections : 1K followers',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6666666667 * ffem / fem,
@@ -805,6 +816,7 @@ class Search extends StatelessWidget {
                                   'Solutions I',
                                   style: SafeGoogleFont(
                                     'Inter',
+                                    decoration: TextDecoration.none,
                                     fontSize: 12 * ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.6666666667 * ffem / fem,
@@ -817,6 +829,7 @@ class Search extends StatelessWidget {
                                 'Empowering Businesses with Tailored',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6666666667 * ffem / fem,
@@ -933,6 +946,7 @@ class Search extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6666666667 * ffem / fem,
@@ -1008,6 +1022,8 @@ class Search extends StatelessWidget {
                                                 'Mishaal Kandapath',
                                                 style: SafeGoogleFont(
                                                   'Inter',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 12 * ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height:
@@ -1041,6 +1057,7 @@ class Search extends StatelessWidget {
                                         'Computer Science and Cognitive Science\nUndergraduate at the University of Toronto',
                                         style: SafeGoogleFont(
                                           'Inter',
+                                          decoration: TextDecoration.none,
                                           fontSize: 12 * ffem,
                                           fontWeight: FontWeight.w400,
                                           height: 0 * ffem / fem,
@@ -1120,6 +1137,8 @@ class Search extends StatelessWidget {
                                                 'Fathima K ',
                                                 style: SafeGoogleFont(
                                                   'Inter',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 14 * ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height:
@@ -1203,6 +1222,7 @@ class Search extends StatelessWidget {
                                       'Empowering Businesses with Tailored',
                                       style: SafeGoogleFont(
                                         'Inter',
+                                        decoration: TextDecoration.none,
                                         fontSize: 12 * ffem,
                                         fontWeight: FontWeight.w400,
                                         height: 1.6666666667 * ffem / fem,
@@ -1274,6 +1294,7 @@ class Search extends StatelessWidget {
                                               'Jeorge Vault \nOSCP | CREST CPSA & CRT | CRTP | CASE\nCEH',
                                               style: SafeGoogleFont(
                                                 'Inter',
+                                                decoration: TextDecoration.none,
                                                 fontSize: 12 * ffem,
                                                 fontWeight: FontWeight.w400,
                                                 height:
@@ -1475,6 +1496,7 @@ class Search extends StatelessWidget {
                                 '2 mutual connections',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 3 * ffem / fem,
@@ -1497,6 +1519,7 @@ class Search extends StatelessWidget {
                               'Bengaluru',
                               style: SafeGoogleFont(
                                 'Inter',
+                                decoration: TextDecoration.none,
                                 fontSize: 12 * ffem,
                                 fontWeight: FontWeight.w400,
                                 height: 1.6666666667 * ffem / fem,
@@ -1534,6 +1557,7 @@ class Search extends StatelessWidget {
                                 '20 mutual connections : 1K followers',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6666666667 * ffem / fem,
@@ -1562,6 +1586,7 @@ class Search extends StatelessWidget {
                                   'Solutions I',
                                   style: SafeGoogleFont(
                                     'Inter',
+                                    decoration: TextDecoration.none,
                                     fontSize: 12 * ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.6666666667 * ffem / fem,
@@ -1574,6 +1599,7 @@ class Search extends StatelessWidget {
                                 'Empowering Businesses with Tailored',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6666666667 * ffem / fem,
@@ -1690,6 +1716,7 @@ class Search extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6666666667 * ffem / fem,
@@ -1722,6 +1749,7 @@ class Search extends StatelessWidget {
                                 'See more results',
                                 style: SafeGoogleFont(
                                   'Urbanist',
+                                  decoration: TextDecoration.none,
                                   fontSize: 16 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.625 * ffem / fem,
