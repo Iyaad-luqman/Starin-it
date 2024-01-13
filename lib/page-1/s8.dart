@@ -184,7 +184,7 @@ Future<void> uploadfields(
                     setState(() {
                       _selectedOption = 1;
                     });
-                    uniMarks = "30% - 40%";
+                    uniMarks = "<5 CGPA";
                   }
                 },
                 style: TextButton.styleFrom(
@@ -253,7 +253,7 @@ Future<void> uploadfields(
                       ),
                       Text(
                         // xoP (2:195)
-                        '30% - 40%\n',
+                        '<5 CGPA\n',
                         style: SafeGoogleFont(
                           'Radio Canada',
                           fontSize: 20 * ffem,
@@ -282,7 +282,7 @@ Future<void> uploadfields(
                     setState(() {
                       _selectedOption = 2;
                     });
-                    uniMarks = "40% - 70%";
+                    uniMarks = "5-8 CGPA";
                   }
                 },
                 style: TextButton.styleFrom(
@@ -351,7 +351,7 @@ Future<void> uploadfields(
                       ),
                       Text(
                         // xoP (2:195)
-                        '40% - 70%\n',
+                        '5-8 CGPA\n',
                         style: SafeGoogleFont(
                           'Radio Canada',
                           fontSize: 20 * ffem,
@@ -380,7 +380,7 @@ Future<void> uploadfields(
                     setState(() {
                       _selectedOption = 3;
                     });
-                    uniMarks = "70% - 90%";
+                    uniMarks = ">8 CGPA";
                   }
                 },
                 style: TextButton.styleFrom(
@@ -449,7 +449,7 @@ Future<void> uploadfields(
                       ),
                       Text(
                         // xoP (2:195)
-                        '70% - 90%\n',
+                        '>8 CGPA\n',
                         style: SafeGoogleFont(
                           'Radio Canada',
                           fontSize: 20 * ffem,
@@ -464,104 +464,7 @@ Future<void> uploadfields(
                 ),
               ),
             ),
-            Positioned(
-              // Y5T (2:192)
-              left: 79 * fem,
-              top: 476 * fem,
-              child: TextButton(
-                onPressed: () {
-                  if (_selectedOption == 4) {
-                    setState(() {
-                      _selectedOption = 0;
-                    });
-                  } else {
-                    setState(() {
-                      _selectedOption = 4;
-                    });
-                    uniMarks = "90% - 100%";
-                  }
-                },
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(
-                      21 * fem, 19 * fem, 6 * fem, 15.3 * fem),
-                  width: 264 * fem,
-                  height: 58.3 * fem,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Color(0x7fffffff)),
-                    color: Color(0x7f19173d),
-                    borderRadius: BorderRadius.circular(15 * fem),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // checkboxB8R (2:194)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 47 * fem, 0 * fem),
-                        width: 22 * fem,
-                        height: double.infinity,
-                        child: Center(
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              SizedBox(
-                                width: double.infinity,
-                                height: double.infinity,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(4 * fem),
-                                    border:
-                                        Border.all(color: Color(0x4fffffff)),
-                                    gradient: LinearGradient(
-                                      begin: Alignment(0, -1),
-                                      end: Alignment(0, 1),
-                                      colors: <Color>[
-                                        Color(0xb2c8eeff),
-                                        Color(0xb2c8eeff),
-                                        Color(0xb2fbfeff)
-                                      ],
-                                      stops: <double>[0, 0, 1],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              if (_selectedOption == 4)
-                                Text(
-                                  String.fromCharCode(Icons.check.codePoint),
-                                  style: TextStyle(
-                                    inherit: false,
-                                    fontSize: 24.0,
-                                    color: Color.fromARGB(255, 0, 10, 1),
-                                    fontFamily: Icons.check.fontFamily,
-                                    package: Icons.check.fontPackage,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Text(
-                        // xoP (2:195)
-                        '90% - 100%\n',
-                        style: SafeGoogleFont(
-                          'Radio Canada',
-                          fontSize: 20 * ffem,
-                          fontWeight: FontWeight.w400,
-                          height: 1.2 * ffem / fem,
-                          letterSpacing: 0.3 * fem,
-                          color: Color(0xffcac9df),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            
             Positioned(
               // Y5T (2:192)
               left: 79 * fem,
