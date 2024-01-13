@@ -24,7 +24,7 @@ class _UniState extends State<S8> {
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
-final TextEditingController _uniController = TextEditingController();
+  final TextEditingController _uniController = TextEditingController();
   Future<void> uploaduniMarks(uniMarks) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
@@ -33,28 +33,29 @@ final TextEditingController _uniController = TextEditingController();
     }
   }
 
-Future<void> uploadfields(
-      String param1,
-    ) async {
-      final FirebaseFirestore _db =
-          FirebaseFirestore.instance; // Firestore instance
-      final User? user = FirebaseAuth.instance.currentUser; // Get current user
+  Future<void> uploadfields(
+    String param1,
+  ) async {
+    final FirebaseFirestore _db =
+        FirebaseFirestore.instance; // Firestore instance
+    final User? user = FirebaseAuth.instance.currentUser; // Get current user
 
-      if (user != null) {
-        DocumentReference docRef = _db.collection('users').doc(user.uid);
-        DocumentSnapshot docSnap = await docRef.get();
+    if (user != null) {
+      DocumentReference docRef = _db.collection('users').doc(user.uid);
+      DocumentSnapshot docSnap = await docRef.get();
 
-        if (docSnap.exists) {
-          await docRef.update({
-            'uni_name': param1,
-          });
-        } else {
-          await docRef.set({
-            'uni_name': param1,
-          });
-        }
+      if (docSnap.exists) {
+        await docRef.update({
+          'uni_name': param1,
+        });
+      } else {
+        await docRef.set({
+          'uni_name': param1,
+        });
       }
     }
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;
@@ -271,7 +272,7 @@ Future<void> uploadfields(
             Positioned(
               // Y5T (2:192)
               left: 79 * fem,
-              top: 318 * fem,
+              top: 340 * fem,
               child: TextButton(
                 onPressed: () {
                   if (_selectedOption == 2) {
@@ -369,7 +370,7 @@ Future<void> uploadfields(
             Positioned(
               // Y5T (2:192)
               left: 79 * fem,
-              top: 392 * fem,
+              top: 450 * fem,
               child: TextButton(
                 onPressed: () {
                   if (_selectedOption == 3) {
@@ -464,7 +465,6 @@ Future<void> uploadfields(
                 ),
               ),
             ),
-            
             Positioned(
               // Y5T (2:192)
               left: 79 * fem,
@@ -603,7 +603,7 @@ Future<void> uploadfields(
               child: TextButton(
                 onPressed: () {
                   uploaduniMarks(uniMarks);
-                    uploadfields(_uniController.text);
+                  uploadfields(_uniController.text);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => S9()),
