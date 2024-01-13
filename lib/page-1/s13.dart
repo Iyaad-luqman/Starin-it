@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/home-page.dart';
 import 'package:starinit/utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:io';
@@ -433,6 +434,10 @@ class S13 extends StatelessWidget {
                     _companyNameController.text,
                     _descriptionController.text,
                     _websiteController.text,
+                  );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
                   );
                 },
                 style: TextButton.styleFrom(
