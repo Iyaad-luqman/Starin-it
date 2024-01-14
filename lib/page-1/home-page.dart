@@ -8,7 +8,7 @@ import 'package:starinit/page-1/profile.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
-class Home extends StatelessWidget {
+class Home1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 390;

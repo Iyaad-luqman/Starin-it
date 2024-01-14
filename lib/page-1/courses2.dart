@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/courses1.dart';
 import 'package:starinit/page-1/courses3.dart';
-import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
