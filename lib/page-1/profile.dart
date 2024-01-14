@@ -37,27 +37,37 @@ class Profile extends StatelessWidget {
           double star_score = snapshot.data!;
           int fullStars = star_score.floor(); // Get the number of full stars
           double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
-          debugPrint('fullStars: $fractionalPart');
           String star1Image = 'assets/page-1/images/emptystar.png';
           String star2Image = 'assets/page-1/images/emptystar.png';
           String star3Image = 'assets/page-1/images/emptystar.png';
           String star4Image = 'assets/page-1/images/emptystar.png';
           String star5Image = 'assets/page-1/images/emptystar.png'; 
+          String status_name = '';
           
           if (fullStars > 0) {
             star1Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Novice';
           }
           if (fullStars > 1) {
             star2Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Aspirant';
           }
           if (fullStars > 2) {
             star3Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Associate';
           }
           if (fullStars > 3) {
             star4Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Specialist';
           }
           if (fullStars > 4) {
             star5Image = 'assets/page-1/images/fullstar.png';
+          }
+          if (star_score > 4 && star_score < 4.5) {
+            status_name = 'Mastermind';
+          }
+          if (star_score > 4.5 && star_score < 5) {
+            status_name = 'Prodigy';
           }
 
 
@@ -351,7 +361,7 @@ class Profile extends StatelessWidget {
                         width: 50 * fem,
                         height: 11 * fem,
                         child: Text(
-                          'ASPIRANT',
+                          status_name,
                           style: SafeGoogleFont(
                             'Unlock',
                             decoration: TextDecoration.none,
