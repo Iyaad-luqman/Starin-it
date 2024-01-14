@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/courses1.dart';
 import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/p1.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
@@ -598,7 +599,12 @@ class Courses4 extends StatelessWidget {
                   width: 230 * fem,
                   height: 50 * fem,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => P1()),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),
