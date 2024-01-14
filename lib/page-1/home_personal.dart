@@ -7,6 +7,7 @@ import 'package:starinit/page-1/courses1.dart';
 import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/profile.dart';
 import 'package:starinit/page-1/search.dart';
+import 'package:starinit/page-1/w1.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -514,6 +515,72 @@ class _Home extends State<Home> {
                                 ),
                               ],
                             ),
+                          ),
+                          Positioned(
+                            // star for explore  (23:672)
+                            left: 244 * fem,
+                            top: 200 * fem,
+                            child: Align(
+                              child: SizedBox(
+                                width: 29 * fem,
+                                height: 26 * fem,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => W1()),
+                                    );
+                                  },
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/page-1/images/star.png',
+                                    width: 29 * fem,
+                                    height: 26 * fem,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            // explore (23:677)
+                            left: 244 * fem,
+                            top: 210 * fem,
+                            child: Align(
+                              child: SizedBox(
+                                width: 70 * fem,
+                                height: 25 * fem,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => W1()),
+                                    );
+                                  },
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.zero,
+                                  ),
+                                  child: Text(
+                                    'Explore',
+                                    style: SafeGoogleFont(
+                                      'Urbanist',
+                                      decoration: TextDecoration.none,
+                                      fontSize: 16 * ffem,
+                                      fontWeight: FontWeight.w400,
+                                      height: 1.2 * ffem / fem,
+                                      letterSpacing: 0.18 * fem,
+                                      color: Color(0xffffffff),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10 * fem,
                           ),
                           Container(
                             // companieslookingforitspecialis (23:630)
