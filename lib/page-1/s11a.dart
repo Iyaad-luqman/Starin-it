@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/profile.dart';
 import 'package:starinit/page-1/s12.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -220,7 +221,7 @@ class S11a extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Home()),
+                          MaterialPageRoute(builder: (context) => Profile()),
                         );
                       },
                       style: TextButton.styleFrom(
@@ -244,7 +245,7 @@ class S11a extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            'DONE',
+                            'BACK',
                             style: SafeGoogleFont(
                               'Urbanist',
                               decoration: TextDecoration.none,
