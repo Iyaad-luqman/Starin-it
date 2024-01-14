@@ -3,7 +3,8 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/courses1.dart';
-import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/home_personal.dart';
+import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
@@ -361,7 +362,7 @@ class Courses3 extends StatelessWidget {
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
                                         image: AssetImage(
-                                          'assets/page-1/images/image-jBa.png',
+                                          'assets/page-1/images/p1.jpg',
                                         ),
                                       ),
                                     ),
@@ -376,7 +377,7 @@ class Courses3 extends StatelessWidget {
                                             padding: EdgeInsets.zero,
                                           ),
                                           child: Image.asset(
-                                            'assets/page-1/images/image-bH6.png',
+                                            'assets/page-1/images/p1.jpg',
                                             width: 70.72 * fem,
                                             height: 68 * fem,
                                           ),
@@ -857,7 +858,7 @@ class Courses3 extends StatelessWidget {
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
                                         image: AssetImage(
-                                          'assets/page-1/images/image-a6g.png',
+                                          'assets/page-1/images/p2.jpg',
                                         ),
                                       ),
                                     ),
@@ -867,7 +868,7 @@ class Courses3 extends StatelessWidget {
                                         width: 70.72 * fem,
                                         height: 68 * fem,
                                         child: Image.asset(
-                                          'assets/page-1/images/image-yT2.png',
+                                          'assets/page-1/images/p2.jpg',
                                           width: 70.72 * fem,
                                           height: 68 * fem,
                                         ),
@@ -1100,7 +1101,7 @@ class Courses3 extends StatelessWidget {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage(
-                              'assets/page-1/images/image.png',
+                              'assets/page-1/images/p4.jpg',
                             ),
                           ),
                         ),
@@ -1110,7 +1111,7 @@ class Courses3 extends StatelessWidget {
                             width: 69.42 * fem,
                             height: 68 * fem,
                             child: Image.asset(
-                              'assets/page-1/images/image-dDN.png',
+                              'assets/page-1/images/p4.jpg',
                               width: 69.42 * fem,
                               height: 68 * fem,
                             ),
@@ -1446,7 +1447,12 @@ class Courses3 extends StatelessWidget {
                   width: 30 * fem,
                   height: 24.75 * fem,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Job1()),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/s12.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

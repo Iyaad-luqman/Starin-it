@@ -4,7 +4,8 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/courses2.dart';
 import 'package:starinit/page-1/courses4.dart';
-import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/home_personal.dart';
+import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
@@ -390,7 +391,12 @@ class Courses1 extends StatelessWidget {
                       top: 350, // specify a different top offset
                       left: 100, // specify a different left offset
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Job1()),
+                          );
+                        },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
                         ),
