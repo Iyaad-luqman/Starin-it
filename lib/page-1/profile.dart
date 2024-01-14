@@ -10,11 +10,29 @@ import 'package:starinit/page-1/otherprofile.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
-class Profile extends StatelessWidget {
-  final FirebaseFirestore _db =
-      FirebaseFirestore.instance; // Firestore instance
+class Profile extends StatefulWidget {
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
+  String? imageUrl;
+
+  @override
+  void initState() {
+    super.initState();
+    loadImage();
+  }
+
+  void loadImage() async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    imageUrl = await storage.ref('uploads/${user!.uid}/file').getDownloadURL();
+    setState(() {});
+  }
 
   Future<double> fetchData() async {
     DocumentReference docRef = _db.collection('users').doc(user!.uid);
@@ -25,7 +43,7 @@ class Profile extends StatelessWidget {
 
     return starScore;
   }
-
+  
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -149,17 +167,17 @@ class Profile extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(
                           0 * fem, 0 * fem, 0 * fem, 4 * fem),
                       width: double.infinity,
-                      height: 214 * fem,
+                      height: 224 * fem,
                       child: Stack(
                         children: [
                           Positioned(
                             // mishalahamedkDHe (36:2584)
                             left: 93 * fem,
-                            top: 190 * fem,
+                            top: 199 * fem,
                             child: Align(
                               child: SizedBox(
                                 width: 176 * fem,
-                                height: 24 * fem,
+                                height: 27 * fem,
                                 child: Text(
                                   'MISHAL AHAMED K',
                                   style: SafeGoogleFont(
@@ -213,6 +231,23 @@ class Profile extends StatelessWidget {
                               ),
                             ),
                           ),
+                          // Positioned(
+                          //   // whatsappimage20240113at3371iNp (36:2613)
+                          //   left: 0 * fem,
+                          //   top: 0 * fem,
+                          //   child: Align(
+                          //     child: SizedBox(
+                          //       width: 360 * fem,
+                          //       height: 191 * fem,
+                          //       child: imageUrl != null
+                          //         ? Image.network(
+                          //             imageUrl!,
+                          //             fit: BoxFit.cover,
+                          //           )
+                          //         : CircularProgressIndicator(), // Loading indicator while image is loading
+                          //     ),
+                          //   ),
+                          // ),
                           Positioned(
                             // imageremovebgpreview3bhW (36:2614)
                             left: 140 * fem,
@@ -308,31 +343,35 @@ class Profile extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Positioned(
-                            // whatsappimage20240112at115024p (36:2620)
-                            left: 140 * fem,
-                            top: 94 * fem,
-                            child: Align(
-                              child: SizedBox(
-                                width: 79 * fem,
-                                height: 78 * fem,
-                                child: TextButton(
-                                  onPressed: () {},
-                                  style: TextButton.styleFrom(
-                                    padding: EdgeInsets.zero,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/page-1/images/pfp.png',
-                                    fit: BoxFit.cover,
+                            Positioned(
+                              // whatsappimage20240112at115024p (36:2620)
+                              left: 140 * fem,
+                              top: 94 * fem,
+                              child: Align(
+                                child: SizedBox(
+                                  width: 78 * fem,
+                                  height: 79 * fem,
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    style: TextButton.styleFrom(
+                                      padding: EdgeInsets.zero,
+                                    ),
+                                    child: imageUrl != null
+                                      ? ClipOval(
+                                          child: Image.network(
+                                            imageUrl!,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        )
+                                      : CircularProgressIndicator(), 
                                   ),
                                 ),
                               ),
                             ),
-                          ),
                           Positioned(
                             // starredg8c (36:2621)
                             left: 145 * fem,
-                            top: 175 * fem,
+                            top: 185 * fem,
                             child: Align(
                               child: SizedBox(
                                 width: 80 * fem,
@@ -355,7 +394,7 @@ class Profile extends StatelessWidget {
                           Positioned(
                             // aspirantkeG (36:2622)
                             left: 155 * fem,
-                            top: 164 * fem,
+                            top: 174 * fem,
                             child: Align(
                               child: SizedBox(
                                 width: 50 * fem,
@@ -369,7 +408,7 @@ class Profile extends StatelessWidget {
                                     fontWeight: FontWeight.w400,
                                     height: 1.0675 * ffem / fem,
                                     letterSpacing: 0.15 * fem,
-                                    color: Color(0xffffffff),
+                                    color: Color.fromARGB(255, 255, 255, 255),
                                   ),
                                 ),
                               ),

@@ -8,8 +8,32 @@ import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/profile.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _Home createState() => _Home();
+}
+
+class _Home extends State<Home> {
+  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
+  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+  String? imageUrl;
+
+  @override
+  void initState() {
+    super.initState();
+    loadImage();
+  }
+
+  void loadImage() async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    imageUrl = await storage.ref('uploads/${user!.uid}/file').getDownloadURL();
+    setState(() {});
+  }
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -65,9 +89,15 @@ class Home extends StatelessWidget {
                                     child: SizedBox(
                                       width: 360 * fem,
                                       height: 191 * fem,
-                                      child: Image.asset(
-                                        'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1.png',
-                                        fit: BoxFit.cover,
+                                      child: TextButton(
+                                        onPressed: () {
+                                          Navigator.push( context, MaterialPageRoute(builder: (context) => Profile()), );
+                                          // Add your onPressed functionality here
+                                        },
+                                        child: Image.asset(
+                                          'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1.png',
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -207,10 +237,14 @@ class Home extends StatelessWidget {
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
                                         ),
-                                        child: Image.asset(
-                                          'assets/page-1/images/whatsapp-image-2024-01-12-at-115024-pm-1-photoroom-1-t8C.png',
-                                          fit: BoxFit.cover,
-                                        ),
+                                        child: imageUrl != null
+          ? ClipOval(
+              child: Image.network(
+                imageUrl!,
+                fit: BoxFit.cover,
+              ),
+            )
+          : CircularProgressIndicator(), 
                                       ),
                                     ),
                                   ),
