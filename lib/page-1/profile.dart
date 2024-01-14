@@ -10,15 +10,15 @@ class Profile extends StatelessWidget {
   final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
 
-  Future<String> fetchData() async {
+  Future<double> fetchData() async {
     DocumentReference docRef = _db.collection('users').doc(user!.uid);
     DocumentSnapshot docSnap = await docRef.get();
 
-    String star_score = docSnap.get('star_score') ?? '0';
+    double starScore = double.parse(docSnap.get('star_score') as String? ?? '0');
 
-    return star_score;
+    return starScore;
   }
-  
+    
   
   @override
 
@@ -26,15 +26,99 @@ class Profile extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-      return FutureBuilder<String>(
+      return FutureBuilder<double>(
       future: fetchData(),
-      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator(); // Show a loading spinner while waiting for fetchData to complete
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
-          String star_score = snapshot.data!; // Store the overallScore in a variable
+          double star_score = snapshot.data!;
+          star_score = 0.7;
+          int fullStars = star_score.floor(); // Get the number of full stars
+          double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
+          debugPrint('fullStars: $fractionalPart');
+          String star1Image = 'assets/page-1/images/emptystar.png';
+          String star2Image = 'assets/page-1/images/emptystar.png';
+          String star3Image = 'assets/page-1/images/emptystar.png';
+          String star4Image = 'assets/page-1/images/emptystar.png';
+          String star5Image = 'assets/page-1/images/emptystar.png'; 
+          
+          if (fullStars > 0) {
+            star1Image = 'assets/page-1/images/fullstar.png';
+          }
+          if (fullStars > 1) {
+            star2Image = 'assets/page-1/images/fullstar.png';
+          }
+          if (fullStars > 2) {
+            star3Image = 'assets/page-1/images/fullstar.png';
+          }
+          if (fullStars > 3) {
+            star4Image = 'assets/page-1/images/fullstar.png';
+          }
+          if (fullStars > 4) {
+            star5Image = 'assets/page-1/images/fullstar.png';
+          }
+
+
+          if (star_score < 5 && star_score > 4) {
+            if (fractionalPart >= 0.75) {
+              star5Image = 'assets/page-1/images/fullstar.png';
+            } else if (fractionalPart >= 0.5) {
+              star5Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.25) {
+              star5Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart >= 0.05) {
+              star5Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 4 && star_score > 3) {
+            if (fractionalPart >= 0.75) {
+              star4Image = 'assets/page-1/images/fullstar.png';
+            } else if (fractionalPart >= 0.5) {
+              star4Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.25) {
+              star4Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart >= 0.05) {
+              star4Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 3 && star_score > 2  ) {
+              debugPrint('star3Image: $fractionalPart');
+            if (fractionalPart >= 0.75) {
+              star3Image = 'assets/page-1/images/fullstar.png';
+            } else if (fractionalPart >= 0.5) {
+              star3Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.25) {
+              star3Image = 'assets/page-1/images/half.png';
+            }  else if (fractionalPart >= 0.05) {
+              star3Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 2 && star_score > 1) {
+            if (fractionalPart >= 0.75) {
+              star2Image = 'assets/page-1/images/fullstar.png';
+            } else if (fractionalPart >= 0.5) {
+              star2Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.25) {
+              star2Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart >= 0.05) {
+              star2Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 1 && star_score > 0) {
+            if (fractionalPart >= 0.75) {
+              star1Image = 'assets/page-1/images/fullstar.png';
+            } else if (fractionalPart >= 0.5) {
+              star1Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.25) {
+              star1Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart > 0.05) {
+              star1Image = 'assets/page-1/images/quator.png';
+            }
+          }
+
 
           // Use overallScore to build the rest of your UI...
           return Container(
@@ -130,7 +214,7 @@ class Profile extends StatelessWidget {
                     top: 14 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 87 * fem,
+                        // width: 87 * fem,
                         height: 27 * fem,
                         child: Image.asset(
                           'assets/page-1/images/image-removebg-preview-3.png',
@@ -139,76 +223,77 @@ class Profile extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
+                  Positioned( //1
+                    // whatsappimage20240113at121041a (36:2617)
+                    left: 20 * fem,
+                    top: 34 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 36 * fem,
+                        height: 54 * fem,
+                        child: Image.asset(
+                          star1Image,
+                          fit: BoxFit.cover,
+                          
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(//2
+                    // whatsappimage20240113at121028a (36:2618)
+                    left: 85 * fem,
+                    top: 68 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 28 * fem,
+                        height: 51 * fem,
+                        child: Image.asset(
+                          star2Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned( //3
                     // whatsappimage20240113at12001ph (36:2615)
                     left: 157 * fem,
                     top: 40 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 47 * fem,
+                        // width: 47 * fem,
                         height: 45 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/fullstar.png',
+                          star3Image,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
                   ),
-                  Positioned(
-                    // whatsappimage20240113at12001ph (36:2616)
-                    left: 288 * fem,
-                    top: 38 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        width: 47 * fem,
-                        height: 45 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/full-star-1.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    // whatsappimage20240113at121041a (36:2617)
-                    left: 18 * fem,
-                    top: 34 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        width: 36 * fem,
-                        height: 54 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/halfquator.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    // whatsappimage20240113at121028a (36:2618)
-                    left: 83 * fem,
-                    top: 68 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        width: 28 * fem,
-                        height: 51 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/half.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
+                  Positioned( //4
                     // whatsappimage20240113at121016a (36:2619)
                     left: 222 * fem,
                     top: 66 * fem,
                     child: Align(
                       child: SizedBox(
-                        width: 21 * fem,
+                        // width: 21 * fem,
                         height: 56 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/quator.png',
+                          star4Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(//5
+                    // whatsappimage20240113at12001ph (36:2616)
+                    left: 288 * fem,
+                    top: 38 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 47 * fem,
+                        height: 45 * fem,
+                        child: Image.asset(
+                          star5Image,
                           fit: BoxFit.cover,
                         ),
                       ),
