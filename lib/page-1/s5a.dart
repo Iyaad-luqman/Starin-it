@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/s5b.dart';
 import 'package:starinit/page-1/s6.dart';
 import 'package:starinit/utils.dart';
 import 'package:file_picker/file_picker.dart';
@@ -603,7 +604,7 @@ class _GenderState extends State<S5a> {
                   uploadgender(gender);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => S6()),
+                    MaterialPageRoute(builder: (context) => S5b()),
                   );
                 },
                 style: TextButton.styleFrom(
