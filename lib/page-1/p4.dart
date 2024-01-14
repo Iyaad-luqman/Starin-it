@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/courses1.dart';
+import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/p4a1.dart';
+import 'package:starinit/page-1/p4a2.dart';
+import 'package:starinit/page-1/p4a3.dart';
+import 'package:starinit/page-1/p4a4.dart';
+import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
-class Team extends StatelessWidget {
+class P4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -49,7 +56,12 @@ class Team extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(
                   55.75 * fem, 0 * fem, 59.75 * fem, 57 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => P4a1()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -75,7 +87,12 @@ class Team extends StatelessWidget {
                       ),
                       TextButton(
                         // nithyashreeUqA (14:1229)
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => P4a1()),
+                          );
+                        },
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.zero,
                         ),
@@ -84,6 +101,7 @@ class Team extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Radio Canada',
+                            decoration: TextDecoration.none,
                             fontSize: 20 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.2 * ffem / fem,
@@ -102,7 +120,12 @@ class Team extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(
                   58.75 * fem, 0 * fem, 56.75 * fem, 57 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => P4a2()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -119,6 +142,7 @@ class Team extends StatelessWidget {
                       'Mishni Alves',
                       style: SafeGoogleFont(
                         'Radio Canada',
+                        decoration: TextDecoration.none,
                         fontSize: 20 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.2 * ffem / fem,
@@ -135,7 +159,12 @@ class Team extends StatelessWidget {
               margin: EdgeInsets.fromLTRB(
                   61.75 * fem, 0 * fem, 53.75 * fem, 57 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => P4a3()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -152,6 +181,7 @@ class Team extends StatelessWidget {
                       'Ram Kumar\n',
                       style: SafeGoogleFont(
                         'Radio Canada',
+                        decoration: TextDecoration.none,
                         fontSize: 20 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.2 * ffem / fem,
@@ -166,9 +196,14 @@ class Team extends StatelessWidget {
             Container(
               // 1s2 (14:1237)
               margin: EdgeInsets.fromLTRB(
-                  67.75 * fem, 0 * fem, 47.75 * fem, 137.13 * fem),
+                  67.75 * fem, 0 * fem, 47.75 * fem, 70.13 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => P4a4()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -191,7 +226,13 @@ class Team extends StatelessWidget {
                             width: 155 * fem,
                             height: 24 * fem,
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => P4a4()),
+                                );
+                              },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
                               ),
@@ -199,6 +240,7 @@ class Team extends StatelessWidget {
                                 'Nazriya Fathima',
                                 style: SafeGoogleFont(
                                   'Radio Canada',
+                                  decoration: TextDecoration.none,
                                   fontSize: 20 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.2 * ffem / fem,
@@ -235,7 +277,12 @@ class Team extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         15 * fem, 0 * fem, 20.25 * fem, 0.15 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -255,7 +302,12 @@ class Team extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 1.88 * fem, 20.73 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Search()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -275,7 +327,12 @@ class Team extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 4.83 * fem, 20.73 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Courses1()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -283,7 +340,7 @@ class Team extends StatelessWidget {
                         width: 27.54 * fem,
                         height: 25.28 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/book-open.png',
+                          'assets/page-1/images/book-open-blue.png',
                           width: 27.54 * fem,
                           height: 25.28 * fem,
                         ),
@@ -293,7 +350,7 @@ class Team extends StatelessWidget {
                   Container(
                     // suitcasealtsZn (14:1244)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 8.13 * fem),
+                        0 * fem, 0 * fem, 0 * fem, 0.13 * fem),
                     child: TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
