@@ -67,12 +67,12 @@ class _ThState extends State<S7> {
             ),
             Positioned(
               // chooseyour12thpercentagesbb (2:189)
-              left: 28.5 * fem,
-              top: 116 * fem,
+              left: 20 * fem,
+              top: 120 * fem,
               child: Align(
                 child: SizedBox(
-                  width: 308 * fem,
-                  height: 28 * fem,
+                  width: 360 * fem,
+                  height: 30 * fem,
                   child: Text(
                     'Choose your 12th Percentage',
                     textAlign: TextAlign.center,
@@ -89,18 +89,46 @@ class _ThState extends State<S7> {
                 ),
               ),
             ),
+           
             Positioned(
-              // vectorvpm (2:190)
-              left: 351 * fem,
-              top: 116 * fem,
+              // newpasswordinput7w3 (2:220)
+              left: 53 * fem,
+              top: 172 * fem,
               child: Align(
                 child: SizedBox(
-                  width: 28 * fem,
-                  height: 32 * fem,
-                  child: Image.asset(
-                    'assets/page-1/images/layer-55.png',
-                    width: 28 * fem,
-                    height: 32 * fem,
+                  width: 296 * fem,
+                  height: 38.69 * fem,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(32 * fem),
+                      border: Border.all(color: Color(0xffe8ecf4)),
+                      color: Color(0xfff7f7f8),
+                    ),
+                    child: Material(
+                      color: Colors.transparent,
+                      child: TextField(
+                        //controller: _uniController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          errorBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          contentPadding: EdgeInsets.fromLTRB(
+                              17 * fem, 7.36 * fem, 17 * fem, 12.33 * fem),
+                          hintText: 'Enter Your School Name',
+                          hintStyle: TextStyle(color: Color(0xff8390a1)),
+                        ),
+                        style: SafeGoogleFont(
+                          'Urbanist',
+                          decoration: TextDecoration.none,
+                          fontSize: 15 * ffem,
+                          fontWeight: FontWeight.w500,
+                          height: 1.25 * ffem / fem,
+                          color: Color(0xff000000),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),

@@ -32,9 +32,9 @@ def allot_points_school(school_marks):
     return 0
 
 def allot_points_uni(uni_marks):
-    if "5-8" in uni_marks:
+    if "5-8 CGPA" in uni_marks:
         return 20
-    elif "8+" in uni_marks:
+    elif ">8 CGPA" in uni_marks:
         return 40
     return 0
 
@@ -146,8 +146,8 @@ if doc.exists:
 else:
     print('No such document!')
     
-points_pg = 30 if pg_done == 'yes' else 0
-points_phd = 30 if phd_done == 'yes' else 0  
+points_pg = 30 if pg_done == 'YES' else 0
+points_phd = 30 if phd_done == 'YES' else 0  
 
 score = 0
 score += allot_points_school(school_marks)
