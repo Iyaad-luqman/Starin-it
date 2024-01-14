@@ -51,7 +51,7 @@ class S4 extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => W1()),
+                        MaterialPageRoute(builder: (context) => S13()),
                       );
                     },
                     style: TextButton.styleFrom(

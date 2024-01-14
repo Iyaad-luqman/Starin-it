@@ -36,6 +36,7 @@ class Profile_expertise extends StatelessWidget {
                 'Based On  Expertise',
                 style: SafeGoogleFont(
                   'Poppins',
+                  decoration: TextDecoration.none,
                   fontSize: 24 * ffem,
                   fontWeight: FontWeight.w700,
                   height: 1.5 * ffem / fem,
@@ -82,6 +83,7 @@ class Profile_expertise extends StatelessWidget {
                       'C++',
                       style: SafeGoogleFont(
                         'Inter',
+                        decoration: TextDecoration.none,
                         fontSize: 20 * ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125 * ffem / fem,
@@ -110,6 +112,7 @@ class Profile_expertise extends StatelessWidget {
                                 '             3.5',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 20 * ffem,
                                   fontWeight: FontWeight.w700,
                                   height: 1.2125 * ffem / fem,
@@ -132,6 +135,7 @@ class Profile_expertise extends StatelessWidget {
                                 '             3.5',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 20 * ffem,
                                   fontWeight: FontWeight.w700,
                                   height: 1.2125 * ffem / fem,
@@ -205,6 +209,7 @@ class Profile_expertise extends StatelessWidget {
                                 'Python',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 20 * ffem,
                                   fontWeight: FontWeight.w700,
                                   height: 1.2125 * ffem / fem,
@@ -227,6 +232,7 @@ class Profile_expertise extends StatelessWidget {
                                 '             4.5',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 10 * ffem,
                                   fontWeight: FontWeight.w700,
                                   height: 1.2125 * ffem / fem,
@@ -286,6 +292,7 @@ class Profile_expertise extends StatelessWidget {
                       'DONE',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 13 * ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.2 * ffem / fem,
