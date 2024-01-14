@@ -35,7 +35,6 @@ class Profile extends StatelessWidget {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
           double star_score = snapshot.data!;
-          star_score = 0.7;
           int fullStars = star_score.floor(); // Get the number of full stars
           double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
           debugPrint('fullStars: $fractionalPart');
