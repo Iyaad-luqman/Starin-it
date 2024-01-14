@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/company.dart';
+import 'package:starinit/page-1/courses1.dart';
+import 'package:starinit/page-1/home_personal.dart';
+import 'package:starinit/page-1/job1.dart';
+import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
 class Company_apply extends StatelessWidget {
@@ -59,6 +64,7 @@ class Company_apply extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Urbanist',
+                            decoration: TextDecoration.none,
                             fontSize: 20 * ffem,
                             fontWeight: FontWeight.w800,
                             height: 1.2 * ffem / fem,
@@ -103,7 +109,7 @@ class Company_apply extends StatelessWidget {
                   Container(
                     // line40rZi (27:874)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 85.21 * fem),
+                        0 * fem, 0 * fem, 0 * fem, 20.21 * fem),
                     width: 358.49 * fem,
                     height: 9.79 * fem,
                     child: Image.asset(
@@ -115,12 +121,13 @@ class Company_apply extends StatelessWidget {
                   Container(
                     // appliedmgg (27:886)
                     margin: EdgeInsets.fromLTRB(
-                        6.51 * fem, 0 * fem, 0 * fem, 44 * fem),
+                        6.51 * fem, 0 * fem, 0 * fem, 0 * fem),
                     child: Text(
                       'APPLIED',
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 76 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,
@@ -134,7 +141,12 @@ class Company_apply extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         114 * fem, 0 * fem, 117.49 * fem, 21 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Company()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -159,6 +171,7 @@ class Company_apply extends StatelessWidget {
                             'GO BACK',
                             style: SafeGoogleFont(
                               'Urbanist',
+                              decoration: TextDecoration.none,
                               fontSize: 13 * ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.2 * ffem / fem,
@@ -193,9 +206,14 @@ class Company_apply extends StatelessWidget {
                         Container(
                           // suitcasealtt2Y (27:882)
                           margin: EdgeInsets.fromLTRB(
-                              0 * fem, 3.88 * fem, 80.23 * fem, 0 * fem),
+                              0 * fem, 3.88 * fem, 28.23 * fem, 0 * fem),
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Job1()),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
@@ -213,9 +231,15 @@ class Company_apply extends StatelessWidget {
                         Container(
                           // bookopenDU8 (27:878)
                           margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0.83 * fem, 74.48 * fem, 0 * fem),
+                              0 * fem, 0.83 * fem, 25.48 * fem, 0 * fem),
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Courses1()),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
@@ -233,9 +257,15 @@ class Company_apply extends StatelessWidget {
                         Container(
                           // search73i (27:883)
                           margin: EdgeInsets.fromLTRB(
-                              0 * fem, 0 * fem, 55.63 * fem, 1.13 * fem),
+                              0 * fem, 0 * fem, 25.63 * fem, 1.13 * fem),
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Search()),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
@@ -255,7 +285,12 @@ class Company_apply extends StatelessWidget {
                           margin: EdgeInsets.fromLTRB(
                               0 * fem, 0 * fem, 0 * fem, 1.15 * fem),
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Home()),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
