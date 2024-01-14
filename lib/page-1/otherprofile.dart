@@ -1,42 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/imp-1.dart';
-import 'package:starinit/page-1/otherprofile.dart';
 import 'package:starinit/utils.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Profile extends StatelessWidget {
-  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
-  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+class UserProfilePage extends StatefulWidget {
+  final String userId;
 
-  Future<double> fetchData() async {
-    DocumentReference docRef = _db.collection('users').doc(user!.uid);
-    DocumentSnapshot docSnap = await docRef.get();
+  UserProfilePage({required this.userId});
 
-    double starScore = double.parse(docSnap.get('star_score') as String? ?? '0');
-
-    return starScore;
-  }
-    
-  
   @override
+  _UserProfilePageState createState() => _UserProfilePageState();
+}
 
+class _UserProfilePageState extends State<UserProfilePage> {
+  late Future<DocumentSnapshot> _future;
+
+  @override
+  void initState() {
+    super.initState();
+    _future = FirebaseFirestore.instance.collection('users').doc(widget.userId).get();
+  }
+
+ @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-      return FutureBuilder<double>(
-      future: fetchData(),
-      builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+    return FutureBuilder<DocumentSnapshot>(
+      future: _future,
+      builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator(); // Show a loading spinner while waiting for fetchData to complete
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
-          double star_score = snapshot.data!;
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          double star_score = double.parse(data['star_score']);
           int fullStars = star_score.floor(); // Get the number of full stars
           double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
           String star1Image = 'assets/page-1/images/emptystar.png';
@@ -399,7 +402,7 @@ class Profile extends StatelessWidget {
                         92 * fem, 0 * fem, 87 * fem, 6 * fem),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.push( context, MaterialPageRoute(builder: (context) => UserProfilePage(userId: "YApFlNa6L7ffrtCAaLO7JwkLdtS2")));
+                        Navigator.push( context, MaterialPageRoute(builder: (context) => Imp1()), );
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
@@ -814,6 +817,7 @@ class Profile extends StatelessWidget {
  
      }
 }
+  
       );
   }
 }
