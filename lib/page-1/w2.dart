@@ -1167,7 +1167,7 @@ class W2 extends StatelessWidget {
                         width: 27.54 * fem,
                         height: 25.28 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/book-open.png',
+                          'assets/page-1/images/book-open-blue.png',
                           width: 27.54 * fem,
                           height: 25.28 * fem,
                         ),
@@ -1187,7 +1187,7 @@ class W2 extends StatelessWidget {
                         width: 30 * fem,
                         height: 24.75 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/suitcase-alt.png',
+                          'assets/page-1/images/suitcase-white.png',
                           width: 30 * fem,
                           height: 24.75 * fem,
                         ),
