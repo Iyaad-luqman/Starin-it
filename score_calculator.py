@@ -82,7 +82,7 @@ def convert_to_stars(score):
     return round(stars + 0.01 * (score % 100), 2)
 
 
-def rate_achievement(title,description):
+def rate_achievement(title,):
 
     genai.configure(api_key="***REMOVED***")
 
@@ -118,7 +118,7 @@ def rate_achievement(title,description):
                                 safety_settings=safety_settings)
 
     prompt_parts = [
-    "{\n \"prompt\": \"Rate the achievement based on given criteria.\",\n \"instructions\": [\n  \"Use the achievement's description for  significance, recognition, How difficult it is to achieve and how rare it is.\",\n  \"For renowned hackathons  rate between 7 to 13 based on recognition ann difficulty.\",\n  \"For moderate-level or localized hackathons, rate between 5 to 7 based on recognition ann difficulty.\",\n  \"For common certifications, rate around 2 out of 4 based on recognition ann difficulty.\",\n\t\"Provide the rating scores first enclosed in |||<score>|||\n  \"For challenging and industrial-standard certifications from renowed and high value comapanies, rate up to 15 out of 20.\",\n  \"Use the provided description for specific certifications and hackathons.\",\n\t\"Consider how much difficult it is to achieve it, to give a proper rating. If its too common and easy to achieve, give it very less rating like 1-5\",\n\t\"Consider how much value a HR would give to that achievement\"\n\t\"Achievements like Udemy and Nptel are widespread and easy to achieve, so they should only have 2-4 scores. Achievements like SIH Winner and similar ones are rare because it happens only once a year. So give it high scores like 10. So Use context \"\n\n ],\n\n \"context\": \"The API user wants to get a rating for various achievements, including hackathons and certifications, based on specific criteria provided in the instructions. The rating should reflect the achievement's significance, competitiveness, and practical value. Give rating for \""+ title +"\"\" with description\"" + description + "\"}" ,
+    "{\n \"prompt\": \"Rate the achievement based on given criteria.\",\n \"instructions\": [\n  \"Use the achievement's description for  significance, recognition, How difficult it is to achieve and how rare it is.\",\n  \"For renowned hackathons  rate between 7 to 13 based on recognition ann difficulty.\",\n  \"For moderate-level or localized hackathons, rate between 5 to 7 based on recognition ann difficulty.\",\n  \"For common certifications, rate around 2 out of 4 based on recognition ann difficulty.\",\n\t\"Provide the rating scores first enclosed in |||<score>|||\n  \"For challenging and industrial-standard certifications from renowed and high value comapanies, rate up to 15 out of 20.\",\n  \"Use the provided description for specific certifications and hackathons.\",\n\t\"Consider how much difficult it is to achieve it, to give a proper rating. If its too common and easy to achieve, give it very less rating like 1-5\",\n\t\"Consider how much value a HR would give to that achievement\"\n\t\"Achievements like Udemy and Nptel are widespread and easy to achieve, so they should only have 2-4 scores. Achievements like SIH Winner and similar ones are rare because it happens only once a year. So give it high scores like 10. So Use context \"\n\n ],\n\n \"context\": \"The API user wants to get a rating for various achievements, including hackathons and certifications, based on specific criteria provided in the instructions. The rating should reflect the achievement's significance, competitiveness, and practical value. Give rating for \""+ title +"\"\"" ,
     ]
 
     response = model.generate_content(prompt_parts)
@@ -131,8 +131,7 @@ def fetch_all_achievements(achievements):
     achievement_score = 0
     for achievement in achievements:
         title = achievement['title']
-        description = achievement['description']
-        rate = rate_achievement(title,description)
+        rate = rate_achievement(title)
         achievement_score += rate
     return achievement_score
 if doc.exists:
