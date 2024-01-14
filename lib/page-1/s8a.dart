@@ -17,24 +17,27 @@ class S8a extends StatefulWidget {
 }
 
 class _UniState extends State<S8a> {
-  int _selectedOption = 0;
+  int _pg_selectedOption = 0;
+  int _phd_selectedOption = 0;
 
-  String uniMarks = ""; // Your variable
+
+  String pg_done = "";
+  String phd_done = ""; // Your variable
+   // Your variable
 
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
-  final TextEditingController _uniController = TextEditingController();
-  Future<void> uploaduniMarks(uniMarks) async {
-    if (user != null) {
-      await _db.collection('users').doc(user!.uid).update({
-        'uni_marks': uniMarks,
-      });
-    }
-  }
+  final TextEditingController _pg_uniController = TextEditingController();
+  final TextEditingController _phd_uniController = TextEditingController();
+
+
 
   Future<void> uploadfields(
     String param1,
+    String param2,
+    String param3,
+    String param4,
   ) async {
     final FirebaseFirestore _db =
         FirebaseFirestore.instance; // Firestore instance
@@ -46,11 +49,17 @@ class _UniState extends State<S8a> {
 
       if (docSnap.exists) {
         await docRef.update({
-          'uni_name': param1,
+          'pg_done': param1,
+          'pg_uni_name': _pg_uniController.text,
+          'phd_done': phd_done,
+          'phd_uni_name': _phd_uniController.text,
         });
       } else {
         await docRef.set({
-          'uni_name': param1,
+          'pg_done': param1,
+          'pg_uni_name': _pg_uniController.text,
+          'phd_done': phd_done,
+          'phd_uni_name': _phd_uniController.text,
         });
       }
     }
@@ -135,15 +144,17 @@ class _UniState extends State<S8a> {
               top: 234 * fem,
               child: TextButton(
                 onPressed: () {
-                  if (_selectedOption == 1) {
+                  if (_pg_selectedOption == 1) {
                     setState(() {
-                      _selectedOption = 0;
+                      _pg_selectedOption = 0;
                     });
+                    pg_done = "NO";
+
                   } else {
                     setState(() {
-                      _selectedOption = 1;
+                      _pg_selectedOption = 1;
                     });
-                    uniMarks = "PG ";
+                    pg_done = "YES";
                   }
                 },
                 style: TextButton.styleFrom(
@@ -194,7 +205,7 @@ class _UniState extends State<S8a> {
                                   ),
                                 ),
                               ),
-                              if (_selectedOption == 1)
+                              if (_pg_selectedOption == 1)
                                 Text(
                                   String.fromCharCode(Icons.check.codePoint),
                                   style: TextStyle(
@@ -244,7 +255,7 @@ class _UniState extends State<S8a> {
                     child: Material(
                       color: Colors.transparent,
                       child: TextField(
-                        controller: _uniController,
+                        controller: _pg_uniController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -276,15 +287,17 @@ class _UniState extends State<S8a> {
               top: 450 * fem,
               child: TextButton(
                 onPressed: () {
-                  if (_selectedOption == 3) {
+                  if (_phd_selectedOption == 3) {
                     setState(() {
-                      _selectedOption = 0;
+                      _phd_selectedOption = 0;
                     });
+                  phd_done = "NO";
+
                   } else {
                     setState(() {
-                      _selectedOption = 3;
+                      _phd_selectedOption = 3;
                     });
-                    uniMarks = "PHD";
+                  phd_done = "YES";
                   }
                 },
                 style: TextButton.styleFrom(
@@ -335,7 +348,7 @@ class _UniState extends State<S8a> {
                                   ),
                                 ),
                               ),
-                              if (_selectedOption == 3)
+                              if (_phd_selectedOption == 3)
                                 Text(
                                   String.fromCharCode(Icons.check.codePoint),
                                   style: TextStyle(
@@ -385,7 +398,7 @@ class _UniState extends State<S8a> {
                     child: Material(
                       color: Colors.transparent,
                       child: TextField(
-                        controller: _uniController,
+                        controller: _phd_uniController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -450,8 +463,8 @@ class _UniState extends State<S8a> {
               top: 735 * fem,
               child: TextButton(
                 onPressed: () {
-                  uploaduniMarks(uniMarks);
-                  uploadfields(_uniController.text);
+                  uploadfields(pg_done,_pg_uniController.text,phd_done,_phd_uniController.text);
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => S9()),
