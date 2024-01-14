@@ -238,13 +238,13 @@ class _Home extends State<Home> {
                                           padding: EdgeInsets.zero,
                                         ),
                                         child: imageUrl != null
-          ? ClipOval(
-              child: Image.network(
-                imageUrl!,
-                fit: BoxFit.cover,
-              ),
-            )
-          : CircularProgressIndicator(), 
+                                    ? ClipOval(
+                                        child: Image.network(
+                                          imageUrl!,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      )
+                                    : CircularProgressIndicator(), 
                                       ),
                                     ),
                                   ),
