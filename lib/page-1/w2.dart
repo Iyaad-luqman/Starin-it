@@ -1090,8 +1090,8 @@ class W2 extends StatelessWidget {
             Container(
               // autogroup57py7Sc (2iFQdGmEeRK2AoSbmD57pY)
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 3 * fem, 0 * fem),
-              padding: EdgeInsets.fromLTRB(
-                  15.25 * fem, 17 * fem, 30 * fem, 23 * fem),
+              padding:
+                  EdgeInsets.fromLTRB(15.25 * fem, 0 * fem, 30 * fem, 0 * fem),
               height: 71 * fem,
               decoration: BoxDecoration(
                 color: Color(0xff19173d),
@@ -1102,7 +1102,7 @@ class W2 extends StatelessWidget {
                   Container(
                     // homealtnoe (4:127)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 60.25 * fem, 2.03 * fem),
+                        0 * fem, 0 * fem, 30.25 * fem, 2.03 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -1127,7 +1127,7 @@ class W2 extends StatelessWidget {
                   Container(
                     // search4mA (4:126)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 72.73 * fem, 0 * fem),
+                        0 * fem, 0 * fem, 30.73 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -1152,7 +1152,7 @@ class W2 extends StatelessWidget {
                   Container(
                     // bookopenAJQ (4:124)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 2.96 * fem, 64.73 * fem, 0 * fem),
+                        0 * fem, 2.96 * fem, 35.73 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -1167,7 +1167,7 @@ class W2 extends StatelessWidget {
                         width: 27.54 * fem,
                         height: 25.28 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/book-open-blue.png',
+                          'assets/page-1/images/book-open.png',
                           width: 27.54 * fem,
                           height: 25.28 * fem,
                         ),
@@ -1187,7 +1187,7 @@ class W2 extends StatelessWidget {
                         width: 30 * fem,
                         height: 24.75 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/suitcase-white.png',
+                          'assets/page-1/images/suitcase-alt.png',
                           width: 30 * fem,
                           height: 24.75 * fem,
                         ),

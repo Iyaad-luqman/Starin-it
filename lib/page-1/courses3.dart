@@ -361,7 +361,7 @@ class Courses3 extends StatelessWidget {
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
                                         image: AssetImage(
-                                          'assets/page-1/images/image-jBa.png',
+                                          'assets/page-1/images/p1.jpg',
                                         ),
                                       ),
                                     ),
@@ -376,7 +376,7 @@ class Courses3 extends StatelessWidget {
                                             padding: EdgeInsets.zero,
                                           ),
                                           child: Image.asset(
-                                            'assets/page-1/images/image-bH6.png',
+                                            'assets/page-1/images/p1.jpg',
                                             width: 70.72 * fem,
                                             height: 68 * fem,
                                           ),
@@ -857,7 +857,7 @@ class Courses3 extends StatelessWidget {
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
                                         image: AssetImage(
-                                          'assets/page-1/images/image-a6g.png',
+                                          'assets/page-1/images/p2.jpg',
                                         ),
                                       ),
                                     ),
@@ -867,7 +867,7 @@ class Courses3 extends StatelessWidget {
                                         width: 70.72 * fem,
                                         height: 68 * fem,
                                         child: Image.asset(
-                                          'assets/page-1/images/image-yT2.png',
+                                          'assets/page-1/images/p2.jpg',
                                           width: 70.72 * fem,
                                           height: 68 * fem,
                                         ),
@@ -1100,7 +1100,7 @@ class Courses3 extends StatelessWidget {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage(
-                              'assets/page-1/images/image.png',
+                              'assets/page-1/images/p4.jpg',
                             ),
                           ),
                         ),
@@ -1110,7 +1110,7 @@ class Courses3 extends StatelessWidget {
                             width: 69.42 * fem,
                             height: 68 * fem,
                             child: Image.asset(
-                              'assets/page-1/images/image-dDN.png',
+                              'assets/page-1/images/p4.jpg',
                               width: 69.42 * fem,
                               height: 68 * fem,
                             ),
