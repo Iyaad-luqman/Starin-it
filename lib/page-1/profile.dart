@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/s11a.dart';
+import 'package:starinit/page-1/s9a.dart';
 import 'package:starinit/page-1/imp-1.dart';
 import 'package:starinit/page-1/otherprofile.dart';
 import 'package:starinit/utils.dart';
@@ -681,7 +683,13 @@ class Profile extends StatelessWidget {
                         ),
                         TextButton(
                           // autogroupik8toQp (C3mWbKfB78Y48nxMddik8t)
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S11a()),
+                            );
+
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -725,7 +733,12 @@ class Profile extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 6 * fem, 10 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S9a()),
+                            );},
+                
+                      
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
