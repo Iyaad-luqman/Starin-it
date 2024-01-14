@@ -1,10 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/s11.dart';
+import 'package:starinit/page-1/s15.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,12 +13,12 @@ import 'package:file_picker/file_picker.dart';
 
 class S14 extends StatelessWidget {
   final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _companynameController = TextEditingController();
-  final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _projectdescriptionController =
+      TextEditingController();
   final TextEditingController _skillsController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    Future<void> addAchievement(Map<String, dynamic> newAchievement) async {
+    Future<void> addProject(Map<String, dynamic> newProject) async {
       final FirebaseFirestore _db =
           FirebaseFirestore.instance; // Firestore instance
       final User? user = FirebaseAuth.instance.currentUser; // Get current user
@@ -27,18 +28,18 @@ class S14 extends StatelessWidget {
         DocumentSnapshot docSnap = await docRef.get();
 
         if (docSnap.exists) {
-          List<Map<String, dynamic>> achievements =
+          List<Map<String, dynamic>> projects =
               (docSnap.data() as Map<String, dynamic>?)
-                          ?.containsKey('achievements') ??
+                          ?.containsKey('projects') ??
                       false
-                  ? List<Map<String, dynamic>>.from(docSnap.get('achievements'))
+                  ? List<Map<String, dynamic>>.from(docSnap.get('projects'))
                   : [];
           await docRef.update({
-            'achievements': FieldValue.arrayUnion([newAchievement]),
+            'projects': FieldValue.arrayUnion([newProject]),
           });
         } else {
           await docRef.set({
-            'achievements': [newAchievement],
+            'projects': [newProject],
           });
         }
       }
@@ -91,9 +92,7 @@ class S14 extends StatelessWidget {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 3 * fem, 7 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {
-                        
-                      },
+                      onPressed: () {},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -194,7 +193,7 @@ class S14 extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 80,
             ),
             Positioned(
               // group23966wye (1:62)
@@ -202,7 +201,7 @@ class S14 extends StatelessWidget {
               top: 164 * fem,
               child: Container(
                 width: 321 * fem,
-                height: 100* fem,
+                height: 150 * fem,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8 * fem),
                 ),
@@ -228,7 +227,8 @@ class S14 extends StatelessWidget {
                     ),
                     Container(
                       // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
-                      width: double.infinity,
+                      width: 400, // adjust the value as needed
+                      height: 150,
                       decoration: BoxDecoration(
                         border: Border.all(color: Color(0xffe8ecf4)),
                         color: Color(0xfff7f8f9),
@@ -237,7 +237,7 @@ class S14 extends StatelessWidget {
                       child: Material(
                         color: Colors.transparent,
                         child: TextField(
-                          controller: _companynameController,
+                          controller: _projectdescriptionController,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,
@@ -265,79 +265,7 @@ class S14 extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 50,
-            ),
-
-            Positioned(
-              // group23968yor (1:66)
-              left: 33 * fem,
-              top: 595 * fem,
-              child: Container(
-                width: 321 * fem,
-                height: 78.9 * fem,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8 * fem),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // dateofbirthHZe (1:67)
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                      child: Text(
-                        'Date:',
-                        style: SafeGoogleFont(
-                          'Urbanist',
-                          decoration: TextDecoration.none,
-                          fontSize: 23 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2 * ffem / fem,
-                          letterSpacing: 0.345 * fem,
-                          color: Color(0xffffffff),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      // autogrouprruep3n (FXwZVhJzwnrEMUfUyURRue)
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xffe8ecf4)),
-                        color: Color(0xfff7f8f9),
-                        borderRadius: BorderRadius.circular(8 * fem),
-                      ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: TextField(
-                          controller: _dateController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            contentPadding: EdgeInsets.fromLTRB(
-                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
-                            hintText: 'dd/mm/yyy',
-                            hintStyle: TextStyle(color: Color(0xff8390a1)),
-                          ),
-                          style: SafeGoogleFont(
-                            'Urbanist',
-                            decoration: TextDecoration.none,
-                            fontSize: 15 * ffem,
-                            fontWeight: FontWeight.w500,
-                            height: 1.25 * ffem / fem,
-                            color: Color(0xff000000),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 50,
+              height: 90,
             ),
 
             Positioned(
@@ -412,81 +340,21 @@ class S14 extends StatelessWidget {
               height: 50,
             ),
             //
-            Container(
-              // group239754Mz (2:68)
-              margin:
-                  EdgeInsets.fromLTRB(84 * fem, 0 * fem, 79.57 * fem, 36 * fem),
-              child: TextButton(
-                onPressed: () async {
-                  FilePickerResult? result =
-                      await FilePicker.platform.pickFiles();
 
-                  if (result != null) {
-                    File file = File(result.files.single.path!);
-                  } else {
-                    // User canceled the picker
-                  }
-                },
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(
-                      25.15 * fem, 12 * fem, 35.2 * fem, 12 * fem),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Color(0x7fffffff)),
-                    color: Color(0xff19183e),
-                    borderRadius: BorderRadius.circular(15 * fem),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // fileuploadVTJ (2:71)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 11.61 * fem, 0 * fem),
-                        width: 15.48 * fem,
-                        height: 20 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/file-upload.png',
-                          width: 15.48 * fem,
-                          height: 20 * fem,
-                        ),
-                      ),
-                      Text(
-                        // uploadproofnhJ (2:70)
-                        'Upload Proof',
-                        style: SafeGoogleFont(
-                          'Urbanist',
-                          decoration: TextDecoration.none,
-                          fontSize: 13 * ffem,
-                          fontWeight: FontWeight.w400,
-                          height: 1.2 * ffem / fem,
-                          letterSpacing: 0.195 * fem,
-                          color: Color(0xddffffff),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
             Container(
               // save7Ug (2:65)
               margin:
                   EdgeInsets.fromLTRB(110 * fem, 0 * fem, 91 * fem, 0 * fem),
               child: TextButton(
                 onPressed: () {
-                  addAchievement({
+                  addProject({
                     'title': _titleController.text,
-                    'company_name': _companynameController.text,
-                    'date': _dateController.text,
+                    'Project_description': _projectdescriptionController.text,
                     'skills': _skillsController.text,
                   });
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => S11()),
+                    MaterialPageRoute(builder: (context) => S15()),
                   );
                 },
                 style: TextButton.styleFrom(

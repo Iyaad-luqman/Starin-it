@@ -5,12 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/s12.dart';
 import 'package:starinit/page-1/s14.dart';
-import 'package:starinit/page-1/s15.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class S11 extends StatelessWidget {
+class S15 extends StatelessWidget {
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
@@ -25,10 +24,17 @@ class S11 extends StatelessWidget {
       DocumentReference docRef = _db.collection('users').doc(user!.uid);
       DocumentSnapshot docSnap = await docRef.get();
 
-      List<Map<String, dynamic>> achievements =
-          List<Map<String, dynamic>>.from(docSnap.get('achievements') ?? []);
+      if (!docSnap.exists) {
+        await docRef.set({'projects': []});
+      }
 
-      return {'achievements': achievements};
+      docSnap =
+          await docRef.get(); // Get the document again after potential update
+
+      List<Map<String, dynamic>> projects =
+          List<Map<String, dynamic>>.from(docSnap.get('projects') ?? []);
+
+      return {'projects': projects};
     }
 
     return FutureBuilder<Map<String, dynamic>>(
@@ -41,12 +47,11 @@ class S11 extends StatelessWidget {
           if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           }
-          List<Map<String, dynamic>> achievements =
-              snapshot.data!['achievements'];
-          int numberOfachievements = achievements.length;
-          List<Widget> achievementsWidgets = [];
-          for (int i = 0; i < numberOfachievements; i++) {
-            achievementsWidgets.add(
+          List<Map<String, dynamic>> projects = snapshot.data!['projects'];
+          int numberOfprojects = projects.length;
+          List<Widget> projectsWidgets = [];
+          for (int i = 0; i < numberOfprojects; i++) {
+            projectsWidgets.add(
               SingleChildScrollView(
                 child: Container(
                   // Nm3 (2:243)
@@ -65,7 +70,7 @@ class S11 extends StatelessWidget {
                             width: 102 * fem,
                             height: 16 * fem,
                             child: Text(
-                              '${achievements[i]['title']}',
+                              '${projects[i]['title']}',
                               style: SafeGoogleFont(
                                 'Urbanist',
                                 decoration: TextDecoration.none,
@@ -106,7 +111,7 @@ class S11 extends StatelessWidget {
                             width: 100 * fem,
                             height: 24 * fem,
                             child: Text(
-                              '${achievements[i]['company_name']}\n',
+                              '${projects[i]['project_description']}\n',
                               style: SafeGoogleFont(
                                 'Radio Canada',
                                 decoration: TextDecoration.none,
@@ -129,7 +134,7 @@ class S11 extends StatelessWidget {
                             width: 43 * fem,
                             height: 35 * fem,
                             child: Image.network(
-                              'https://logo.clearbit.com/${achievements[i]['title'].toLowerCase()}.com',
+                              '${projects[i]['skills']}',
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -190,7 +195,7 @@ class S11 extends StatelessWidget {
                         padding: EdgeInsets.zero,
                       ),
                       child: Text(
-                        ' Achivements Corner  ',
+                        ' Projects Corner  ',
                         textAlign: TextAlign.center,
                         style: SafeGoogleFont(
                           'Quicksand',
@@ -209,7 +214,7 @@ class S11 extends StatelessWidget {
                         fem *
                         3, // Adjust this value to fit 3 widgets at once
                     child: ListView(
-                      children: achievementsWidgets,
+                      children: projectsWidgets,
                     ),
                   ), //
 
@@ -221,7 +226,7 @@ class S11 extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => S12()),
+                          MaterialPageRoute(builder: (context) => S14()),
                         );
                       },
                       style: TextButton.styleFrom(
@@ -237,7 +242,7 @@ class S11 extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            'Add Acheivement',
+                            'Add Project',
                             style: SafeGoogleFont(
                               'Urbanist',
                               decoration: TextDecoration.none,
@@ -260,7 +265,7 @@ class S11 extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => S15()),
+                          MaterialPageRoute(builder: (context) => Home()),
                         );
                       },
                       style: TextButton.styleFrom(
