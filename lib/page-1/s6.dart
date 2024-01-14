@@ -7,18 +7,22 @@ import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
+
 
 class S6 extends StatelessWidget {
   final TextEditingController _bioController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
+          final FirebaseFirestore _db =
+          FirebaseFirestore.instance; // Firestore instance
+      final User? user = FirebaseAuth.instance.currentUser; // Get current user
+      final String uid = user!.uid.toString(); // Get their UID
     Future<void> uploadfields(
       String param1,
     ) async {
-      final FirebaseFirestore _db =
-          FirebaseFirestore.instance; // Firestore instance
-      final User? user = FirebaseAuth.instance.currentUser; // Get current user
 
       if (user != null) {
         DocumentReference docRef = _db.collection('users').doc(user.uid);
@@ -199,17 +203,23 @@ class S6 extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15 * fem),
                         ),
                         child: TextButton.icon(
-                          onPressed: () async {
-                            FilePickerResult? result =
-                                await FilePicker.platform.pickFiles();
+                            onPressed: () async {
+                              FilePickerResult? result = await FilePicker.platform.pickFiles();
 
-                            if (result != null) {
-                              File file = File(result.files.single.path!);
-                            } else {
-                              // User canceled the picker
-                            }
-                          },
-                          icon: Icon(Icons.upload_file,
+                              if (result != null) {
+                                File file = File(result.files.single.path!);
+                                FirebaseStorage storage = FirebaseStorage.instance;
+                                try {
+                                  // Make sure to replace 'uploads/$uid/file' with the path where you want to store the file in Firebase Storage
+                                  await storage.ref('uploads/$uid/file').putFile(file);
+                                } catch (e) {
+                                  // Handle the error
+                                }
+                              } else {
+                                // User canceled the picker
+                              }
+                            },
+                            icon: Icon(Icons.upload_file,
                               color: Colors.white), // replace with your icon
                           label: Text('Upload Profile Picture',
                               style: TextStyle(color: Colors.white)),
