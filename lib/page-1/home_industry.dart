@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
 class Home_industry extends StatelessWidget {
@@ -98,6 +99,7 @@ class Home_industry extends StatelessWidget {
                       'ADD A POST',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 12 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,
@@ -143,32 +145,11 @@ class Home_industry extends StatelessWidget {
                     'We live in a world where business cycles are quicker and more nuanced than ever. This creates new oppurtunities ,but requires an adaptive leadership approach. The best leaders are those who get really good at managing through the cycles in their markets and their business.\n\nAttend our workshop to learn more about Adaptive Leadership Skills  ',
                     style: SafeGoogleFont(
                       'Inter',
+                      decoration: TextDecoration.none,
                       fontSize: 12 * ffem,
                       fontWeight: FontWeight.w300,
                       height: 1.2125 * ffem / fem,
                       color: Color(0xff070000),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              // bookopen3De (23:698)
-              left: 89.4833984375 * fem,
-              top: 150.181640625 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 25.03 * fem,
-                  height: 23.6 * fem,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Image.asset(
-                      'assets/page-1/images/book-open-TPa.png',
-                      width: 25.03 * fem,
-                      height: 23.6 * fem,
                     ),
                   ),
                 ),
@@ -260,6 +241,7 @@ class Home_industry extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 14 * ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2 * ffem / fem,
@@ -288,6 +270,7 @@ class Home_industry extends StatelessWidget {
                       'REDDINGTON',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 36 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,
@@ -315,37 +298,20 @@ class Home_industry extends StatelessWidget {
               ),
             ),
             Positioned(
-              // suitcasealtiPe (23:696)
-              left: 20.75 * fem,
-              top: 148.875 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 27.5 * fem,
-                  height: 23.25 * fem,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Image.asset(
-                      'assets/page-1/images/suitcase-alt.png',
-                      width: 27.5 * fem,
-                      height: 23.25 * fem,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
               // searchD5W (23:564)
-              left: 242 * fem,
+              left: 50 * fem,
               top: 150 * fem,
               child: Align(
                 child: SizedBox(
                   width: 29 * fem,
                   height: 26 * fem,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Search()),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),
@@ -360,7 +326,7 @@ class Home_industry extends StatelessWidget {
             ),
             Positioned(
               // homealt6f6 (23:566)
-              left: 310.625 * fem,
+              left: 270.625 * fem,
               top: 152.140625 * fem,
               child: Align(
                 child: SizedBox(
@@ -392,6 +358,7 @@ class Home_industry extends StatelessWidget {
                     'UPCOMING EVENTS:',
                     style: SafeGoogleFont(
                       'Inter',
+                      decoration: TextDecoration.none,
                       fontSize: 20 * ffem,
                       fontWeight: FontWeight.w800,
                       height: 1.2125 * ffem / fem,
@@ -484,6 +451,7 @@ class Home_industry extends StatelessWidget {
                       '140+ JOB APPLICATIONS',
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 12 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,
