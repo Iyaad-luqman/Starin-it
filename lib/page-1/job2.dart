@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/courses1.dart';
+import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/job1.dart';
+import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
 class Job2 extends StatelessWidget {
@@ -36,7 +40,12 @@ class Job2 extends StatelessWidget {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Job1()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -59,6 +68,7 @@ class Job2 extends StatelessWidget {
                       'Based On Stars',
                       style: SafeGoogleFont(
                         'Poppins',
+                        decoration: TextDecoration.none,
                         fontSize: 24 * ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.5 * ffem / fem,
@@ -141,6 +151,7 @@ class Job2 extends StatelessWidget {
                             'Interest',
                             style: SafeGoogleFont(
                               'Quicksand',
+                              decoration: TextDecoration.none,
                               fontSize: 16 * ffem,
                               fontWeight: FontWeight.w600,
                               height: 1.25 * ffem / fem,
@@ -169,6 +180,7 @@ class Job2 extends StatelessWidget {
                           'Proximity',
                           style: SafeGoogleFont(
                             'Quicksand',
+                            decoration: TextDecoration.none,
                             fontSize: 16 * ffem,
                             fontWeight: FontWeight.w600,
                             height: 1.25 * ffem / fem,
@@ -188,6 +200,7 @@ class Job2 extends StatelessWidget {
                 'Recommended for you',
                 style: SafeGoogleFont(
                   'Inter',
+                  decoration: TextDecoration.none,
                   fontSize: 14 * ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.5714285714 * ffem / fem,
@@ -231,6 +244,7 @@ class Job2 extends StatelessWidget {
                           'Assessment Writer, Trilogy (Remote) -\n\$100,000/year USD\nCrossover',
                           style: SafeGoogleFont(
                             'Inter',
+                            decoration: TextDecoration.none,
                             fontSize: 12 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.6666666667 * ffem / fem,
@@ -309,6 +323,7 @@ class Job2 extends StatelessWidget {
                                   'Kangri Transcribers (Remote)\nSigma AI',
                                   style: SafeGoogleFont(
                                     'Inter',
+                                    decoration: TextDecoration.none,
                                     fontSize: 12 * ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.6666666667 * ffem / fem,
@@ -331,6 +346,7 @@ class Job2 extends StatelessWidget {
                                 'Kangra, Himachal Pradesh, India (Remote)',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 11 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6363636364 * ffem / fem,
@@ -352,6 +368,7 @@ class Job2 extends StatelessWidget {
                                 'Gurgaon, Haryana, India (Remote)',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 11 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6363636364 * ffem / fem,
@@ -373,6 +390,7 @@ class Job2 extends StatelessWidget {
                                 'I month ago',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 9 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.5555555556 * ffem / fem,
@@ -394,6 +412,7 @@ class Job2 extends StatelessWidget {
                                 '5 hours ago',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 9 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.5555555556 * ffem / fem,
@@ -475,6 +494,7 @@ class Job2 extends StatelessWidget {
                                 'Infrastructure Engineer, AVP\nNatWest Group',
                                 style: SafeGoogleFont(
                                   'Inter',
+                                  decoration: TextDecoration.none,
                                   fontSize: 12 * ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.6666666667 * ffem / fem,
@@ -489,6 +509,7 @@ class Job2 extends StatelessWidget {
                           'Chennai, Tamil Nadu, India (Hybrid)',
                           style: SafeGoogleFont(
                             'Inter',
+                            decoration: TextDecoration.none,
                             fontSize: 11 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.6363636364 * ffem / fem,
@@ -525,11 +546,12 @@ class Job2 extends StatelessWidget {
             Container(
               // activelyrecruitingzYk (13:1194)
               margin:
-                  EdgeInsets.fromLTRB(0 * fem, 0 * fem, 160 * fem, 265 * fem),
+                  EdgeInsets.fromLTRB(0 * fem, 0 * fem, 160 * fem, 210 * fem),
               child: Text(
                 'Actively recruiting',
                 style: SafeGoogleFont(
                   'Inter',
+                  decoration: TextDecoration.none,
                   fontSize: 9 * ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.5555555556 * ffem / fem,
@@ -548,9 +570,14 @@ class Job2 extends StatelessWidget {
                   Container(
                     // homealtExt (13:1186)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 60.25 * fem, 2.03 * fem),
+                        0 * fem, 0 * fem, 30.25 * fem, 2.03 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -568,9 +595,14 @@ class Job2 extends StatelessWidget {
                   Container(
                     // searchjek (13:1185)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 72.73 * fem, 0 * fem),
+                        0 * fem, 0 * fem, 30.73 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Search()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -588,9 +620,14 @@ class Job2 extends StatelessWidget {
                   Container(
                     // bookopendk8 (13:1183)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 2.96 * fem, 64.73 * fem, 0 * fem),
+                        0 * fem, 2.96 * fem, 35.73 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Courses1()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -610,7 +647,12 @@ class Job2 extends StatelessWidget {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 4 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Job1()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),

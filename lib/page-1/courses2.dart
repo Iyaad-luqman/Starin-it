@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/courses1.dart';
 import 'package:starinit/page-1/courses3.dart';
 import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
@@ -528,7 +529,13 @@ class Courses2 extends StatelessWidget {
                             margin: EdgeInsets.fromLTRB(
                                 0 * fem, 0 * fem, 0 * fem, 4 * fem),
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Job1()),
+                                );
+                              },
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
                               ),
