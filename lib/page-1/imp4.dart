@@ -3,16 +3,124 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Imp4 extends StatelessWidget {
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+
+
+
+class Imp4 extends StatefulWidget {
+  final String userId;
+
+  Imp4({required this.userId});
+
   @override
+  _Imp4 createState() => _Imp4();
+}
+
+class _Imp4 extends State<Imp4> {
+  late Future<DocumentSnapshot> _future;
+    final ratingController = TextEditingController();
+    final commentController = TextEditingController();
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    _future = FirebaseFirestore.instance.collection('users').doc(widget.userId).get();
+  }
+  
+
+
+ @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
-      width: double.infinity,
-      child: Container(
+    return FutureBuilder<DocumentSnapshot>(
+      future: _future,
+      builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator(); // Show a loading spinner while waiting for fetchData to complete
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
+        } else {
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+            Future<void> uploadfields(
+              String param1,
+              String param2,
+            ) async {
+              final FirebaseFirestore _db =
+                  FirebaseFirestore.instance; // Firestore instance
+              final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+              if (user != null) {
+                DocumentReference docRef = _db.collection('users').doc(widget.userId);
+                DocumentSnapshot docSnap = await docRef.get();
+                DocumentReference docRef2 = _db.collection('users').doc(user.uid);
+                DocumentSnapshot docSnap2 = await docRef2.get();
+                
+                Map<String, dynamic>? data2 = docSnap2.data() as Map<String, dynamic>?;
+
+                      String? userName = data2?['name'];
+    
+
+                Map<String, dynamic>? data = docSnap.data() as Map<String, dynamic>?;
+                if (data != null && data.containsKey('ratings')) {
+                  List ratings = data['ratings'];
+                  bool hasRated = ratings.any((rating) => rating['rated_uid'] == user.uid);
+
+                  if (!hasRated) {
+                    // Add rating
+                    await docRef.update({
+                      'ratings': FieldValue.arrayUnion([{
+                        'rated_uid': user.uid,
+                        "rated_name": userName,
+                        'rating': param1,
+                        'comment': param2
+                      }]),
+                    });
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Rating Error'),
+                          content: Text('You have already rated this user.'),
+                          actions: <Widget>[
+                            TextButton(
+                              child: Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                } else {
+                  // 'ratings' array doesn't exist, create it
+                  // 'ratings' array doesn't exist, create it
+        await docRef.set({
+          'ratings': [{
+            'rated_uid': user.uid,
+            "rated_name": userName,
+
+            'rating': param1,
+            'comment': param2
+          }],
+        }, SetOptions(merge: true));
+                      }
+              }}
+return Scaffold(
+  resizeToAvoidBottomInset: true, // Add this line
+  body: SingleChildScrollView(
+  child: Container(
+    width: double.infinity,
+    child: Container(
         // imp4xu2 (21:529)
         padding: EdgeInsets.fromLTRB(0*fem, 5*fem, 0*fem, 0*fem),
         width: double.infinity,
@@ -109,12 +217,12 @@ class Imp4 extends StatelessWidget {
                               width: 222*fem,
                               height: 154*fem,
                               child: Text(
-                                'HOW MUCH DO YOU WISH TO RATE RITHIKA KUMAR?',
+                                'HOW MUCH DO YOU WISH TO RATE ${data['name'].toString().toUpperCase()} ?',
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont (
                                   'Inria Serif',
                                   decoration: TextDecoration.none,
-fontSize: 32*ffem,
+fontSize: 27*ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.1975*ffem/fem,
                                   color: Color(0xffffffff),
@@ -125,8 +233,8 @@ fontSize: 32*ffem,
                         ),
                         Positioned(
                           // roundedgingclipartpngimagesflu (21:537)
-                          left: 0*fem,
-                          top: 135*fem,
+                          left: 20*fem,
+                          top: 85*fem,
                           child: Align(
                             child: SizedBox(
                               width: 300*fem,
@@ -140,36 +248,50 @@ fontSize: 32*ffem,
                                     ),
                                   ),
                                 ),
-                                child: TextField(
-                                  decoration: InputDecoration (
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                  ),
-                                ),
                               ),
                             ),
                           ),
                         ),
                         Positioned(
-                          // fuE (21:538)
-                          left: 150*fem,
-                          top: 206*fem,
+                          left: 120 * fem,
+                          top: 166 * fem,
                           child: Align(
                             child: SizedBox(
-                              width: 87*fem,
-                              height: 77*fem,
-                              child: Text(
-                                '/10',
-                                style: SafeGoogleFont (
-                                  'Inria Serif',
-                                  decoration: TextDecoration.none,
-fontSize: 64*ffem,
-                                  fontWeight: FontWeight.w400,
-                                  height: 1.1975*ffem/fem,
-                                  color: Color(0xff000000),
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              height: 77 * fem,
+                              child: Material(
+                                color: Colors.transparent,
+                                child: Row(
+                                  children: [
+                                    Flexible(
+                                      child: TextField(
+                                        controller: ratingController,
+                                        style: TextStyle(
+                                          fontFamily: 'Inria Serif',
+                                          fontSize: 54 * ffem,
+                                          fontWeight: FontWeight.w400,
+                                          height: 1.1975 * ffem / fem,
+                                          color: Color(0xff000000),
+                                        ),
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 70.0), // Adjust the value as needed
+                                      child: Text(
+                                        "/10",
+                                        style: TextStyle(
+                                          fontFamily: 'Inria Serif',
+                                          fontSize: 54 * ffem,
+                                          fontWeight: FontWeight.w400,
+                                          height: 1.1975 * ffem / fem,
+                                          color: Color(0xff000000),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -184,6 +306,8 @@ fontSize: 64*ffem,
                               width: 102*fem,
                               height: 1*fem,
                               child: Container(
+                                child: Material(
+                       color: Colors.transparent,
                                 child: TextField(
                                   decoration: InputDecoration (
                                     border: InputBorder.none,
@@ -194,11 +318,12 @@ fontSize: 64*ffem,
                                   ),
                                 ),
                               ),
+                              ),
                             ),
                           ),
                         ),
                         Positioned(
-                          // sayfewwordsaboutrithikakumaron (21:542)
+                         
                           left: 21*fem,
                           top: 346*fem,
                           child: Align(
@@ -206,7 +331,7 @@ fontSize: 64*ffem,
                               width: 261*fem,
                               height: 39*fem,
                               child: Text(
-                                'Say few words about Rithika Kumar on your IMPRESSIONS.',
+                                'Say few words about ${data['name'].toString().toUpperCase()} on your IMPRESSIONS.',
                                 style: SafeGoogleFont (
                                   'Inria Serif',
                                   decoration: TextDecoration.none,
@@ -231,8 +356,10 @@ fontSize: 16*ffem,
                       borderRadius: BorderRadius.circular(15*fem),
                       border: Border.all(color: Color(0x7fffffff)),
                       color: Color(0x7f19173d),
-                    ),
+                    ),child: Material(
+                       color: Colors.transparent,
                     child: TextField(
+                      controller: commentController,
                       decoration: InputDecoration (
                         border: InputBorder.none,
                         focusedBorder: InputBorder.none,
@@ -249,15 +376,19 @@ fontSize: 16*ffem,
 fontSize: 10*ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.1975*ffem/fem,
-                        color: Color(0xff000000),
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
                     ),
+                  ),
                   ),
                   Container(
                     // autogrouptrzyo1n (GsyHvh5KzE4y9LPDzFTrzY)
                     margin: EdgeInsets.fromLTRB(110*fem, 0*fem, 103*fem, 0*fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        uploadfields(ratingController.text, commentController.text);
+                        debugPrint('Button pressed ${ratingController.text}');
+                      },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,
                       ),
@@ -296,6 +427,10 @@ fontSize: 16*ffem,
           ],
         ),
       ),
-          );
+          ),
+  ),
+    );}
+}
+    );
   }
 }
