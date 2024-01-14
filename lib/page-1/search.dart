@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/home-page.dart';
+import 'package:starinit/page-1/courses1.dart';
+import 'package:starinit/page-1/home_personal.dart';
+import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/utils.dart';
 
 class Search extends StatelessWidget {
@@ -1845,7 +1847,13 @@ class Search extends StatelessWidget {
                                       left:
                                           150, // specify a different left offset
                                       child: TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Search()),
+                                          );
+                                        },
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
                                         ),
@@ -1868,7 +1876,14 @@ class Search extends StatelessWidget {
                                           350, // specify a different top offset
                                       left: 45, // specify the left offset
                                       child: TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Courses1()),
+                                          );
+                                        },
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
                                         ),
@@ -1892,7 +1907,13 @@ class Search extends StatelessWidget {
                                       left:
                                           100, // specify a different left offset
                                       child: TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Job1()),
+                                          );
+                                        },
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
                                         ),
