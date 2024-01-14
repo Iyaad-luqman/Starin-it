@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/home-page.dart';
 import 'package:starinit/page-1/w2.dart';
 import 'package:starinit/page-1/w3.dart';
+import 'package:starinit/page-1/w4.dart';
 import 'package:starinit/utils.dart';
 
 class W1 extends StatelessWidget {
@@ -288,7 +289,12 @@ class W1 extends StatelessWidget {
               // newpasswordinputdKz (4:99)
               margin: EdgeInsets.fromLTRB(20 * fem, 0 * fem, 0 * fem, 34 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => W4()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
