@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/imp-1.dart';
+import 'package:starinit/page-1/imp-2.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -40,6 +41,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
         } else {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
           double star_score = double.parse(data['star_score']);
+          String name = data['name'];
           int fullStars = star_score.floor(); // Get the number of full stars
           double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
           String star1Image = 'assets/page-1/images/emptystar.png';
@@ -151,15 +153,16 @@ class _UserProfilePageState extends State<UserProfilePage> {
               child: Stack(
                 children: [
                   Positioned(
-                    // mishalahamedkDHe (36:2584)
-                    left: 93 * fem,
                     top: 190 * fem,
-                    child: Align(
+                    left: 0 * fem,
+                    right: 0 * fem,
+                    child: Center(
                       child: SizedBox(
-                        width: 176 * fem,
+                        width: MediaQuery.of(context).size.width,
                         height: 24 * fem,
                         child: Text(
-                          'MISHAL AHAMED K',
+                          name,
+                          textAlign: TextAlign.center,  // Add this line
                           style: SafeGoogleFont(
                             'Urbanist',
                             decoration: TextDecoration.none,
@@ -402,7 +405,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         92 * fem, 0 * fem, 87 * fem, 6 * fem),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.push( context, MaterialPageRoute(builder: (context) => Imp1()), );
+                        Navigator.push( context, MaterialPageRoute(builder: (context) => Imp2()), );
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,

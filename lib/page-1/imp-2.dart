@@ -3,10 +3,27 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:starinit/page-1/qrscanner.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class Imp2 extends StatelessWidget {
+      FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
+
+    Future<bool> _requestCameraPermission() async {
+      var status = await Permission.camera.status;
+      if (!status.isGranted) {
+        status = await Permission.camera.request();
+      }
+      return status.isGranted;
+    }
+    String uid = auth.currentUser!.uid;
+
+    
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -211,16 +228,13 @@ fontSize: 80*ffem,
                 ],
               ),
             ),
-            Container(
-              // whatsappimage20240114at12311df (21:497)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 20.63*fem, 5*fem),
-              width: 160*fem,
-              height: 164*fem,
-              child: Image.asset(
-                'assets/page-1/images/whatsapp-image-2024-01-14-at-1231-1-Ji8.png',
-                fit: BoxFit.cover,
-              ),
-            ),
+
+                  QrImageView(
+                    data: uid,
+                    version: QrVersions.auto,
+                    size: 200.0,
+                    backgroundColor: Colors.white,
+                  ),
             Container(
               // autogroupxpmiwwS (GsyGhj7aDFuMdb1FSfXpMi)
               margin: EdgeInsets.fromLTRB(31.38*fem, 0*fem, 0*fem, 10*fem),
@@ -233,7 +247,15 @@ fontSize: 80*ffem,
                     left: 1*fem,
                     top: 127*fem,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        await _requestCameraPermission();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QRScanPage(),
+                          ),
+                        );
+                      },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,
                       ),
