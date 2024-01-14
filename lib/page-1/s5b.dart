@@ -10,17 +10,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class S5b extends StatelessWidget {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _addAddressController = TextEditingController();
-  final TextEditingController _phoneNumberController = TextEditingController();
-  final TextEditingController _dateofbirthController = TextEditingController();
+  final TextEditingController _roleController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Future<void> uploadfields(
       String param1,
       String param2,
-      String param3,
-      String param4,
     ) async {
       final FirebaseFirestore _db =
           FirebaseFirestore.instance; // Firestore instance
@@ -32,14 +28,14 @@ class S5b extends StatelessWidget {
 
         if (docSnap.exists) {
           await docRef.update({
-            'Enter Your Role': param1,
-            'Description': param2,
+            'role': param1,
+            'description': param2,
           
           });
         } else {
           await docRef.set({
-            'Enter Your Role': param1,
-            'Description': param2,
+            'role': param1,
+            'description': param2,
             
           });
         }
@@ -274,7 +270,7 @@ class S5b extends StatelessWidget {
                               child: Material(
                                 color: Colors.transparent,
                                 child: TextField(
-                                  controller: _nameController,
+                                  controller: _roleController,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -345,7 +341,7 @@ class S5b extends StatelessWidget {
                                 child: Material(
                                   color: Colors.transparent,
                                   child: TextField(
-                                    controller: _addAddressController,
+                                    controller: _descriptionController,
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
                                       focusedBorder: InputBorder.none,
@@ -384,10 +380,8 @@ class S5b extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {
                             uploadfields(
-                              _nameController.text,
-                              _addAddressController.text,
-                              _phoneNumberController.text,
-                              _dateofbirthController.text,
+                              _roleController.text,
+                              _descriptionController.text,
                             );
                             Navigator.push(
                               context,
