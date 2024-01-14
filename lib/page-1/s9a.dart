@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/profile.dart';
 import 'package:starinit/page-1/s10.dart';
 import 'package:starinit/page-1/s11.dart';
-import 'package:starinit/page-1/s9a.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class S9 extends StatelessWidget {
+class S9a extends StatelessWidget {
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
@@ -226,69 +226,8 @@ class S9 extends StatelessWidget {
                       ),
                       child: Stack(
                         children: [
-                          Positioned(
-                            // rectangle13tuj (2:249)
-                            left: 0 * fem,
-                            top: 0 * fem,
-                            child: Align(
-                              child: SizedBox(
-                                width: 135.69 * fem,
-                                height: 44 * fem,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(15 * fem),
-                                    border:
-                                        Border.all(color: Color(0x7fffffff)),
-                                    gradient: LinearGradient(
-                                      begin: Alignment(-0.654, -1),
-                                      end: Alignment(0.764, 1),
-                                      colors: <Color>[
-                                        Color(0x93002930),
-                                        Color.fromARGB(132, 0, 22, 95)
-                                      ],
-                                      stops: <double>[0, 1],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            // donevrR (2:250)
-                            left: 22.4376207032 * fem,
-                            top: 14 * fem,
-                            child: Align(
-                              child: SizedBox(
-                                width: 93 * fem,
-                                height: 16 * fem,
-                                child: TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => S10()),
-                                    );
-                                  },
-                                  style: TextButton.styleFrom(
-                                    padding: EdgeInsets.zero,
-                                  ),
-                                  child: Text(
-                                    'Add Experience',
-                                    style: SafeGoogleFont(
-                                      'Urbanist',
-                                      decoration: TextDecoration.none,
-                                      fontSize: 13 * ffem,
-                                      fontWeight: FontWeight.w400,
-                                      height: 1.2 * ffem / fem,
-                                      letterSpacing: 0.195 * fem,
-                                      color: Color(0xddffffff),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                          
+
                         ],
                       ),
                     ),
@@ -313,13 +252,13 @@ class S9 extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => S11()),
+                              MaterialPageRoute(builder: (context) => Profile()),
                             );
                             // Add your functionality here
                             // For example, you can navigate to the next screen
                           },
                           child: Text(
-                            'Next',
+                            'Back',
                             style: SafeGoogleFont(
                               'Urbanist',
                               decoration: TextDecoration.none,
