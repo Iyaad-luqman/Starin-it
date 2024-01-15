@@ -1832,7 +1832,7 @@ class Search extends StatelessWidget {
                                           width: 25.5 * fem,
                                           height: 24.2 * fem,
                                           child: Image.asset(
-                                            'assets/page-1/images/home-alt.png',
+                                            'assets/page-1/images/home-alt-3Ve.png',
                                             width: 25.5 * fem,
                                             height: 24.2 * fem,
                                           ),
@@ -1861,7 +1861,7 @@ class Search extends StatelessWidget {
                                           width: 31 * fem,
                                           height: 31 * fem,
                                           child: Image.asset(
-                                            'assets/page-1/images/search.png',
+                                            'assets/page-1/images/search-blue.png',
                                             width: 500 * fem,
                                             height: 31 * fem,
                                           ),
@@ -1891,7 +1891,7 @@ class Search extends StatelessWidget {
                                           width: 27.54 * fem,
                                           height: 25.28 * fem,
                                           child: Image.asset(
-                                            'assets/page-1/images/book-open.png',
+                                            'assets/page-1/images/book-open-3uE.png',
                                             width: 27.54 * fem,
                                             height: 25.28 * fem,
                                           ),

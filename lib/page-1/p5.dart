@@ -1390,7 +1390,7 @@ class P5 extends StatelessWidget {
                             padding: EdgeInsets.zero,
                           ),
                           child: Image.asset(
-                            'assets/page-1/images/home-alt.png',
+                            'assets/page-1/images/home-alt-VxQ.png',
                             width: 25.5 * fem,
                             height: 24.2 * fem,
                           ),

@@ -611,7 +611,7 @@ class Job1 extends StatelessWidget {
                               width: 25.5 * fem,
                               height: 24.2 * fem,
                               child: Image.asset(
-                                'assets/page-1/images/home-alt.png',
+                                'assets/page-1/images/home-alt-tma.png',
                                 width: 25.5 * fem,
                                 height: 24.2 * fem,
                               ),
@@ -688,7 +688,7 @@ class Job1 extends StatelessWidget {
                               width: 30 * fem,
                               height: 24.75 * fem,
                               child: Image.asset(
-                                'assets/page-1/images/suitcase-alt.png',
+                                'assets/page-1/images/suitcase-alt-A3E.png',
                                 width: 30 * fem,
                                 height: 24.75 * fem,
                               ),

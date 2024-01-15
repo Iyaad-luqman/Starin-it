@@ -8,6 +8,7 @@ import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
+
 class Company extends StatelessWidget {
   final String companyname;
 
@@ -219,7 +220,7 @@ class Company extends StatelessWidget {
             ),
             Positioned(
               // bookopend8g (27:858)
-              left: 128.4833984375 * fem,
+              left: 205 * fem,
               top: 720.181640625 * fem,
               child: Align(
                 child: SizedBox(
@@ -317,7 +318,7 @@ class Company extends StatelessWidget {
             ),
             Positioned(
               // pandoeLc (27:863)
-              left: MediaQuery.of(context).size.width / 2 - 61 * fem ,
+              left: MediaQuery.of(context).size.width / 2 - 61 * fem,
               top: 57 * fem,
               child: Align(
                 child: SizedBox(
@@ -356,7 +357,7 @@ class Company extends StatelessWidget {
             ),
             Positioned(
               // suitcasealtEZi (27:865)
-              left: 50.75 * fem,
+              left: 280.625 * fem,
               top: 718.875 * fem,
               child: Align(
                 child: SizedBox(
@@ -383,7 +384,7 @@ class Company extends StatelessWidget {
             ),
             Positioned(
               // searchjWU (27:866)
-              left: 205 * fem,
+              left: 128.4833984375 * fem,
               top: 717 * fem,
               child: Align(
                 child: SizedBox(
@@ -410,7 +411,7 @@ class Company extends StatelessWidget {
             ),
             Positioned(
               // homealtRPJ (27:867)
-              left: 280.625 * fem,
+              left: 50.75 * fem,
               top: 718.140625 * fem,
               child: Align(
                 child: SizedBox(
