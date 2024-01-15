@@ -107,7 +107,7 @@ class Search extends StatelessWidget {
 
                       Positioned(
                         // rectangle648Dik (12:1109)
-                        left: 13 * fem,
+                        left: 23 * fem,
                         top: 74 * fem,
                         child: Align(
                           child: SizedBox(
@@ -122,6 +122,12 @@ class Search extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(26 * fem),
                                   color: Color(0xffd9d9d9),
+                                ),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.only(left: 45), // Add padding to the left
+                                  ),
                                 ),
                               ),
                             ),
