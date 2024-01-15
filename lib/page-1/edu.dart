@@ -8,7 +8,7 @@ import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class S11a extends StatelessWidget {
+class edu extends StatelessWidget {
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
