@@ -57,30 +57,7 @@ class _Imp4 extends State<Imp4> {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-            Future<void> uploadfields(
-              String param1,
-              String param2,
-            ) async {
-              final FirebaseFirestore _db =
-                  FirebaseFirestore.instance; // Firestore instance
-              final User? user = FirebaseAuth.instance.currentUser; // Get current user
-
-              if (user != null) {
-                DocumentReference docRef = _db.collection('users').doc(widget.userId);
-                DocumentSnapshot docSnap = await docRef.get();
-                DocumentReference docRef2 = _db.collection('users').doc(user.uid);
-                DocumentSnapshot docSnap2 = await docRef2.get();
-                
-                Map<String, dynamic>? data2 = docSnap2.data() as Map<String, dynamic>?;
-
-                      String? userName = data2?['name'];
-    
-
-                Map<String, dynamic>? data = docSnap.data() as Map<String, dynamic>?;
-                if (data != null && data.containsKey('ratings')) {
-                  List ratings = data['ratings'];
-                  bool hasRated = ratings.any((rating) => rating['rated_uid'] == user.uid);
-                  double star_score = double.parse(data['star_score']);
+          double star_score = double.parse(data['star_score']);
                     int fullStars = star_score.floor(); // Get the number of full stars
                     double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
                     String star1Image = 'assets/page-1/images/emptystar.png';
@@ -162,6 +139,31 @@ class _Imp4 extends State<Imp4> {
                         star1Image = 'assets/page-1/images/quator.png';
                       }
                     }
+            Future<void> uploadfields(
+              String param1,
+              String param2,
+            ) async {
+              final FirebaseFirestore _db =
+                  FirebaseFirestore.instance; // Firestore instance
+              final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+              if (user != null) {
+                DocumentReference docRef = _db.collection('users').doc(widget.userId);
+                DocumentSnapshot docSnap = await docRef.get();
+                DocumentReference docRef2 = _db.collection('users').doc(user.uid);
+                DocumentSnapshot docSnap2 = await docRef2.get();
+                
+                Map<String, dynamic>? data2 = docSnap2.data() as Map<String, dynamic>?;
+
+                      String? userName = data2?['name'];
+    
+
+                Map<String, dynamic>? data = docSnap.data() as Map<String, dynamic>?;
+                
+                if (data != null && data.containsKey('ratings')) {
+                  List ratings = data['ratings'];
+                  bool hasRated = ratings.any((rating) => rating['rated_uid'] == user.uid);
+                  
 
 
                   if (!hasRated) {
@@ -207,68 +209,153 @@ class _Imp4 extends State<Imp4> {
         }, SetOptions(merge: true));
                       }
               }}
-return Scaffold(
-  resizeToAvoidBottomInset: true, // Add this line
-  body: SingleChildScrollView(
-  child: Container(
-    width: double.infinity,
-    child: Container(
-        // imp4xu2 (21:529)
-        padding: EdgeInsets.fromLTRB(0*fem, 5*fem, 0*fem, 0*fem),
+ return Container(
+      width: double.infinity,
+      child: Container(
+        // profilej5e (36:2582)
+        padding: EdgeInsets.fromLTRB(0 * fem, 1 * fem, 0 * fem, 0 * fem),
         width: double.infinity,
-        decoration: BoxDecoration (
+        decoration: BoxDecoration(
           color: Color(0xffffffff),
-          image: DecorationImage (
+          image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage (
-              'assets/page-1/images/plane-bg-13-bg-HZn.png',
+            image: AssetImage(
+              'assets/page-1/images/plane-bg-12-bg.png',
             ),
           ),
         ),
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              // autogrouptfzkFt8 (GsyHcCc8zMVRRgXo3TTFzk)
-              padding: EdgeInsets.fromLTRB(23*fem, 36*fem, 103*fem, 20*fem),
+              // autogroupx5d6XQp (C3mVQ79WHoHn5iRjUUX5d6)
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 4 * fem),
               width: double.infinity,
-              decoration: BoxDecoration (
-                image: DecorationImage (
-                  fit: BoxFit.cover,
-                  image: AssetImage (
-                    'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1-bg.png',
-                  ),
-                ),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              height: 214 * fem,
+              child: Stack(
                 children: [
-                  Container(
-                    // whatsappimage20240113at12001ph (21:533)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 17*fem, 90*fem),
-                    width: 47*fem,
-                    height: 45*fem,
-                    child: Image.asset(
-                      'assets/page-1/images/whatsapp-image-2024-01-13-at-1200-1-photoroom-5.png',
-                      fit: BoxFit.cover,
+                 
+                  Positioned(
+                    // whatsappimage20240113at3371iNp (36:2613)
+                    left: 0 * fem,
+                    top: 0 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        width: 360 * fem,
+                        height: 191 * fem,
+                        child: Image.asset(
+                          'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
-                  Container(
-                    // whatsappimage20240113at12001ph (21:534)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 3*fem, 24*fem),
-                    width: 48*fem,
-                    height: 45*fem,
-                    child: Image.asset(
-                      'assets/page-1/images/whatsapp-image-2024-01-13-at-1200-1-photoroom-6.png',
-                      fit: BoxFit.cover,
+                  Positioned(
+                    // imageremovebgpreview3bhW (36:2614)
+                    left: 140 * fem,
+                    top: 14 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 87 * fem,
+                        height: 27 * fem,
+                        child: Image.asset(
+                          'assets/page-1/images/image-removebg-preview-3.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
-                  Container(
-                    // whatsappimage20240114at1121kyJ (21:532)
-                    margin: EdgeInsets.fromLTRB(0*fem, 55*fem, 0*fem, 0*fem),
-                    width: 83*fem,
-                    height: 80*fem,
-                    child: imageUrl != null
+                  Positioned( //1
+                    // whatsappimage20240113at121041a (36:2617)
+                    left: 20 * fem,
+                    top: 34 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 36 * fem,
+                        height: 54 * fem,
+                        child: Image.asset(
+                          star1Image,
+                          fit: BoxFit.cover,
+                          
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(//2
+                    // whatsappimage20240113at121028a (36:2618)
+                    left: 85 * fem,
+                    top: 68 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 28 * fem,
+                        height: 51 * fem,
+                        child: Image.asset(
+                          star2Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned( //3
+                    // whatsappimage20240113at12001ph (36:2615)
+                    left: 157 * fem,
+                    top: 40 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 47 * fem,
+                        height: 45 * fem,
+                        child: Image.asset(
+                          star3Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned( //4
+                    // whatsappimage20240113at121016a (36:2619)
+                    left: 222 * fem,
+                    top: 66 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 21 * fem,
+                        height: 56 * fem,
+                        child: Image.asset(
+                          star4Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(//5
+                    // whatsappimage20240113at12001ph (36:2616)
+                    left: 288 * fem,
+                    top: 38 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 47 * fem,
+                        height: 45 * fem,
+                        child: Image.asset(
+                          star5Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    // whatsappimage20240112at115024p (36:2620)
+                    left: 140 * fem,
+                    top: 94 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        width: 79 * fem,
+                        height: 78 * fem,
+                        child: TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                          ),
+                            child: imageUrl != null
                             ? ClipOval(
                                 child: Image.network(
                                   imageUrl!,
@@ -276,23 +363,13 @@ return Scaffold(
                                 ),
                               )
                             : CircularProgressIndicator(), 
-                  ),
-                  Container(
-                    // whatsappimage20240113at121041a (21:535)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 25*fem),
-                    width: 36*fem,
-                    height: 54*fem,
-                    child: Image.asset(
-                      'assets/page-1/images/whatsapp-image-2024-01-13-at-121041-am-photoroom-1.png',
-                      fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
-                ],
-              ),
-            ),
             Container(
               // autogroup2zaxX6t (GsyJ3BtW824DRY7fzh2zax)
-              padding: EdgeInsets.fromLTRB(10*fem, 6*fem, 10*fem, 23*fem),
+              padding: EdgeInsets.fromLTRB(10*fem, 186*fem, 10*fem, 23*fem),
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -318,7 +395,7 @@ return Scaffold(
                                 style: SafeGoogleFont (
                                   'Inria Serif',
                                   decoration: TextDecoration.none,
-fontSize: 27*ffem,
+                                  fontSize: 27*ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.1975*ffem/fem,
                                   color: Color(0xffffffff),
@@ -401,20 +478,18 @@ fontSize: 27*ffem,
                             child: SizedBox(
                               width: 102*fem,
                               height: 1*fem,
-                              child: Container(
-                                child: Material(
-                       color: Colors.transparent,
-                                child: TextField(
-                                  decoration: InputDecoration (
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                  ),
+                              child: Material(
+                                                     color: Colors.transparent,
+                              child: TextField(
+                                decoration: InputDecoration (
+                                  border: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  enabledBorder: InputBorder.none,
+                                  errorBorder: InputBorder.none,
+                                  disabledBorder: InputBorder.none,
                                 ),
                               ),
-                              ),
+                                                            ),
                             ),
                           ),
                         ),
@@ -520,12 +595,17 @@ fontSize: 16*ffem,
                 ],
               ),
             ),
+      
+      
+        ]
+      ),
+            ),
           ],
         ),
-      ),
           ),
-  ),
-    );}
+    
+    );
+    }
 }
     );
   }
