@@ -11,16 +11,26 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
-class Imp2 extends StatelessWidget {
+class Imp2 extends StatefulWidget {
+  @override
+  _Imp2State createState() => _Imp2State();
+}
+
+class _Imp2State extends State<Imp2> {
   late String rating_show;
-      FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
+  Future<double>? avgRatingFuture;
+
+      
+      
+      
       Future<void> uploadfields(
     String param1,
   ) async {
     final FirebaseFirestore _db =
         FirebaseFirestore.instance; // Firestore instance
     final User? user = FirebaseAuth.instance.currentUser; // Get current user
-
+  
     if (user != null) {
       DocumentReference docRef = _db.collection('users').doc(user.uid);
       DocumentSnapshot docSnap = await docRef.get();
@@ -35,6 +45,32 @@ class Imp2 extends StatelessWidget {
         });
       }
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    avgRatingFuture = calculateAvgRating();
+  }
+
+   
+  Future<double> calculateAvgRating() async {
+    final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
+    final User? user = FirebaseAuth.instance.currentUser; // Get current user
+    double avg_rating = 0;
+
+    if (user != null) {
+      DocumentReference docRef = _db.collection('users').doc(user.uid);
+      DocumentSnapshot docSnap = await docRef.get();
+
+      if (docSnap.exists) {
+        Map<String, dynamic> data = docSnap.data() as Map<String, dynamic>;
+        List<dynamic> ratings = data['ratings'];
+        avg_rating = ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length;
+      }
+    }
+
+    return avg_rating;
   }
   @override
   Widget build(BuildContext context) {
@@ -52,6 +88,15 @@ class Imp2 extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+      return FutureBuilder<double>(
+      future: avgRatingFuture,
+      builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator(); // Show a loading spinner while waiting for fetchData to complete
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
+        } else {
+         double?  avg_rating = snapshot.data;
     return Container(
       width: double.infinity,
       child: Container(
@@ -242,7 +287,7 @@ fontSize: 16*ffem,
                         width: 127*fem,
                         height: 96*fem,
                         child: Text(
-                          '6.8 ',
+                          avg_rating.toString(),
                           style: SafeGoogleFont (
                             'Inria Serif',
                             decoration: TextDecoration.none,
@@ -308,7 +353,7 @@ fontSize: 80*ffem,
                             style: SafeGoogleFont (
                               'Inria Serif',
                               decoration: TextDecoration.none,
-fontSize: 24*ffem,
+                              fontSize: 24*ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.1975*ffem/fem,
                               color: Color(0xffffffff),
@@ -524,6 +569,10 @@ fontSize: 9*ffem,
           ],
         ),
       ),
+    );
+        }
+      },
+
           );
   }
 }

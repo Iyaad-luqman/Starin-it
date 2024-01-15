@@ -9,6 +9,7 @@ import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Profile extends StatefulWidget {
 
@@ -22,6 +23,7 @@ class _ProfileState extends State<Profile> {
   String? imageUrl;
   String? userId;
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
+  final FirebaseFirestore firestoreInstance = FirebaseFirestore.instance;
 
 
   @override
@@ -38,6 +40,9 @@ class _ProfileState extends State<Profile> {
     debugPrint('Image url ---- >   > > > > > > ${imageUrl}');
     setState(() {});
   }
+
+
+  
  @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -52,12 +57,16 @@ class _ProfileState extends State<Profile> {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          
           double star_score = double.parse(data['star_score']);
           String? role = data['role'];
           String? description = data['Description'];
           String? gender = data['gender'];
           String? name = data['name'];
           String? bio = data['Bio'];
+          List<dynamic> ratings = data['ratings'];
+          double avg_rating = ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length;
+
 
           String? pronoun; 
           if (gender == "Male"){
@@ -360,7 +369,7 @@ class _ProfileState extends State<Profile> {
                   Positioned(
                     // starredg8c (36:2621)
                     left: 145 * fem,
-                    top: 175 * fem,
+                    top: 181 * fem,
                     child: Align(
                       child: SizedBox(
                         width: 80 * fem,
@@ -383,7 +392,7 @@ class _ProfileState extends State<Profile> {
                   Positioned(
                     // aspirantkeG (36:2622)
                     left: 155 * fem,
-                    top: 164 * fem,
+                    top: 170 * fem,
                     child: Align(
                       child: SizedBox(
                         width: 50 * fem,
@@ -466,7 +475,7 @@ class _ProfileState extends State<Profile> {
                               margin: EdgeInsets.fromLTRB(
                                   1 * fem, 0 * fem, 0 * fem, 0 * fem),
                               child: Text(
-                                '6.8/10',
+                                '${avg_rating}/10',
                                 style: SafeGoogleFont(
                                   'Song Myung',
                                   decoration: TextDecoration.none,
