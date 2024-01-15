@@ -208,7 +208,7 @@ class Company_apply extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Job1()),
+                                MaterialPageRoute(builder: (context) => Home()),
                               );
                             },
                             style: TextButton.styleFrom(
@@ -218,7 +218,7 @@ class Company_apply extends StatelessWidget {
                               width: 27.5 * fem,
                               height: 23.25 * fem,
                               child: Image.asset(
-                                'assets/page-1/images/suitcase-alt-1ak.png',
+                                'assets/page-1/images/home-alt.png',
                                 width: 27.5 * fem,
                                 height: 23.25 * fem,
                               ),
@@ -234,7 +234,7 @@ class Company_apply extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Courses1()),
+                                    builder: (context) => Search()),
                               );
                             },
                             style: TextButton.styleFrom(
@@ -244,7 +244,7 @@ class Company_apply extends StatelessWidget {
                               width: 25.03 * fem,
                               height: 23.6 * fem,
                               child: Image.asset(
-                                'assets/page-1/images/book-open.png',
+                                'assets/page-1/images/search-CcU.png',
                                 width: 25.03 * fem,
                                 height: 23.6 * fem,
                               ),
@@ -260,7 +260,7 @@ class Company_apply extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Search()),
+                                    builder: (context) => Courses1()),
                               );
                             },
                             style: TextButton.styleFrom(
@@ -270,7 +270,7 @@ class Company_apply extends StatelessWidget {
                               width: 29 * fem,
                               height: 26 * fem,
                               child: Image.asset(
-                                'assets/page-1/images/search-S6x.png',
+                                'assets/page-1/images/book-open-gDa.png',
                                 width: 29 * fem,
                                 height: 26 * fem,
                               ),
@@ -285,7 +285,7 @@ class Company_apply extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Home()),
+                                MaterialPageRoute(builder: (context) => Job1()),
                               );
                             },
                             style: TextButton.styleFrom(
@@ -295,7 +295,7 @@ class Company_apply extends StatelessWidget {
                               width: 21.75 * fem,
                               height: 21.69 * fem,
                               child: Image.asset(
-                                'assets/page-1/images/home-alt.png',
+                                'assets/page-1/images/suitcase-alt-2aG.png',
                                 width: 21.75 * fem,
                                 height: 21.69 * fem,
                               ),
