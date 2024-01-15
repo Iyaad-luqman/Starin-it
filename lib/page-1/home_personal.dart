@@ -18,15 +18,19 @@ class Home extends StatefulWidget {
   @override
   _Home createState() => _Home();
 }
-
 class _Home extends State<Home> {
+  late Future<DocumentSnapshot> _future;
+
   final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
-  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+  final User? user = FirebaseAuth.instance.currentUser; 
   String? imageUrl;
+  String? userId;
 
   @override
   void initState() {
     super.initState();
+    userId = user?.uid;
+    _future = FirebaseFirestore.instance.collection('users').doc(userId).get();
     loadImage();
   }
 
@@ -35,14 +39,108 @@ class _Home extends State<Home> {
     imageUrl = await storage.ref('uploads/${user!.uid}/file').getDownloadURL();
     setState(() {});
   }
+
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+    return FutureBuilder<DocumentSnapshot>(
+      future: _future,
+      builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator(); // Show a loading spinner while waiting for fetchData to complete
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
+        } else {
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          double star_score = double.parse(data['star_score']);
+          int fullStars = star_score.floor(); // Get the number of full stars
+          double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
+          String star1Image = 'assets/page-1/images/emptystar.png';
+          String star2Image = 'assets/page-1/images/emptystar.png';
+          String star3Image = 'assets/page-1/images/emptystar.png';
+          String star4Image = 'assets/page-1/images/emptystar.png';
+          String star5Image = 'assets/page-1/images/emptystar.png'; 
+          String status_name = '';
+          
+          if (fullStars > 0) {
+            star1Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Novice';
+          }
+          if (fullStars > 1) {
+            star2Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Aspirant';
+          }
+          if (fullStars > 2) {
+            star3Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Associate';
+          }
+          if (fullStars > 3) {
+            star4Image = 'assets/page-1/images/fullstar.png';
+            status_name = 'Specialist';
+          }
+          if (fullStars > 4) {
+            star5Image = 'assets/page-1/images/fullstar.png';
+          }
+          if (star_score > 4 && star_score < 4.5) {
+            status_name = 'Mastermind';
+          }
+          if (star_score > 4.5 && star_score < 5) {
+            status_name = 'Prodigy';
+          }
+
+
+          if (star_score < 5 && star_score > 4) {
+           if (fractionalPart >= 0.75) {
+              star5Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.50) {
+              star5Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart >= 0.25) {
+              star5Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 4 && star_score > 3) {
+           if (fractionalPart >= 0.75) {
+              star4Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.50) {
+              star4Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart >= 0.25) {
+              star4Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 3 && star_score > 2  ) {
+           if (fractionalPart >= 0.75) {
+              star3Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.50) {
+              star3Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart >= 0.25) {
+              star3Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 2 && star_score > 1) {
+           if (fractionalPart >= 0.75) {
+              star2Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.50) {
+              star2Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart >= 0.25) {
+              star2Image = 'assets/page-1/images/quator.png';
+            }
+          }
+          if (star_score < 1 && star_score > 0) {
+           if (fractionalPart >= 0.75) {
+              star1Image = 'assets/page-1/images/halfquator.png';
+            } else if (fractionalPart >= 0.50) {
+              star1Image = 'assets/page-1/images/half.png';
+            } else if (fractionalPart > 0.25) {
+              star1Image = 'assets/page-1/images/quator.png';
+            }
+          }
+
     return SingleChildScrollView(
       child: Container(
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width,
         child: Container(
           // your code here
           // userhomespp (23:598)
@@ -62,14 +160,14 @@ class _Home extends State<Home> {
             children: [
               Container(
                 // autogroupdsxpLCc (TbmNdiKXcn9UVyhs8Ndsxp)
-                width: double.infinity,
-                height: 975 * fem,
+                width: MediaQuery.of(context).size.width,
+                height: 1055 * fem,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Container(
                       // autogroup1xpvTY8 (TbmPomCUTgnCFGzvMv1xPv)
-                      width: 360 * fem,
+                      width: MediaQuery.of(context).size.width,
                       height: double.infinity,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,31 +175,30 @@ class _Home extends State<Home> {
                           Container(
                             // autogroupazdso6C (TbmQia1pNcpzR2JmetAzdS)
                             margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 0 * fem, 17 * fem),
+                                0 * fem, 0 * fem, 0 * fem, 0 * fem),
                             width: double.infinity,
-                            height: 192 * fem,
+                            height: 212 * fem,
                             child: Stack(
                               children: [
                                 Positioned(
-                                  // whatsappimage20240113at3371YCC (23:600)
                                   left: 0 * fem,
+                                  right: 0 * fem, // Set right to 0 to stretch horizontally
                                   top: 0 * fem,
+                                  bottom: 20 * fem,
                                   child: Align(
                                     child: SizedBox(
-                                      width: 360 * fem,
-                                      height: 191 * fem,
-                                      child: TextButton(
-                                        onPressed: () {
-                                          Navigator.push( context, MaterialPageRoute(builder: (context) => Profile()), );
-                                          // Add your onPressed functionality here
-                                        },
-                                        child: Image.asset(
-                                          'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1.png',
-                                          fit: BoxFit.cover,
+                                      height: 211 * fem,
+                                      
+                                        child: Container(
+                                          width: double.infinity, // Make the Container take up the maximum available width
+                                          child: Image.asset(
+                                            'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1.png',
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
+                                  
                                 ),
                                 Positioned(
                                   // bookopenRWt (23:601)
@@ -133,78 +230,107 @@ class _Home extends State<Home> {
                                   ),
                                 ),
                                 Positioned(
-                                  // whatsappimage20240113at12001ph (23:602)
-                                  left: 227 * fem,
-                                  top: 71 * fem,
-                                  child: Align(
-                                    child: SizedBox(
-                                      width: 47 * fem,
-                                      height: 45 * fem,
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        style: TextButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                        child: Image.asset(
-                                          'assets/page-1/images/whatsapp-image-2024-01-13-at-1200-1-photoroom-8.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  // whatsappimage20240113at12001ph (23:603)
-                                  left: 85 * fem,
-                                  top: 72 * fem,
-                                  child: Align(
-                                    child: SizedBox(
-                                      width: 47 * fem,
-                                      height: 45 * fem,
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        style: TextButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                        child: Image.asset(
-                                          'assets/page-1/images/whatsapp-image-2024-01-13-at-1200-1-photoroom-7.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  // whatsappimage20240113at12001ph (23:604)
-                                  left: 22 * fem,
-                                  top: 39 * fem,
-                                  child: Align(
-                                    child: SizedBox(
-                                      width: 47 * fem,
-                                      height: 45 * fem,
-                                      child: TextButton(
-                                        onPressed: () {},
-                                        style: TextButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                        child: Image.asset(
-                                          'assets/page-1/images/whatsapp-image-2024-01-13-at-1200-1-photoroom-6.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                    // imageremovebgpreview3bhW (36:2614)
+                    left: 140 * fem,
+                    top: 14 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 87 * fem,
+                        height: 27 * fem,
+                        child: Image.asset(
+                          'assets/page-1/images/image-removebg-preview-3.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned( //1
+                    // whatsappimage20240113at121041a (36:2617)
+                    left: 20 * fem,
+                    top: 34 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 36 * fem,
+                        height: 54 * fem,
+                        child: Image.asset(
+                          star1Image,
+                          fit: BoxFit.cover,
+                          
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(//2
+                    // whatsappimage20240113at121028a (36:2618)
+                    left: 85 * fem,
+                    top: 68 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 28 * fem,
+                        height: 51 * fem,
+                        child: Image.asset(
+                          star2Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned( //3
+                    // whatsappimage20240113at12001ph (36:2615)
+                    left: 157 * fem,
+                    top: 40 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 47 * fem,
+                        height: 45 * fem,
+                        child: Image.asset(
+                          star3Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned( //4
+                    // whatsappimage20240113at121016a (36:2619)
+                    left: 222 * fem,
+                    top: 66 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 21 * fem,
+                        height: 56 * fem,
+                        child: Image.asset(
+                          star4Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(//5
+                    // whatsappimage20240113at12001ph (36:2616)
+                    left: 288 * fem,
+                    top: 38 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        // width: 47 * fem,
+                        height: 45 * fem,
+                        child: Image.asset(
+                          star5Image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                                
                                 Positioned(
                                   // starred8i8 (23:605)
                                   left: 139 * fem,
-                                  top: 175 * fem,
+                                  top: 185 * fem,
                                   child: Align(
                                     child: SizedBox(
                                       width: 80 * fem,
-                                      height: 17 * fem,
+                                      height: 27 * fem,
                                       child: Text(
-                                        '2.23 Starred ',
+                                        '$star_score Starred',
                                         style: SafeGoogleFont(
                                           'Urbanist',
                                           decoration: TextDecoration.none,
@@ -253,13 +379,13 @@ class _Home extends State<Home> {
                                 Positioned(
                                   // aspiranthPr (23:607)
                                   left: 155 * fem,
-                                  top: 164 * fem,
+                                  top: 174 * fem,
                                   child: Align(
                                     child: SizedBox(
                                       width: 50 * fem,
                                       height: 11 * fem,
                                       child: Text(
-                                        'ASPIRANT',
+                                        status_name,
                                         style: SafeGoogleFont(
                                           'Unlock',
                                           decoration: TextDecoration.none,
@@ -605,7 +731,7 @@ class _Home extends State<Home> {
                           Container(
                             // autogrouptzuaQFe (TbmTdQLAamsi5sPbvoTzua)
                             padding: EdgeInsets.fromLTRB(
-                                8 * fem, 12 * fem, 9 * fem, 0 * fem),
+                                8 * fem, 12 * fem, 0 * fem, 0 * fem),
                             width: double.infinity,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -1918,6 +2044,9 @@ class _Home extends State<Home> {
           ),
         ),
       ),
+    );
+  }
+}
     );
   }
 }
