@@ -26,16 +26,19 @@ class _UniState extends State<S8> {
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
   final TextEditingController _uniController = TextEditingController();
+  final TextEditingController _degreeController = TextEditingController();
+
   Future<void> uploaduniMarks(uniMarks) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
         'uni_marks': uniMarks,
+        
       });
     }
   }
 
   Future<void> uploadfields(
-    String param1,
+    String param1, String degreename
   ) async {
     final FirebaseFirestore _db =
         FirebaseFirestore.instance; // Firestore instance
@@ -48,10 +51,12 @@ class _UniState extends State<S8> {
       if (docSnap.exists) {
         await docRef.update({
           'uni_name': param1,
+          'degree_name': degreename,
         });
       } else {
         await docRef.set({
           'uni_name': param1,
+          'degree_name': degreename,
         });
       }
     }
@@ -174,7 +179,7 @@ class _UniState extends State<S8> {
                     child: Material(
                       color: Colors.transparent,
                       child: TextField(
-                        controller: _uniController,
+                        controller: _degreeController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -632,7 +637,7 @@ class _UniState extends State<S8> {
               child: TextButton(
                 onPressed: () {
                   uploaduniMarks(uniMarks);
-                  uploadfields(_uniController.text);
+                  uploadfields(_uniController.text,_degreeController.text);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => S8a()),

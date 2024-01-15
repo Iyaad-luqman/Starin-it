@@ -18,17 +18,18 @@ class S7 extends StatefulWidget {
 
 class _ThState extends State<S7> {
   int _selectedOption = 0;
-
+  final TextEditingController _schoolnameController = TextEditingController();
   String schoolMarks = ""; // Your variable
 
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
   final FirebaseFirestore _db =
       FirebaseFirestore.instance; // Firestore instance
 
-  Future<void> uploadSchoolMarks(schoolMarks) async {
+  Future<void> uploadSchoolMarks(schoolMarks,school_name) async {
     if (user != null) {
       await _db.collection('users').doc(user!.uid).update({
         'school_marks': schoolMarks,
+        'school_name': school_name
       });
     }
   }
@@ -107,7 +108,7 @@ class _ThState extends State<S7> {
                     child: Material(
                       color: Colors.transparent,
                       child: TextField(
-                        //controller: _uniController,
+                        controller: _schoolnameController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -564,7 +565,7 @@ class _ThState extends State<S7> {
               top: 735 * fem,
               child: TextButton(
                 onPressed: () {
-                  uploadSchoolMarks(schoolMarks);
+                  uploadSchoolMarks(schoolMarks,_schoolnameController.text);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => S8()),
