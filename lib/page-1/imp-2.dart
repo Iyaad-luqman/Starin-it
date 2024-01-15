@@ -50,28 +50,33 @@ class _Imp2State extends State<Imp2> {
   @override
   void initState() {
     super.initState();
-    avgRatingFuture = calculateAvgRating();
+             avgRatingFuture = calculateAvgRating();
+
   }
 
    
-  Future<double> calculateAvgRating() async {
-    final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
-    final User? user = FirebaseAuth.instance.currentUser; // Get current user
-    double avg_rating = 0;
+Future<double> calculateAvgRating() async {
+  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
+  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+  double avg_rating = 0;
 
-    if (user != null) {
-      DocumentReference docRef = _db.collection('users').doc(user.uid);
-      DocumentSnapshot docSnap = await docRef.get();
+  if (user != null) {
+    DocumentReference docRef = _db.collection('users').doc(user.uid);
+    DocumentSnapshot docSnap = await docRef.get();
 
-      if (docSnap.exists) {
-        Map<String, dynamic> data = docSnap.data() as Map<String, dynamic>;
-        List<dynamic> ratings = data['ratings'];
-        avg_rating = ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length;
+    if (docSnap.exists) {
+      Map<String, dynamic> data = docSnap.data() as Map<String, dynamic>;
+      List<dynamic> ratings = data['ratings'] ?? [];
+
+      if (ratings.isNotEmpty) {
+        avg_rating = double.parse((ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
       }
+      debugPrint(avg_rating.toString());
     }
-
-    return avg_rating;
   }
+
+  return avg_rating;
+}
   @override
   Widget build(BuildContext context) {
 
@@ -97,6 +102,7 @@ class _Imp2State extends State<Imp2> {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
          double?  avg_rating = snapshot.data;
+    debugPrint("First $avgRatingFuture");
     return Container(
       width: double.infinity,
       child: Container(
@@ -287,7 +293,7 @@ fontSize: 16*ffem,
                         width: 127*fem,
                         height: 96*fem,
                         child: Text(
-                          avg_rating.toString(),
+                          avg_rating?.toString() ?? '',
                           style: SafeGoogleFont (
                             'Inria Serif',
                             decoration: TextDecoration.none,
@@ -369,7 +375,7 @@ fontSize: 80*ffem,
                     top: 44*fem,
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.push( context, MaterialPageRoute(builder: (context) => Imp4(userId: 'i5Irevb4pQZDM2Vc96FG6gXXRxz2')), );
+                        Navigator.push( context, MaterialPageRoute(builder: (context) => Imp4(userId: 'i5Irevb4pQZDM2Vc96FG6gXXRxz2')), );
                       },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,

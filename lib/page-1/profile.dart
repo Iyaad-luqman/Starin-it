@@ -36,12 +36,14 @@ class _ProfileState extends State<Profile> {
   }
   void loadImage() async {
     FirebaseStorage storage = FirebaseStorage.instance;
-    debugPrint('User id ---- >   > > > > > > ${userId}');
-    imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
-    debugPrint('Image url ---- >   > > > > > > ${imageUrl}');
+    try {
+      imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+    } catch (e) {
+      print('Failed to load image: $e');
+      imageUrl = '0';
+    }
     setState(() {});
   }
-
 
   
  @override
@@ -59,15 +61,20 @@ class _ProfileState extends State<Profile> {
         } else {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
           
-          double star_score = double.parse(data['star_score']);
+        double star_score = double.parse(data['star_score'] ?? '0.00');
+
           String? role = data['role'];
           String? description = data['Description'];
           String? gender = data['gender'];
           String? name = data['name'];
           String? bio = data['Bio'];
-          List<dynamic> ratings = data['ratings'];
-          double avg_rating = ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length;
+          List<dynamic> ratings = data['ratings'] ?? [];
+          double avg_rating = 0.0;
 
+            if (ratings.isNotEmpty) {
+                          avg_rating = double.parse((ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
+
+            }
 
           String? pronoun; 
           if (gender == "Male"){
@@ -356,13 +363,15 @@ class _ProfileState extends State<Profile> {
                             padding: EdgeInsets.zero,
                           ),
                             child: imageUrl != null
-                            ? ClipOval(
-                                child: Image.network(
-                                  imageUrl!,
-                                  fit: BoxFit.cover,
-                                ),
-                              )
-                            : CircularProgressIndicator(), 
+                              ? imageUrl != "0"
+                                ? ClipOval(
+                                    child: Image.network(
+                                      imageUrl!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                : Image.asset("assets/page-1/images/emptyprofile.png")
+                              : CircularProgressIndicator(),
                         ),
                       ),
                     ),

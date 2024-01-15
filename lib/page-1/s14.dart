@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:starinit/page-1/home_personal.dart';
-import 'package:starinit/page-1/s11.dart';
+
 import 'package:starinit/page-1/s15.dart';
+import 'package:starinit/page-1/s9.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:file_picker/file_picker.dart';
 
 class S14 extends StatelessWidget {
   final TextEditingController _titleController = TextEditingController();
@@ -49,348 +48,376 @@ class S14 extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    return Container(
-      width: double.infinity,
-      child: Container(
-        // experienceBk8 (2:41)
-        padding: EdgeInsets.fromLTRB(21 * fem, 45 * fem, 41 * fem, 33 * fem),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Color(0xff19173d),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              'assets/page-1/images/plane-bg-1-bg.png',
+    return Scaffold(
+      resizeToAvoidBottomInset: true, // Add this line
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Color(0xff19173d),
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 844 * fem,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        // planebg1xWR (2:216)
+                        left: 2 * fem,
+                        top: 0 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 393 * fem,
+                            height: 844 * fem,
+                            child: Image.asset(
+                              'assets/page-1/images/plane-bg-1-bg.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // experienceEiq (2:217)
+                        left: 80 * fem,
+                        top: 84 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 200 * fem,
+                            height: 35 * fem,
+                            child: Text(
+                              'Add Projects',
+                              textAlign: TextAlign.center,
+                              style: SafeGoogleFont(
+                                'Urbanist',
+                                decoration: TextDecoration.none,
+                                fontSize: 30 * ffem,
+                                fontWeight: FontWeight.w700,
+                                height: 1.2 * ffem / fem,
+                                letterSpacing: 0.345 * fem,
+                                color: Color(0xffffffff),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // vectorJyb (2:218)
+                        left: 297 * fem,
+                        top: 83 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 45 * fem,
+                            height: 48 * fem,
+                            child: Image.asset(
+                              'assets/page-1/images/layer-55.png',
+                              width: 45 * fem,
+                              height: 48 * fem,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // vector2ub (2:219)
+                        left: 34 * fem,
+                        top: 46 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 5.94 * fem,
+                            height: 11.88 * fem,
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => S9()),
+                                );
+                              },
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                              ),
+                              child: Image.asset(
+                                'assets/page-1/images/vector.png',
+                                width: 5.94 * fem,
+                                height: 11.88 * fem,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // newpasswordinput7w3 (2:220)
+                        left: 28 * fem,
+                        top: 205 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 296 * fem,
+                            height: 38.69 * fem,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(32 * fem),
+                                border: Border.all(color: Color(0xffe8ecf4)),
+                                color: Color(0xfff7f7f8),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: TextField(
+                                  controller: _titleController,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        17 * fem,
+                                        7.36 * fem,
+                                        17 * fem,
+                                        12.33 * fem),
+                                    hintText: 'Add the title of the project..',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // companynameKXK (2:223)
+                        left: 21 * fem,
+                        top: 170 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 179 * fem,
+                            height: 28 * fem,
+                            child: Text(
+                              'Title:',
+                              style: SafeGoogleFont(
+                                'Urbanist',
+                                decoration: TextDecoration.none,
+                                fontSize: 23 * ffem,
+                                fontWeight: FontWeight.w700,
+                                height: 1.2 * ffem / fem,
+                                letterSpacing: 0.345 * fem,
+                                color: Color(0xffffffff),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // newpasswordinputaCM (2:224)
+                        left: 34 * fem,
+                        top: 345 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 296 * fem,
+                            height: 150 * fem,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16 * fem),
+                                border: Border.all(color: Color(0xffe8ecf4)),
+                                color: Color(0xfff7f7f8),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: TextField(
+                                  controller: _projectdescriptionController,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                        18 * fem,
+                                        7.36 * fem,
+                                        18 * fem,
+                                        12.33 * fem),
+                                    hintText: 'Add your project description..',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // positionDFK (2:227)
+                        left: 21 * fem,
+                        top: 300 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 200 * fem,
+                            height: 28 * fem,
+                            child: Text(
+                              'Project description: ',
+                              style: SafeGoogleFont(
+                                'Urbanist',
+                                decoration: TextDecoration.none,
+                                fontSize: 23 * ffem,
+                                fontWeight: FontWeight.w700,
+                                height: 1.2 * ffem / fem,
+                                letterSpacing: 0.345 * fem,
+                                color: Color(0xffffffff),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // yearsofexperienceHky (2:228)
+                        left: 21 * fem,
+                        top: 540 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 292 * fem,
+                            height: 28 * fem,
+                            child: Text(
+                              'Skills:',
+                              style: SafeGoogleFont(
+                                'Urbanist',
+                                decoration: TextDecoration.none,
+                                fontSize: 23 * ffem,
+                                fontWeight: FontWeight.w700,
+                                height: 1.2 * ffem / fem,
+                                letterSpacing: 0.345 * fem,
+                                color: Color(0xffffffff),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // newpasswordinputPJD (2:229)
+                        left: 37 * fem,
+                        top: 580 * fem,
+                        child: Align(
+                          child: SizedBox(
+                            width: 310 * fem,
+                            height: 43.1 * fem,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16 * fem),
+                                border: Border.all(color: Color(0xffe8ecf4)),
+                                color: Color(0xfff7f7f8),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: TextField(
+                                  controller: _skillsController,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                    hintText: 'Add your work...',
+                                    hintStyle:
+                                        TextStyle(color: Color(0xff8390a1)),
+                                    contentPadding: ffem < 1
+                                        ? EdgeInsets.fromLTRB(18 * fem,
+                                            7.36 * fem, 18 * fem, 12.33 * fem)
+                                        : EdgeInsets.fromLTRB(
+                                            18 * ffem,
+                                            7.36 * ffem,
+                                            18 * ffem,
+                                            12.33 * ffem),
+                                  ),
+                                  style: SafeGoogleFont(
+                                    'Urbanist',
+                                    decoration: TextDecoration.none,
+                                    fontSize: 15 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        // save42y (2:235)
+                        left: 131 * fem,
+                        top: 700 * fem,
+                        child: TextButton(
+                          onPressed: () {
+                            addProject({
+                              'title': _titleController.text,
+                              'project_description':
+                                  _projectdescriptionController.text,
+                              'skills': _skillsController.text,
+                            });
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S15()),
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                          ),
+                          child: Container(
+                            width: 127 * fem,
+                            height: 44 * fem,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Color(0x7fffffff)),
+                              borderRadius: BorderRadius.circular(15 * fem),
+                              gradient: LinearGradient(
+                                begin: Alignment(-0.654, -1),
+                                end: Alignment(0.764, 1),
+                                colors: <Color>[
+                                  Color(0xff00a6c2),
+                                  Color(0xff1444df)
+                                ],
+                                stops: <double>[0, 1],
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'DONE',
+                                style: SafeGoogleFont(
+                                  'Urbanist',
+                                  decoration: TextDecoration.none,
+                                  fontSize: 13 * ffem,
+                                  fontWeight: FontWeight.w400,
+                                  height: 1.2 * ffem / fem,
+                                  letterSpacing: 0.195 * fem,
+                                  color: Color(0xddffffff),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              // vector3nL (2:44)
-              margin: EdgeInsets.fromLTRB(
-                  0 * fem, 0 * fem, 298.06 * fem, 24.13 * fem),
-              width: 5.94 * fem,
-              height: 11.88 * fem,
-              child: Image.asset(
-                'assets/page-1/images/vector-XvC.png',
-                width: 5.94 * fem,
-                height: 11.88 * fem,
-              ),
-            ),
-            Container(
-              // autogrouphhnuwsi (R4kkGNubQj6RavMbM6hhnU)
-              margin:
-                  EdgeInsets.fromLTRB(59 * fem, 0 * fem, 47 * fem, 26.07 * fem),
-              width: double.infinity,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    // addacheivementrjn (2:43)
-                    margin:
-                        EdgeInsets.fromLTRB(0 * fem, 3 * fem, 7 * fem, 0 * fem),
-                    child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                      ),
-                      child: Text(
-                        'Add Your Projects',
-                        textAlign: TextAlign.center,
-                        style: SafeGoogleFont(
-                          'Urbanist',
-                          decoration: TextDecoration.none,
-                          fontSize: 23 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2 * ffem / fem,
-                          letterSpacing: 0.345 * fem,
-                          color: Color(0xffffffff),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    // group23979vDr (2:72)
-                    width: 24 * fem,
-                    height: 41.93 * fem,
-                    child: Image.asset(
-                      'assets/page-1/images/group-23979.png',
-                      width: 24 * fem,
-                      height: 41.93 * fem,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              // group23966wye (1:62)
-              left: 36 * fem,
-              top: 294 * fem,
-              child: Container(
-                width: 321 * fem,
-                height: 78.9 * fem,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8 * fem),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // addaddressEhr (1:63)
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                      child: Text(
-                        'Title:',
-                        style: SafeGoogleFont(
-                          'Urbanist',
-                          decoration: TextDecoration.none,
-                          fontSize: 23 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2 * ffem / fem,
-                          letterSpacing: 0.345 * fem,
-                          color: Color(0xffffffff),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xffe8ecf4)),
-                        color: Color(0xfff7f8f9),
-                        borderRadius: BorderRadius.circular(8 * fem),
-                      ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: TextField(
-                          controller: _titleController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            contentPadding: EdgeInsets.fromLTRB(
-                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
-                            hintText: 'Add the title of your project',
-                            hintStyle: TextStyle(color: Color(0xff8390a1)),
-                          ),
-                          style: SafeGoogleFont(
-                            'Urbanist',
-                            decoration: TextDecoration.none,
-                            fontSize: 15 * ffem,
-                            fontWeight: FontWeight.w500,
-                            height: 1.25 * ffem / fem,
-                            color: Color(0xff000000),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 80,
-            ),
-            Positioned(
-              // group23966wye (1:62)
-              left: 36 * fem,
-              top: 164 * fem,
-              child: Container(
-                width: 321 * fem,
-                height: 150 * fem,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8 * fem),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // addaddressEhr (1:63)
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                      child: Text(
-                        'Project Description:',
-                        style: SafeGoogleFont(
-                          'Urbanist',
-                          decoration: TextDecoration.none,
-                          fontSize: 23 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2 * ffem / fem,
-                          letterSpacing: 0.345 * fem,
-                          color: Color(0xffffffff),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      // autogroupwwgtZEL (FXwZNcgTpnZCvPKFWDwWGt)
-                      width: 400, // adjust the value as needed
-                      height: 150,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xffe8ecf4)),
-                        color: Color(0xfff7f8f9),
-                        borderRadius: BorderRadius.circular(8 * fem),
-                      ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: TextField(
-                          controller: _projectdescriptionController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            contentPadding: EdgeInsets.fromLTRB(
-                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
-                            hintText: 'Enter description about your project',
-                            hintStyle: TextStyle(color: Color(0xff8390a1)),
-                          ),
-                          style: SafeGoogleFont(
-                            'Urbanist',
-                            decoration: TextDecoration.none,
-                            fontSize: 15 * ffem,
-                            fontWeight: FontWeight.w500,
-                            height: 1.25 * ffem / fem,
-                            color: Color(0xff000000),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 90,
-            ),
-
-            Positioned(
-              // group23967JUk (1:70)
-              left: 36 * fem,
-              top: 445 * fem,
-              child: Container(
-                width: 321 * fem,
-                height: 78.9 * fem,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8 * fem),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // phonenumberzMa (1:71)
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 0 * fem, 13 * fem),
-                      child: Text(
-                        'Skills:',
-                        style: SafeGoogleFont(
-                          'Urbanist',
-                          decoration: TextDecoration.none,
-                          fontSize: 23 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2 * ffem / fem,
-                          letterSpacing: 0.345 * fem,
-                          color: Color(0xffffffff),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      // autogroupiwd6Tkx (FXwZdwaG3Dkp6MFHNLiwd6)
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xffe8ecf4)),
-                        color: Color(0xfff7f8f9),
-                        borderRadius: BorderRadius.circular(8 * fem),
-                      ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: TextField(
-                          controller: _skillsController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            contentPadding: EdgeInsets.fromLTRB(
-                                11 * fem, 8 * fem, 11 * fem, 10.9 * fem),
-                            hintText: 'Add skills associated with spaces',
-                            hintStyle: TextStyle(color: Color(0xff8390a1)),
-                          ),
-                          style: SafeGoogleFont(
-                            'Urbanist',
-                            decoration: TextDecoration.none,
-                            fontSize: 15 * ffem,
-                            fontWeight: FontWeight.w500,
-                            height: 1.25 * ffem / fem,
-                            color: Color(0xff000000),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            //
-
-            Container(
-              // save7Ug (2:65)
-              margin:
-                  EdgeInsets.fromLTRB(110 * fem, 0 * fem, 91 * fem, 0 * fem),
-              child: TextButton(
-                onPressed: () {
-                  addProject({
-                    'title': _titleController.text,
-                    'Project_description': _projectdescriptionController.text,
-                    'skills': _skillsController.text,
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => S15()),
-                  );
-                },
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 44 * fem,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Color(0x7fffffff)),
-                    borderRadius: BorderRadius.circular(15 * fem),
-                    gradient: LinearGradient(
-                      begin: Alignment(-0.654, -1),
-                      end: Alignment(0.764, 1),
-                      colors: <Color>[Color(0xff00a6c2), Color(0xff1444df)],
-                      stops: <double>[0, 1],
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'DONE',
-                      style: SafeGoogleFont(
-                        'Urbanist',
-                        decoration: TextDecoration.none,
-                        fontSize: 13 * ffem,
-                        fontWeight: FontWeight.w400,
-                        height: 1.2 * ffem / fem,
-                        letterSpacing: 0.195 * fem,
-                        color: Color(0xddffffff),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
         ),
       ),
     );
