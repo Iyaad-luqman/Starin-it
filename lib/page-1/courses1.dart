@@ -374,7 +374,7 @@ class Courses1 extends StatelessWidget {
                           width: 25.5 * fem,
                           height: 24.2 * fem,
                           child: Image.asset(
-                            'assets/page-1/images/home-alt.png',
+                            'assets/page-1/images/home-alt-3Ve.png',
                             width: 25.5 * fem,
                             height: 24.2 * fem,
                           ),
