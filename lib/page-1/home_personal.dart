@@ -960,7 +960,7 @@ class _Home extends State<Home> {
                                                     padding: EdgeInsets.zero,
                                                   ),
                                                   child: Image.asset(
-                                                    'assets/page-1/tcs.png',
+                                                    'assets/page-1/images/tcs.png',
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),

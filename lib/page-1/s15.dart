@@ -20,22 +20,18 @@ class S15 extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    Future<Map<String, dynamic>> fetchData() async {
-      DocumentReference docRef = _db.collection('users').doc(user!.uid);
-      DocumentSnapshot docSnap = await docRef.get();
+Future<Map<String, dynamic>> fetchData() async {
+  DocumentReference docRef = _db.collection('users').doc(user!.uid);
+  DocumentSnapshot docSnap = await docRef.get();
 
-      if (!docSnap.exists) {
-        await docRef.set({'projects': []});
-      }
+  Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
+  List<Map<String, dynamic>> projects = docData != null && docData.containsKey('projects')
+      ? List<Map<String, dynamic>>.from(docData['projects'] ?? [])
+      : [];
 
-      docSnap =
-          await docRef.get(); // Get the document again after potential update
+  return {'projects': projects};
+}
 
-      List<Map<String, dynamic>> projects =
-          List<Map<String, dynamic>>.from(docSnap.get('projects') ?? []);
-
-      return {'projects': projects};
-    }
 
     return FutureBuilder<Map<String, dynamic>>(
         future: fetchData(),
@@ -170,7 +166,9 @@ class S15 extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 334.06 * fem, 61.13 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -260,7 +258,7 @@ class S15 extends StatelessWidget {
                   Container(
                     // autogroupwmmdNm9 (8VbXipUCXGcZG3RvuUwMmd)
                     margin: EdgeInsets.fromLTRB(
-                        123 * fem, 0 * fem, 90 * fem, 0 * fem),
+                        0 * fem, 0 * fem, 0 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -272,7 +270,7 @@ class S15 extends StatelessWidget {
                         padding: EdgeInsets.zero,
                       ),
                       child: Container(
-                        width: double.infinity,
+                        width: 100 * fem,
                         height: 44 * fem,
                         decoration: BoxDecoration(
                           border: Border.all(color: Color(0x7fffffff)),
