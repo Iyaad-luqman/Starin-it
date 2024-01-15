@@ -66,7 +66,7 @@ Future<Map<String, dynamic>> fetchData() async {
                             width: 102 * fem,
                             height: 16 * fem,
                             child: Text(
-                              '${projects[i]['title']}',
+                              '${projects[i]['Project_description']}',
                               style: SafeGoogleFont(
                                 'Urbanist',
                                 decoration: TextDecoration.none,
@@ -107,7 +107,7 @@ Future<Map<String, dynamic>> fetchData() async {
                             width: 100 * fem,
                             height: 24 * fem,
                             child: Text(
-                              '${projects[i]['project_description']}\n',
+                              '${projects[i]['title']}\n',
                               style: SafeGoogleFont(
                                 'Radio Canada',
                                 decoration: TextDecoration.none,
@@ -121,21 +121,7 @@ Future<Map<String, dynamic>> fetchData() async {
                           ),
                         ),
                       ),
-                      Positioned(
-                        // image10Huw (2:247)
-                        left: 13 * fem,
-                        top: 19 * fem,
-                        child: Align(
-                          child: SizedBox(
-                            width: 43 * fem,
-                            height: 35 * fem,
-                            child: Image.network(
-                              '${projects[i]['skills']}',
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
-                      ),
+                      
                     ],
                   ),
                 ),

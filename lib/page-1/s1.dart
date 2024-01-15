@@ -150,21 +150,6 @@ class S1 extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                // imageremovebgpreview1zry (1:40)
-                left: 93 * fem,
-                top: 443 * fem,
-                child: Align(
-                  child: SizedBox(
-                    width: 213 * fem,
-                    height: 126 * fem,
-                    child: Image.asset(
-                      'assets/page-1/images/image-removebg-preview-1.png',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
