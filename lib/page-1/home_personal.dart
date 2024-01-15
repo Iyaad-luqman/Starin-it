@@ -42,7 +42,7 @@ class _Home extends State<Home> {
       imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
     } catch (e) {
       print('Failed to load image: $e');
-      imageUrl = 'assets/images/emptyprofile.png';
+      imageUrl = '0';
     }
     setState(() {});
   }
@@ -377,14 +377,16 @@ class _Home extends State<Home> {
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
-                                              child: imageUrl != null
-                                                  ? ClipOval(
-                                                      child: Image.network(
-                                                        imageUrl!,
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    )
-                                                  : CircularProgressIndicator(),
+child: imageUrl != null
+                              ? imageUrl != "0"
+                                ? ClipOval(
+                                    child: Image.network(
+                                      imageUrl!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                : Image.asset("assets/page-1/images/emptyprofile.png")
+                              : CircularProgressIndicator(),
                                             ),
                                           ),
                                         ),

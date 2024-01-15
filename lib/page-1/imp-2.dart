@@ -65,13 +65,14 @@ class _Imp2State extends State<Imp2> {
 
       if (docSnap.exists) {
         Map<String, dynamic> data = docSnap.data() as Map<String, dynamic>;
-                    List<dynamic> ratings = data['ratings'] ?? [];
-            double avg_rating = 0.0;
+            List<dynamic> ratings = data['ratings'] ?? [];
+          double avg_rating = 0.0;
 
             if (ratings.isNotEmpty) {
-              avg_rating = ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length;
-;
+               avg_rating = double.parse((ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
+
             }
+
 
       }
     }
@@ -375,7 +376,7 @@ fontSize: 80*ffem,
                     top: 44*fem,
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.push( context, MaterialPageRoute(builder: (context) => Imp4(userId: 'i5Irevb4pQZDM2Vc96FG6gXXRxz2')), );
+                        Navigator.push( context, MaterialPageRoute(builder: (context) => Imp4(userId: 'i5Irevb4pQZDM2Vc96FG6gXXRxz2')), );
                       },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,

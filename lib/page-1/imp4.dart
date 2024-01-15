@@ -37,13 +37,14 @@ class _Imp4 extends State<Imp4> {
     loadImage();
   }
   
+
   void loadImage() async {
     FirebaseStorage storage = FirebaseStorage.instance;
     try {
       imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
     } catch (e) {
       print('Failed to load image: $e');
-      imageUrl = 'assets/images/emptyprofile.png';
+      imageUrl = '0';
     }
     setState(() {});
   }
@@ -62,89 +63,6 @@ class _Imp4 extends State<Imp4> {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-                      double star_score = double.parse(data['star_score'] ?? '0.00');
-
-                    int fullStars = star_score.floor(); // Get the number of full stars
-                    double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
-                    String star1Image = 'assets/page-1/images/emptystar.png';
-                    String star2Image = 'assets/page-1/images/emptystar.png';
-                    String star3Image = 'assets/page-1/images/emptystar.png';
-                    String star4Image = 'assets/page-1/images/emptystar.png';
-                    String star5Image = 'assets/page-1/images/emptystar.png'; 
-                    String status_name = '';
-                    
-                    if (fullStars > 0) {
-                      star1Image = 'assets/page-1/images/fullstar.png';
-                      status_name = 'Novice';
-                    }
-                    if (fullStars > 1) {
-                      star2Image = 'assets/page-1/images/fullstar.png';
-                      status_name = 'Aspirant';
-                    }
-                    if (fullStars > 2) {
-                      star3Image = 'assets/page-1/images/fullstar.png';
-                      status_name = 'Associate';
-                    }
-                    if (fullStars > 3) {
-                      star4Image = 'assets/page-1/images/fullstar.png';
-                      status_name = 'Specialist';
-                    }
-                    if (fullStars > 4) {
-                      star5Image = 'assets/page-1/images/fullstar.png';
-                    }
-                    if (star_score > 4 && star_score < 4.5) {
-                      status_name = 'Mastermind';
-                    }
-                    if (star_score > 4.5 && star_score < 5) {
-                      status_name = 'Prodigy';
-                    }
-
-
-                    if (star_score < 5 && star_score > 4) {
-                    if (fractionalPart >= 0.75) {
-                        star5Image = 'assets/page-1/images/halfquator.png';
-                      } else if (fractionalPart >= 0.50) {
-                        star5Image = 'assets/page-1/images/half.png';
-                      } else if (fractionalPart >= 0.25) {
-                        star5Image = 'assets/page-1/images/quator.png';
-                      }
-                    }
-                    if (star_score < 4 && star_score > 3) {
-                    if (fractionalPart >= 0.75) {
-                        star4Image = 'assets/page-1/images/halfquator.png';
-                      } else if (fractionalPart >= 0.50) {
-                        star4Image = 'assets/page-1/images/half.png';
-                      } else if (fractionalPart >= 0.25) {
-                        star4Image = 'assets/page-1/images/quator.png';
-                      }
-                    }
-                    if (star_score < 3 && star_score > 2  ) {
-                    if (fractionalPart >= 0.75) {
-                        star3Image = 'assets/page-1/images/halfquator.png';
-                      } else if (fractionalPart >= 0.50) {
-                        star3Image = 'assets/page-1/images/half.png';
-                      } else if (fractionalPart >= 0.25) {
-                        star3Image = 'assets/page-1/images/quator.png';
-                      }
-                    }
-                    if (star_score < 2 && star_score > 1) {
-                    if (fractionalPart >= 0.75) {
-                        star2Image = 'assets/page-1/images/halfquator.png';
-                      } else if (fractionalPart >= 0.50) {
-                        star2Image = 'assets/page-1/images/half.png';
-                      } else if (fractionalPart >= 0.25) {
-                        star2Image = 'assets/page-1/images/quator.png';
-                      }
-                    }
-                    if (star_score < 1 && star_score > 0) {
-                    if (fractionalPart >= 0.75) {
-                        star1Image = 'assets/page-1/images/halfquator.png';
-                      } else if (fractionalPart >= 0.50) {
-                        star1Image = 'assets/page-1/images/half.png';
-                      } else if (fractionalPart > 0.25) {
-                        star1Image = 'assets/page-1/images/quator.png';
-                      }
-                    }
             Future<void> uploadfields(
               String param1,
               String param2,
@@ -165,12 +83,9 @@ class _Imp4 extends State<Imp4> {
     
 
                 Map<String, dynamic>? data = docSnap.data() as Map<String, dynamic>?;
-                
                 if (data != null && data.containsKey('ratings')) {
                   List ratings = data['ratings'];
                   bool hasRated = ratings.any((rating) => rating['rated_uid'] == user.uid);
-                  
-
 
                   if (!hasRated) {
                     // Add rating
@@ -215,167 +130,65 @@ class _Imp4 extends State<Imp4> {
         }, SetOptions(merge: true));
                       }
               }}
- return Container(
-      width: double.infinity,
-      child: Container(
-        // profilej5e (36:2582)
-        padding: EdgeInsets.fromLTRB(0 * fem, 1 * fem, 0 * fem, 0 * fem),
+return Scaffold(
+  resizeToAvoidBottomInset: true, // Add this line
+  body: SingleChildScrollView(
+  child: Container(
+    width: double.infinity,
+    child: Container(
+        // imp4xu2 (21:529)
+        padding: EdgeInsets.fromLTRB(0*fem, 5*fem, 0*fem, 0*fem),
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: BoxDecoration (
           color: Color(0xffffffff),
-          image: DecorationImage(
+          image: DecorationImage (
             fit: BoxFit.cover,
-            image: AssetImage(
-              'assets/page-1/images/plane-bg-12-bg.png',
+            image: AssetImage (
+              'assets/page-1/images/plane-bg-13-bg-HZn.png',
             ),
           ),
         ),
-        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              // autogroupx5d6XQp (C3mVQ79WHoHn5iRjUUX5d6)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 4 * fem),
+              // autogrouptfzkFt8 (GsyHcCc8zMVRRgXo3TTFzk)
+              padding: EdgeInsets.fromLTRB(23*fem, 36*fem, 103*fem, 20*fem),
               width: double.infinity,
-              height: 214 * fem,
-              child: Stack(
+              decoration: BoxDecoration (
+                image: DecorationImage (
+                  fit: BoxFit.cover,
+                  image: AssetImage (
+                    'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1.png',
+                  ),
+                ),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                 
-                  Positioned(
-                    // whatsappimage20240113at3371iNp (36:2613)
-                    left: 0 * fem,
-                    top: 0 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        width: 360 * fem,
-                        height: 191 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/whatsapp-image-2024-01-13-at-337-1.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                  Container(
+                    // whatsappimage20240114at1121kyJ (21:532)
+                    margin: EdgeInsets.fromLTRB(121*fem, 55*fem, 0*fem, 0*fem),
+                    width: 83*fem,
+                    height: 80*fem,
+                    child: imageUrl != null
+                              ? imageUrl != "0"
+                                ? ClipOval(
+                                    child: Image.network(
+                                      imageUrl!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                : Image.asset("assets/page-1/images/emptyprofile.png")
+                              : CircularProgressIndicator(),
                   ),
-                  Positioned(
-                    // imageremovebgpreview3bhW (36:2614)
-                    left: 140 * fem,
-                    top: 14 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        // width: 87 * fem,
-                        height: 27 * fem,
-                        child: Image.asset(
-                          'assets/page-1/images/image-removebg-preview-3.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned( //1
-                    // whatsappimage20240113at121041a (36:2617)
-                    left: 20 * fem,
-                    top: 34 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        // width: 36 * fem,
-                        height: 54 * fem,
-                        child: Image.asset(
-                          star1Image,
-                          fit: BoxFit.cover,
-                          
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(//2
-                    // whatsappimage20240113at121028a (36:2618)
-                    left: 85 * fem,
-                    top: 68 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        // width: 28 * fem,
-                        height: 51 * fem,
-                        child: Image.asset(
-                          star2Image,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned( //3
-                    // whatsappimage20240113at12001ph (36:2615)
-                    left: 157 * fem,
-                    top: 40 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        // width: 47 * fem,
-                        height: 45 * fem,
-                        child: Image.asset(
-                          star3Image,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned( //4
-                    // whatsappimage20240113at121016a (36:2619)
-                    left: 222 * fem,
-                    top: 66 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        // width: 21 * fem,
-                        height: 56 * fem,
-                        child: Image.asset(
-                          star4Image,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(//5
-                    // whatsappimage20240113at12001ph (36:2616)
-                    left: 288 * fem,
-                    top: 38 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        // width: 47 * fem,
-                        height: 45 * fem,
-                        child: Image.asset(
-                          star5Image,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    // whatsappimage20240112at115024p (36:2620)
-                    left: 140 * fem,
-                    top: 94 * fem,
-                    child: Align(
-                      child: SizedBox(
-                        width: 79 * fem,
-                        height: 78 * fem,
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                          ),
-                            child: imageUrl != null
-                            ? ClipOval(
-                                child: Image.network(
-                                  imageUrl!,
-                                  fit: BoxFit.cover,
-                                ),
-                              )
-                            : CircularProgressIndicator(), 
-                        ),
-                      ),
-                    ),
-                  ),
+                  
+                ],
+              ),
+            ),
             Container(
               // autogroup2zaxX6t (GsyJ3BtW824DRY7fzh2zax)
-              padding: EdgeInsets.fromLTRB(10*fem, 186*fem, 10*fem, 23*fem),
+              padding: EdgeInsets.fromLTRB(10*fem, 6*fem, 10*fem, 23*fem),
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -401,7 +214,7 @@ class _Imp4 extends State<Imp4> {
                                 style: SafeGoogleFont (
                                   'Inria Serif',
                                   decoration: TextDecoration.none,
-                                  fontSize: 27*ffem,
+fontSize: 27*ffem,
                                   fontWeight: FontWeight.w400,
                                   height: 1.1975*ffem/fem,
                                   color: Color(0xffffffff),
@@ -484,18 +297,20 @@ class _Imp4 extends State<Imp4> {
                             child: SizedBox(
                               width: 102*fem,
                               height: 1*fem,
-                              child: Material(
-                                                     color: Colors.transparent,
-                              child: TextField(
-                                decoration: InputDecoration (
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
+                              child: Container(
+                                child: Material(
+                       color: Colors.transparent,
+                                child: TextField(
+                                  decoration: InputDecoration (
+                                    border: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    errorBorder: InputBorder.none,
+                                    disabledBorder: InputBorder.none,
+                                  ),
                                 ),
                               ),
-                                                            ),
+                              ),
                             ),
                           ),
                         ),
@@ -601,17 +416,12 @@ fontSize: 16*ffem,
                 ],
               ),
             ),
-      
-      
-        ]
-      ),
-            ),
           ],
         ),
+      ),
           ),
-    
-    );
-    }
+  ),
+    );}
 }
     );
   }
