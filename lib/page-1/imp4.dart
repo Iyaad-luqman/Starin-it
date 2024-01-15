@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'package:firebase_storage/firebase_storage.dart';
 
 
 
@@ -23,16 +24,24 @@ class _Imp4 extends State<Imp4> {
   late Future<DocumentSnapshot> _future;
     final ratingController = TextEditingController();
     final commentController = TextEditingController();
+    String? imageUrl;
+    String? userId;
 
 
 
   @override
   void initState() {
     super.initState();
+    userId = widget.userId; // Get userId from widget
     _future = FirebaseFirestore.instance.collection('users').doc(widget.userId).get();
+    loadImage();
   }
   
-
+  void loadImage() async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+    setState(() {});
+  }
 
  @override
   Widget build(BuildContext context) {
@@ -71,6 +80,89 @@ class _Imp4 extends State<Imp4> {
                 if (data != null && data.containsKey('ratings')) {
                   List ratings = data['ratings'];
                   bool hasRated = ratings.any((rating) => rating['rated_uid'] == user.uid);
+                  double star_score = double.parse(data['star_score']);
+                    int fullStars = star_score.floor(); // Get the number of full stars
+                    double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
+                    String star1Image = 'assets/page-1/images/emptystar.png';
+                    String star2Image = 'assets/page-1/images/emptystar.png';
+                    String star3Image = 'assets/page-1/images/emptystar.png';
+                    String star4Image = 'assets/page-1/images/emptystar.png';
+                    String star5Image = 'assets/page-1/images/emptystar.png'; 
+                    String status_name = '';
+                    
+                    if (fullStars > 0) {
+                      star1Image = 'assets/page-1/images/fullstar.png';
+                      status_name = 'Novice';
+                    }
+                    if (fullStars > 1) {
+                      star2Image = 'assets/page-1/images/fullstar.png';
+                      status_name = 'Aspirant';
+                    }
+                    if (fullStars > 2) {
+                      star3Image = 'assets/page-1/images/fullstar.png';
+                      status_name = 'Associate';
+                    }
+                    if (fullStars > 3) {
+                      star4Image = 'assets/page-1/images/fullstar.png';
+                      status_name = 'Specialist';
+                    }
+                    if (fullStars > 4) {
+                      star5Image = 'assets/page-1/images/fullstar.png';
+                    }
+                    if (star_score > 4 && star_score < 4.5) {
+                      status_name = 'Mastermind';
+                    }
+                    if (star_score > 4.5 && star_score < 5) {
+                      status_name = 'Prodigy';
+                    }
+
+
+                    if (star_score < 5 && star_score > 4) {
+                    if (fractionalPart >= 0.75) {
+                        star5Image = 'assets/page-1/images/halfquator.png';
+                      } else if (fractionalPart >= 0.50) {
+                        star5Image = 'assets/page-1/images/half.png';
+                      } else if (fractionalPart >= 0.25) {
+                        star5Image = 'assets/page-1/images/quator.png';
+                      }
+                    }
+                    if (star_score < 4 && star_score > 3) {
+                    if (fractionalPart >= 0.75) {
+                        star4Image = 'assets/page-1/images/halfquator.png';
+                      } else if (fractionalPart >= 0.50) {
+                        star4Image = 'assets/page-1/images/half.png';
+                      } else if (fractionalPart >= 0.25) {
+                        star4Image = 'assets/page-1/images/quator.png';
+                      }
+                    }
+                    if (star_score < 3 && star_score > 2  ) {
+                    if (fractionalPart >= 0.75) {
+                        star3Image = 'assets/page-1/images/halfquator.png';
+                      } else if (fractionalPart >= 0.50) {
+                        star3Image = 'assets/page-1/images/half.png';
+                      } else if (fractionalPart >= 0.25) {
+                        star3Image = 'assets/page-1/images/quator.png';
+                      }
+                    }
+                    if (star_score < 2 && star_score > 1) {
+                    if (fractionalPart >= 0.75) {
+                        star2Image = 'assets/page-1/images/halfquator.png';
+                      } else if (fractionalPart >= 0.50) {
+                        star2Image = 'assets/page-1/images/half.png';
+                      } else if (fractionalPart >= 0.25) {
+                        star2Image = 'assets/page-1/images/quator.png';
+                      }
+                    }
+                    if (star_score < 1 && star_score > 0) {
+                    if (fractionalPart >= 0.75) {
+                        star1Image = 'assets/page-1/images/halfquator.png';
+                      } else if (fractionalPart >= 0.50) {
+                        star1Image = 'assets/page-1/images/half.png';
+                      } else if (fractionalPart > 0.25) {
+                        star1Image = 'assets/page-1/images/quator.png';
+                      }
+                    }
+
 
                   if (!hasRated) {
                     // Add rating
@@ -176,10 +268,14 @@ return Scaffold(
                     margin: EdgeInsets.fromLTRB(0*fem, 55*fem, 0*fem, 0*fem),
                     width: 83*fem,
                     height: 80*fem,
-                    child: Image.asset(
-                      'assets/page-1/images/whatsapp-image-2024-01-14-at-112-1.png',
-                      fit: BoxFit.cover,
-                    ),
+                    child: imageUrl != null
+                            ? ClipOval(
+                                child: Image.network(
+                                  imageUrl!,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                            : CircularProgressIndicator(), 
                   ),
                   Container(
                     // whatsappimage20240113at121041a (21:535)
