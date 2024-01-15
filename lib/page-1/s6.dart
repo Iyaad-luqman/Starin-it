@@ -146,6 +146,7 @@ class S6 extends StatelessWidget {
                         ),
                         child: TextField(
                           controller: _bioController,
+                            maxLines: null,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             focusedBorder: InputBorder.none,

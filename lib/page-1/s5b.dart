@@ -342,6 +342,7 @@ class S5b extends StatelessWidget {
                                   color: Colors.transparent,
                                   child: TextField(
                                     controller: _descriptionController,
+                                      maxLines: null,
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
                                       focusedBorder: InputBorder.none,
