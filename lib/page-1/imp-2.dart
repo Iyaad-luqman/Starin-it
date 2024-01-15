@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/imp4.dart';
 import 'package:starinit/utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:starinit/page-1/qrscanner.dart';
@@ -322,7 +323,9 @@ fontSize: 24*ffem,
                     left: 0*fem,
                     top: 44*fem,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push( context, MaterialPageRoute(builder: (context) => Imp4(userId: 'i5Irevb4pQZDM2Vc96FG6gXXRxz2')), );
+                      },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,
                       ),

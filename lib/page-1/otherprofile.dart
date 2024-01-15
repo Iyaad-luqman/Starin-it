@@ -31,6 +31,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
     super.initState();
     userId = widget.userId; // Get userId from widget
     _future = FirebaseFirestore.instance.collection('users').doc(userId).get();
+    loadImage();
   }
   void loadImage() async {
     FirebaseStorage storage = FirebaseStorage.instance;
