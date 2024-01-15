@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/edu.dart';
 import 'package:starinit/page-1/imp-1.dart';
 import 'package:starinit/page-1/imp-2.dart';
 import 'package:starinit/utils.dart';
@@ -644,7 +645,10 @@ class _ProfileState extends State<Profile> {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 6 * fem, 15 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => edu()),
+                  );},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
