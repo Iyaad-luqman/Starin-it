@@ -27,7 +27,7 @@ class W5 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-11-bg.png',
+              'assets/page-1/images/plane-bg-4-bg.png',
             ),
           ),
         ),
@@ -86,7 +86,7 @@ class W5 extends StatelessWidget {
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage(
-                                'assets/page-1/images/image-removebg-preview-3-bg.png',
+                                'assets/page-1/images/image-removebg-preview-1.png',
                               ),
                             ),
                           ),
@@ -173,13 +173,13 @@ class W5 extends StatelessWidget {
             ),
             Container(
               // autogrouplhw4jQp (242zXDAtQGMp93h8drLhW4)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 12 * fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 2 * fem),
               width: double.infinity,
               height: 500 * fem,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/page-1/images/whatsapp-image-2024-01-13-at-924-1-bg.png',
+                    'assets/page-1/images/w5.png',
                   ),
                 ),
               ),
@@ -187,8 +187,8 @@ class W5 extends StatelessWidget {
                 children: [
                   Positioned(
                     // rectangle668dm6 (2:53)
-                    left: 40 * fem,
-                    top: 125 * fem,
+                    left: 32 * fem,
+                    top: 140 * fem,
                     child: Align(
                       child: SizedBox(
                         width: 135 * fem,
@@ -215,7 +215,7 @@ class W5 extends StatelessWidget {
                   Positioned(
                     // applyXLg (2:54)
                     left: 60 * fem,
-                    top: 133 * fem,
+                    top: 150 * fem,
                     child: Align(
                       child: SizedBox(
                         width: 31 * fem,
@@ -264,7 +264,7 @@ class W5 extends StatelessWidget {
                         width: 25.5 * fem,
                         height: 24.2 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/home-alt-8Dr.png',
+                          'assets/page-1/images/home-alt-tma.png',
                           width: 25.5 * fem,
                           height: 24.2 * fem,
                         ),
@@ -289,7 +289,7 @@ class W5 extends StatelessWidget {
                         width: 31 * fem,
                         height: 31 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/search-uDn.png',
+                          'assets/page-1/images/search-CcU.png',
                           width: 31 * fem,
                           height: 31 * fem,
                         ),
@@ -314,7 +314,7 @@ class W5 extends StatelessWidget {
                         width: 27.54 * fem,
                         height: 25.28 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/book-open-blue.png',
+                          'assets/page-1/images/book-open-gDa.png',
                           width: 27.54 * fem,
                           height: 25.28 * fem,
                         ),
