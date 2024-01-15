@@ -42,6 +42,10 @@ class S12 extends StatelessWidget {
           });
         }
       }
+       Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S11()),
+                            );
     }
 
     double baseWidth = 390;
@@ -445,10 +449,7 @@ class S12 extends StatelessWidget {
                               'date': _DateController.text,
                               'skills': _skillsController.text,
                             });
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => S11()),
-                            );
+                           
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
