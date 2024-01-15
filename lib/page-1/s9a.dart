@@ -168,6 +168,7 @@ class S9a extends StatelessWidget {
                       height: 30 * ffem,
                     ),
                     Container(
+                      
                       // autogroup8fqf1n5 (8w6E4mkM1fFjshq7hy8FqF)
                       margin: EdgeInsets.fromLTRB(
                           96 * fem, 0 * fem, 0 * fem, 102 * fem),
@@ -176,6 +177,7 @@ class S9a extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
+                            width: double.infinity,
                             // experiencesxBX (2:240)
                             margin: EdgeInsets.fromLTRB(
                                 0 * fem, 10 * fem, 51 * fem, 0 * fem),
