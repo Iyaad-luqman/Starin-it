@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/home_personal.dart';
-import 'package:starinit/page-1/s12.dart';
 import 'package:starinit/page-1/s14.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -66,7 +65,7 @@ class S15 extends StatelessWidget {
                             width: 102 * fem,
                             height: 16 * fem,
                             child: Text(
-                              '${projects[i]['Project_description']}',
+                              '${projects[i]['title']}',
                               style: SafeGoogleFont(
                                 'Urbanist',
                                 decoration: TextDecoration.none,
@@ -107,7 +106,7 @@ class S15 extends StatelessWidget {
                             width: 100 * fem,
                             height: 24 * fem,
                             child: Text(
-                              '${projects[i]['title']}\n',
+                              '${projects[i]['project_description']}\n',
                               style: SafeGoogleFont(
                                 'Radio Canada',
                                 decoration: TextDecoration.none,
