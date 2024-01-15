@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/t11.dart';
 import 'package:starinit/utils.dart';
 
 class T10 extends StatelessWidget {
@@ -21,7 +22,7 @@ class T10 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg-npc.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -48,6 +49,7 @@ class T10 extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Vazirmatn',
+                            decoration: TextDecoration.none,
                             fontSize: 48 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.5625 * ffem / fem,
@@ -94,10 +96,11 @@ class T10 extends StatelessWidget {
                 maxWidth: 288 * fem,
               ),
               child: Text(
-                'What is an abstract class in C++?',
+                '8)What is an abstract class in C++?',
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 24 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -116,25 +119,29 @@ class T10 extends StatelessWidget {
                 border: Border.all(color: Color(0x7fffffff)),
                 color: Color(0x7f19173d),
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  contentPadding: EdgeInsets.fromLTRB(
-                      16 * fem, 13 * fem, 16 * fem, 13 * fem),
-                  hintText: 'Give your answer...',
-                  hintStyle: TextStyle(color: Color(0xffffffff)),
-                ),
-                style: SafeGoogleFont(
-                  'Urbanist',
-                  fontSize: 12 * ffem,
-                  fontWeight: FontWeight.w200,
-                  height: 1.2 * ffem / fem,
-                  letterSpacing: 0.18 * fem,
-                  color: Color(0xff000000),
+              child: Material(
+                color: Colors.transparent,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(
+                        16 * fem, 13 * fem, 16 * fem, 13 * fem),
+                    hintText: 'Give your answer...',
+                    hintStyle: TextStyle(color: Color(0xffffffff)),
+                  ),
+                  style: SafeGoogleFont(
+                    'Urbanist',
+                    decoration: TextDecoration.none,
+                    fontSize: 12 * ffem,
+                    fontWeight: FontWeight.w200,
+                    height: 1.2 * ffem / fem,
+                    letterSpacing: 0.18 * fem,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
             ),
@@ -142,7 +149,12 @@ class T10 extends StatelessWidget {
               // saveu8G (30:108)
               margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 12 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => T11()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -165,6 +177,7 @@ class T10 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 24 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,

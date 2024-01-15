@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/t2.dart';
 import 'package:starinit/utils.dart';
 
 class T1 extends StatelessWidget {
@@ -21,7 +22,7 @@ class T1 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg-m8Q.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -37,6 +38,7 @@ class T1 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 40 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -66,6 +68,7 @@ class T1 extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Urbanist',
+                            decoration: TextDecoration.none,
                             fontSize: 15 * ffem,
                             fontWeight: FontWeight.w800,
                             height: 1.2 * ffem / fem,
@@ -94,6 +97,7 @@ class T1 extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: SafeGoogleFont(
                               'Urbanist',
+                              decoration: TextDecoration.none,
                               fontSize: 15 * ffem,
                               fontWeight: FontWeight.w800,
                               height: 20.2 * ffem / fem,
@@ -134,7 +138,12 @@ class T1 extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(
                             0 * fem, 0 * fem, 0 * fem, 26 * fem),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => T2()),
+                            );
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -184,6 +193,7 @@ class T1 extends StatelessWidget {
                                   'C',
                                   style: SafeGoogleFont(
                                     'Radio Canada',
+                                    decoration: TextDecoration.none,
                                     fontSize: 20 * ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.2 * ffem / fem,
@@ -201,7 +211,12 @@ class T1 extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(
                             0 * fem, 0 * fem, 0 * fem, 42 * fem),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => T2()),
+                            );
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -251,6 +266,7 @@ class T1 extends StatelessWidget {
                                   'C++',
                                   style: SafeGoogleFont(
                                     'Radio Canada',
+                                    decoration: TextDecoration.none,
                                     fontSize: 20 * ffem,
                                     fontWeight: FontWeight.w400,
                                     height: 1.2 * ffem / fem,
@@ -274,7 +290,13 @@ class T1 extends StatelessWidget {
                               left: 0 * fem,
                               top: 184 * fem,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => T2()),
+                                  );
+                                },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
@@ -371,6 +393,7 @@ class T1 extends StatelessWidget {
                                       'JAVA',
                                       style: SafeGoogleFont(
                                         'Radio Canada',
+                                        decoration: TextDecoration.none,
                                         fontSize: 16 * ffem,
                                         fontWeight: FontWeight.w400,
                                         height: 1.2 * ffem / fem,
@@ -397,7 +420,13 @@ class T1 extends StatelessWidget {
                                       margin: EdgeInsets.fromLTRB(
                                           0 * fem, 0 * fem, 0 * fem, 143 * fem),
                                       child: TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => T2()),
+                                          );
+                                        },
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
                                         ),
@@ -455,6 +484,8 @@ class T1 extends StatelessWidget {
                                                 'PYTHON\n',
                                                 style: SafeGoogleFont(
                                                   'Radio Canada',
+                                                  decoration:
+                                                      TextDecoration.none,
                                                   fontSize: 20 * ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.2 * ffem / fem,
@@ -472,7 +503,13 @@ class T1 extends StatelessWidget {
                                       margin: EdgeInsets.fromLTRB(
                                           7 * fem, 0 * fem, 0 * fem, 0 * fem),
                                       child: TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => T2()),
+                                          );
+                                        },
                                         style: TextButton.styleFrom(
                                           padding: EdgeInsets.zero,
                                         ),
@@ -480,6 +517,7 @@ class T1 extends StatelessWidget {
                                           'Javascript\n',
                                           style: SafeGoogleFont(
                                             'Radio Canada',
+                                            decoration: TextDecoration.none,
                                             fontSize: 20 * ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.2 * ffem / fem,

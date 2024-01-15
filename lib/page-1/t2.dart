@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/t3.dart';
 import 'package:starinit/utils.dart';
 
 class T2 extends StatelessWidget {
@@ -21,7 +22,7 @@ class T2 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -37,6 +38,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 40 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -57,6 +59,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 15 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -77,6 +80,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 15 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -97,6 +101,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 15 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -117,6 +122,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 15 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -137,6 +143,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 15 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -157,6 +164,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 15 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -177,6 +185,7 @@ class T2 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 15 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -190,7 +199,12 @@ class T2 extends StatelessWidget {
               margin:
                   EdgeInsets.fromLTRB(12 * fem, 0 * fem, 19.5 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => T3()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -213,6 +227,7 @@ class T2 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 15 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,
