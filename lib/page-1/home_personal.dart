@@ -64,6 +64,7 @@ class _Home extends State<Home> {
           String star4Image = 'assets/page-1/images/emptystar.png';
           String star5Image = 'assets/page-1/images/emptystar.png'; 
           String status_name = '';
+          String gender = data['gender'];
           
           if (fullStars > 0) {
             star1Image = 'assets/page-1/images/fullstar.png';
@@ -138,8 +139,7 @@ class _Home extends State<Home> {
             }
           }
 
-    return SingleChildScrollView(
-      child: Container(
+    return  Container(
         width: MediaQuery.of(context).size.width,
         child: Container(
           // your code here
@@ -161,7 +161,7 @@ class _Home extends State<Home> {
               Container(
                 // autogroupdsxpLCc (TbmNdiKXcn9UVyhs8Ndsxp)
                 width: MediaQuery.of(context).size.width,
-                height: 1055 * fem,
+                height: gender == 'Female' ? 265 * fem : 215 * fem,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -642,6 +642,8 @@ class _Home extends State<Home> {
                               ],
                             ),
                           ),
+            gender == 'Female' 
+? 
                           Positioned(
                             // star for explore  (23:672)
                             left: 244 * fem,
@@ -669,8 +671,9 @@ class _Home extends State<Home> {
                                 ),
                               ),
                             ),
-                          ),
-                          Positioned(
+                          ): Container(),
+                          gender == 'Female' 
+                          ?Positioned(
                             // explore (23:677)
                             left: 244 * fem,
                             top: 210 * fem,
@@ -704,11 +707,27 @@ class _Home extends State<Home> {
                                 ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10 * fem,
-                          ),
-                          Container(
+                          ): Container()
+
+                          ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+
+    Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                // autogrouptqnlDzL (TbmYkLdjEh8LHgKE3ZtqnL)
+                padding:
+                    EdgeInsets.fromLTRB(8 * fem, 20 * fem, 0 * fem, 15 * fem),
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
                             // companieslookingforitspecialis (23:630)
                             margin: EdgeInsets.fromLTRB(
                                 18 * fem, 0 * fem, 0 * fem, 0 * fem),
@@ -1400,30 +1419,10 @@ class _Home extends State<Home> {
                               ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      // androidlarge6uTr (23:678)
-                      margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 185 * fem, 14 * fem),
-                      width: 360 * fem,
-                      height: 800 * fem,
-                      decoration: BoxDecoration(
-                        color: Color(0xffffffff),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                // autogrouptqnlDzL (TbmYkLdjEh8LHgKE3ZtqnL)
-                padding:
-                    EdgeInsets.fromLTRB(8 * fem, 20 * fem, 8 * fem, 15 * fem),
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                        SizedBox(
+                          height: 20 * fem,
+                        
+                        ),
                     Container(
                       // autogroupnqxcwvL (TbmWCViQYB7e8sScQmNQxc)
                       margin: EdgeInsets.fromLTRB(
@@ -2040,9 +2039,13 @@ class _Home extends State<Home> {
                   ],
                 ),
               ),
+              ),
+            
+              ),
             ],
+          
           ),
-        ),
+        
       ),
     );
   }

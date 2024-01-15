@@ -260,7 +260,7 @@ class S11 extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => S15()),
+                          MaterialPageRoute(builder: (context) => S12()),
                         );
                       },
                       style: TextButton.styleFrom(
@@ -275,24 +275,31 @@ class S11 extends StatelessWidget {
                           gradient: LinearGradient(
                             begin: Alignment(-0.654, -1),
                             end: Alignment(0.764, 1),
-                            colors: <Color>[
-                              Color(0xff00a6c2),
-                              Color(0xff1444df)
-                            ],
+                            colors: <Color>[Color(0xff00a6c2), Color(0xff1444df)],
                             stops: <double>[0, 1],
                           ),
                         ),
-                        child: Center(
-                          child: Text(
-                            'DONE',
-                            style: SafeGoogleFont(
-                              'Urbanist',
-                              decoration: TextDecoration.none,
-                              fontSize: 13 * ffem,
-                              fontWeight: FontWeight.w400,
-                              height: 1.2 * ffem / fem,
-                              letterSpacing: 0.195 * fem,
-                              color: Color(0xddffffff),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Home()),
+                            );
+                            // Add your functionality here
+                          },
+                          child: Center(
+                            child: Text(
+                              'DONE',
+                              style: SafeGoogleFont(
+                                'Urbanist',
+                                decoration: TextDecoration.none,
+                                fontSize: 13 * ffem,
+                                fontWeight: FontWeight.w400,
+                                height: 1.2 * ffem / fem,
+                                letterSpacing: 0.195 * fem,
+                                color: Color(0xddffffff),
+                              ),
                             ),
                           ),
                         ),
