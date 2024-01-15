@@ -20,16 +20,18 @@ class S11 extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+Future<Map<String, dynamic>> fetchData() async {
+  DocumentReference docRef = _db.collection('users').doc(user!.uid);
+  DocumentSnapshot docSnap = await docRef.get();
 
-    Future<Map<String, dynamic>> fetchData() async {
-      DocumentReference docRef = _db.collection('users').doc(user!.uid);
-      DocumentSnapshot docSnap = await docRef.get();
+  Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
+  List<Map<String, dynamic>> achievements = docData != null && docData.containsKey('achievements')
+      ? List<Map<String, dynamic>>.from(docData['achievements'] ?? [])
+      : [];
 
-      List<Map<String, dynamic>> achievements =
-          List<Map<String, dynamic>>.from(docSnap.get('achievements') ?? []);
+  return {'achievements': achievements};
+}
 
-      return {'achievements': achievements};
-    }
 
     return FutureBuilder<Map<String, dynamic>>(
         future: fetchData(),
@@ -165,7 +167,9 @@ class S11 extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 334.06 * fem, 61.13 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -255,20 +259,21 @@ class S11 extends StatelessWidget {
                   Container(
                     // autogroupwmmdNm9 (8VbXipUCXGcZG3RvuUwMmd)
                     margin: EdgeInsets.fromLTRB(
-                        123 * fem, 0 * fem, 90 * fem, 0 * fem),
+                        0 * fem, 0 * fem, 0 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => S12()),
+                          MaterialPageRoute(builder: (context) => S15()),
                         );
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
                       child: Container(
-                        width: double.infinity,
+                        width: 100 * fem,
                         height: 44 * fem,
+                        
                         decoration: BoxDecoration(
                           border: Border.all(color: Color(0x7fffffff)),
                           borderRadius: BorderRadius.circular(15 * fem),
@@ -284,7 +289,7 @@ class S11 extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Home()),
+                                  builder: (context) => S15()),
                             );
                             // Add your functionality here
                           },

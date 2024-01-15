@@ -20,15 +20,17 @@ class S9 extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-    Future<Map<String, dynamic>> fetchData() async {
-      DocumentReference docRef = _db.collection('users').doc(user!.uid);
-      DocumentSnapshot docSnap = await docRef.get();
+Future<Map<String, dynamic>> fetchData() async {
+  DocumentReference docRef = _db.collection('users').doc(user!.uid);
+  DocumentSnapshot docSnap = await docRef.get();
 
-      List<Map<String, dynamic>> experiences =
-          List<Map<String, dynamic>>.from(docSnap.get('experiences') ?? []);
+  Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
+  List<Map<String, dynamic>> experiences = docData != null && docData.containsKey('experiences')
+      ? List<Map<String, dynamic>>.from(docData['experiences'] ?? [])
+      : [];
 
-      return {'experiences': experiences};
-    }
+  return {'experiences': experiences};
+}
 
     return FutureBuilder<Map<String, dynamic>>(
         future: fetchData(),

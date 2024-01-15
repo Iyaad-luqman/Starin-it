@@ -318,19 +318,19 @@ class Company extends StatelessWidget {
             ),
             Positioned(
               // pandoeLc (27:863)
-              left: MediaQuery.of(context).size.width / 2 - 61 * fem,
               top: 57 * fem,
               child: Align(
+                alignment: Alignment.center, // This will center the child horizontally
                 child: SizedBox(
-                  width: 121 * fem,
+                  width: MediaQuery.of(context).size.width ,
                   height: 254 * fem,
                   child: Text(
                     companyname.toUpperCase(),
-                    textAlign: TextAlign.center, // Center the text
+                    textAlign: TextAlign.center, // This will center the text within the SizedBox
                     style: SafeGoogleFont(
                       'Urbanist',
                       decoration: TextDecoration.none,
-                      fontSize: 36 * ffem,
+                      fontSize: 31 * ffem,
                       fontWeight: FontWeight.w800,
                       height: 1.2 * ffem / fem,
                       letterSpacing: 0.54 * fem,
