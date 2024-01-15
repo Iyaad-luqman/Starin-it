@@ -651,7 +651,7 @@ class _ProfileState extends State<Profile> {
                     child: TextButton(
                       onPressed: () {Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => edu()),
+                    MaterialPageRoute(builder: (context) => Edu()),
                   );},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
