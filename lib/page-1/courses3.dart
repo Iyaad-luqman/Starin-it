@@ -1430,7 +1430,7 @@ class Courses3 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/book-open-3uE.png',
+                      'assets/page-1/images/book-open-blue.png',
                       width: 27.54 * fem,
                       height: 25.28 * fem,
                     ),
@@ -1457,7 +1457,7 @@ class Courses3 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/suitcase-alt-knx.png',
+                      'assets/page-1/images/suitcase-white.png',
                       width: 30 * fem,
                       height: 24.75 * fem,
                     ),

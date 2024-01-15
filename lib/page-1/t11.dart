@@ -3,6 +3,9 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/courses1.dart';
+import 'package:starinit/page-1/home_personal.dart';
+import 'package:starinit/page-1/job1.dart';
+import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
 
 class T11 extends StatelessWidget {
@@ -60,7 +63,7 @@ class T11 extends StatelessWidget {
             Container(
               // youhavesuccessfullycompletedth (30:165)
               margin:
-                  EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0.5 * fem, 129 * fem),
+                  EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0.5 * fem, 80 * fem),
               constraints: BoxConstraints(
                 maxWidth: 315 * fem,
               ),

@@ -291,7 +291,7 @@ class P4 extends StatelessWidget {
                         width: 25.5 * fem,
                         height: 24.2 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/home-alt.png',
+                          'assets/page-1/images/home-alt-VxQ.png',
                           width: 25.5 * fem,
                           height: 24.2 * fem,
                         ),
@@ -366,7 +366,7 @@ class P4 extends StatelessWidget {
                         width: 30 * fem,
                         height: 24.75 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/suitcase-alt.png',
+                          'assets/page-1/images/suitcase-white.png',
                           width: 30 * fem,
                           height: 24.75 * fem,
                         ),
