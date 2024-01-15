@@ -58,14 +58,14 @@ class S15 extends StatelessWidget {
                     children: [
                       Positioned(
                         // productmanagerWcM (2:244)
-                        left: 67 * fem,
+                        left: 25 * fem,
                         top: 39 * fem,
                         child: Align(
                           child: SizedBox(
                             width: 102 * fem,
                             height: 16 * fem,
                             child: Text(
-                              '${projects[i]['title']}',
+                              '${projects[i]['project_description']}',
                               style: SafeGoogleFont(
                                 'Urbanist',
                                 decoration: TextDecoration.none,
@@ -99,14 +99,14 @@ class S15 extends StatelessWidget {
                       ),
                       Positioned(
                         // googlee6H (2:246)
-                        left: 67 * fem,
+                        left: 25 * fem,
                         top: 12 * fem,
                         child: Align(
                           child: SizedBox(
                             width: 100 * fem,
                             height: 24 * fem,
                             child: Text(
-                              '${projects[i]['project_description']}\n',
+                              '${projects[i]['title']}\n',
                               style: SafeGoogleFont(
                                 'Radio Canada',
                                 decoration: TextDecoration.none,
