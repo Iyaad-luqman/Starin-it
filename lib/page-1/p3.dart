@@ -177,7 +177,7 @@ class P3 extends StatelessWidget {
                         width: 31 * fem,
                         height: 31 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/search.png',
+                          'assets/page-1/images/search-CcU.png',
                           width: 31 * fem,
                           height: 31 * fem,
                         ),
@@ -227,7 +227,7 @@ class P3 extends StatelessWidget {
                         width: 30 * fem,
                         height: 24.75 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/suitcase-alt.png',
+                          'assets/page-1/images/suitcase-alt-cPe.png',
                           width: 30 * fem,
                           height: 24.75 * fem,
                         ),

@@ -595,7 +595,7 @@ class P4a4 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/suitcase-alt.png',
+                      'assets/page-1/images/suitcase-white.png',
                       width: 30 * fem,
                       height: 24.75 * fem,
                     ),
@@ -622,7 +622,7 @@ class P4a4 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/search.png',
+                      'assets/page-1/images/search-CcU.png',
                       width: 31 * fem,
                       height: 31 * fem,
                     ),
@@ -649,7 +649,7 @@ class P4a4 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/home-alt.png',
+                      'assets/page-1/images/home-alt-VxQ.png',
                       width: 25.5 * fem,
                       height: 24.2 * fem,
                     ),

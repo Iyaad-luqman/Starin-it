@@ -683,7 +683,7 @@ class Courses4 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/book-open-p6p.png',
+                      'assets/page-1/images/book-open-blue.png',
                       width: 27.54 * fem,
                       height: 25.28 * fem,
                     ),
@@ -710,7 +710,7 @@ class Courses4 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/suitcase-alt-ort.png',
+                      'assets/page-1/images/suitcase-alt-2aG.png',
                       width: 30 * fem,
                       height: 24.75 * fem,
                     ),
@@ -737,7 +737,7 @@ class Courses4 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/search.png',
+                      'assets/page-1/images/search-xjW.png',
                       width: 31 * fem,
                       height: 31 * fem,
                     ),
@@ -764,7 +764,7 @@ class Courses4 extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Image.asset(
-                      'assets/page-1/images/home-alt.png',
+                      'assets/page-1/images/home-alt-VxQ.png',
                       width: 25.5 * fem,
                       height: 24.2 * fem,
                     ),
