@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/t9.dart';
 import 'package:starinit/utils.dart';
 
 class T8 extends StatelessWidget {
@@ -21,7 +22,7 @@ class T8 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg-Jma.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -48,6 +49,7 @@ class T8 extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Vazirmatn',
+                            decoration: TextDecoration.none,
                             fontSize: 48 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.5625 * ffem / fem,
@@ -89,12 +91,13 @@ class T8 extends StatelessWidget {
             ),
             Container(
               // whatisjitpma (30:130)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 6 * fem, 62 * fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 6 * fem, 20 * fem),
               child: Text(
-                'What is JIT',
+                '6)What is JIT',
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 24 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -113,25 +116,29 @@ class T8 extends StatelessWidget {
                 border: Border.all(color: Color(0x7fffffff)),
                 color: Color(0x7f19173d),
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  contentPadding: EdgeInsets.fromLTRB(
-                      16 * fem, 13 * fem, 16 * fem, 13 * fem),
-                  hintText: 'Give your answer...',
-                  hintStyle: TextStyle(color: Color(0xffffffff)),
-                ),
-                style: SafeGoogleFont(
-                  'Urbanist',
-                  fontSize: 12 * ffem,
-                  fontWeight: FontWeight.w200,
-                  height: 1.2 * ffem / fem,
-                  letterSpacing: 0.18 * fem,
-                  color: Color(0xff000000),
+              child: Material(
+                color: Colors.transparent,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(
+                        16 * fem, 13 * fem, 16 * fem, 13 * fem),
+                    hintText: 'Give your answer...',
+                    hintStyle: TextStyle(color: Color(0xffffffff)),
+                  ),
+                  style: SafeGoogleFont(
+                    'Urbanist',
+                    decoration: TextDecoration.none,
+                    fontSize: 12 * ffem,
+                    fontWeight: FontWeight.w200,
+                    height: 1.2 * ffem / fem,
+                    letterSpacing: 0.18 * fem,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
             ),
@@ -139,7 +146,12 @@ class T8 extends StatelessWidget {
               // save9Ba (30:131)
               margin: EdgeInsets.fromLTRB(4 * fem, 0 * fem, 0 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => T9()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -162,6 +174,7 @@ class T8 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 24 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,

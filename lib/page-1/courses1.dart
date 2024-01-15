@@ -7,6 +7,7 @@ import 'package:starinit/page-1/courses4.dart';
 import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/search.dart';
+import 'package:starinit/page-1/t1.dart';
 import 'package:starinit/utils.dart';
 
 class Courses1 extends StatelessWidget {
@@ -208,7 +209,7 @@ class Courses1 extends StatelessWidget {
                   Positioned(
                     // rectangle17W7v (0:102)
                     left: 26 * fem,
-                    top: 288 * fem,
+                    top: 210 * fem,
                     child: Align(
                       child: SizedBox(
                         width: 285 * fem,
@@ -219,6 +220,33 @@ class Courses1 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Courses4()),
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                          ),
+                          child: Image.asset(
+                            'assets/page-1/images/rectangle-17.png',
+                            width: 285 * fem,
+                            height: 86 * fem,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    // rectangle17W7v (0:102)
+                    left: 26 * fem,
+                    top: 320 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        width: 285 * fem,
+                        height: 86 * fem,
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => T1()),
                             );
                           },
                           style: TextButton.styleFrom(
@@ -259,13 +287,36 @@ class Courses1 extends StatelessWidget {
                   Positioned(
                     // coursesFUp (0:104)
                     left: 45 * fem,
-                    top: 317 * fem,
+                    top: 240 * fem,
                     child: Align(
                       child: SizedBox(
                         width: 238 * fem,
                         height: 29 * fem,
                         child: Text(
                           'View Enrolled Courses',
+                          style: SafeGoogleFont(
+                            decoration: TextDecoration.none,
+                            'Urbanist',
+                            fontSize: 24 * ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1.2 * ffem / fem,
+                            letterSpacing: 0.36 * fem,
+                            color: Color(0xddffffff),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    // coursesFUp (0:104)
+                    left: 50 * fem,
+                    top: 348 * fem,
+                    child: Align(
+                      child: SizedBox(
+                        width: 238 * fem,
+                        height: 29 * fem,
+                        child: Text(
+                          'Verify New Courses',
                           style: SafeGoogleFont(
                             decoration: TextDecoration.none,
                             'Urbanist',

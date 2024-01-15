@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/t5.dart';
 import 'package:starinit/utils.dart';
 
 class T4 extends StatelessWidget {
@@ -21,7 +22,7 @@ class T4 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg-nYk.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -48,6 +49,7 @@ class T4 extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Vazirmatn',
+                            decoration: TextDecoration.none,
                             fontSize: 48 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.5625 * ffem / fem,
@@ -89,15 +91,16 @@ class T4 extends StatelessWidget {
             ),
             Container(
               // writeaprogramtoreplaceall0swit (30:84)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 43 * fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 10 * fem),
               constraints: BoxConstraints(
                 maxWidth: 309 * fem,
               ),
               child: Text(
-                'Write a Program to Replace all 0’s with 1’s in a Number.',
+                '2)Write a Program to Replace all 0’s with 1’s in a Number.',
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 24 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -116,25 +119,29 @@ class T4 extends StatelessWidget {
                 border: Border.all(color: Color(0x7fffffff)),
                 color: Color(0x7f19173d),
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  contentPadding: EdgeInsets.fromLTRB(
-                      12 * fem, 12.96 * fem, 12 * fem, 12.96 * fem),
-                  hintText: 'Give your answer...',
-                  hintStyle: TextStyle(color: Color(0xffffffff)),
-                ),
-                style: SafeGoogleFont(
-                  'Urbanist',
-                  fontSize: 12 * ffem,
-                  fontWeight: FontWeight.w200,
-                  height: 1.2 * ffem / fem,
-                  letterSpacing: 0.18 * fem,
-                  color: Color(0xff000000),
+              child: Material(
+                color: Colors.transparent,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(
+                        12 * fem, 12.96 * fem, 12 * fem, 12.96 * fem),
+                    hintText: 'Give your answer...',
+                    hintStyle: TextStyle(color: Color(0xffffffff)),
+                  ),
+                  style: SafeGoogleFont(
+                    'Urbanist',
+                    decoration: TextDecoration.none,
+                    fontSize: 12 * ffem,
+                    fontWeight: FontWeight.w200,
+                    height: 1.2 * ffem / fem,
+                    letterSpacing: 0.18 * fem,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
             ),
@@ -142,7 +149,12 @@ class T4 extends StatelessWidget {
               // save8xC (30:85)
               margin: EdgeInsets.fromLTRB(3 * fem, 0 * fem, 6 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => T5()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -165,6 +177,7 @@ class T4 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 24 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,

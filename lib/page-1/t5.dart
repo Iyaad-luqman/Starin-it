@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/t6.dart';
 import 'package:starinit/utils.dart';
 
 class T5 extends StatelessWidget {
@@ -21,7 +22,7 @@ class T5 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg-sik.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -48,6 +49,7 @@ class T5 extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Vazirmatn',
+                            decoration: TextDecoration.none,
                             fontSize: 48 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.5625 * ffem / fem,
@@ -89,15 +91,16 @@ class T5 extends StatelessWidget {
             ),
             Container(
               // pleasetellusyourbestadvancedte (30:70)
-              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 38 * fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
               constraints: BoxConstraints(
                 maxWidth: 375 * fem,
               ),
               child: Text(
-                'Please tell us your best advanced technical JavaScript skill.\n',
+                '3)Please tell us your best advanced technical JavaScript skill.\n',
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 24 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -108,8 +111,7 @@ class T5 extends StatelessWidget {
             ),
             Container(
               // jtp (30:68)
-              margin:
-                  EdgeInsets.fromLTRB(31 * fem, 0 * fem, 31 * fem, 29 * fem),
+              margin: EdgeInsets.fromLTRB(31 * fem, 0 * fem, 31 * fem, 0 * fem),
               width: double.infinity,
               height: 341 * fem,
               decoration: BoxDecoration(
@@ -117,25 +119,29 @@ class T5 extends StatelessWidget {
                 border: Border.all(color: Color(0x7fffffff)),
                 color: Color(0x7f19173d),
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  contentPadding: EdgeInsets.fromLTRB(
-                      16 * fem, 13 * fem, 16 * fem, 13 * fem),
-                  hintText: 'Give your answer...',
-                  hintStyle: TextStyle(color: Color(0xffffffff)),
-                ),
-                style: SafeGoogleFont(
-                  'Urbanist',
-                  fontSize: 12 * ffem,
-                  fontWeight: FontWeight.w200,
-                  height: 1.2 * ffem / fem,
-                  letterSpacing: 0.18 * fem,
-                  color: Color(0xff000000),
+              child: Material(
+                color: Colors.transparent,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(
+                        16 * fem, 13 * fem, 16 * fem, 13 * fem),
+                    hintText: 'Give your answer...',
+                    hintStyle: TextStyle(color: Color(0xffffffff)),
+                  ),
+                  style: SafeGoogleFont(
+                    'Urbanist',
+                    decoration: TextDecoration.none,
+                    fontSize: 12 * ffem,
+                    fontWeight: FontWeight.w200,
+                    height: 1.2 * ffem / fem,
+                    letterSpacing: 0.18 * fem,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
             ),
@@ -143,7 +149,12 @@ class T5 extends StatelessWidget {
               // save8vx (30:71)
               margin: EdgeInsets.fromLTRB(22 * fem, 0 * fem, 38 * fem, 0 * fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => T6()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
@@ -166,6 +177,7 @@ class T5 extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: SafeGoogleFont(
                         'Urbanist',
+                        decoration: TextDecoration.none,
                         fontSize: 24 * ffem,
                         fontWeight: FontWeight.w800,
                         height: 1.2 * ffem / fem,

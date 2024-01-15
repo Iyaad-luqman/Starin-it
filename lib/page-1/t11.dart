@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/courses1.dart';
 import 'package:starinit/utils.dart';
 
 class T11 extends StatelessWidget {
@@ -21,7 +22,7 @@ class T11 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg-5yv.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -47,6 +48,7 @@ class T11 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Vast Shadow',
+                  decoration: TextDecoration.none,
                   fontSize: 40 * ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.25 * ffem / fem,
@@ -67,6 +69,7 @@ class T11 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 24 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -87,6 +90,7 @@ class T11 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: SafeGoogleFont(
                   'Urbanist',
+                  decoration: TextDecoration.none,
                   fontSize: 24 * ffem,
                   fontWeight: FontWeight.w800,
                   height: 1.2 * ffem / fem,
@@ -96,32 +100,45 @@ class T11 extends StatelessWidget {
               ),
             ),
             Container(
-              // savex4L (30:168)
-              margin:
-                  EdgeInsets.fromLTRB(14.5 * fem, 0 * fem, 0 * fem, 0 * fem),
-              width: 300 * fem,
-              height: 47 * fem,
-              decoration: BoxDecoration(
-                border: Border.all(color: Color(0x7fffffff)),
-                borderRadius: BorderRadius.circular(15 * fem),
-                gradient: LinearGradient(
-                  begin: Alignment(-0.654, -1),
-                  end: Alignment(0.764, 1),
-                  colors: <Color>[Color(0xff89b4bb), Color(0xff2c59ef)],
-                  stops: <double>[0, 1],
+              // saveu8G (30:108)
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 12 * fem, 0 * fem),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Courses1()),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
                 ),
-              ),
-              child: Center(
-                child: Text(
-                  'GO BACK TO COURSES',
-                  textAlign: TextAlign.center,
-                  style: SafeGoogleFont(
-                    'Urbanist',
-                    fontSize: 24 * ffem,
-                    fontWeight: FontWeight.w800,
-                    height: 1.2 * ffem / fem,
-                    letterSpacing: 0.36 * fem,
-                    color: Color(0xffffffff),
+                child: Container(
+                  width: 300 * fem,
+                  height: 47 * fem,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Color(0x7fffffff)),
+                    borderRadius: BorderRadius.circular(15 * fem),
+                    gradient: LinearGradient(
+                      begin: Alignment(-0.654, -1),
+                      end: Alignment(0.764, 1),
+                      colors: <Color>[Color(0xff89b4bb), Color(0xff2c59ef)],
+                      stops: <double>[0, 1],
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Go back to courses',
+                      textAlign: TextAlign.center,
+                      style: SafeGoogleFont(
+                        'Urbanist',
+                        decoration: TextDecoration.none,
+                        fontSize: 24 * ffem,
+                        fontWeight: FontWeight.w800,
+                        height: 1.2 * ffem / fem,
+                        letterSpacing: 0.36 * fem,
+                        color: Color(0xffffffff),
+                      ),
+                    ),
                   ),
                 ),
               ),

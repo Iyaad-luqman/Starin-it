@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/t10.dart';
+import 'package:starinit/page-1/t7.dart';
 import 'package:starinit/utils.dart';
 
 class T9 extends StatelessWidget {
@@ -13,15 +15,15 @@ class T9 extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Container(
-        // t9Nzp (30:115)
-        padding: EdgeInsets.fromLTRB(29 * fem, 26 * fem, 31 * fem, 115 * fem),
+        // t6BDN (30:150)
+        padding: EdgeInsets.fromLTRB(17 * fem, 26 * fem, 31 * fem, 102 * fem),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xffffffff),
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-13-bg-GxC.png',
+              'assets/page-1/images/plane-bg-1.png',
             ),
           ),
         ),
@@ -29,15 +31,14 @@ class T9 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              // autogroupkjb6eBe (JHy9baHqCsLYDNppxpKJb6)
-              margin:
-                  EdgeInsets.fromLTRB(12 * fem, 0 * fem, 0 * fem, 103 * fem),
+              // autogroup4thiraQ (JHyAGJgJAFQy7MP3Eq4thi)
+              margin: EdgeInsets.fromLTRB(24 * fem, 0 * fem, 0 * fem, 0 * fem),
               width: 288 * fem,
               height: 150 * fem,
               child: Stack(
                 children: [
                   Positioned(
-                    // secondsa5J (30:123)
+                    // secondsmSU (30:152)
                     left: 29.5 * fem,
                     top: 0 * fem,
                     child: Align(
@@ -49,6 +50,7 @@ class T9 extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Vazirmatn',
+                            decoration: TextDecoration.none,
                             fontSize: 48 * ffem,
                             fontWeight: FontWeight.w400,
                             height: 1.5625 * ffem / fem,
@@ -60,7 +62,7 @@ class T9 extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    // rYc (30:124)
+                    // dDn (30:160)
                     left: 0 * fem,
                     top: 0 * fem,
                     child: Container(
@@ -70,7 +72,7 @@ class T9 extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15 * fem),
                       ),
                       child: Center(
-                        // rectangle13CMa (30:125)
+                        // rectangle13Ltt (30:161)
                         child: SizedBox(
                           width: double.infinity,
                           height: 150 * fem,
@@ -89,67 +91,100 @@ class T9 extends StatelessWidget {
               ),
             ),
             Container(
-              // LCt (30:117)
-              margin: EdgeInsets.fromLTRB(2 * fem, 0 * fem, 0 * fem, 38 * fem),
+              // pleasetellusthemainprimitiveda (30:155)
+              margin: EdgeInsets.fromLTRB(14 * fem, 0 * fem, 0 * fem, 0 * fem),
+              constraints: BoxConstraints(
+                maxWidth: 277 * fem,
+              ),
+              child: Text(
+                '7) What are the differences between a shallow and a deep copy?',
+                textAlign: TextAlign.center,
+                style: SafeGoogleFont(
+                  'Urbanist',
+                  decoration: TextDecoration.none,
+                  fontSize: 24 * ffem,
+                  fontWeight: FontWeight.w800,
+                  height: 1.2 * ffem / fem,
+                  letterSpacing: 0.36 * fem,
+                  color: Color(0xfffffdfd),
+                ),
+              ),
+            ),
+            Container(
+              // AN8 (30:153)
+              margin: EdgeInsets.fromLTRB(14 * fem, 0 * fem, 0 * fem, 20 * fem),
               width: 298 * fem,
-              height: 321 * fem,
+              height: 338 * fem,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15 * fem),
                 border: Border.all(color: Color(0x7fffffff)),
                 color: Color(0x7f19173d),
               ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  contentPadding: EdgeInsets.fromLTRB(
-                      16 * fem, 13 * fem, 16 * fem, 13 * fem),
-                  hintText: 'Give your answer...',
-                  hintStyle: TextStyle(color: Color(0xffffffff)),
-                ),
-                style: SafeGoogleFont(
-                  'Urbanist',
-                  fontSize: 12 * ffem,
-                  fontWeight: FontWeight.w200,
-                  height: 1.2 * ffem / fem,
-                  letterSpacing: 0.18 * fem,
-                  color: Color(0xff000000),
+              child: Material(
+                color: Colors.transparent,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(
+                        16 * fem, 13 * fem, 16 * fem, 13 * fem),
+                    hintText: 'Give your answer...',
+                    hintStyle: TextStyle(color: Color(0xffffffff)),
+                  ),
+                  style: SafeGoogleFont(
+                    'Urbanist',
+                    decoration: TextDecoration.none,
+                    fontSize: 12 * ffem,
+                    fontWeight: FontWeight.w200,
+                    height: 1.2 * ffem / fem,
+                    letterSpacing: 0.18 * fem,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
             ),
-            TextButton(
-              // savejkp (30:119)
-              onPressed: () {},
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.zero,
-              ),
-              child: Container(
-                width: double.infinity,
-                height: 47 * fem,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Color(0x7fffffff)),
-                  borderRadius: BorderRadius.circular(15 * fem),
-                  gradient: LinearGradient(
-                    begin: Alignment(-0.654, -1),
-                    end: Alignment(0.764, 1),
-                    colors: <Color>[Color(0xff89b4bb), Color(0xff2c59ef)],
-                    stops: <double>[0, 1],
-                  ),
+            Container(
+              // savecV2 (30:156)
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 12 * fem, 0 * fem),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => T10()),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
                 ),
-                child: Center(
-                  child: Text(
-                    'CONTINUE',
-                    textAlign: TextAlign.center,
-                    style: SafeGoogleFont(
-                      'Urbanist',
-                      fontSize: 24 * ffem,
-                      fontWeight: FontWeight.w800,
-                      height: 1.2 * ffem / fem,
-                      letterSpacing: 0.36 * fem,
-                      color: Color(0xffffffff),
+                child: Container(
+                  width: 300 * fem,
+                  height: 47 * fem,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Color(0x7fffffff)),
+                    borderRadius: BorderRadius.circular(15 * fem),
+                    gradient: LinearGradient(
+                      begin: Alignment(-0.654, -1),
+                      end: Alignment(0.764, 1),
+                      colors: <Color>[Color(0xff89b4bb), Color(0xff2c59ef)],
+                      stops: <double>[0, 1],
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'CONTINUE',
+                      textAlign: TextAlign.center,
+                      style: SafeGoogleFont(
+                        'Urbanist',
+                        decoration: TextDecoration.none,
+                        fontSize: 24 * ffem,
+                        fontWeight: FontWeight.w800,
+                        height: 1.2 * ffem / fem,
+                        letterSpacing: 0.36 * fem,
+                        color: Color(0xffffffff),
+                      ),
                     ),
                   ),
                 ),
