@@ -3,8 +3,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/edu.dart';
 import 'package:starinit/page-1/imp-1.dart';
 import 'package:starinit/page-1/imp-2.dart';
+import 'package:starinit/page-1/profile_expertise.dart';
+import 'package:starinit/page-1/s11a.dart';
+import 'package:starinit/page-1/s15.dart';
+import 'package:starinit/page-1/s9a.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -644,7 +649,10 @@ class _ProfileState extends State<Profile> {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 6 * fem, 15 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => edu()),
+                  );},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -697,7 +705,12 @@ class _ProfileState extends State<Profile> {
                           margin: EdgeInsets.fromLTRB(
                               0 * fem, 0 * fem, 0 * fem, 13 * fem),
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => S15()),
+                        );
+                            },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
@@ -736,7 +749,12 @@ class _ProfileState extends State<Profile> {
                         ),
                         TextButton(
                           // autogroupik8toQp (C3mWbKfB78Y48nxMddik8t)
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => S11a()),
+                        );
+                          },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
@@ -780,7 +798,10 @@ class _ProfileState extends State<Profile> {
                     margin: EdgeInsets.fromLTRB(
                         0 * fem, 0 * fem, 6 * fem, 10 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => S9a()),
+                        );},
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -822,7 +843,12 @@ class _ProfileState extends State<Profile> {
                     margin:
                         EdgeInsets.fromLTRB(0 * fem, 0 * fem, 6 * fem, 0 * fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Profile_expertise()),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
