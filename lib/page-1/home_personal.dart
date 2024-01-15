@@ -38,7 +38,12 @@ class _Home extends State<Home> {
 
   void loadImage() async {
     FirebaseStorage storage = FirebaseStorage.instance;
-    imageUrl = await storage.ref('uploads/${user!.uid}/file').getDownloadURL();
+    try {
+      imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+    } catch (e) {
+      print('Failed to load image: $e');
+      imageUrl = 'assets/images/emptyprofile.png';
+    }
     setState(() {});
   }
 

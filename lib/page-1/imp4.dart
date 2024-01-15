@@ -39,7 +39,12 @@ class _Imp4 extends State<Imp4> {
   
   void loadImage() async {
     FirebaseStorage storage = FirebaseStorage.instance;
-    imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+    try {
+      imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+    } catch (e) {
+      print('Failed to load image: $e');
+      imageUrl = 'assets/images/emptyprofile.png';
+    }
     setState(() {});
   }
 
@@ -57,7 +62,8 @@ class _Imp4 extends State<Imp4> {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-          double star_score = double.parse(data['star_score']);
+                      double star_score = double.parse(data['star_score'] ?? '0.00');
+
                     int fullStars = star_score.floor(); // Get the number of full stars
                     double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
                     String star1Image = 'assets/page-1/images/emptystar.png';
