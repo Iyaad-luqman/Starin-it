@@ -28,7 +28,7 @@ class W4 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-11-bg-fFS.png',
+              'assets/page-1/images/plane-bg-4-bg.png',
             ),
           ),
         ),
@@ -88,7 +88,7 @@ class W4 extends StatelessWidget {
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage(
-                                'assets/page-1/images/image-removebg-preview-3-bg-p8k.png',
+                                'assets/page-1/images/image-removebg-preview-1.png',
                               ),
                             ),
                           ),
@@ -139,7 +139,7 @@ class W4 extends StatelessWidget {
                         ),
                         Positioned(
                           // fDW (2:14)
-                          left: 3 * fem,
+                          left: 0 * fem,
                           top: 0 * fem,
                           child: Container(
                             width: 327 * fem,
@@ -188,7 +188,7 @@ class W4 extends StatelessWidget {
                   width: 360 * fem,
                   height: 480 * fem,
                   child: Image.asset(
-                    'assets/page-1/images/whatsapp-image-2024-01-12-at-856-1.png',
+                    'assets/page-1/images/w4.png',
                   ),
                 ),
               ),
@@ -219,7 +219,7 @@ class W4 extends StatelessWidget {
                         width: 25.5 * fem,
                         height: 24.2 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/home-alt.png',
+                          'assets/page-1/images/home-alt-tma.png',
                           width: 25.5 * fem,
                           height: 24.2 * fem,
                         ),
@@ -244,7 +244,7 @@ class W4 extends StatelessWidget {
                         width: 31 * fem,
                         height: 31 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/search.png',
+                          'assets/page-1/images/search-xjW.png',
                           width: 31 * fem,
                           height: 31 * fem,
                         ),
@@ -269,7 +269,7 @@ class W4 extends StatelessWidget {
                         width: 27.54 * fem,
                         height: 25.28 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/book-open-blue.png',
+                          'assets/page-1/images/book-open-3uE.png',
                           width: 27.54 * fem,
                           height: 25.28 * fem,
                         ),

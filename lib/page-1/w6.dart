@@ -26,7 +26,7 @@ class W6 extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/page-1/images/plane-bg-11-bg-oJt.png',
+              'assets/page-1/images/plane-bg-4-bg.png',
             ),
           ),
         ),
@@ -76,7 +76,7 @@ class W6 extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
-                          'assets/page-1/images/image-removebg-preview-3-bg.png',
+                          'assets/page-1/images/image-removebg-preview-1.png',
                         ),
                       ),
                     ),
@@ -171,14 +171,14 @@ class W6 extends StatelessWidget {
                         width: 420 * fem,
                         height: 600 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/whatsapp-image-2024-01-13-at-934-3.png',
+                          'assets/page-1/images/w6.png',
                         ),
                       ),
                     ),
                   ),
                   Positioned(
                     // rectangle667sDe (2:40)
-                    left: 220 * fem,
+                    left: 225 * fem,
                     top: 370 * fem,
                     child: Align(
                       child: SizedBox(
@@ -200,7 +200,7 @@ class W6 extends StatelessWidget {
                   ),
                   Positioned(
                     // rectangle668ZMN (2:41)
-                    left: 220 * fem,
+                    left: 225 * fem,
                     top: 415 * fem,
                     child: Align(
                       child: SizedBox(
@@ -295,7 +295,7 @@ class W6 extends StatelessWidget {
                         width: 25.5 * fem,
                         height: 24.2 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/home-alt-SUc.png',
+                          'assets/page-1/images/home-alt-VxQ.png',
                           width: 25.5 * fem,
                           height: 24.2 * fem,
                         ),
@@ -320,7 +320,7 @@ class W6 extends StatelessWidget {
                         width: 31 * fem,
                         height: 31 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/search-jZE.png',
+                          'assets/page-1/images/search-CcU.png',
                           width: 31 * fem,
                           height: 31 * fem,
                         ),
@@ -345,7 +345,7 @@ class W6 extends StatelessWidget {
                         width: 27.54 * fem,
                         height: 25.28 * fem,
                         child: Image.asset(
-                          'assets/page-1/images/book-open-blue.png',
+                          'assets/page-1/images/book-open-3uE.png',
                           width: 27.54 * fem,
                           height: 25.28 * fem,
                         ),
