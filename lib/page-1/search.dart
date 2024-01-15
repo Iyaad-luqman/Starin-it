@@ -357,9 +357,8 @@ class Search extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Positioned(
-                              top: 780.0,
-                              left: 0.0, // specify the left offset
+                            Container(
+                             // specify the left offset
                               child: Container(
                                 width: 500 * fem, // Set width to screen width
                                 height: 90 * fem, // Set height to screen height
@@ -380,9 +379,8 @@ class Search extends StatelessWidget {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Positioned(
-                                      top: 400, // specify the top offset
-                                      left: 15, // specify the left offset
+                                    Container(
+                                   // specify the left offset
                                       child: TextButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -408,10 +406,8 @@ class Search extends StatelessWidget {
                                     SizedBox(
                                       width: 40 * fem,
                                     ),
-                                    Positioned(
-                                      top: 350, // specify the top offset
-                                      left:
-                                          150, // specify a different left offset
+                                    Container(
+                                   // specify a different left offset
                                       child: TextButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -437,10 +433,8 @@ class Search extends StatelessWidget {
                                     SizedBox(
                                       width: 40 * fem,
                                     ),
-                                    Positioned(
-                                      top:
-                                          350, // specify a different top offset
-                                      left: 45, // specify the left offset
+                                    Container(
+   // specify the left offset
                                       child: TextButton(
                                         onPressed: () {
                                           Navigator.push(
@@ -467,11 +461,8 @@ class Search extends StatelessWidget {
                                     SizedBox(
                                       width: 45 * fem,
                                     ),
-                                    Positioned(
-                                      top:
-                                          350, // specify a different top offset
-                                      left:
-                                          100, // specify a different left offset
+                                    Container(
+ // specify a different left offset
                                       child: TextButton(
                                         onPressed: () {
                                           Navigator.push(
