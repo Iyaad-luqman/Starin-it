@@ -39,7 +39,7 @@ class _ProfileState extends State<Profile> {
       imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
     } catch (e) {
       print('Failed to load image: $e');
-      imageUrl = 'assets/images/emptyprofile.png';
+      imageUrl = '0';
     }
     setState(() {});
   }
@@ -67,11 +67,12 @@ class _ProfileState extends State<Profile> {
           String? gender = data['gender'];
           String? name = data['name'];
           String? bio = data['Bio'];
-            List<dynamic> ratings = data['ratings'] ?? [];
-            double avg_rating = 0.0;
+          List<dynamic> ratings = data['ratings'] ?? [];
+          double avg_rating = 0.0;
 
             if (ratings.isNotEmpty) {
-              avg_rating = ratings.reduce((a, b) => a + b) / ratings.length;
+                          avg_rating = double.parse((ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
+
             }
 
           String? pronoun; 
@@ -361,13 +362,15 @@ class _ProfileState extends State<Profile> {
                             padding: EdgeInsets.zero,
                           ),
                             child: imageUrl != null
-                            ? ClipOval(
-                                child: Image.network(
-                                  imageUrl!,
-                                  fit: BoxFit.cover,
-                                ),
-                              )
-                            : CircularProgressIndicator(), 
+                              ? imageUrl != "0"
+                                ? ClipOval(
+                                    child: Image.network(
+                                      imageUrl!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                : Image.asset("assets/page-1/images/emptyprofile.png")
+                              : CircularProgressIndicator(),
                         ),
                       ),
                     ),
