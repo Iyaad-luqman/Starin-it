@@ -59,7 +59,7 @@ class _Home extends State<Home> {
           } else {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
-            double star_score = double.parse(data['star_score']);
+            double star_score = double.parse(data['star_score'] ?? '0.00');
             int fullStars = star_score.floor(); // Get the number of full stars
             double fractionalPart = star_score -
                 fullStars; // Get the fractional part of the star score
