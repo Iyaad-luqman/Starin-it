@@ -20,18 +20,18 @@ class S15 extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-Future<Map<String, dynamic>> fetchData() async {
-  DocumentReference docRef = _db.collection('users').doc(user!.uid);
-  DocumentSnapshot docSnap = await docRef.get();
+    Future<Map<String, dynamic>> fetchData() async {
+      DocumentReference docRef = _db.collection('users').doc(user!.uid);
+      DocumentSnapshot docSnap = await docRef.get();
 
-  Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
-  List<Map<String, dynamic>> projects = docData != null && docData.containsKey('projects')
-      ? List<Map<String, dynamic>>.from(docData['projects'] ?? [])
-      : [];
+      Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
+      List<Map<String, dynamic>> projects =
+          docData != null && docData.containsKey('projects')
+              ? List<Map<String, dynamic>>.from(docData['projects'] ?? [])
+              : [];
 
-  return {'projects': projects};
-}
-
+      return {'projects': projects};
+    }
 
     return FutureBuilder<Map<String, dynamic>>(
         future: fetchData(),
@@ -121,7 +121,6 @@ Future<Map<String, dynamic>> fetchData() async {
                           ),
                         ),
                       ),
-                      
                     ],
                   ),
                 ),
@@ -243,8 +242,8 @@ Future<Map<String, dynamic>> fetchData() async {
                   ),
                   Container(
                     // autogroupwmmdNm9 (8VbXipUCXGcZG3RvuUwMmd)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                    margin:
+                        EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
