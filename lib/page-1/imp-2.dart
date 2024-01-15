@@ -65,8 +65,14 @@ class _Imp2State extends State<Imp2> {
 
       if (docSnap.exists) {
         Map<String, dynamic> data = docSnap.data() as Map<String, dynamic>;
-        List<dynamic> ratings = data['ratings'];
-        avg_rating = ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length;
+                    List<dynamic> ratings = data['ratings'] ?? [];
+            double avg_rating = 0.0;
+
+            if (ratings.isNotEmpty) {
+              avg_rating = ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length;
+;
+            }
+
       }
     }
 

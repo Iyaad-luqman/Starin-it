@@ -1,11 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
-import openai
 from datetime import datetime
 import google.generativeai as genai
-
-
-
 
 
 cred = credentials.Certificate('cred.json')
@@ -15,7 +11,7 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # Replace with the actual path to your data
-doc_ref = db.collection('users').document('i5Irevb4pQZDM2Vc96FG6gXXRxz2')
+doc_ref = db.collection('users').document('Axmf8a0vTFg6mVAJbm3WhPSkIUv1')
 
 # Assuming 'school_marks', 'uni_marks', 'pg_done', 'phd_done', and 'experience' are keys in your data
 doc = doc_ref.get()

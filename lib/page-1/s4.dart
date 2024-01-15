@@ -28,7 +28,6 @@ class S4 extends StatelessWidget {
               // image16gRS (1:11)
               left: 0 * fem,
               top: 0 * fem,
-              child: Align(
                 child: SizedBox(
                   width: 390 * fem,
                   height: 833 * fem,
@@ -36,14 +35,13 @@ class S4 extends StatelessWidget {
                     'assets/page-1/images/image-16.png',
                     fit: BoxFit.cover,
                   ),
-                ),
+                
               ),
             ),
             Positioned(
               // industrialprofileMXa (1:13)
               left: 50.5 * fem,
               top: 396 * fem,
-              child: Align(
                 child: SizedBox(
                   width: 104 * fem,
                   height: 27 * fem,
@@ -73,12 +71,11 @@ class S4 extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+            
             Positioned(
               // buildingAV2 (1:14)
               left: 71.0833339691 * fem,
               top: 328.6666717529 * fem,
-              child: Align(
                 child: SizedBox(
                   width: 60.83 * fem,
                   height: 56.67 * fem,
@@ -100,13 +97,13 @@ class S4 extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
+              
             ),
             Positioned(
               // group130fRn (1:15)
               left: 276 * fem,
               top: 311 * fem,
-              child: Align(
+              
                 child: SizedBox(
                   width: 72 * fem,
                   height: 80.02 * fem,
@@ -129,12 +126,12 @@ class S4 extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+            
             Positioned(
               // personalprofilemUp (1:18)
               left: 262.5 * fem,
               top: 397 * fem,
-              child: Align(
+              
                 child: SizedBox(
                   width: 98 * fem,
                   height: 27 * fem,
@@ -163,7 +160,7 @@ class S4 extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
+              
             ),
             Positioned(
               // group1272Qk (1:19)
@@ -225,7 +222,7 @@ class S4 extends StatelessWidget {
               // imageremovebgpreview3dJ4 (1:23)
               left: 125 * fem,
               top: 120 * fem,
-              child: Align(
+              
                 child: SizedBox(
                   width: 171 * fem,
                   height: 72 * fem,
@@ -233,7 +230,7 @@ class S4 extends StatelessWidget {
                     'assets/page-1/images/image-removebg-preview-3.png',
                     fit: BoxFit.cover,
                   ),
-                ),
+                
               ),
             ),
             Positioned(
@@ -280,7 +277,6 @@ class S4 extends StatelessWidget {
               // vectorSui (1:31)
               left: 32 * fem,
               top: 108 * fem,
-              child: Align(
                 child: SizedBox(
                   width: 5.94 * fem,
                   height: 11.88 * fem,
@@ -291,7 +287,6 @@ class S4 extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
           ],
         ),
       ),
