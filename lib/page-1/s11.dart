@@ -60,7 +60,7 @@ Future<Map<String, dynamic>> fetchData() async {
                     children: [
                       Positioned(
                         // productmanagerWcM (2:244)
-                        left: 67 * fem,
+                        left: 19 * fem,
                         top: 39 * fem,
                         child: Align(
                           child: SizedBox(
@@ -101,7 +101,7 @@ Future<Map<String, dynamic>> fetchData() async {
                       ),
                       Positioned(
                         // googlee6H (2:246)
-                        left: 67 * fem,
+                        left: 17 * fem,
                         top: 12 * fem,
                         child: Align(
                           child: SizedBox(
@@ -118,21 +118,6 @@ Future<Map<String, dynamic>> fetchData() async {
                                 letterSpacing: 0.3 * fem,
                                 color: Color(0xffcac9df),
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        // image10Huw (2:247)
-                        left: 13 * fem,
-                        top: 19 * fem,
-                        child: Align(
-                          child: SizedBox(
-                            width: 43 * fem,
-                            height: 35 * fem,
-                            child: Image.network(
-                              'https://logo.clearbit.com/${achievements[i]['title'].toLowerCase()}.com',
-                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
