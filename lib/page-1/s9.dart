@@ -9,10 +9,25 @@ import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class S9 extends StatelessWidget {
-  final FirebaseFirestore _db =
-      FirebaseFirestore.instance; // Firestore instance
+class S9 extends StatefulWidget {
+  @override
+  _S9State createState() => _S9State();
+}
+
+class _S9State extends State<S9> {
+  final FirebaseFirestore _db = FirebaseFirestore.instance; // Firestore instance
   final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      setState(() {
+        // This will be called every time the widget is built.
+        // You can do your data fetching here if you want.
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

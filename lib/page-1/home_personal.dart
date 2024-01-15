@@ -668,10 +668,10 @@ child: imageUrl != null
                                   ),
                                 ),
                                 gender == 'Female'
-                                    ? Positioned(
+                                    ? Container(
                                         // star for explore  (23:672)
-                                        left: 244 * fem,
-                                        top: 200 * fem,
+                                        // left: 244 * fem,
+                                        // top: 200 * fem,
                                         child: Align(
                                           child: SizedBox(
                                             width: 29 * fem,
@@ -699,10 +699,10 @@ child: imageUrl != null
                                       )
                                     : Container(),
                                 gender == 'Female'
-                                    ? Positioned(
+                                    ? Container(
                                         // explore (23:677)
-                                        left: 244 * fem,
-                                        top: 210 * fem,
+                                        // left: 244 * fem,
+                                        // top: 210 * fem,
                                         child: Align(
                                           child: SizedBox(
                                             width: 70 * fem,

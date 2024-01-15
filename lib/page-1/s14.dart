@@ -42,6 +42,10 @@ class S14 extends StatelessWidget {
           });
         }
       }
+                     Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => S15()),
+                            );
     }
 
     double baseWidth = 390;
@@ -371,10 +375,7 @@ class S14 extends StatelessWidget {
                                   _projectdescriptionController.text,
                               'skills': _skillsController.text,
                             });
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => S15()),
-                            );
+             
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
