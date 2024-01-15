@@ -218,7 +218,7 @@ class S11a extends StatelessWidget {
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
-                          context, 
+                          context,
                           MaterialPageRoute(builder: (context) => Profile()),
                         );
                       },
