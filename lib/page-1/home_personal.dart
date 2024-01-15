@@ -787,14 +787,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'reddington')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-10.png',
+                                                'assets/page-1/images/reddington.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -825,14 +825,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'adrenaline')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-2.png',
+                                                'assets/page-1/images/adrenaline.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -849,7 +849,7 @@ class _Home extends State<Home> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    Company(companyname: 'pando')),
+                                                    Company(companyname: 'birlasoft')),
                                           );
                                         },
                                         style: TextButton.styleFrom(
@@ -870,7 +870,7 @@ class _Home extends State<Home> {
                                               width: 94 * fem,
                                               height: 30 * fem,
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-3.png',
+                                                'assets/page-1/images/birlasoft.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -910,14 +910,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'tcs')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-6.png',
+                                                'assets/page-1/tcs.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -950,14 +950,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'capgemini')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-8.png',
+                                                'assets/page-1/images/capgemini.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -988,14 +988,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'l&tinfotech')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-9.png',
+                                                'assets/page-1/images/l&tinfotech.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1035,14 +1035,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'ustglobal')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-4.png',
+                                                'assets/page-1/images/ustglobal.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1075,14 +1075,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'zoho')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-5.png',
+                                                'assets/page-1/images/zoho.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1113,14 +1113,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'paypal')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-1.png',
+                                                'assets/page-1/images/paypal.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1177,14 +1177,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'cognizant')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-7.png',
+                                                'assets/page-1/images/cognizant.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1214,14 +1214,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'zoho1')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-11.png',
+                                                'assets/page-1/images/zoho1.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1251,14 +1251,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'capgemini1')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-12.png',
+                                                'assets/page-1/images/capgemini1.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1307,7 +1307,7 @@ class _Home extends State<Home> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      Company(companyname: 'pando')),
+                                                      Company(companyname: 'birlasoft1')),
                                             );
                                           },
                                           style: TextButton.styleFrom(
@@ -1332,7 +1332,7 @@ class _Home extends State<Home> {
                                                 width: 94 * fem,
                                                 height: 30 * fem,
                                                 child: Image.asset(
-                                                  'assets/page-1/images/whatsapp-image-2024-01-14-at-410-13.png',
+                                                  'assets/page-1/images/birlasoft1.png',
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -1363,14 +1363,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'tcs1')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-14.png',
+                                                'assets/page-1/images/tcs1.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1399,14 +1399,14 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company(companyname: 'pando')),
+                                                          Company(companyname: 'reddington1')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
                                               child: Image.asset(
-                                                'assets/page-1/images/whatsapp-image-2024-01-14-at-410-15.png',
+                                                'assets/page-1/images/reddington1.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1453,14 +1453,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'cognizant1')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-410-16.png',
+                                    'assets/page-1/images/cognizant1.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1488,14 +1488,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'ustglobal1')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-410-17.png',
+                                    'assets/page-1/images/ustglobal1.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1523,14 +1523,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'tcs2')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-410-18.png',
+                                    'assets/page-1/images/tcs2.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1585,14 +1585,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'yubi')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-1.png',
+                                    'assets/page-1/images/yubi.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1619,14 +1619,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'northernarc')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-3.png',
+                                    'assets/page-1/images/northernarc.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1653,14 +1653,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'vivriticapital')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-4.png',
+                                    'assets/page-1/images/vivriticapital.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1698,14 +1698,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'pando1')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-2.png',
+                                    'assets/page-1/images/pando1.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1734,14 +1734,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'aquaconnect')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-5.png',
+                                    'assets/page-1/images/aquaconnect.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1770,14 +1770,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'disprz')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-6.png',
+                                    'assets/page-1/images/disprz.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1831,14 +1831,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'ibm')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-7.png',
+                                    'assets/page-1/images/ibm.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1870,14 +1870,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'google')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-8.png',
+                                    'assets/page-1/images/google.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1907,14 +1907,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'accenture')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-9.png',
+                                    'assets/page-1/images/accenture.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1949,14 +1949,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'oracle')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-10.png',
+                                    'assets/page-1/images/oracle.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1985,14 +1985,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'sap')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-11.png',
+                                    'assets/page-1/images/sap.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -2019,14 +2019,14 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company(companyname: 'pando')),
+                                          builder: (context) => Company(companyname: 'ibm')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
                                   ),
                                   child: Image.asset(
-                                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-12.png',
+                                    'assets/page-1/images/ibm.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
