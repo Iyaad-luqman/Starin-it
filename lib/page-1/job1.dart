@@ -22,7 +22,6 @@ class Job1 extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xff19173d),
-          borderRadius: BorderRadius.circular(50 * fem),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,6 +42,9 @@ class Job1 extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(
+                          height: 50 * fem,
+                        ),
                         Container(
                           // toppicksforyouCzG (12:1073)
                           margin: EdgeInsets.fromLTRB(
