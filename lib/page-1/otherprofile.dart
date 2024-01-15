@@ -7,6 +7,8 @@ import 'package:starinit/page-1/imp-1.dart';
 import 'package:starinit/page-1/imp-2.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class UserProfilePage extends StatefulWidget {
   final String userId;
@@ -19,15 +21,23 @@ class UserProfilePage extends StatefulWidget {
 
 class _UserProfilePageState extends State<UserProfilePage> {
   late Future<DocumentSnapshot> _future;
+  String? imageUrl;
+  String? userId;
+  final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
 
   @override
   void initState() {
     super.initState();
-    _future = FirebaseFirestore.instance.collection('users').doc(widget.userId).get();
+    userId = widget.userId; // Get userId from widget
+    _future = FirebaseFirestore.instance.collection('users').doc(userId).get();
   }
-
- @override
-  Widget build(BuildContext context) {
+  void loadImage() async {
+    FirebaseStorage storage = FirebaseStorage.instance;
+    imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+    setState(() {});
+  }
+ Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -42,6 +52,19 @@ class _UserProfilePageState extends State<UserProfilePage> {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
           double star_score = double.parse(data['star_score']);
           String name = data['name'];
+          String role = data['role'];
+          String bio = data['bio'];
+          String description = data['description'];
+          String gender = data['gender'];
+          String rating_show = data['rating_show'];
+          String pronoun; 
+          if (gender == "Male"){
+            pronoun = "he/him";
+          }else if (gender == "Female"){
+            pronoun = "she/her";
+          }else{
+            pronoun = "they/them";
+          }
           int fullStars = star_score.floor(); // Get the number of full stars
           double fractionalPart = star_score - fullStars; // Get the fractional part of the star score
           String star1Image = 'assets/page-1/images/emptystar.png';
@@ -185,7 +208,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         width: 34 * fem,
                         height: 12 * fem,
                         child: Text(
-                          'He/Him',
+                          pronoun,
                           style: SafeGoogleFont(
                             'Urbanist',
                             decoration: TextDecoration.none,
@@ -318,10 +341,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
-                          child: Image.asset(
-                            'assets/page-1/images/pfp.png',
-                            fit: BoxFit.cover,
-                          ),
+                            child: imageUrl != null
+                            ? ClipOval(
+                                child: Image.network(
+                                  imageUrl!,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                            : CircularProgressIndicator(), 
                         ),
                       ),
                     ),
@@ -379,7 +406,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
               // itspecialistdxx (36:2585)
               margin: EdgeInsets.fromLTRB(2 * fem, 0 * fem, 0 * fem, 0 * fem),
               child: Text(
-                'IT SPECIALIST',
+                role,
                 style: SafeGoogleFont(
                   'Urbanist',
                   decoration: TextDecoration.none,
@@ -399,7 +426,8 @@ class _UserProfilePageState extends State<UserProfilePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  rating_show == 'yes'
+                  ?  Container(
                     // saveedA (36:2586)
                     margin: EdgeInsets.fromLTRB(
                         92 * fem, 0 * fem, 87 * fem, 6 * fem),
@@ -464,7 +492,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         ),
                       ),
                     ),
-                  ),
+                  )
+                  
+                  : Container(),
                   Container(
                     // 7Hn (36:2595)
                     margin: EdgeInsets.fromLTRB(
@@ -485,7 +515,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                               width: 290 * fem,
                               height: 14 * fem,
                               child: Text(
-                                'UI\UX DESIGNER | JAVA DEVELOPPER | DATA SCIENTIST',
+                                description,
                                 style: SafeGoogleFont(
                                   'Urbanist',
                                   decoration: TextDecoration.none,
@@ -571,7 +601,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                                     maxWidth: 285 * fem,
                                   ),
                                   child: Text(
-                                    'Cyber whisperer. Cloud architect. Bug slayer extraordinaire. Armed with caffeine and curiosity, I navigate the ever-evolving digital landscape, untangling complexities, optimizing processes, and safeguarding data like a digital dragon guarding its hoard. From building agile infrastructure to deciphering cryptic error messages, I thrive on challenges, transforming IT woes into polished solutions. When logic meets creativity, that\'s where you\'ll find me, crafting innovative tech experiences that make businesses click. Let\'s connect and weave some technological magic together!\n',
+                                    bio,
                                     style: SafeGoogleFont(
                                       'Urbanist',
                                       decoration: TextDecoration.none,

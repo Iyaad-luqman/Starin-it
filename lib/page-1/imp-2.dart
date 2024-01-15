@@ -7,10 +7,34 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:starinit/page-1/qrscanner.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class Imp2 extends StatelessWidget {
+  late String rating_show;
       FirebaseAuth auth = FirebaseAuth.instance;
+      Future<void> uploadfields(
+    String param1,
+  ) async {
+    final FirebaseFirestore _db =
+        FirebaseFirestore.instance; // Firestore instance
+    final User? user = FirebaseAuth.instance.currentUser; // Get current user
+
+    if (user != null) {
+      DocumentReference docRef = _db.collection('users').doc(user.uid);
+      DocumentSnapshot docSnap = await docRef.get();
+
+      if (docSnap.exists) {
+        await docRef.update({
+          'rating_show': param1,
+        });
+      } else {
+        await docRef.set({
+          'rating_show': param1,
+        });
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -79,7 +103,10 @@ fontSize: 18*ffem,
                     left: 16*fem,
                     top: 253*fem,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        rating_show = 'YES';
+                        
+                      },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,
                       ),
@@ -147,7 +174,9 @@ fontSize: 10*ffem,
                     left: 150.999961257*fem,
                     top: 253.999889201*fem,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        rating_show = 'NO';
+                      },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,
                       ),
