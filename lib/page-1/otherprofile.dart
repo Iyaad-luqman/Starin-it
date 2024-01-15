@@ -51,10 +51,17 @@ class _UserProfilePageState extends State<UserProfilePage> {
           return Text('Error: ${snapshot.error}'); // Show an error message if fetchData fails
         } else {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-          double star_score = double.parse(data['star_score']);
+            double star_score = double.parse(data['star_score'] ?? '0.00');
+
           String name = data['name'];
           String role = data['role'];
           String bio = data['bio'];
+                      List<dynamic> ratings = data['ratings'] ?? [];
+            double avg_rating = 0.0;
+
+            if (ratings.isNotEmpty) {
+              avg_rating = ratings.reduce((a, b) => a + b) / ratings.length;
+            }
           String description = data['description'];
           String gender = data['gender'];
           String rating_show = data['rating_show'];
@@ -464,7 +471,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                               margin: EdgeInsets.fromLTRB(
                                   1 * fem, 0 * fem, 0 * fem, 0 * fem),
                               child: Text(
-                                '6.8/10',
+                                '${avg_rating}/10',
                                 style: SafeGoogleFont(
                                   'Song Myung',
                                   decoration: TextDecoration.none,

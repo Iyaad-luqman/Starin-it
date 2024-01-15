@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/s13.dart';
 import 'package:starinit/page-1/s5.dart';
-import 'package:starinit/page-1/w1.dart';
 import 'package:starinit/utils.dart';
 
 class S4 extends StatelessWidget {
@@ -28,14 +27,12 @@ class S4 extends StatelessWidget {
               // image16gRS (1:11)
               left: 0 * fem,
               top: 0 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 390 * fem,
-                  height: 833 * fem,
-                  child: Image.asset(
-                    'assets/page-1/images/image-16.png',
-                    fit: BoxFit.cover,
-                  ),
+              child: SizedBox(
+                width: 390 * fem,
+                height: 833 * fem,
+                child: Image.asset(
+                  'assets/page-1/images/image-16.png',
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -43,32 +40,30 @@ class S4 extends StatelessWidget {
               // industrialprofileMXa (1:13)
               left: 50.5 * fem,
               top: 396 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 104 * fem,
-                  height: 27 * fem,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => S13()),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Text(
-                      'Industrial Profile',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont(
-                        'Urbanist',
-                        decoration: TextDecoration.none,
-                        fontSize: 13.25 * ffem,
-                        fontWeight: FontWeight.w400,
-                        height: 2.0377358491 * ffem / fem,
-                        letterSpacing: 0.675999999 * fem,
-                        color: Color(0xffffffff),
-                      ),
+              child: SizedBox(
+                width: 104 * fem,
+                height: 27 * fem,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => S13()),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Text(
+                    'Industrial Profile',
+                    textAlign: TextAlign.center,
+                    style: SafeGoogleFont(
+                      'Urbanist',
+                      decoration: TextDecoration.none,
+                      fontSize: 13.25 * ffem,
+                      fontWeight: FontWeight.w400,
+                      height: 2.0377358491 * ffem / fem,
+                      letterSpacing: 0.675999999 * fem,
+                      color: Color(0xffffffff),
                     ),
                   ),
                 ),
@@ -78,26 +73,24 @@ class S4 extends StatelessWidget {
               // buildingAV2 (1:14)
               left: 71.0833339691 * fem,
               top: 328.6666717529 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 60.83 * fem,
-                  height: 56.67 * fem,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => S13()),
-                      );
-                      // Add your onPress function here
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Image.asset(
-                      'assets/page-1/images/building.png',
-                      width: 60.83 * fem,
-                      height: 56.67 * fem,
-                    ),
+              child: SizedBox(
+                width: 60.83 * fem,
+                height: 56.67 * fem,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => S13()),
+                    );
+                    // Add your onPress function here
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Image.asset(
+                    'assets/page-1/images/building.png',
+                    width: 60.83 * fem,
+                    height: 56.67 * fem,
                   ),
                 ),
               ),
@@ -106,26 +99,25 @@ class S4 extends StatelessWidget {
               // group130fRn (1:15)
               left: 276 * fem,
               top: 311 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 72 * fem,
-                  height: 80.02 * fem,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => S5()),
-                      );
-                      // Add your onPress function here
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Image.asset(
-                      'assets/page-1/images/group-130.png',
-                      width: 72 * fem,
-                      height: 80.02 * fem,
-                    ),
+
+              child: SizedBox(
+                width: 72 * fem,
+                height: 80.02 * fem,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => S5()),
+                    );
+                    // Add your onPress function here
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Image.asset(
+                    'assets/page-1/images/group-130.png',
+                    width: 72 * fem,
+                    height: 80.02 * fem,
                   ),
                 ),
               ),
@@ -134,32 +126,31 @@ class S4 extends StatelessWidget {
               // personalprofilemUp (1:18)
               left: 262.5 * fem,
               top: 397 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 98 * fem,
-                  height: 27 * fem,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => S5()),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Text(
-                      'Personal Profile',
-                      textAlign: TextAlign.center,
-                      style: SafeGoogleFont(
-                        'Urbanist',
-                        decoration: TextDecoration.none,
-                        fontSize: 13.25 * ffem,
-                        fontWeight: FontWeight.w400,
-                        height: 2.0377358491 * ffem / fem,
-                        letterSpacing: 0.675999999 * fem,
-                        color: Color(0xffffffff),
-                      ),
+
+              child: SizedBox(
+                width: 98 * fem,
+                height: 27 * fem,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => S5()),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: Text(
+                    'Personal Profile',
+                    textAlign: TextAlign.center,
+                    style: SafeGoogleFont(
+                      'Urbanist',
+                      decoration: TextDecoration.none,
+                      fontSize: 13.25 * ffem,
+                      fontWeight: FontWeight.w400,
+                      height: 2.0377358491 * ffem / fem,
+                      letterSpacing: 0.675999999 * fem,
+                      color: Color(0xffffffff),
                     ),
                   ),
                 ),
@@ -225,14 +216,13 @@ class S4 extends StatelessWidget {
               // imageremovebgpreview3dJ4 (1:23)
               left: 125 * fem,
               top: 120 * fem,
-              child: Align(
-                child: SizedBox(
-                  width: 171 * fem,
-                  height: 72 * fem,
-                  child: Image.asset(
-                    'assets/page-1/images/image-removebg-preview-3.png',
-                    fit: BoxFit.cover,
-                  ),
+
+              child: SizedBox(
+                width: 171 * fem,
+                height: 72 * fem,
+                child: Image.asset(
+                  'assets/page-1/images/image-removebg-preview-3.png',
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -280,15 +270,13 @@ class S4 extends StatelessWidget {
               // vectorSui (1:31)
               left: 32 * fem,
               top: 108 * fem,
-              child: Align(
-                child: SizedBox(
+              child: SizedBox(
+                width: 5.94 * fem,
+                height: 11.88 * fem,
+                child: Image.asset(
+                  'assets/page-1/images/vector.png',
                   width: 5.94 * fem,
                   height: 11.88 * fem,
-                  child: Image.asset(
-                    'assets/page-1/images/vector.png',
-                    width: 5.94 * fem,
-                    height: 11.88 * fem,
-                  ),
                 ),
               ),
             ),

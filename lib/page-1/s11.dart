@@ -20,18 +20,18 @@ class S11 extends StatelessWidget {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-Future<Map<String, dynamic>> fetchData() async {
-  DocumentReference docRef = _db.collection('users').doc(user!.uid);
-  DocumentSnapshot docSnap = await docRef.get();
+    Future<Map<String, dynamic>> fetchData() async {
+      DocumentReference docRef = _db.collection('users').doc(user!.uid);
+      DocumentSnapshot docSnap = await docRef.get();
 
-  Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
-  List<Map<String, dynamic>> achievements = docData != null && docData.containsKey('achievements')
-      ? List<Map<String, dynamic>>.from(docData['achievements'] ?? [])
-      : [];
+      Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
+      List<Map<String, dynamic>> achievements =
+          docData != null && docData.containsKey('achievements')
+              ? List<Map<String, dynamic>>.from(docData['achievements'] ?? [])
+              : [];
 
-  return {'achievements': achievements};
-}
-
+      return {'achievements': achievements};
+    }
 
     return FutureBuilder<Map<String, dynamic>>(
         future: fetchData(),
@@ -60,7 +60,7 @@ Future<Map<String, dynamic>> fetchData() async {
                     children: [
                       Positioned(
                         // productmanagerWcM (2:244)
-                        left: 67 * fem,
+                        left: 19 * fem,
                         top: 39 * fem,
                         child: Align(
                           child: SizedBox(
@@ -101,7 +101,7 @@ Future<Map<String, dynamic>> fetchData() async {
                       ),
                       Positioned(
                         // googlee6H (2:246)
-                        left: 67 * fem,
+                        left: 17 * fem,
                         top: 12 * fem,
                         child: Align(
                           child: SizedBox(
@@ -118,21 +118,6 @@ Future<Map<String, dynamic>> fetchData() async {
                                 letterSpacing: 0.3 * fem,
                                 color: Color(0xffcac9df),
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        // image10Huw (2:247)
-                        left: 13 * fem,
-                        top: 19 * fem,
-                        child: Align(
-                          child: SizedBox(
-                            width: 43 * fem,
-                            height: 35 * fem,
-                            child: Image.network(
-                              'https://logo.clearbit.com/${achievements[i]['title'].toLowerCase()}.com',
-                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
@@ -258,8 +243,8 @@ Future<Map<String, dynamic>> fetchData() async {
                   ),
                   Container(
                     // autogroupwmmdNm9 (8VbXipUCXGcZG3RvuUwMmd)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                    margin:
+                        EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -273,14 +258,16 @@ Future<Map<String, dynamic>> fetchData() async {
                       child: Container(
                         width: 100 * fem,
                         height: 44 * fem,
-                        
                         decoration: BoxDecoration(
                           border: Border.all(color: Color(0x7fffffff)),
                           borderRadius: BorderRadius.circular(15 * fem),
                           gradient: LinearGradient(
                             begin: Alignment(-0.654, -1),
                             end: Alignment(0.764, 1),
-                            colors: <Color>[Color(0xff00a6c2), Color(0xff1444df)],
+                            colors: <Color>[
+                              Color(0xff00a6c2),
+                              Color(0xff1444df)
+                            ],
                             stops: <double>[0, 1],
                           ),
                         ),
@@ -288,8 +275,7 @@ Future<Map<String, dynamic>> fetchData() async {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => S15()),
+                              MaterialPageRoute(builder: (context) => S15()),
                             );
                             // Add your functionality here
                           },

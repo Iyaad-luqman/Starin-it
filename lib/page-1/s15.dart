@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/home_personal.dart';
-import 'package:starinit/page-1/s12.dart';
 import 'package:starinit/page-1/s14.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,18 +19,18 @@ class S15 extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
-Future<Map<String, dynamic>> fetchData() async {
-  DocumentReference docRef = _db.collection('users').doc(user!.uid);
-  DocumentSnapshot docSnap = await docRef.get();
+    Future<Map<String, dynamic>> fetchData() async {
+      DocumentReference docRef = _db.collection('users').doc(user!.uid);
+      DocumentSnapshot docSnap = await docRef.get();
 
-  Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
-  List<Map<String, dynamic>> projects = docData != null && docData.containsKey('projects')
-      ? List<Map<String, dynamic>>.from(docData['projects'] ?? [])
-      : [];
+      Map<String, dynamic>? docData = docSnap.data() as Map<String, dynamic>?;
+      List<Map<String, dynamic>> projects =
+          docData != null && docData.containsKey('projects')
+              ? List<Map<String, dynamic>>.from(docData['projects'] ?? [])
+              : [];
 
-  return {'projects': projects};
-}
-
+      return {'projects': projects};
+    }
 
     return FutureBuilder<Map<String, dynamic>>(
         future: fetchData(),
@@ -117,21 +116,6 @@ Future<Map<String, dynamic>> fetchData() async {
                                 letterSpacing: 0.3 * fem,
                                 color: Color(0xffcac9df),
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        // image10Huw (2:247)
-                        left: 13 * fem,
-                        top: 19 * fem,
-                        child: Align(
-                          child: SizedBox(
-                            width: 43 * fem,
-                            height: 35 * fem,
-                            child: Image.network(
-                              '${projects[i]['skills']}',
-                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
@@ -257,8 +241,8 @@ Future<Map<String, dynamic>> fetchData() async {
                   ),
                   Container(
                     // autogroupwmmdNm9 (8VbXipUCXGcZG3RvuUwMmd)
-                    margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                    margin:
+                        EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(

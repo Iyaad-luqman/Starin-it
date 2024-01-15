@@ -38,7 +38,12 @@ class _Home extends State<Home> {
 
   void loadImage() async {
     FirebaseStorage storage = FirebaseStorage.instance;
-    imageUrl = await storage.ref('uploads/${user!.uid}/file').getDownloadURL();
+    try {
+      imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+    } catch (e) {
+      print('Failed to load image: $e');
+      imageUrl = '0';
+    }
     setState(() {});
   }
 
@@ -59,7 +64,7 @@ class _Home extends State<Home> {
           } else {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
-            double star_score = double.parse(data['star_score']);
+            double star_score = double.parse(data['star_score'] ?? '0.00');
             int fullStars = star_score.floor(); // Get the number of full stars
             double fractionalPart = star_score -
                 fullStars; // Get the fractional part of the star score
@@ -372,14 +377,16 @@ class _Home extends State<Home> {
                                               style: TextButton.styleFrom(
                                                 padding: EdgeInsets.zero,
                                               ),
-                                              child: imageUrl != null
-                                                  ? ClipOval(
-                                                      child: Image.network(
-                                                        imageUrl!,
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    )
-                                                  : CircularProgressIndicator(),
+child: imageUrl != null
+                              ? imageUrl != "0"
+                                ? ClipOval(
+                                    child: Image.network(
+                                      imageUrl!,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                : Image.asset("assets/page-1/images/emptyprofile.png")
+                              : CircularProgressIndicator(),
                                             ),
                                           ),
                                         ),
