@@ -22,11 +22,13 @@ class Job2 extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xff19173d),
-          borderRadius: BorderRadius.circular(50 * fem),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 30 * fem,
+            ),
             Container(
               // autogroup1sbjQrp (TLzH7beT7PoNPU4qBp1sbJ)
               margin:
