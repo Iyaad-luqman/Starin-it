@@ -787,7 +787,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -825,7 +825,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -849,7 +849,7 @@ class _Home extends State<Home> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    Company()),
+                                                    Company(companyname: 'pando')),
                                           );
                                         },
                                         style: TextButton.styleFrom(
@@ -910,7 +910,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -950,7 +950,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -988,7 +988,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1035,7 +1035,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1075,7 +1075,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1113,7 +1113,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1177,7 +1177,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1214,7 +1214,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1251,7 +1251,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1307,7 +1307,7 @@ class _Home extends State<Home> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      Company()),
+                                                      Company(companyname: 'pando')),
                                             );
                                           },
                                           style: TextButton.styleFrom(
@@ -1363,7 +1363,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1399,7 +1399,7 @@ class _Home extends State<Home> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Company()),
+                                                          Company(companyname: 'pando')),
                                                 );
                                               },
                                               style: TextButton.styleFrom(
@@ -1453,7 +1453,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1488,7 +1488,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1523,7 +1523,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1585,7 +1585,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1619,7 +1619,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1653,7 +1653,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1698,7 +1698,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1734,7 +1734,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1770,7 +1770,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1831,7 +1831,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1870,7 +1870,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1907,7 +1907,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1949,7 +1949,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -1985,7 +1985,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
@@ -2019,7 +2019,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Company()),
+                                          builder: (context) => Company(companyname: 'pando')),
                                     );
                                   },
                                   style: TextButton.styleFrom(
