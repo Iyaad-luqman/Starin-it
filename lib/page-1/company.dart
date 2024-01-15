@@ -8,8 +8,11 @@ import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/job1.dart';
 import 'package:starinit/page-1/search.dart';
 import 'package:starinit/utils.dart';
-
 class Company extends StatelessWidget {
+  final String companyname;
+
+  Company({required this.companyname});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
@@ -314,14 +317,15 @@ class Company extends StatelessWidget {
             ),
             Positioned(
               // pandoeLc (27:863)
-              left: 129 * fem,
-              top: 17 * fem,
+              left: MediaQuery.of(context).size.width / 2 - 61 * fem ,
+              top: 57 * fem,
               child: Align(
                 child: SizedBox(
                   width: 121 * fem,
                   height: 254 * fem,
                   child: Text(
-                    '     PANDO',
+                    companyname.toUpperCase(),
+                    textAlign: TextAlign.center, // Center the text
                     style: SafeGoogleFont(
                       'Urbanist',
                       decoration: TextDecoration.none,
@@ -462,7 +466,7 @@ class Company extends StatelessWidget {
                   width: 91 * fem,
                   height: 49 * fem,
                   child: Image.asset(
-                    'assets/page-1/images/whatsapp-image-2024-01-14-at-435-7.png',
+                    'assets/page-1/images/${companyname}.png',
                     fit: BoxFit.cover,
                   ),
                 ),

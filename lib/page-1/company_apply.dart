@@ -142,10 +142,7 @@ class Company_apply extends StatelessWidget {
                         114 * fem, 0 * fem, 117.49 * fem, 21 * fem),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Company()),
-                        );
+                        Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
