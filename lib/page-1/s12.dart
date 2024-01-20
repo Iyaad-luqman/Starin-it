@@ -9,6 +9,8 @@ import 'package:starinit/page-1/s9.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
+
 
 class S12 extends StatelessWidget {
   final TextEditingController _titleController = TextEditingController();
@@ -354,7 +356,7 @@ class S12 extends StatelessWidget {
                               child: Material(
                                 color: Colors.transparent,
                                 child: TextField(
-                                  controller: _DateController,
+                                  controller: _skillsController,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -404,7 +406,8 @@ class S12 extends StatelessWidget {
                               child: Material(
                                 color: Colors.transparent,
                                 child: TextField(
-                                  controller: _skillsController,
+                                  controller:  _DateController,
+                                  readOnly: true,  // make it read-only so that the keyboard doesn't show up
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -423,6 +426,24 @@ class S12 extends StatelessWidget {
                                             18 * ffem,
                                             12.33 * ffem),
                                   ),
+                                   onTap: () async {
+                                    // Below line stops keyboard from appearing
+                                    FocusScope.of(context).requestFocus(new FocusNode());
+
+                                    // Show Date Picker on TextField tap
+                                    DateTime? pickedDate = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime(1950),
+                                      lastDate: DateTime(2025),
+                                    );
+
+                                    if (pickedDate != null) {
+                                      // Format the date to "mm/yy" and set it to the TextField
+                                      String formattedDate = DateFormat('dd/MM/yyyy').format(pickedDate);
+                                      _DateController.text = formattedDate;
+                                    }
+                                  },
                                   style: SafeGoogleFont(
                                     'Urbanist',
                                     decoration: TextDecoration.none,
