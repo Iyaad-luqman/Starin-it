@@ -125,10 +125,12 @@ def rate_achievement(title,):
 
 def fetch_all_achievements(achievements):
     achievement_score = 0
+    print("Stars for Achievements:")
     for achievement in achievements:
         title = achievement['title']
         rate = rate_achievement(title)
         achievement_score += rate
+        print(f"Title: {title},\t\t Rating: {rate}")
     return achievement_score
 if doc.exists:
     data = doc.to_dict()
