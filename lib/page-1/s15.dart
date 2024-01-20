@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/page-1/s14.dart';
+import 'package:starinit/page-1/star_calculation_load.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -270,7 +271,7 @@ class S15 extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Home()),
+                          MaterialPageRoute(builder: (context) => StarCalculationLoadPage()),
                         );
                             // Add your functionality here
                           },
