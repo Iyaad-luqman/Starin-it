@@ -75,10 +75,9 @@ class _ProfileState extends State<Profile> {
           List<dynamic> ratings = data['ratings'] ?? [];
           double avg_rating = 0.0;
 
-            if (ratings.isNotEmpty) {
-                          avg_rating = double.parse((ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
-
-            }
+          if (ratings.isNotEmpty) {
+            avg_rating = double.parse((ratings.map((r) => double.parse((r as Map<String, dynamic>)['rating'].toString())).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
+          }
 
           String? pronoun; 
           if (gender == "Male"){
