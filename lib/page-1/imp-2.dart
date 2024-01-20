@@ -68,9 +68,10 @@ Future<double> calculateAvgRating() async {
       Map<String, dynamic> data = docSnap.data() as Map<String, dynamic>;
       List<dynamic> ratings = data['ratings'] ?? [];
 
-      if (ratings.isNotEmpty) {
-        avg_rating = double.parse((ratings.map((r) => int.parse((r as Map<String, dynamic>)['rating'])).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
-      }
+
+          if (ratings.isNotEmpty) {
+            avg_rating = double.parse((ratings.map((r) => double.parse((r as Map<String, dynamic>)['rating'].toString())).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
+          }
       debugPrint(avg_rating.toString());
     }
   }
