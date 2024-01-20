@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
@@ -8,6 +8,7 @@ import 'package:starinit/page-1/s9.dart';
 import 'package:starinit/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
 
 class S10 extends StatelessWidget {
   final TextEditingController _companyNameController = TextEditingController();
@@ -313,29 +314,6 @@ class S10 extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                        // yearsofexperienceHky (2:228)
-                        left: 21 * fem,
-                        top: 505 * fem,
-                        child: Align(
-                          child: SizedBox(
-                            width: 300 * fem,
-                            height: 28 * fem,
-                            child: Text(
-                              'Enter in (02/2023) format. Leave End date blank if its current job',
-                              style: SafeGoogleFont(
-                                'Urbanist',
-                                decoration: TextDecoration.none,
-                                fontSize: 13 * ffem,
-                                fontWeight: FontWeight.w400,
-                                height: 1.2 * ffem / fem,
-                                letterSpacing: 0.345 * fem,
-                                color: Color(0xffffffff),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
                         // newpasswordinputPJD (2:229)
                         left: 200 * fem,
                         top: 553 * fem,
@@ -353,6 +331,7 @@ class S10 extends StatelessWidget {
                                 color: Colors.transparent,
                                 child: TextField(
                                   controller: _endDateController,
+                                  readOnly: true,  // make it read-only so that the keyboard doesn't show up
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -360,25 +339,30 @@ class S10 extends StatelessWidget {
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
                                     hintText: 'End month',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
+                                    hintStyle: TextStyle(color: Color(0xff8390a1)),
                                     contentPadding: ffem < 1
-                                        ? EdgeInsets.fromLTRB(18 * fem,
-                                            7.36 * fem, 18 * fem, 12.33 * fem)
-                                        : EdgeInsets.fromLTRB(
-                                            18 * ffem,
-                                            7.36 * ffem,
-                                            18 * ffem,
-                                            12.33 * ffem),
+                                        ? EdgeInsets.fromLTRB(18 * fem, 7.36 * fem, 18 * fem, 12.33 * fem)
+                                        : EdgeInsets.fromLTRB(18 * ffem, 7.36 * ffem, 18 * ffem, 12.33 * ffem),
                                   ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
-                                  ),
+                                  onTap: () async {
+                                    // Below line stops keyboard from appearing
+                                    FocusScope.of(context).requestFocus(new FocusNode());
+
+                                    // Show Date Picker on TextField tap
+                                    DateTime? pickedDate = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime(1950),
+                                      lastDate: DateTime(2025),
+                                    );
+
+                                    if (pickedDate != null) {
+                                      // Format the date to "mm/yy" and set it to the TextField
+                                      String formattedDate = DateFormat('MM/yy').format(pickedDate);
+                                      _endDateController.text = formattedDate;
+                                    }
+                                  },
+                                  // ...
                                 ),
                               ),
                             ),
@@ -403,6 +387,7 @@ class S10 extends StatelessWidget {
                                 color: Colors.transparent,
                                 child: TextField(
                                   controller: _startDateController,
+                                  readOnly: true,  // make it read-only so that the keyboard doesn't show up
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -410,25 +395,30 @@ class S10 extends StatelessWidget {
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
                                     hintText: 'Start month',
-                                    hintStyle:
-                                        TextStyle(color: Color(0xff8390a1)),
+                                    hintStyle: TextStyle(color: Color(0xff8390a1)),
                                     contentPadding: ffem < 1
-                                        ? EdgeInsets.fromLTRB(18 * fem,
-                                            7.36 * fem, 18 * fem, 12.33 * fem)
-                                        : EdgeInsets.fromLTRB(
-                                            18 * ffem,
-                                            7.36 * ffem,
-                                            18 * ffem,
-                                            12.33 * ffem),
+                                        ? EdgeInsets.fromLTRB(18 * fem, 7.36 * fem, 18 * fem, 12.33 * fem)
+                                        : EdgeInsets.fromLTRB(18 * ffem, 7.36 * ffem, 18 * ffem, 12.33 * ffem),
                                   ),
-                                  style: SafeGoogleFont(
-                                    'Urbanist',
-                                    decoration: TextDecoration.none,
-                                    fontSize: 15 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff000000),
-                                  ),
+                                  onTap: () async {
+                                    // Below line stops keyboard from appearing
+                                    FocusScope.of(context).requestFocus(new FocusNode());
+
+                                    // Show Date Picker on TextField tap
+                                    DateTime? pickedDate = await showDatePicker(
+                                      context: context,
+                                      initialDate: DateTime.now(),
+                                      firstDate: DateTime(1950),
+                                      lastDate: DateTime(2025),
+                                    );
+
+                                    if (pickedDate != null) {
+                                      // Format the date to "mm/yy" and set it to the TextField
+                                      String formattedDate = DateFormat('MM/yy').format(pickedDate);
+                                      _startDateController.text = formattedDate;
+                                    }
+                                  },
+                                  // ...
                                 ),
                               ),
                             ),
