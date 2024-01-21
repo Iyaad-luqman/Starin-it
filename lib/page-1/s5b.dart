@@ -386,7 +386,7 @@ class S5b extends StatelessWidget {
                             );
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => S7()),
+                              MaterialPageRoute(builder: (context) => S6()),
                             );
                           },
                           style: TextButton.styleFrom(

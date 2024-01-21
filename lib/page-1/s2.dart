@@ -7,6 +7,7 @@ import 'package:starinit/page-1/s4.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:starinit/page-1/home_personal.dart';
 
 class S2 extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -32,7 +33,7 @@ class S2 extends StatelessWidget {
 
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => S4()),
+          MaterialPageRoute(builder: (context) => Home()),
         );
         // The user signed in successfully, navigate to your app's main screen here.
       } on FirebaseAuthException catch (e) {
