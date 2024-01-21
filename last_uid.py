@@ -15,7 +15,14 @@ last_logged_in_uids = [user.id for user in logged_in_users]
 
 # Get the last registered user
 registered_users = db.collection("users").order_by("register_timestamp", direction=firestore.Query.DESCENDING).limit(1).get()
-last_registered_uid = registered_users[0].id
 
-print("Last 2 logged in UIDs:", last_logged_in_uids)
-print("Last registered UID:", last_registered_uid)
+if len(last_logged_in_uids) >= 1:
+    print("Last 2 logged in UIDs:", last_logged_in_uids)
+else:
+    print("Not enough logged in users.")
+
+if len(registered_users) >= 1:
+    last_registered_uid = registered_users[0].id
+    print("Last registered UID:", last_registered_uid)
+else:
+    print("No registered users.")

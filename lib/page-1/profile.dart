@@ -15,6 +15,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:starinit/page-1/s1.dart';
 
 class Profile extends StatefulWidget {
 
@@ -610,7 +611,7 @@ class _ProfileState extends State<Profile> {
                             padding: EdgeInsets.fromLTRB(
                                 7 * fem, 7 * fem, 6 * fem, 7 * fem),
                             width: 298 * fem,
-                            height: 91 * fem,
+                            height: 51 * fem,
                             decoration: BoxDecoration(
                               border: Border.all(color: Color(0x7fffffff)),
                               color: Color(0x7f19173d),
@@ -637,6 +638,24 @@ class _ProfileState extends State<Profile> {
                                   ),
                                 ),
                               ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          // e4k (36:2591)
+                          left: 90 * fem,
+                          top: 67 * fem,
+                          child: Container(
+                            child: ElevatedButton.icon(
+                              onPressed: () async {
+                                await FirebaseAuth.instance.signOut();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => S1()),
+                                );
+                              },
+                              icon: Icon(Icons.logout), // Add this line
+                              label: Text('Logout'),
                             ),
                           ),
                         ),
