@@ -525,59 +525,7 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                   ),
-                  Container(
-                    // 7Hn (36:2595)
-                    margin: EdgeInsets.fromLTRB(
-                        8 * fem, 0 * fem, 0 * fem, 12 * fem),
-                    width: 298 * fem,
-                    height: 19 * fem,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15 * fem),
-                    ),
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          // uiuxdesignerjavadevelopperdata (36:2596)
-                          left: 3 * fem,
-                          top: 3 * fem,
-                          child: Align(
-                            child: SizedBox(
-                              width: 290 * fem,
-                              height: 14 * fem,
-                              child: Text(
-                                description ?? 'Default description',
-                                style: SafeGoogleFont(
-                                  'Urbanist',
-                                  decoration: TextDecoration.none,
-                                  fontSize: 11 * ffem,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.2 * ffem / fem,
-                                  letterSpacing: 0.165 * fem,
-                                  color: Color(0xffffffff),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          // rectangle13uUY (36:2597)
-                          left: 0 * fem,
-                          top: 0 * fem,
-                          child: Align(
-                            child: SizedBox(
-                              width: 298 * fem,
-                              height: 19 * fem,
-                              child: Image.asset(
-                                'assets/page-1/images/rectangle-13.png',
-                                width: 298 * fem,
-                                height: 19 * fem,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  
                   Container(
                     // autogroupz1v4RBz (C3mVpvmUrYdCtk7xacz1v4)
                     margin: EdgeInsets.fromLTRB(
