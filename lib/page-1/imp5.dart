@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/home_personal.dart';
 import 'package:starinit/utils.dart';
 
 class Imp5 extends StatelessWidget {
@@ -118,7 +119,13 @@ fontSize: 16*ffem,
                         width: 127*fem,
                         height: 44*fem,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Home()),
+                            );
+                          
+                          },
                           style: TextButton.styleFrom (
                             padding: EdgeInsets.zero,
                           ),
