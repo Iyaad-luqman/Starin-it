@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/page-1/imp5.dart';
+import 'package:starinit/page-1/otherprofile.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -13,9 +14,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 
 class Imp4 extends StatefulWidget {
-  final String userId;
+  final String cuuserId;
 
-  Imp4({required this.userId});
+  Imp4({required this.cuuserId});
 
   @override
   _Imp4 createState() => _Imp4();
@@ -26,15 +27,16 @@ class _Imp4 extends State<Imp4> {
     final ratingController = TextEditingController();
     final commentController = TextEditingController();
     String? imageUrl;
-    String? userId;
+    // Stri/ng? cuuserId;
+    String cuuserId = '' ?? ' ';
 
 
 
   @override
   void initState() {
     super.initState();
-    userId = widget.userId; // Get userId from widget
-    _future = FirebaseFirestore.instance.collection('users').doc(widget.userId).get();
+    cuuserId = widget.cuuserId; // Get cuuserId from widget
+    _future = FirebaseFirestore.instance.collection('users').doc(widget.cuuserId).get();
     loadImage();
   }
   
@@ -42,7 +44,7 @@ class _Imp4 extends State<Imp4> {
   void loadImage() async {
     FirebaseStorage storage = FirebaseStorage.instance;
     try {
-      imageUrl = await storage.ref('uploads/${userId}/file').getDownloadURL();
+      imageUrl = await storage.ref('uploads/${cuuserId}/file').getDownloadURL();
     } catch (e) {
       print('Failed to load image: $e');
       imageUrl = '0';
@@ -73,7 +75,7 @@ class _Imp4 extends State<Imp4> {
               final User? user = FirebaseAuth.instance.currentUser; // Get current user
 
               if (user != null) {
-                DocumentReference docRef = _db.collection('users').doc(widget.userId);
+                DocumentReference docRef = _db.collection('users').doc(widget.cuuserId);
                 DocumentSnapshot docSnap = await docRef.get();
                 DocumentReference docRef2 = _db.collection('users').doc(user.uid);
                 DocumentSnapshot docSnap2 = await docRef2.get();
@@ -172,18 +174,27 @@ return Scaffold(
                     margin: EdgeInsets.fromLTRB(121*fem, 55*fem, 0*fem, 0*fem),
                     width: 83*fem,
                     height: 80*fem,
-                    child: imageUrl != null
-                              ? imageUrl != "0"
-                                ? ClipOval(
-                                    child: Image.network(
-                                      imageUrl!,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  )
-                                : Image.asset("assets/page-1/images/emptyprofile.png")
-                              : CircularProgressIndicator(),
+                    child: GestureDetector(
+                      onTap: () {
+                        // Add your onPressed functionality here
+                        // For example, navigate to a new page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => UserProfilePage(userId: cuuserId)),
+                        );
+                      },
+                      child: imageUrl != null
+                        ? imageUrl != "0"
+                          ? ClipOval(
+                              child: Image.network(
+                                imageUrl!,
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                          : Image.asset("assets/page-1/images/emptyprofile.png")
+                        : CircularProgressIndicator(),
+                    ),
                   ),
-                  
                 ],
               ),
             ),
