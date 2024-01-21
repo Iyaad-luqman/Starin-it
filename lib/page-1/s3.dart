@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starinit/utils.dart';
 import 's2.dart';
+import 's4.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -37,7 +38,7 @@ class S3 extends StatelessWidget {
         }
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => S2()),
+          MaterialPageRoute(builder: (context) => S4()),
         );
         // The user was created successfully, navigate to your app's main screen here.
       } on FirebaseAuthException catch (e) {
