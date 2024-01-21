@@ -31,7 +31,8 @@ class S3 extends StatelessWidget {
               .collection('users')
               .doc(newUser.uid)
               .set({
-            // Set your initial data here
+            'register_timestamp': FieldValue.serverTimestamp(), // Add this line
+            // Set your other initial data here
           });
         }
         Navigator.push(
@@ -40,8 +41,6 @@ class S3 extends StatelessWidget {
         );
         // The user was created successfully, navigate to your app's main screen here.
       } on FirebaseAuthException catch (e) {
-// Handle registration errors here.
-
         showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -59,11 +58,9 @@ class S3 extends StatelessWidget {
             );
           },
         );
-
         // Handle registration errors here.
       }
     }
-
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
