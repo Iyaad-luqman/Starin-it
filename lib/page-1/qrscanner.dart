@@ -42,7 +42,7 @@ class _QRScanPageState extends State<QRScanPage> {
             ),
           )
         ],
-      ),
+      ),  
     );
   }
 
@@ -59,7 +59,7 @@ class _QRScanPageState extends State<QRScanPage> {
         context,
         MaterialPageRoute(
           
-          builder: (context) => Imp4(userId: code),
+          builder: (context) => Imp4(cuuserId: code),
         ),
       );          // Use 'code' where a 'String' is expected.
         } else {
