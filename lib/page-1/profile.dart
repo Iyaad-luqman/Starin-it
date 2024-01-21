@@ -362,7 +362,13 @@ class _ProfileState extends State<Profile> {
                         width: 79 * fem,
                         height: 78 * fem,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => Profile(),
+                                ),
+                              );
+                                },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
                           ),
