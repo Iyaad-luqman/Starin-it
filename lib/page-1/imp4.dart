@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:starinit/page-1/imp5.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -380,6 +381,7 @@ fontSize: 10*ffem,
                       onPressed: () {
                         uploadfields(ratingController.text, commentController.text);
                         debugPrint('Button pressed ${ratingController.text}');
+                        Navigator.push( context, MaterialPageRoute(builder: (context) => Imp5()), );
                       },
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,

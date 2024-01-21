@@ -190,9 +190,9 @@ class S6 extends StatelessWidget {
                     ],
                   ),
                 ),
-                Positioned(
-                  left: 122 * fem,
-                  top: 413 * fem,
+                Container(
+                  // left: 122 * fem,
+                  // top: 413 * fem,
                   child: Align(
                     child: SizedBox(
                       width: 212 * fem,
@@ -229,9 +229,9 @@ class S6 extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(
-                  left: 122 * fem,
-                  top: 439 * fem,
+                Container(
+                  // left: 122 * fem,
+                  // top: 433 * fem,
                   child: Align(
                     child: SizedBox(
                       width: 212 * fem,
@@ -251,7 +251,7 @@ class S6 extends StatelessWidget {
                                 FirebaseStorage storage = FirebaseStorage.instance;
                                 try {
                                   // Make sure to replace 'uploads/$uid/file' with the path where you want to store the file in Firebase Storage
-                                  await storage.ref('uploads/$uid/resume.pdf').putFile(file);
+                                  await storage.ref('uploads/$uid/file').putFile(file);
                                 } catch (e) {
                                   // Handle the error
                                 }
