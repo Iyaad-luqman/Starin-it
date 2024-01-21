@@ -6,6 +6,7 @@ import 'package:starinit/page-1/s3.dart';
 import 'package:starinit/page-1/s4.dart';
 import 'package:starinit/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class S2 extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -13,12 +14,22 @@ class S2 extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    void login() async {
-      try {
+          void login() async {try {
         UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: _emailController.text,
           password: _passwordController.text,
         );
+        User? user = userCredential.user;
+
+        if (user != null) {
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(user.uid)
+              .update({
+            'lastLogin': FieldValue.serverTimestamp(),
+          });
+        }
+
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => S4()),
@@ -46,7 +57,6 @@ class S2 extends StatelessWidget {
         }
       }
     }
-
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;

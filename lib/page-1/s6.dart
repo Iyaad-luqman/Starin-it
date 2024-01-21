@@ -229,6 +229,45 @@ class S6 extends StatelessWidget {
                     ),
                   ),
                 ),
+                Positioned(
+                  left: 122 * fem,
+                  top: 433 * fem,
+                  child: Align(
+                    child: SizedBox(
+                      width: 212 * fem,
+                      height: 44 * fem,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Color(0x7fffffff)),
+                          color: Color(0xff19183e),
+                          borderRadius: BorderRadius.circular(15 * fem),
+                        ),
+                        child: TextButton.icon(
+                            onPressed: () async {
+                              FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+                              if (result != null) {
+                                File file = File(result.files.single.path!);
+                                FirebaseStorage storage = FirebaseStorage.instance;
+                                try {
+                                  // Make sure to replace 'uploads/$uid/file' with the path where you want to store the file in Firebase Storage
+                                  await storage.ref('uploads/$uid/file').putFile(file);
+                                } catch (e) {
+                                  // Handle the error
+                                }
+                              } else {
+                                // User canceled the picker
+                              }
+                            },
+                            icon: Icon(Icons.upload_file,
+                              color: Colors.white), // replace with your icon
+                          label: Text('Upload Linkedin Resume',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 70 * fem,
                 ),
