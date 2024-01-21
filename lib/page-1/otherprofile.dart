@@ -53,19 +53,19 @@ class _UserProfilePageState extends State<UserProfilePage> {
           Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
             double star_score = double.parse(data['star_score'] ?? '0.00');
 
-          String name = data['name'];
-          String role = data['role'];
-          String bio = data['bio'];
-                      List<dynamic> ratings = data['ratings'] ?? [];
-            double avg_rating = 0.0;
+          String? name = data['name'];
+          String? role = data['role'];
+          String? bio = data['bio'];
+          List<dynamic> ratings = data['ratings'] ?? [];
+          double avg_rating = 0.0;
 
-            if (ratings.isNotEmpty) {
-              avg_rating = ratings.reduce((a, b) => a + b) / ratings.length;
-            }
-          String description = data['description'];
-          String gender = data['gender'];
-          String rating_show = data['rating_show'];
-          String pronoun; 
+          if (ratings.isNotEmpty) {
+            avg_rating = double.parse((ratings.map((r) => double.parse((r as Map<String, dynamic>)['rating'].toString())).reduce((a, b) => a + b) / ratings.length).toStringAsFixed(1));
+          }
+          String? description = data['description'];
+          String? gender = data['gender'];
+          String? rating_show = data['rating_show'];
+          String? pronoun; 
           if (gender == "Male"){
             pronoun = "he/him";
           }else if (gender == "Female"){
@@ -192,7 +192,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         width: MediaQuery.of(context).size.width,
                         height: 24 * fem,
                         child: Text(
-                          name,
+                          name ?? 'Default name',
                           textAlign: TextAlign.center,  // Add this line
                           style: SafeGoogleFont(
                             'Urbanist',
@@ -393,7 +393,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         width: 50 * fem,
                         height: 11 * fem,
                         child: Text(
-                          status_name,
+                          status_name ?? 'Default status',
                           style: SafeGoogleFont(
                             'Unlock',
                             decoration: TextDecoration.none,
@@ -414,7 +414,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
               // itspecialistdxx (36:2585)
               margin: EdgeInsets.fromLTRB(2 * fem, 0 * fem, 0 * fem, 0 * fem),
               child: Text(
-                role,
+                 role ?? 'Default role',
                 style: SafeGoogleFont(
                   'Urbanist',
                   decoration: TextDecoration.none,
@@ -523,7 +523,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                               width: 290 * fem,
                               height: 14 * fem,
                               child: Text(
-                                description,
+                                description ?? 'Default description',
                                 style: SafeGoogleFont(
                                   'Urbanist',
                                   decoration: TextDecoration.none,
@@ -609,7 +609,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                                     maxWidth: 285 * fem,
                                   ),
                                   child: Text(
-                                    bio,
+                                    bio ?? 'Default bio',
                                     style: SafeGoogleFont(
                                       'Urbanist',
                                       decoration: TextDecoration.none,
