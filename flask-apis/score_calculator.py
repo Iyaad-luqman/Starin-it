@@ -1,24 +1,17 @@
+from flask import Flask, jsonify, request
 import firebase_admin
 from firebase_admin import credentials, firestore
 from datetime import datetime
 import google.generativeai as genai
 from termcolor import colored
 
+app = Flask(__name__)
 
 cred = credentials.Certificate('cred.json')
 firebase_admin.initialize_app(cred)
 
 # Get a Firestore client
 db = firestore.client()
-lastuid = (db.collection("users").order_by("register_timestamp", direction=firestore.Query.DESCENDING).limit(1).get())
-print("Calculating score for the last uid : ",lastuid[0].id)
-
-
-# Replace with the actual path to your data
-doc_ref = db.collection('users').document(lastuid[0].id)
-
-# Assuming 'school_marks', 'uni_marks', 'pg_done', 'phd_done', and 'experience' are keys in your data
-doc = doc_ref.get()
 
 def allot_points_school(school_marks):
     if "30" in school_marks and "40" in school_marks :
@@ -136,44 +129,41 @@ def fetch_all_achievements(achievements):
         achievement_score += rate
         print(colored("Title: ", "magenta") + colored(f"{title}", "yellow") + colored(" ->>\t\t Rating: ", "magenta") + colored(f"{rate} \n", "yellow"))
     return achievement_score
-if doc.exists:
-    data = doc.to_dict()
-    school_marks = data.get('school_marks')
-    uni_marks = data.get('uni_marks')
-    pg_done = data.get('pg_done')
-    phd_done = data.get('phd_done')
-    experience_data = data.get('experiences')
-    achievements = data.get('achievements')
-else:
-    print('No such document!')
-    
-points_pg = 30 if pg_done == 'YES' else 0
-points_phd = 30 if phd_done == 'YES' else 0  
 
-score = 0
-score += allot_points_school(school_marks)
-print(colored("\nStars after School Marks:") + colored(f"{score}", "green"))
-score += allot_points_uni(uni_marks)
-print(colored("\nStars after University Marks:") + colored(f"{score}", "green"))
-score += points_pg
-score += points_phd
-score += allot_points_experience(experience_data)
-print(colored("\nStars after Experience:") + colored(f"{score}", "green"))
-score += fetch_all_achievements(achievements)
-print("\n")
+@app.route('/calculate_score/<uid>', methods=['GET'])
+def calculate_score(uid):
+    doc_ref = db.collection('users').document(uid)
+    doc = doc_ref.get()
 
-star_score = convert_to_stars(score)
-print(f"\nFor a score of {colored(str(score), 'green')}, the stars are: {colored(str(star_score), 'green')}")
+    if doc.exists:
+        data = doc.to_dict()
+        school_marks = data.get('school_marks')
+        uni_marks = data.get('uni_marks')
+        pg_done = data.get('pg_done')
+        phd_done = data.get('phd_done')
+        experience_data = data.get('experiences')
+        achievements = data.get('achievements')
+    else:
+        return jsonify({'error': 'No such document!'}), 404
 
-# Update the document with the new star score
-doc_ref.update({'star_score': str(star_score)})
-doc_ref.update({'overall_score': str(score)})
+    points_pg = 30 if pg_done == 'YES' else 0
+    points_phd = 30 if phd_done == 'YES' else 0  
 
+    score = 0
+    score += allot_points_school(school_marks)
+    score += allot_points_uni(uni_marks)
+    score += points_pg
+    score += points_phd
+    score += allot_points_experience(experience_data)
+    score += fetch_all_achievements(achievements)
 
+    star_score = convert_to_stars(score)
 
+    # Update the document with the new star score
+    doc_ref.update({'star_score': str(star_score)})
+    doc_ref.update({'overall_score': str(score)})
 
+    return jsonify({'uid': uid, 'score': score, 'star_score': star_score})
 
-
-
-
-
+if __name__ == '__main__':
+    app.run(debug=True)

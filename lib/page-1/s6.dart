@@ -251,7 +251,7 @@ class S6 extends StatelessWidget {
                                 FirebaseStorage storage = FirebaseStorage.instance;
                                 try {
                                   // Make sure to replace 'uploads/$uid/file' with the path where you want to store the file in Firebase Storage
-                                  await storage.ref('uploads/$uid/file').putFile(file);
+                                  await storage.ref('uploads/$uid/resume.pdf').putFile(file);
                                 } catch (e) {
                                   // Handle the error
                                 }
