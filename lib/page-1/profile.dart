@@ -7,6 +7,7 @@ import 'package:starinit/page-1/edu.dart';
 import 'package:starinit/page-1/imp-1.dart';
 import 'package:starinit/page-1/imp-2.dart';
 import 'package:starinit/page-1/profile_expertise.dart';
+import 'package:starinit/page-1/qn.dart';
 import 'package:starinit/page-1/s11a.dart';
 import 'package:starinit/page-1/s15.dart';
 import 'package:starinit/page-1/s9a.dart';
@@ -597,7 +598,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         Positioned(
                           // e4k (36:2591)
-                          left: 90 * fem,
+                          left: 30 * fem,
                           top: 67 * fem,
                           child: Container(
                             child: ElevatedButton.icon(
@@ -613,9 +614,28 @@ class _ProfileState extends State<Profile> {
                             ),
                           ),
                         ),
+                                                Positioned(
+                          // e4k (36:2591)
+                          left: 160 * fem,
+                          top: 67 * fem,
+                          child: Container(
+                            child: ElevatedButton.icon(
+                              onPressed: () async {
+                                await FirebaseAuth.instance.signOut();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => QuestionnairePage()),
+                                );
+                              },
+                              icon: Icon(Icons.question_answer), // Add this line
+                              label: Text('Ans Qns'),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
+                  
                   Container(
                     // saveZDe (36:2607)
                     margin: EdgeInsets.fromLTRB(

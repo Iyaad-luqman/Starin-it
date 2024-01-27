@@ -163,7 +163,7 @@ score += fetch_all_achievements(achievements)
 print("\n")
 
 star_score = convert_to_stars(score)
-print(f"\nFor a score of {colored(str(score), 'green')}, the stars are: {colored(str(star_score), 'green')}")
+print(f"\nThe stars are: {colored(str(star_score), 'green')}")
 
 # Update the document with the new star score
 doc_ref.update({'star_score': str(star_score)})
