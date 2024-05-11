@@ -28,7 +28,7 @@ def process_resume(uid):
     with open('resume.pdf', 'wb') as file:
         file.write(response.content)
         
-    genai.configure(api_key="***REMOVED***")
+    genai.configure(api_key="AIzaSyCijAAoN875pE3QOuTP1VVxVbMtXPxKLnE")
 
     # Set up the model
     generation_config = {

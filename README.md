@@ -1,6 +1,6 @@
 # Starin'it
 
-| An app that enhances the recruitment process. | 
+An app that enhances the recruitment process and connects the right candidates with the right companies. 
 
 ## IDEA
 - In a world increasingly driven by data and social metrics, a revolutionary talent acquisition app emerges, transforming the way companies identify and engage with top candidates. This platform, known as "STARIN’IT" utilizes a star-ranking system that holistically evaluates candidates' qualifications, degrees, skills, and experience thus, ensuring a fair and unbiased assessment process.

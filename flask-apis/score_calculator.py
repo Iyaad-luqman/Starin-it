@@ -77,7 +77,7 @@ def convert_to_stars(score):
 
 def rate_achievement(title,):
 
-    genai.configure(api_key="***REMOVED***")
+    genai.configure(api_key="AIzaSyCijAAoN875pE3QOuTP1VVxVbMtXPxKLnE")
 
     # Set up the model
     generation_config = {
