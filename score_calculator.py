@@ -3,7 +3,9 @@ from firebase_admin import credentials, firestore
 from datetime import datetime
 import google.generativeai as genai
 from termcolor import colored
+import os
 
+api_key = os.getenv('API_KEY')
 
 cred = credentials.Certificate('cred.json')
 firebase_admin.initialize_app(cred)
@@ -84,7 +86,7 @@ def convert_to_stars(score):
 
 def rate_achievement(title,):
 
-    genai.configure(api_key="***REMOVED***")
+    genai.configure(api_key=api_key)
 
     # Set up the model
     generation_config = {

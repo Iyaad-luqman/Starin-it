@@ -2,6 +2,10 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import PyPDF2
 import google.generativeai as genai
+import os
+
+api_key = os.getenv('API_KEY')
+
 
 # Open the PDF file
 with open('resume.pdf', 'rb') as file:
@@ -21,7 +25,7 @@ with open('resume.txt', 'w') as file:
     file.write(text)
 
 
-genai.configure(api_key="***REMOVED***")
+genai.configure(api_key=api_key)
 
 # Set up the model
 generation_config = {
